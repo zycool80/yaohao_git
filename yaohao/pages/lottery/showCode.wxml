@@ -1,0 +1,71 @@
+<view class="page" style="padding-bottom:80rpx;">
+    <view class="results">
+        <view class="top-title white-color fz-11">成都摇号助手</view>
+        <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190308/5c8201eed02c2.png"></image>
+        <view class="results-box">
+            <view class="results-img" wx:if="{{item.code}}">
+                    {{item.code}}
+                </view>
+            <view class="results-address">
+                <view class="fz-24 height-level-color lottery-num">
+                    <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190308/5c820ac79609e.jpg"></image>
+                    <block wx:if="{{item.num}}">
+                        <view class="font-bold lottery-num-type" wx:if="{{item.type==1}}">
+                                普通<text style="margin-left:40rpx">第{{item.num}}号</text>
+                        </view>
+                        <view class="font-bold " wx:elif="{{item.type==2}}">
+                                棚改<text style="margin-left:40rpx">第{{item.num}}号</text>
+                        </view>
+                        <view class="font-bold" wx:elif="{{item.type==3}}">
+                                刚需<text style="margin-left:40rpx">第{{item.num}}号</text>
+                        </view>
+                        <view class="font-bold" wx:else>
+                            <text style="margin-left:40rpx">第{{item.num}}号</text>
+                        </view>
+                    </block>
+                    <view class="fz-15 gray-9-color" style="height:140rpx" wx:else>
+                        <view style="line-height:70rpx">未查询到结果</view>
+                        <view style="line-height:70rpx">是不是信息输错了呐~</view>
+                    </view>
+                    <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190308/5c820b3880823.jpg"></image>
+                </view>
+                <navigator class="fz-15 blue-color" hoverClass="none" style="margin:84rpx 0 30rpx 60rpx;text-align:left" url="/pages/lotteryDetail?id={{id}}&project_id={{item.project_id}}">{{item.lottery_name}}</navigator>
+                <view style="display: flex;padding:0 20rpx 20rpx 20rpx;box-sizing: border-box;justify-content: space-between">
+                    <view style="flex:1" wx:for="{{item.rows}}" wx:for-item="row" wx:key="key">
+                        <view class="fz-20 red-color">{{row.num}}</view>
+                        <view class="fz-12 gray-9-color" style="line-height: 70rpx">{{row.text}}</view>
+                    </view>
+                </view>
+                <image class="line-circle" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190308/5c820fbb054fa.jpg"></image>
+                <view class="results-code">
+                    <view class="results-code-img">
+                        <image bindtap="showCode" mode="widthFix" src="{{item.qr_code}}"></image>
+                    </view>
+                    <view bindtap="shareTo" class="savePicture">
+                        <view class="iconfont icon-xiazai fz-24 saveIcon black1a-color"></view>
+                        <view class="fz-12">保存图片</view>
+                    </view>
+                    <view class="share">
+                        <button class="iconfont icon-fenxiang9 fz-22" openType="share"></button>
+                        <view class="fz-12">分享</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>
+<view bindtap="closeCanvas" catchtouchmove="stopMove" class="businessCard-bg" wx:if="{{drawCanvas}}">
+    <view>
+        <view class="create-canvas-box" style="width: {{canvasWidth}}px; height: {{canvasHeight}}px;">
+            <canvas canvasId="myCanvas" class="white-bg" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;overflow:hidden"></canvas>
+        </view>
+        <view class="share-btn-group">
+            <button catchtap="saveShareImage" class="canvas-btn" style="color: #d78e2e">确定</button>
+        </view>
+    </view>
+</view>

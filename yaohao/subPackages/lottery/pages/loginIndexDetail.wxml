@@ -1,0 +1,93 @@
+<view class="page">
+    <view class="loginIndex">
+        <view class="top-cont">
+            <view class="time fz-13 white-color">明日({{tomorrow}})</view>
+            <navigator class="title fz-24 white-color" hoverClass="none" url="">{{project_id==0?'首页推荐':project_name}}</navigator>
+            <view class="showPosition white-color fz-13">优秀置业顾问展示位(1天)</view>
+        </view>
+        <view class="total-cont">
+            <view class="middle-inp" wx:if="{{showJoinInp}}">
+                <view class="top-title">
+                    <view class="left fz-12" style="color:#464646">出价多少</view>
+                    <view bindtap="lookRules" class="right fz-13 gray-9-color">
+                        <text class="iconfont fz-14 icon-wenhao" style="margin-right: 10rpx"></text>竞价规则</view>
+                </view>
+                <input bindinput="inputVal" class="inp black1a-color" placeholder="{{placeVal}}" placeholderStyle="font-size:25px;color:#ccc;text-indent: .4rem;padding: .16rem 0;" type="text" value="{{integral}}"></input>
+                <view class="my_points">
+                    <view class="left fz-13 small-level-color">我的金币：{{points}} <text catchtap="toUrl" class="getCoins fz-13">获取金币</text>
+                    </view>
+                    <view class="right gray-9-color fz-13">
+                        <text class="iconfont fz-14 icon-shijian" style="margin-right: 10rpx"></text>{{time}}</view>
+                </view>
+                <view bindtap="joinAuction" class="btn_toPrice white-color fz-15">立即出价</view>
+            </view>
+            <view class="middle-cont" wx:else>
+                <block wx:if="{{auctionResults.joined}}">
+                    <block wx:if="{{auctionResults.result.salesman_id==salesMan_id}}">
+                        <view class="end-time red-color fz-24">恭喜你！</view>
+                        <view class="fz-15 black1a-color fail-text">竞价成功，即将登上推荐</view>
+                    </block>
+                    <block wx:if="{{auctionResults.result.salesman_id&&auctionResults.result.salesman_id!=salesMan_id}}">
+                        <view class="end-time red-color fz-24">很遗憾</view>
+                        <view class="fz-15 black1a-color fail-text">竞价失败，本次您没能上推荐</view>
+                    </block>
+                </block>
+                <block wx:else>
+                    <view class="end-time red-color fz-24">已结束</view>
+                    <view class="explain small-level-color fz-15">竞价已结束，距下一轮开始还要</view>
+                    <view class="momment-time black1a-color fz-20">{{time}}</view>
+                </block>
+                <view class="avatar_bg">
+                    <view class="avatar-line">
+                        <text class="line"></text>
+                        <image class="avatar" mode="aspectFill" src="{{avatar||default_avatar}}"></image>
+                        <text class="line"></text>
+                    </view>
+                    <view class="fz-11 small-level-color">{{auctionResults.salesmanName}}</view>
+                    <view class="last_time" wx:if="{{auctionResults.joined}}">
+                        <text class="fz-13 black1a-color" style="padding-right: 18rpx">距离下次竞价还有</text>
+                        <text class="fz-16 black1a-color font-bold">{{time}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="bottom-cont" wx:if="{{joinList.length>0}}">
+                <view class="title black1a-color fz-15 font-bold">竞价记录</view>
+                <view class="log_cont">
+                    <view class="log_line {{joinList.length-1==index?'no-border':''}}" wx:for="{{joinList}}" wx:key="key">
+                        <view class="name">
+                            <view class="avatar" style="{{index>0?'':'border: 4rpx solid #fd9404;'}}">
+                                <image mode="aspectFill" src="{{item.salesman.user.avatar_url||default_avatar}}"></image>
+                                <text class="sign_text white-color" style="font-size: 18rpx" wx:if="{{index==0}}">领先</text>
+                            </view>
+                            <view class="user_name fz-14 height-level-color">{{item.salesman.name}}</view>
+                        </view>
+                        <view class="time fz-14 small-level-color">{{item.joined_at}}</view>
+                        <view class="price fz-14" style="color:#a53710">出价:{{item.coins}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+    <block wx:if="{{comment_show}}">
+        <view class="model">
+            <view catchtouchmove="stopMove" class="model-tip black1a-color font-bold fz-16">竞价规则</view>
+            <scroll-view scrollY class="comment-box">
+                <view class="fz-13 height-level-color model-text1" style="line-height: 40rpx">
+                    <view wx:for="{{auctionRules}}" wx:key="key">
+                        <text>{{index+1}}、</text>
+                        <text>{{item}}</text>
+                    </view>
+                </view>
+            </scroll-view>
+            <view bindtap="cancelCommentShow" class="model-btn">
+                <button class="fz-16 white-bg">我知道了</button>
+            </view>
+        </view>
+        <view bindtap="cancelCommentShow" catchtouchmove="stopMove" class="model-bg"></view>
+    </block>
+</view>

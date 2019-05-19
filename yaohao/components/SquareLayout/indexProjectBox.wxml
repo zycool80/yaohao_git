@@ -1,0 +1,18 @@
+<view class="project_box_list" wx:if="{{itemsData.length>0}}">
+    <navigator class="project_box_list_line" hoverClass="none" url="/pages/lotteryDetail?project_id={{item.id}}" wx:if="{{itemsData.length>0}}" wx:for="{{itemsData}}" wx:key="itemKey">
+        <view class="image-box">
+            <view class="offer" wx:if="{{item.special_offer==1}}">特价</view>
+            <image class="img" lazyLoad="{{true}}" mode="aspectFill" src="{{item.cover}}"></image>
+            <view class="openDate fz-10 white-color" wx:if="{{item.predict_preorder_time}}">{{item.predict_preorder_time?'开盘:'+item.predict_preorder_time:''}}</view>
+        </view>
+        <view class="title fz-13 black1a-color font-bold">{{item.name}}</view>
+        <view class="area">
+            <text class="fz-11 black1a-color area_txt">{{item.area}}</text>
+            <text class="fz-11 small-level-color" wx:if="{{item.square}}">建面：{{item.square}}</text>
+        </view>
+        <view class="price">
+            <text class="tags fz-10" wx:if="{{item.status}}">{{item.status}}</text>
+            <text class="fz-12 red-color">{{item.price?item.price+'元/m²':'暂无'}}</text>
+        </view>
+    </navigator>
+</view>

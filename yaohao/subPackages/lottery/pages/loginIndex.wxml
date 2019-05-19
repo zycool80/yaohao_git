@@ -1,0 +1,121 @@
+<view class="page {{comment_show?'popup':''}}">
+    <view class="loginIndex">
+        <view class="top-cont">
+            <view bindtap="toggleRulesHandle" class="right-cont fz-12 white-color" data-toggle="open">竞价规则</view>
+            <view class="left-cont">
+                <view class="myPoints fz-12 white-color">我的金币</view>
+                <view class="totalPoints white-color">{{totalIntegral||0}}</view>
+                <view bindtap="toUrl" class="getPoints fz-12 white-color">
+                    <text class="fz-12" style="margin-right: 10rpx">兑换金币</text>
+                    <text class="iconfont icon-xiayibu fz-10 "></text>
+                </view>
+            </view>
+            <view class="switch">
+                <view bindtap="switchTab" class="toggle {{tab==1?'active':''}}" data-wpyswitchtab-a="1">
+                    <view class="title fz-14 font-bold">我要上首页</view>
+                    <view class="small-title fz-12 font-bold">首页置业顾问展示位</view>
+                </view>
+                <view bindtap="switchTab" class="toggle {{tab==2?'active':''}}" data-wpyswitchtab-a="2">
+                    <view class="title fz-14 font-bold">我要上楼盘</view>
+                    <view class="small-title fz-12 font-bold">楼盘详情置业顾问展示位</view>
+                </view>
+            </view>
+        </view>
+        <view class="total-cont" wx:if="{{tab==1}}">
+            <view class="middle-cont">
+                <view class="project">
+                    <view bindtap="tourlHandle" class="line no-border">
+                        <image class="left" src="{{indexList.result.cover||default_avatar}}"></image>
+                        <view class="right">
+                            <view class="title black1a-color fz-14 font-bold">{{indexList.result.name}}</view>
+                            <view class="middle fz-12" wx:if="{{showJoinInp}}">
+                                <text class="gray-8" style="margin-right: 40rpx">今晚23:00结束</text>
+                            </view>
+                            <view class="middle fz-12" wx:else>
+                                <text class="gray-8" style="margin-right: 40rpx">距离开始还有 {{time}}</text>
+                            </view>
+                            <view>
+                                <view catchtap="tourlHandle" class="bottom fz-12 white-color">立即出价</view>
+                                <view style="margin-left: 170rpx;line-height: 50rpx">
+                                    <text class="fz-12 gray-8">当前最高:</text>
+                                    <text class="fz-12 red-color">{{indexList.result.current_integral||0}}金币</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="bottom-cont">
+                <view class="title black1a-color fz-14 font-bold">为什么要上推荐位</view>
+                <view class="view-logs">
+                    <view class="line" wx:for="{{indexList.icon}}" wx:key="key">
+                        <view class="back-color">
+                            <text class="iconfont small-level-color fz-16 {{item.text}}"></text>
+                        </view>
+                        <view class="name fz-10 height-level-color font-bold">{{item.name}}</view>
+                    </view>
+                </view>
+                <view class="rules gray-8d fz-12">{{indexList.text}}</view>
+            </view>
+        </view>
+        <view class="total-cont" wx:if="{{tab==2}}">
+            <view class="middle-cont">
+                <view class="project">
+                    <navigator class="line {{projectList.result.length-1==index?'no-border':''}}" hoverClass="none" url="/subPackages/lottery/pages/loginIndexDetail?project_id={{item.id}}&sales_man_id={{item.sales_men_id}}&project_name={{item.name}}" wx:for="{{projectList.result}}" wx:key="key">
+                        <image class="left" src="{{item.cover||default_avatar}}"></image>
+                        <view class="right">
+                            <view class="title black1a-color fz-14 font-bold">{{item.name}}</view>
+                            <view class="middle fz-12" wx:if="{{showJoinInp}}">
+                                <text class="gray-8" style="margin-right: 40rpx">今晚23:00结束</text>
+                            </view>
+                            <view class="middle fz-12" wx:else>
+                                <text class="gray-8" style="margin-right: 40rpx">距离开始还有 {{time}}</text>
+                            </view>
+                            <view>
+                                <view class="bottom fz-12 white-color">立即出价</view>
+                                <view style="margin-left: 170rpx;line-height: 50rpx">
+                                    <text class="gray-8 fz-12">当前最高:</text>
+                                    <text class="red-color fz-12">{{item.current_integral}}金币</text>
+                                </view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+            <view class="bottom-cont">
+                <view class="title black1a-color fz-14 font-bold">为什么要上推荐位</view>
+                <view class="view-logs">
+                    <view class="line" wx:for="{{projectList.icon}}" wx:key="key">
+                        <view class="back-color">
+                            <text class="iconfont small-level-color fz-16 {{item.text}}"></text>
+                        </view>
+                        <view class="name fz-10 height-level-color font-bold">{{item.name}}</view>
+                    </view>
+                </view>
+                <view class="rules gray-8d fz-12">{{projectList.text}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+    <block wx:if="{{comment_show}}">
+        <view catchtouchmove="ture" class="model">
+            <view catchtouchmove="stopMove" class="model-tip black1a-color font-bold fz-16">竞价规则</view>
+            <scroll-view scrollY class="comment-box">
+                <view class="fz-13 height-level-color model-text1" style="line-height: 40rpx">
+                    <view wx:for="{{auctionRules}}" wx:key="key">
+                        <text>{{index+1}}、</text>
+                        <text>{{item}}</text>
+                    </view>
+                </view>
+            </scroll-view>
+            <view bindtap="toggleRulesHandle" class="model-btn">
+                <button class="fz-16 white-bg">我知道了</button>
+            </view>
+        </view>
+        <view bindtap="toggleRulesHandle" catchtouchmove="stopMove" class="model-bg"></view>
+    </block>
+</view>

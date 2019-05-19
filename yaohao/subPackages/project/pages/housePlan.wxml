@@ -1,0 +1,95 @@
+<view style="position:relative;">
+    <button openType="share">
+        <text class="fz-14 iconfont  icon-fenxiang"></text>
+        <text class="fz-12 tab-text" style="margin-left: 10rpx">分享</text>
+    </button>
+    <view class="house-title" style="width: 100%;">
+        <view style="display: flex">
+            <view bindtap="changType" class="options-building options-building-yuan2 {{tab==''?'actives':''}}" data-wpychangtype-a="" style="margin-left: 80rpx">
+                <text class="{{tab==''?'color-text':''}}" style="font-size: 32rpx;">楼盘全部户型</text>
+            </view>
+            <view bindtap="changType" class="options-building options-building-yuan {{tab==1?'actives':''}}" data-wpychangtype-a="1" style="margin-left: 56rpx;">
+                <text class="{{tab==1?'color-text':''}}" style="font-size: 32rpx;">本次开盘</text>
+            </view>
+        </view>
+    </view>
+    <view class="page">
+        <block wx:if="{{tab==1}}">
+            <view class="top-bar" wx:if="{{typeListNow.length>1}}">
+                <scroll-view>
+                    <view class="tabBar" style="width: {{scrollWidthNow}}px">
+                        <view bindtap="switchTab" class="tabBar-line {{type==index?'actives2':'actives3'}}" data-wpyswitchtab-a="{{index}}" wx:for="{{typeListNow}}" wx:key="key">
+                            <text class="fz-12 {{type==index?'blacka-color':'graycolor'}}">{{item.text}}</text>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="photos">
+                <view class="photos-content">
+                    <view bindtap="uploadProjectImg" class="photos-upfile-line" wx:if="{{is_sales_man!=2}}">
+                        <view class="photos-upfile fz-15">置业顾问上传图片</view>
+                    </view>
+                    <view class="photos-upfile-line" wx:else>
+                        <view class="footer-content" wx:if="{{phone}}">
+                            <view bindtap="toUrl" class="footer-btn fz-15 color-left">联系置业顾问</view>
+                            <view catchtap="phoneCall" class="footer-btn fz-15 color-right" data-wpyphonecall-a="{{phone}}">电话咨询</view>
+                        </view>
+                        <view bindtap="toUrl" class="footer-btn2 fz-15 color-left" wx:else>联系置业顾问</view>
+                    </view>
+                    <view class="nothing-container fz-14 height-level-color" style="width:100%;padding:60rpx 0;text-align:center" wx:if="{{items.length<1&&loading}}">暂无内容</view>
+                    <view class="photos-list" wx:else>
+                        <view class="photos-line" wx:for="{{items}}">
+                            <view class="border-line" style="overflow: hidden;padding-bottom: 30rpx">
+                                <view class="left">
+                                    <image bindtap="preview" data-wpypreview-a="{{index}}" mode="aspectFill" src="{{item.image}}"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{!tab}}">
+            <view class="top-bar" wx:if="{{typeListNow.length>1}}">
+                <scroll-view>
+                    <view class="tabBar" style="width: {{scrollWidthNow}}px">
+                        <view bindtap="switchTab" class="tabBar-line {{type==index?'actives2':'actives3'}}" data-wpyswitchtab-a="{{index}}" wx:for="{{typeListNow}}" wx:key="key">
+                            <text class="fz-12 {{type==index?'blacka-color':'graycolor'}}">{{item.text}}</text>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="page">
+                <view class="photos">
+                    <view class="photos-content">
+                        <view bindtap="uploadProjectImg" class="photos-upfile-line" wx:if="{{is_sales_man!=2}}">
+                            <view class="photos-upfile fz-15">置业顾问上传图片</view>
+                        </view>
+                        <view class="photos-upfile-line" wx:else>
+                            <view class="footer-content" wx:if="{{phone}}">
+                                <view bindtap="toUrl" class="footer-btn fz-15 color-left">联系置业顾问</view>
+                                <view catchtap="phoneCall" class="footer-btn fz-15 color-right" data-wpyphonecall-a="{{phone}}">电话咨询</view>
+                            </view>
+                            <view bindtap="toUrl" class="footer-btn2 fz-15 color-left" wx:else>联系置业顾问</view>
+                        </view>
+                        <view class="nothing-container fz-14 height-level-color" style="width:100%;padding:60rpx 0;text-align:center" wx:if="{{items.length<1&&loading}}">暂无内容</view>
+                        <view class="photos-list" wx:else>
+                            <view class="photos-line" wx:for="{{items}}">
+                                <view class="border-line" style="overflow: hidden;padding-bottom: 30rpx">
+                                    <view class="left">
+                                        <image bindtap="preview" data-wpypreview-a="{{index}}" mode="aspectFill" src="{{item.image}}"></image>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+            <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+                <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+            </navigator>
+        </view>
+    </view>
+</view>

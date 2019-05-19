@@ -1,0 +1,146 @@
+<view class="page">
+    <navigator class="search-bar" hoverClass="none" url="/subPackages/salesMan/pages/salesmanSearchList">
+        <view class="search-btn fz-14 white-color">确定</view>
+        <view class="search-bar-form">
+            <view class="weui-icon-search iconfont icon-sousuo"></view>
+            <view class="ui-input search-bar-input search-input-place">可按楼盘或顾问名搜索</view>
+        </view>
+    </navigator>
+    <view class="page__bd">
+        <view class="hot-box">
+            <view class="head white-color">
+                <text class="fz-12 font-bold">活跃度TOP 3</text>
+            </view>
+            <view class="cont">
+                <image mode="widthFix" src="/images/saleslist.png"></image>
+                <navigator class="list NO2" hoverClass="none" url="/pages/salesMan/detail?id={{topItems[1].id}}">
+                    <view class="avatar">
+                        <image class="bg" mode="aspectFill" src="/images/salesYin.png" style="right: 6rpx;"></image>
+                        <view style=" border: 4rpx solid #e4e5ea">
+                            <image class="pic avatar_2" lazyLoad="{{true}}" mode="aspectFill" src="{{topItems[1].avatar_url}}"></image>
+                        </view>
+                    </view>
+                    <view class="name white-color">
+                        <view class="fz-13 font-bold">{{topItems[1].name}}</view>
+                        <view>
+                            <text class="fz-10"> 活跃度:{{topItems[1].liveness}}</text>
+                        </view>
+                    </view>
+                </navigator>
+                <navigator class="list NO1" hoverClass="none" url="/pages/salesMan/detail?id={{topItems[0].id}}">
+                    <view class="avatar">
+                        <image class="bg" mode="aspectFill" src="/images/salesJin.png" style="right:12rpx;"></image>
+                        <view style=" border: 4rpx solid #f7d08c">
+                            <image class="pic avatar_1" lazyLoad="{{true}}" mode="aspectFill" src="{{topItems[0].avatar_url}}"></image>
+                        </view>
+                    </view>
+                    <view class="name white-color">
+                        <view class="fz-13 font-bold">{{topItems[0].name}}</view>
+                        <view>
+                            <text class="fz-10"> 活跃度:{{topItems[0].liveness}}</text>
+                        </view>
+                    </view>
+                </navigator>
+                <navigator class="list NO3" hoverClass="none" url="/pages/salesMan/detail?id={{topItems[2].id}}">
+                    <view class="avatar">
+                        <image class="bg" mode="aspectFill" src="/images/salesTong.png" style="right: -4rpx"></image>
+                        <view style=" border: 4rpx solid #d6b06f">
+                            <image class="pic avatar_3" lazyLoad="{{true}}" mode="aspectFill" src="{{topItems[2].avatar_url}}"></image>
+                        </view>
+                    </view>
+                    <view class="name white-color">
+                        <view class="fz-13 font-bold">{{topItems[2].name}}</view>
+                        <view>
+                            <text class="fz-10"> 活跃度:{{topItems[2].liveness}}</text>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="hot-tab-box" wx:if="{{!searchList||searchList.length<=0}}">
+            <view class="sales-man-title fz-13 font-bold black1a-color" wx:if="{{is_sales_man_id>0&&sales_man_rule}}">
+                <text class="fz-13 font-bold">活跃度排行</text>
+                <navigator class="iconfont icon-wenhao fz-14 gray-9-color" hoverClass="none" style="display: inline-block;margin-left:6rpx;" url="{{sales_man_rule}}"></navigator>
+            </view>
+            <view class="sales-man-title fz-13 font-bold black1a-color" wx:else>
+                <text class="fz-13 font-bold">活跃度排行</text>
+            </view>
+            <view class="tab-content">
+                <view class="item" wx:if="{{me.length>0}}" wx:for="{{me}}" wx:key="meKey">
+                    <navigator class="user-content" hoverClass="none" url="/pages/salesMan/detail?id={{item.id}}">
+                        <view class="ranking">
+                            <text class="COM-color fz-14 font-bold">{{item.mine_ranking}}</text>
+                        </view>
+                        <view class="avatar">
+                            <image lazyLoad="{{true}}" model="aspectFill" src="{{item.avatar_url||defaultAvatar}}"></image>
+                        </view>
+                        <view class="userinfo">
+                            <view class="username">
+                                <text class="fz-14 black-color font-bold" style="padding-right: 35rpx">{{item.name}}</text>
+                                <text class="fz-12 small-level-color"> {{item.is_broker==1?'经纪人':'置业顾问'}}</text>
+                                <text class="fz-11 black1a-color" style="float: right;">活跃度:{{item.liveness}}</text>
+                            </view>
+                            <view class="project_name gray-9-color fz-11">{{item.project_name}}</view>
+                            <view class="wechat-phone small-level-color fz-12">
+                                <view catchtap="showCallView" class="phone left" data-id="{{item.id}}">
+                                    <text class="iconfont icon-dianhua2 fz-20"></text>
+                                    <text class="txt fz-12 gray-9-color">  拨号</text>
+                                </view>
+                                <view class="chat left">
+                                    <text class="iconfont icon-xiaoxi5 small-level-color fz-20"></text>
+                                    <text class="txt fz-12 gray-9-color">  咨询</text>
+                                </view>
+                                <view catchtap="likeMe" class="chat left">
+                                    <text class="iconfont icon-dianzan1 fz-20 {{item.is_like==1?'pink-color':'small-level-color'}}"></text>
+                                    <text class="txt fz-12 small-level-color" wx:if="{{item.sales_man_like_num=='undefined'}}">  {{item.is_like}}</text>
+                                    <text class="txt fz-12 gray-9-color" wx:else>  {{item.sales_man_like_num}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view class="item" wx:for="{{items}}" wx:key="ranking">
+                    <navigator class="user-content" hoverClass="none" url="/pages/salesMan/detail?id={{item.id}}">
+                        <view class="ranking">
+                            <text class="COM-color fz-14 font-bold">{{index}}</text>
+                        </view>
+                        <view class="avatar">
+                            <image lazyLoad="{{true}}" src="{{item.avatar_url||defaultAvatar}}"></image>
+                        </view>
+                        <view class="userinfo">
+                            <view class="username">
+                                <text class="fz-14 black-color font-bold" style="padding-right: 35rpx">{{item.name}}</text>
+                                <text class="fz-12 small-level-color"> {{item.is_broker==1?'经纪人':'置业顾问'}}</text>
+                                <text class="fz-11 black1a-color" style="float: right;">活跃度:{{item.liveness}}</text>
+                            </view>
+                            <view class="project_name gray-9-color fz-11">{{item.project_name}}</view>
+                            <view class="wechat-phone small-level-color fz-12">
+                                <view catchtap="showCallView" class="phone left" data-id="{{item.id}}">
+                                    <text class="iconfont icon-dianhua2 fz-20"></text>
+                                    <text class="txt fz-12 gray-9-color">  拨号</text>
+                                </view>
+                                <view catchtap="toUrl" class="chat left" data-wpytourl-a="{{item.session_id}}" data-wpytourl-b="{{item.avatar_url}}">
+                                    <text class="iconfont icon-xiaoxi5 small-level-color fz-20"></text>
+                                    <text class="txt fz-12 gray-9-color">  咨询</text>
+                                </view>
+                                <view catchtap="like" class="chat left" data-wpylike-a="{{index}}">
+                                    <text class="iconfont icon-dianzan1 fz-20 {{item.is_like==1?'pink-color':'small-level-color'}}"></text>
+                                    <text class="txt fz-12 small-level-color" wx:if="{{item.sales_man_like_num=='undefined'}}">  {{item.is_like}}</text>
+                                    <text class="txt fz-12 gray-9-color" wx:else>  {{item.sales_man_like_num}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view class="btn-group">
+            <button bindtap="toJoinSalesMan" class="white-color e_btn fz-14">立即入驻</button>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

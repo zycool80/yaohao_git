@@ -1,0 +1,9 @@
+<view class="pie-container">
+    <canvas bindtap="onTapCanvas" canvasId="myCanvasPie" class="my-canvas"></canvas>
+</view>
+<view class="content">
+    <view class="echarts-form-right">
+        <view class="fz-14 font-bold">{{touchItem.name}}</view>
+        <view class="form_right-tip1 fz-14 black1a-color" wx:for="{{tipVal}}" wx:key="key">{{item[0]}}</view>
+    </view>
+</view>

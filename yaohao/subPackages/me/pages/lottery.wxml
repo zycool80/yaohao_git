@@ -1,0 +1,125 @@
+<view class="page">
+    <view class="page__bd fz-14">
+        <view class="tab-bar">
+            <view bindtap="toggleTab" class="tabname fz-15 {{nowTab==1?'active':''}}" data-wpytoggletab-a="1">参与的摇号</view>
+            <view bindtap="toggleTab" class="tabname fz-15 {{nowTab==2?'active':''}}" data-wpytoggletab-a="2">绑定的编码</view>
+        </view>
+        <view class="tab {{nowTab==1?'active':''}}" style="clear: both;overflow:hidden" wx:if="{{nowTab==1}}">
+            <view style="height:45px;line-height:45px;margin: 0 15px;">
+                <picker bindchange="bindPickerChange" class="name_picker weui-cell_link" range="{{idCardsPicker}}" style="float:left;width:30%" value="{{index}}">
+                    <text>{{idCards[index].name}}</text>
+                    <text class="fz-14 iconfont icon-xialajiantouxianxing" style="margin-left:10rpx"></text>
+                </picker>
+                <view class="sync_data weui-cell_access  weui-cell_link" style="width:auto" wx:if="{{syncing}}">{{syncTitle}}</view>
+                <view bindtap="syncData" class="sync_data weui-cell_access  weui-cell_link" style="width:auto" wx:else>{{syncTitle}}</view>
+            </view>
+            <view style="margin-top:20rpx;margin-bottom:30rpx;overflow:hidden;">
+                <block wx:if="{{myLotteryList.length>0}}">
+                    <view class="fz-13 gray-9-color" style="text-align:center;line-height:2;" wx:if="{{updateTime}}">上次同步成功时间:{{updateTime}}</view>
+                    <view style="box-shadow:0 0 15px 1px rgba(0,0,0,.1);margin:6px 40rpx 6px;border-radius: 4px;position: relative" wx:for="{{myLotteryList}}" wx:key="key">
+                        <view class="line-left"></view>
+                        <navigator class="weui-cell" hoverClass="none" url="/pages/lotteryDetail?id={{item.lottery_id}}&project_id={{item.project_id}}" wx:if="{{item.lottery_name!=''&&item.lottery_name!='null'}}">
+                            <text class="weui-cell__bd fz-14" style="color: #3772cc;text-align: center">{{item.lottery_name}}</text>
+                        </navigator>
+                        <view class="weui-media-box__desc">
+                            <view class="row">
+                                <view class="label fz-14 small-level-color">姓名</view>
+                                <text class="value fz-14">{{item.name}}</text>
+                                <view bindtap="delMyLotteries" class="iconfont icon-shanchu row-delete1" data-wpydelmylotteries-a="{{item.id}}"></view>
+                            </view>
+                            <view class="row">
+                                <view class="label fz-14 small-level-color">审核状态</view>
+                                <text class="value fz-14">{{item.status_text}}</text>
+                            </view>
+                            <navigator class="row" hoverClass="none" url="/pages/lottery/showCode?id={{item.lottery_id}}&code={{item.code}}&type={{result.type}}">
+                                <view class="label fz-14 small-level-color">摇号结果</view>
+                                <view class="value">
+                                    <block wx:if="{{item.results.length>0}}">
+                                        <view class="weui-cell_accessgoto-link" wx:for="{{item.results}}" wx:for-item="result" wx:key="key">
+                                            <view class="weui-cell__bd fz-14" style="color: #3772cc">{{result.resultText}}</view>
+                                        </view>
+                                    </block>
+                                    <view class="fz-14" wx:else>{{item.lottery_status_text}}</view>
+                                </view>
+                                <view class="iconfont icon-xiayibu fz-12 row-delete2"></view>
+                            </navigator>
+                            <view class="row">
+                                <view class="label fz-14 small-level-color">登记号</view>
+                                <text class="value">{{item.reg_num}}</text>
+                            </view>
+                            <view class="row">
+                                <view class="label fz-14 small-level-color">摇号编码</view>
+                                <text class="value">{{item.code||'暂无'}}</text>
+                            </view>
+                            <view class="row" wx:if="{{item.message}}">
+                                <text class="value gray">{{item.message}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <view style="padding-left: 40rpx;padding-right: 40rpx;margin-top: 170px" wx:if="{{idCards.length<1}}">
+                    <image mode="aspectFit" src="/images/myLottery.png" style="height:200rpx;display:block;margin:0 auto;margin-top: 160rpx;margin-bottom: 40rpx"></image>
+                    <view class="small-level-color" style="width100%;margin-top:30px;font-size:14px;text-align: center;">小主人~目前你还没未绑定身份信息！</view>
+                    <navigator class="weui-cell_access" hoverClass="" style="margin-bottom: 50rpx;margin-top: 50rpx" url="/subPackages/me/pages/bindIDCard">
+                        <button class="weui-btn weui-btn_plain-primary mini-btn" style="font-size: 30rpx;color:#fff;border: solid 1px #3772cc;background-color: #3772cc">点击绑定个人信息</button>
+                    </navigator>
+                    <text class="small-level-color" style="margin-top:30px;font-size:14px">注：绑定个人信息后，部分楼盘可以直接获取公正摇号编码，查</text>
+                    <text class="small-level-color" style="margin-top:30px;font-size:14px">询摇号结果更方便，同时对您的身份信息进行加密保护！</text>
+                </view>
+                <view style="padding-left: 40rpx;padding-right: 40rpx;margin-top: 170rpx" wx:if="{{myLotteryList.length<1&&idCards.length>0}}">
+                    <image mode="aspectFit" src="/images/myLottery.png" style="height:200rpx;display:block;margin:0 auto;margin-top: 160rpx;margin-bottom: 40rpx"></image>
+                    <view class="small-level-color" style="width100%;margin-top:30px;font-size:14px;text-align: center;">小主人~没有获取到你的摇号数据！</view>
+                    <view class="weui-cell_access" style="margin-bottom: 50rpx;margin-top: 50rpx">
+                        <button bindtap="syncData" class="weui-btn weui-btn_plain-primary mini-btn" style="font-size: 30rpx;color:#fff;border: solid 1px #3772cc;background-color: #3772cc">点击这里同步摇号数据</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="tab {{nowTab==2?'active':''}}" style="overflow:hidden" wx:if="{{nowTab==2}}">
+            <view style="margin-top:20rpx;margin-bottom:30rpx;overflow:hidden;" wx:if="{{nowTab==2}}">
+                <block wx:if="{{myCodeList.length>0}}">
+                    <view style="box-shadow:0 0 15px 1px rgba(0,0,0,.1);margin:6px 40rpx 6px;border-radius: 4px;position: relative" wx:for="{{myCodeList}}" wx:for-item="item2" wx:key="key">
+                        <navigator class="weui-cell weui-cell_access" hoverClass="none" url="/pages/lotteryDetail?project_id={{item2.project_id}}">
+                            <view class="fz-15 weui-cell__bd" style="margin:10rpx;text-align: center;color: #2f65b7">{{item2.name==='null'?'':item2.name}}</view>
+                        </navigator>
+                        <view class="weui-panel__bd">
+                            <view class="weui-media-box weui-media-box_small-appmsg">
+                                <view class="weui-cells_in-small-appmsg" wx:if="{{item2.myCodes.length>0}}">
+                                    <view style="position:relative;z-index:20;" wx:for="{{item2.myCodes}}" wx:for-index="matIndex" wx:for-item="myCode" wx:key="matIndex">
+                                        <navigator class="weui-cell weui-cell_access {{item2.myCodes.lenght>1?'last-border':''}}" hoverClass="none" style="margin:0 40rpx;padding:0 0 20rpx 0;" url="/pages/lottery/showCode?id={{item2.id}}&code={{myCode.code}}">
+                                            <view class="row" style="width: 30%;text-align: right">
+                                                <view class="line-left1"></view>
+                                                <view class="fz-14 small-level-color" style="float: left;text-align: right;width: 85%;text-align-last:justify;">姓名</view>
+                                                <view class="fz-14 small-level-color" style="float: left;text-align: right;width: 85%;text-align-last:justify;">摇号编码</view>
+                                                <view class="fz-14 small-level-color" style="float: left;text-align: right;width: 85%;text-align-last:justify;">登记号</view>
+                                            </view>
+                                            <view class="row" style="width:70%;padding-left: 5%">
+                                                <view class="fz-14" style="display: block;">{{myCode.name}}</view>
+                                                <view class="fz-14" style="display: block;color: #3772cc;">{{myCode.code||'暂无'}}</view>
+                                                <view class="fz-14" style="display: block;">{{myCode.reg_num||'暂无'}}</view>
+                                            </view>
+                                        </navigator>
+                                        <view bindtap="delMyCodes" class="iconfont icon-shanchu row-delete gray-9-color" data-wpydelmycodes-a="{{myCode.id}}" style="top:6px;margin-right:10rpx;"></view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <view style="padding-left: 40rpx;padding-right: 40rpx;margin-top: 170px" wx:if="{{myCodeList.length<1}}">
+                    <image mode="aspectFit" src="/images/myLottery.png" style="height:200rpx;display:block;margin:0 auto;margin-top: 160rpx;margin-bottom: 40rpx"></image>
+                    <view class="small-level-color" style="width100%;margin-top:30px;font-size:14px;text-align: center;">小主人~目前你还没未绑定编码！</view>
+                    <navigator class="weui-cell_access" hoverClass="" openType="reLaunch" style="margin-bottom: 50rpx;margin-top: 50rpx" url="/pages/index">
+                        <button class="weui-btn weui-btn_plain-primary mini-btn" style="font-size: 30rpx;color:#fff;border: solid 1px #3772cc;background-color: #3772cc">前去首页搜索</button>
+                    </navigator>
+                    <text class="small-level-color" style="margin-top:30px;font-size:14px">注：前去首页<text style="color: #000;font-weight: bold;">搜索楼盘</text>，点击楼盘进入<text style="color: #000;font-weight: bold;">楼盘详情页</text>进行绑定！</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

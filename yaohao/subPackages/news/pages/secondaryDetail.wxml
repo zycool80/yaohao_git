@@ -1,0 +1,133 @@
+<view class="result_container">
+    <image class="back_img" src="http://imgcdn.huanjutang.com/assets/img/20181115/5bed4213013d2.png"></image>
+    <view class="result_content">
+        <view class="result_content_top">
+            <text class="fz-16 font-bold">{{detail.params.title}}</text>
+            <view>
+                <text class="fz-12" style="color: #000">地址: {{detail.params.areaName}}</text>
+            </view>
+            <view class="item_content style_pa">
+                <view class="item_detail">
+                    <text class="fz-15 font-bold" style="color:#f7776a">{{detail.total_price}}万</text>
+                    <text class="fz-12" style="padding-top: 8rpx">售价</text>
+                </view>
+                <view class="item_detail">
+                    <text class="fz-15 font-bold" style="color:#f7776a">{{detail.house_huxing}}</text>
+                    <text class="fz-12" style="padding-top: 8rpx">户型</text>
+                </view>
+                <view class="item_detail">
+                    <text class="fz-15 font-bold" style="color:#f7776a">{{detail.acreage}}m²</text>
+                    <text class="fz-12" style="padding-top: 8rpx">建筑面积</text>
+                </view>
+            </view>
+            <view class="style_pa" style="margin-top: 50rpx">
+                <view style="display: flex;justify-content:space-between">
+                    <text class="fz-12" style="color: #f7776a">今日挂牌价: <text class="fz-12 font-bold" style="margin-left: 10rpx;color: #f7776a"> {{detail.total_price}}万 {{detail.price}}元/平</text>
+                    </text>
+                    <view style="display: flex;align-items: center;" wx:if="{{detail.fluStatus==0}}">
+                        <view style="display: flex;align-items: center">
+                            <text class="iconfont icon-jiantou fz-12" style="color: #16c295;font-weight: 700"></text>
+                        </view>
+                        <text class="fz-12">{{detail.fluctuation}}</text>
+                    </view>
+                    <view style="display: flex;align-items: center;" wx:if="{{detail.fluStatus==1}}">
+                        <view style="display: flex;align-items: center;transform: rotate(180deg)">
+                            <text class="iconfont icon-jiantou fz-12" style="color: orangered;font-weight: 700"></text>
+                        </view>
+                        <text class="fz-12">{{detail.fluctuation}}</text>
+                    </view>
+                    <view style="display: flex;align-items: center;" wx:if="{{detail.fluStatus==2}}">
+                        <text class="fz-12">{{detail.fluctuation}}</text>
+                    </view>
+                </view>
+                <view>
+                    <text class="fz-12">昨日挂牌价: <text class="fz-12 font-bold" style="margin-left: 10rpx"> {{detail.yesterday.total_price}}万 {{detail.yesterday.price}}元/平</text>
+                    </text>
+                </view>
+            </view>
+            <view class="divider">
+                <view class="semicircle semicircle_left"></view>
+                <view class="semicircle semicircle_right"></view>
+            </view>
+            <view class="style_pa" style="margin-top: 30rpx">
+                <view class="detail_content">
+                    <view>
+                        <text class="fz-13">户型:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.house_huxing}}</text>
+                    </view>
+                    <view style="width: 300rpx; overflow:hidden; white-space: nowrap; text-overflow:ellipsis;">
+                        <text class="fz-13">年代:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.build_year}}</text>
+                    </view>
+                </view>
+                <view class="detail_content">
+                    <view>
+                        <text class="fz-13">单价:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.price}}</text>
+                    </view>
+                    <view>
+                        <text class="fz-13">楼层:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.house_tower}}</text>
+                    </view>
+                </view>
+                <view class="detail_content">
+                    <view>
+                        <text class="fz-13">面积:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.acreage}}m²</text>
+                    </view>
+                    <view>
+                        <text class="fz-13">挂牌:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.gp_time}}</text>
+                    </view>
+                </view>
+                <view class="detail_content">
+                    <view>
+                        <text class="fz-13">朝向:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.house_toward}}</text>
+                    </view>
+                    <view>
+                        <text class="fz-13">用途:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.house_use}}</text>
+                    </view>
+                </view>
+                <view class="detail_content">
+                    <view>
+                        <text class="fz-13">类型:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.house_type}}</text>
+                    </view>
+                    <view>
+                        <text class="fz-13">电梯:</text>
+                        <text class="fz-13 font-bold right_style">有</text>
+                    </view>
+                </view>
+                <view class="detail_content">
+                    <view>
+                        <text class="fz-13">装修:</text>
+                        <text class="fz-13 font-bold right_style">其他</text>
+                    </view>
+                    <view>
+                        <text class="fz-13">权属:</text>
+                        <text class="fz-13 font-bold right_style">{{detail.property_rights}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="code_sao">
+                <image bindtap="previewImage" src="{{detail.qrcode}}" style="width: 154rpx;height: 154rpx;"></image>
+                <view class="btn_code">
+                    <text class="iconfont icon-saomiao fz-13" style="color: #4697de;margin-right: 10rpx"></text>
+                    <text class="fz-13" style="color: #4697de">扫码查看更多</text>
+                </view>
+            </view>
+            <button class="iconfont icon-fenxiang9" openType="share" style="background-color: #f7776a;color: #FFFFFF;border-radius: 50%;width: 104rpx;height: 104rpx;display: flex;align-items: center;justify-content: center;position: absolute;left: 50%;bottom: -52rpx;margin-left: -52rpx;font-size: 50rpx"></button>
+        </view>
+        <view style="text-align: center;margin-top: 70rpx">
+            <text class="fz-15 white-color" style="display: block">把每一次惊喜都分享出去</text>
+            <text class="fz-12" style="display: block;color: #d1e8ff;margin-top: 0rpx">数据来源于贝壳找房</text>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

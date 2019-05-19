@@ -1,0 +1,120 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.projectDetail-bg {
+    background: #fff;
+    box-shadow: 0 1px 1px #e6e6e6;
+}
+
+.projectDetail-title {
+    padding: 40rpx 0 40rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.projectDetail-title-name>text {
+    display: block;
+    line-height: 1;
+}
+
+.projectDetail-title-name-share {
+    min-width: 160rpx;
+}
+
+.projectDetail-title-name-share>button {
+    border-radius: 0;
+    height: 56rpx;
+    line-height: 56rpx;
+    padding: 0 30rpx;
+    border-bottom-left-radius: 28rpx;
+    border-top-left-radius: 28rpx;
+    border-bottom-right-radius: none;
+    border-top-right-radius: none;
+    background: #f4f4f4;
+    color: #8e8e8e;
+}
+
+.weui-form-preview__value {
+    margin-left: 160rpx;
+}
+
+.gray-color {
+    color: #708095!important;
+}
+
+.history-lottery {
+    width: 100%;
+    overflow: hidden;
+}
+
+.history-lottery .head {
+    line-height: 64rpx;
+    padding: 0 30rpx;
+    overflow: hidden;
+}
+
+.history-lottery .history-lottery-container {
+    overflow: hidden;
+    line-height: 80rpx;
+    background-color: #fff;
+    border-bottom: 1rpx solid #e2e2e2;
+    box-shadow: 0 1px 1px #e6e6e6;
+    margin-bottom: 20rpx;
+    padding: 40rpx 30rpx 30rpx;
+}
+
+.history-lottery .history-lottery-container:last-child {
+    border-bottom: 0!important;
+}
+
+.history-lottery .history-lottery-container .left {
+    float: left;
+}
+
+.history-lottery .history-lottery-container .right {
+    float: right;
+}
+
+.history-lottery .history-lottery-container .bottom {
+    background: #fef7dd;
+    border-radius: 4rpx;
+    line-height: 70rpx;
+    padding: 0 42rpx;
+    box-sizing: border-box;
+    height: 70rpx;
+}
+
+.history-lottery .history-lottery-container .top {
+    padding-bottom: 30rpx;
+    line-height: 1;
+}
+
+.history-lottery .history-lottery-container .center {
+    padding-bottom: 24rpx;
+    line-height: 1;
+}
+
+.history-lottery .history-lottery-container .top,.history-lottery .history-lottery-container .center,.history-lottery .history-lottery-container .bottom {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.history-lottery .history-lottery-container .left.add-circle {
+    position: relative;
+    padding-left: 30rpx;
+}
+
+.history-lottery .history-lottery-container .left.add-circle:before {
+    position: absolute;
+    content: '';
+    top: 32rpx;
+    left: 10rpx;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 100%;
+    background-color: #bca038;
+}

@@ -1,0 +1,54 @@
+<view class="project-tab-cont white-bg">
+    <block wx:if="{{itemsData.length>0}}">
+        <navigator bindtap="clickAnalysis" class="list" data-index="{{index}}" hoverClass="none" hoverStayTime="{{100}}" url="{{item.url}}" wx:for="{{itemsData}}" wx:key="itemKey">
+            <view class="imageContent">
+                <view class="view white-color">
+                    <text class="fz-15 iconfont icon-chakanzhong"></text>
+                    <text class="fz-11" style="margin-left:5rpx">{{item.page_views}}</text>
+                </view>
+                <view class="gray-shadow"></view>
+                <image class="img gray-bg" lazyLoad="{{true}}" mode="aspectFill" src="{{item.cover}}"></image>
+            </view>
+            <view class="text">
+                <view class="fz-13 name black1a-color font-bold">{{item.name}}</view>
+                <view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+                    <view class="label" wx:if="{{item.characteristic.length>0}}">{{item.characteristic[0]}}</view>
+                    <view class="label" wx:else>{{item.area}}</view>
+                    <view class="comment">
+                        <text class="fz-14 iconfont icon-xiaoxi5 gray-9-color"></text>
+                        <text class="fz-10 gray-9-color">{{item.comment_num}}</text>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </block>
+    <block wx:else>
+        <view class="list {{itemsData.length>0?'':'init__project'}}">
+            <view class="imageContent"></view>
+            <view class="text">
+                <view class="fz-13 name black1a-color font-bold"></view>
+                <view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+                    <view class="label"></view>
+                </view>
+            </view>
+        </view>
+        <view class="list {{itemsData.length>0?'':'init__project'}}">
+            <view class="imageContent"></view>
+            <view class="text">
+                <view class="fz-13 name black1a-color font-bold"></view>
+                <view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+                    <view class="label"></view>
+                </view>
+            </view>
+        </view>
+        <view class="list {{itemsData.length>0?'':'init__project'}}">
+            <view class="imageContent"></view>
+            <view class="text">
+                <view class="fz-13 name black1a-color font-bold"></view>
+                <view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+                    <view class="label"></view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

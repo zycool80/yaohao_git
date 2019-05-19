@@ -1,0 +1,50 @@
+<view class="page">
+    <view id="addHouse" wx:for="{{dataArr}}" wx:for-index="typeIndex" wx:key="key">
+        <view class="upload_title">
+            <view class="upload_title_text">上传相册({{typeIndex+1}})</view>
+            <view bindtap="delHouse" class="delHouse blue-color fz-12" data-wpydelhouse-a="{{typeIndex}}">删除</view>
+        </view>
+        <view class="upload_content">
+            <view class="pic_category upload_item">
+                <view class="pic_category" style="width: 170rpx">
+                    <text class="fz-13">图片类别</text>
+                    <text style="color: red">*</text>
+                </view>
+                <view class="pic_category upload_item_opt">
+                    <picker bindchange="switchType" class="upload_item_opt2" data-wpyswitchtype-a="{{typeIndex}}" range="{{item.houseType}}" rangeKey="text" value="{{item.houseIndex}}">
+                        <text class="fz-13">{{item.houseType[item.houseIndex].text}}</text>
+                        <text class="iconfont icon-xiayibu" style="font-size: 24rpx;color: #cccccc;float: right"></text>
+                    </picker>
+                </view>
+            </view>
+            <view class="upload_item">
+                <view class="pic_category" style="margin-top: 30rpx">
+                    <text class="fz-13">相册图片</text>
+                </view>
+                <view class="upload-file">
+                    <view bindtap="uploadFile" class="pic" data-wpyuploadfile-a="{{typeIndex}}" wx:if="{{item.imageList.length!=6}}">
+                        <text style="position:absolute;line-height:1;bottom:-40rpx;font-size: 22rpx;color: #ccc;margin-left: 8rpx;margin-top: 20rpx">上传图片</text>
+                    </view>
+                    <view class="pic" wx:for="{{item.imageList}}" wx:for-item="img" wx:key="key">
+                        <image bindtap="preview" data-wpypreview-a="{{img}}" mode="aspectFill" src="{{img}}" style="width:100%;height:100%;"></image>
+                        <view bindtap="deletePic" class="small-level-color fz-14 iconfont icon-delete" data-wpydeletepic-a="{{typeIndex}}" data-wpydeletepic-b="{{index}}" style="position:absolute;line-height:1;bottom:-40rpx; left:0"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="general_style3 add_pic_tohouse">
+        <view bindtap="addHouse" class="general_style">
+            <view class="iconfont icon-guanbi shizi_style" style="font-size:26rpx;font-weight: 700;margin-right:16rpx;color:#3772cc"></view>
+            <text class="fz-14" style="color:#3772cc">增加图片上传</text>
+        </view>
+    </view>
+    <view class="last-bottom">
+        <view bindtap="upFiles" class="upFiles white-color fz-14">确认提交</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,45 @@
+<view class="faMarkTip" style="width:100%;height:{{winHeight}}px;">
+    <view class="house-type">
+        <view bindtap="showHouseType" class="house-type-list">
+            <view class="house-type-text black-1a fz-12">{{houseTypeName}}</view>
+            <view class="iconfont icon-xialajiantou fz-10 gray-9-color"></view>
+        </view>
+        <view class="house-type-list">
+            <picker bindchange="showHouseArea" range="{{areaList}}" rangeKey="name" value="{{areaIndex}}">
+                <view class="house-type-text black-1a fz-12">{{areaList[areaIndex].name}}</view>
+            </picker>
+            <view class="iconfont icon-xialajiantou fz-10 gray-9-color"></view>
+        </view>
+    </view>
+    <map bindcallouttap="calloutTap" bindregionchange="regChange" id="map" latitude="{{lat}}" longitude="{{long}}" markers="{{markers}}" scale="{{scale}}" showLocation="show-location" style="position:relative;top:40px;width:100%;height:{{mapHeight}}px" wx:if="{{loading}}">
+        <cover-view bindtap="__getLocation" class="getLocation white-bg">
+            <cover-view class="border">
+                <cover-view class="point blue-bg"></cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view class="markTip" style="top:226rpx">
+            <cover-view>
+                <cover-view class="markTipTx" style="background: #16a4ae"></cover-view>
+                <cover-view class="markTipText fz-12">待售</cover-view>
+            </cover-view>
+            <cover-view>
+                <cover-view class="markTipTx" style="background: #ee557d"></cover-view>
+                <cover-view class="markTipText fz-12">即将预售</cover-view>
+            </cover-view>
+            <cover-view>
+                <cover-view class="markTipTx" style="background: #df8534"></cover-view>
+                <cover-view class="markTipText fz-12">在售</cover-view>
+            </cover-view>
+            <cover-view>
+                <cover-view class="markTipTx" style="background: #777"></cover-view>
+                <cover-view class="markTipText fz-12">已清盘</cover-view>
+            </cover-view>
+            <cover-view class="back-home" wx:if="{{showHome}}">
+                <cover-view bindtap="backHome" class="navigator">
+                    <cover-view class="backHome fz-12 white-color">返回</cover-view>
+                    <cover-view class="backHome fz-12 white-color">首页</cover-view>
+                </cover-view>
+            </cover-view>
+        </cover-view>
+    </map>
+</view>

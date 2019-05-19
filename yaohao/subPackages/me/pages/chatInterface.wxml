@@ -1,0 +1,327 @@
+<view class="page">
+    <view class="additional-features" style="z-index:2;">
+        <view catchtap="askPhone" class="bar">
+            <text class="bar-top iconfont icon-shouji fz-20 red-color"></text>
+            <text class="bar-bottom fz-11 small-level-color">手机号</text>
+        </view>
+        <view catchtap="askWeixin" class="bar" wx:if="{{baseInfo.is_sales_man==1}}">
+            <text class="bar-top iconfont icon-weixin1 fz-20 green-color"></text>
+            <text class="bar-bottom fz-11 small-level-color">微信号</text>
+        </view>
+        <navigator class="bar" hoverClass="none" url="/subPackages/me/pages/evaluate?session_id={{user_id}}&sales_man_id={{baseInfo.sales_man_id}}" wx:if="{{baseInfo.me_is_sales_man==0&&baseInfo.is_sales_man==1}}">
+            <text class="bar-top iconfont icon-pingjia fz-20 blue-color"></text>
+            <text class="bar-bottom fz-11 small-level-color">评价</text>
+        </navigator>
+        <navigator class="bar" hoverClass="none" url="/subPackages/me/pages/chatSettings?session_id={{user_id}}&sales_man_id={{baseInfo.sales_man_id}}">
+            <text class="bar-top other orange-color fz-24 yellow-color">...</text>
+            <text class="bar-bottom fz-11 small-level-color">更多</text>
+        </navigator>
+    </view>
+    <view catchtap="pageHide" catchtouchmove="stopMove" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:3;" wx:if="{{oftenWordsView||moreThing}}"></view>
+    <view class="chatInterface" id="chatInterface" style="position:relative;z-index:1;padding-bottom:{{moreThing?'330':'220'}}rpx;">
+        <view catchtap="loadMore" class="loading-more fz-14 blue-color" style="padding: 30rpx 0;text-decoration:underline;text-align:center" wx:if="{{more}}">加载历史消息</view>
+        <block wx:for="{{historyList}}" wx:key="key">
+            <view class="chat" wx:if="{{item.sender_id==user_id}}">
+                <view class="chat-msg">
+                    <view class="chat-time">
+                        <text class="chat-time-msg fz-12 gray-9-color">{{item.created_at}}</text>
+                    </view>
+                    <block wx:if="{{item.type=='1'}}">
+                        <navigator class="avatar-img style1" hoverClass="none" url="/pages/salesMan/detail?id={{baseInfo.sales_man_id}}" wx:if="{{baseInfo.is_sales_man==1}}">
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </navigator>
+                        <view class="avatar-img style1" hoverClass="none" url="/subPackages/lottery/pages/ordinaryUser?id={{user_id}}" wx:else>
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </view>
+                        <view class="chat-content before">
+                            <text class="fz-14 small-level-color">{{item.content}}</text>
+                        </view>
+                    </block>
+                    <block wx:if="{{item.type=='2'}}">
+                        <navigator class="avatar-img style1" hoverClass="none" url="/pages/salesMan/detail?id={{baseInfo.sales_man_id}}" wx:if="{{baseInfo.is_sales_man==1}}">
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </navigator>
+                        <view class="avatar-img style1" hoverClass="none" url="/subPackages/lottery/pages/ordinaryUser?id={{user_id}}" wx:else>
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </view>
+                        <view class="chat-content noPadding before">
+                            <image catchtap="preview" data-wpypreview-a="{{item.content}}" lazyLoad="{{true}}" mode="aspectFill" src="{{item.content}}"></image>
+                        </view>
+                    </block>
+                    <block wx:if="{{item.type=='4'}}">
+                        <view class="tip-msg fz-12 gray-9-color" wx:if="{{item.is_agreed==0}}">
+                            <text class="txt">{{item.content}}</text>
+                        </view>
+                    </block>
+                    <block wx:if="{{item.type=='51'}}">
+                        <navigator class="avatar-img style1" hoverClass="none" url="/pages/salesMan/detail?id={{baseInfo.sales_man_id}}" wx:if="{{baseInfo.is_sales_man==1}}">
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </navigator>
+                        <view class="avatar-img style1" hoverClass="none" url="/subPackages/lottery/pages/ordinaryUser?id={{userInfo.id}}" wx:else>
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </view>
+                        <view class="sendRequest">
+                            <view style="padding:30rpx">
+                                <view class="avatar-img1 style1 iconfont icon-shouji green-bg fz-22 white-color"></view>
+                                <view class="chartInterface-top-right">
+                                    <view class="top">
+                                        <text class="fz-15 black-color name font-bold">我想要你的手机号</text>
+                                    </view>
+                                    <view class="middle fz-12 black1a-color">你是否同意</view>
+                                </view>
+                            </view>
+                            <view class="isOnline" wx:if="{{item.is_operated==0}}">
+                                <text catchtap="greenGet" class="fz-13 height-level-color style-width green" data-wpygreenget-a="phone" data-wpygreenget-b="{{index}}">同意</text>
+                                <view catchtap="refuseGet" class="right fz-13 height-level-color style-width" data-wpyrefuseget-a="phone" data-wpyrefuseget-b="{{index}}">拒绝</view>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{item.type=='52'}}">
+                        <navigator class="avatar-img style1" hoverClass="none" url="/pages/salesMan/detail?id={{baseInfo.sales_man_id}}" wx:if="{{baseInfo.is_sales_man==1}}">
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </navigator>
+                        <view class="avatar-img style1" hoverClass="none" url="/subPackages/lottery/pages/ordinaryUser?id={{userInfo.id}}" wx:else>
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </view>
+                        <view class="sendRequest">
+                            <view style="padding:30rpx">
+                                <view class="avatar-img1 style1 iconfont icon-weixin green-bg fz-22 white-color"></view>
+                                <view class="chartInterface-top-right">
+                                    <view class="top">
+                                        <text class="fz-15 black-color name font-bold">我想要你的微信号</text>
+                                    </view>
+                                    <view class="middle fz-12 black1a-color">你是否同意</view>
+                                </view>
+                            </view>
+                            <view class="isOnline" wx:if="{{item.is_operated==0}}">
+                                <text catchtap="greenGet" class="fz-13 height-level-color style-width green" data-wpygreenget-a="weixin" data-wpygreenget-b="{{index}}">同意</text>
+                                <view catchtap="refuseGet" class="right fz-13 height-level-color style-width" data-wpyrefuseget-a="weixin" data-wpyrefuseget-b="{{index}}">拒绝</view>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="sendRequest" style="margin: 0 auto 40rpx" wx:if="{{item.type=='61'}}">
+                        <view style="padding:30rpx">
+                            <view class="avatar-img1 style1 iconfont icon-shouji pink-bg fz-22 white-color"></view>
+                            <view class="chartInterface-top-right">
+                                <view class="top">
+                                    <text class="fz-15 black-color name font-bold">{{baseInfo.name||item.content.nick_name}}的手机号</text>
+                                </view>
+                                <view class="middle fz-12 black1a-color">{{item.content.phone}}</view>
+                            </view>
+                        </view>
+                        <view class="isOnline">
+                            <text catchtap="makePhone" class="middle fz-13 height-level-color" data-wpymakephone-a="{{item.content.phone}}">拨号</text>
+                            <text catchtap="copyCode" class="right-code fz-13 height-level-color" data-wpycopycode-a="{{item.content.phone}}">复制</text>
+                        </view>
+                    </view>
+                    <view class="sendRequest" style="margin: 0 auto 40rpx" wx:if="{{item.type=='62'}}">
+                        <view style="padding:30rpx">
+                            <view class="avatar-img1 style1 iconfont icon-weixin green-bg  fz-22 white-color"></view>
+                            <view class="chartInterface-top-right">
+                                <view class="top">
+                                    <text class="fz-15 black-color name font-bold">{{baseInfo.name||item.content.nick_name}}的微信号</text>
+                                </view>
+                                <view class="middle fz-12 black1a-color">{{item.content.wechat_code}}</view>
+                            </view>
+                        </view>
+                        <view class="isOnline">
+                            <text catchtap="copyCode" class="fz-13 height-level-color" data-wpycopycode-a="{{item.content.wechat_code}}">复制微信号</text>
+                            <view catchtap="preView" class="right fz-13 height-level-color" data-wpypreview-a="{{item.content.wechat_qrcode}}">查看二维码</view>
+                        </view>
+                    </view>
+                    <block wx:if="{{item.type=='71'}}">
+                        <navigator class="avatar-img style1" hoverClass="none" url="/pages/salesMan/detail?id={{baseInfo.sales_man_id}}" wx:if="{{baseInfo.is_sales_man==1}}">
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </navigator>
+                        <view class="avatar-img style1" hoverClass="none" url="/subPackages/lottery/pages/ordinaryUser?id={{user_id}}" wx:else>
+                            <image mode="aspectFill" src="{{session_avatar}}"></image>
+                        </view>
+                        <navigator class="chat-content before" hoverClass="none" url="/pages/lotteryDetail?project_id={{item.content[1]}}">
+                            <view class="cont">
+                                <view class="left_project_img">
+                                    <image src="{{item.content[2]}}"></image>
+                                </view>
+                                <view class="right_project_cont">
+                                    <view class="project_name fz-14 black1a-color">{{item.content[0]}}</view>
+                                </view>
+                            </view>
+                        </navigator>
+                    </block>
+                </view>
+            </view>
+            <block wx:else>
+                <block wx:if="{{item.type=='3'}}">
+                    <navigator class="chartInterface-top" hoverClass="none" url="/pages/salesMan/detail?id={{baseInfo.sales_man_id}}" wx:if="{{baseInfo.is_sales_man==1}}">
+                        <view style="padding:25rpx 30rpx">
+                            <view class="avatar-img1 style1">
+                                <image mode="aspectFill" src="{{item.user.avatar_url||avatar_url}}"></image>
+                            </view>
+                            <view class="chartInterface-top-right">
+                                <view class="chartInterface-title">
+                                    <view catchtap="followSalesMan" class="right iconfont icon-xingxing {{baseInfo.is_attention==1?'red-color':'small-level-color'}} fz-20"></view>
+                                    <view class="top">
+                                        <text class="fz-15 black-color name font-bold">{{baseInfo.name}}</text>
+                                        <text class="fz-10 guwen" style="color:{{font_color[baseInfo.grade]}}" wx:if="{{baseInfo.is_broker==2}}">{{sort[baseInfo.grade]}}</text>
+                                        <text class="fz-10 guwen" style="color:{{font_color[baseInfo.grade]}}" wx:else>{{broker[baseInfo.grade]}}</text>
+                                    </view>
+                                </view>
+                                <view class="bottom">
+                                    <text class="fz-12 bottom-views small-level-color">回复率：{{baseInfo.answer_rate}}</text>
+                                    <text class="fz-12 bottom-views small-level-color">咨询量：{{baseInfo.consult_count}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="isOnline">
+                            <view class="right fz-12 small-level-color">
+                                <text class="data">{{item.linked_at}}</text>
+                                <text class="sponsor">由你发起的沟通</text>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view class="chartInterface-top" hoverClass="none" url="/subPackages/lottery/pages/ordinaryUser?id={{user_id}}" wx:else>
+                        <view style="padding:25rpx 30rpx">
+                            <view class="avatar-img1 style1">
+                                <image mode="aspectFill" src="{{baseInfo.avatar_url||avatar_url}}"></image>
+                            </view>
+                            <view class="chartInterface-top-right">
+                                <view class="chartInterface-title">
+                                    <view class="top">
+                                        <text class="fz-15 black-color name font-bold">{{baseInfo.name}}</text>
+                                        <text class="fz-10 guwen small-level-color">{{baseInfo.city}}</text>
+                                    </view>
+                                </view>
+                                <view class="tags fz-12 small-level-color">
+                                    <block wx:if="{{baseInfo.user_intention.length>0}}">
+                                        <text class="tag" wx:for="{{baseInfo.user_intention}}" wx:for-item="tag" wx:key="key">{{tag}}</text>
+                                    </block>
+                                </view>
+                            </view>
+                            <view catchtap="toUrl" class="intentionProject fz-13 black1a-color" data-wpytourl-a="{{project.id}}" wx:if="{{project.length!=0}}">意向楼盘：{{project.name}}</view>
+                        </view>
+                        <view class="isOnline">
+                            <view class="right fz-12 small-level-color">
+                                <text class="data">{{item.linked_at}}</text>
+                                <text class="sponsor">由Ta发起的沟通</text>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="chat" wx:if="{{item.type!=61&&item.type!=62}}">
+                        <view class="chat-time">
+                            <text class="chat-time-msg fz-12 gray-9-color">{{item.created_at}}</text>
+                        </view>
+                        <view class="chat-msg">
+                            <block wx:if="{{item.type=='1'}}">
+                                <navigator class="avatar-img style2" hoverClass="none" url="/pages/salesMan/detail?id={{userInfo.sales_man_id}}" wx:if="{{baseInfo.me_is_sales_man==1}}">
+                                    <image mode="aspectFill" src="{{userInfo.avatarUrl||avatar_url}}"></image>
+                                </navigator>
+                                <view class="avatar-img style2" hoverClass="none" url="/subPackages/lottery/pages/ordinaryUser?id={{userInfo.id}}" wx:else>
+                                    <image mode="aspectFill" src="{{userInfo.avatarUrl||avatar_url}}"></image>
+                                </view>
+                                <view class="chat-content after">
+                                    <text class="fz-14 white-color">{{item.content}}</text>
+                                    <view class="tip-isRead {{item.read_status!=2?'green-color':''}} fz-10 gray-9-color">{{item.read_status!=2?'未读':'已读'}}</view>
+                                </view>
+                            </block>
+                            <block wx:if="{{item.type=='2'}}">
+                                <navigator class="avatar-img style2" hoverClass="none" url="/pages/salesMan/detail?id={{userInfo.sales_man_id}}" wx:if="{{baseInfo.me_is_sales_man==1}}">
+                                    <image mode="aspectFill" src="{{userInfo.avatarUrl||avatar_url}}"></image>
+                                </navigator>
+                                <view class="avatar-img style2" hoverClass="none" url="/subPackages/lottery/pages/ordinaryUser?id={{userInfo.id}}" wx:else>
+                                    <image mode="aspectFill" src="{{userInfo.avatarUrl||avatar_url}}"></image>
+                                </view>
+                                <view class="chat-content noPadding after">
+                                    <image catchtap="preview" data-wpypreview-a="{{item.content}}" lazyLoad="{{true}}" mode="aspectFill" src="{{item.content}}"></image>
+                                    <view class="tip-isRead {{item.read_status!=2?'green-color':''}} fz-10 gray-9-color">{{item.read_status!=2?'未读':'已读'}}</view>
+                                </view>
+                            </block>
+                            <block wx:if="{{item.type=='4'}}">
+                                <view class="tip-msg fz-12 gray-9-color" wx:if="{{item.is_agreed==0}}">
+                                    <text class="txt">{{item.content}}</text>
+                                </view>
+                            </block>
+                            <view class="tip-msg fz-12 gray-9-color" wx:if="{{item.type=='51'&&baseInfo.sales_man_id!=0}}">
+                                <text class="txt">请求交换手机号已发送</text>
+                            </view>
+                            <view class="tip-msg fz-12 gray-9-color" wx:if="{{item.type=='52'}}">
+                                <text class="txt">请求获取微信号已发送</text>
+                            </view>
+                            <block wx:if="{{item.type=='71'}}">
+                                <navigator class="avatar-img style2" hoverClass="none" url="/pages/salesMan/detail?id={{userInfo.sales_man_id}}" wx:if="{{baseInfo.me_is_sales_man==1}}">
+                                    <image mode="aspectFill" src="{{userInfo.avatarUrl||avatar_url}}"></image>
+                                </navigator>
+                                <view class="avatar-img style2" hoverClass="none" url="/subPackages/lottery/pages/ordinaryUser?id={{userInfo.id}}" wx:else>
+                                    <image mode="aspectFill" src="{{userInfo.avatarUrl||avatar_url}}"></image>
+                                </view>
+                                <navigator class="chat-content after" hoverClass="none" style="background: #fff" url="/pages/lotteryDetail?project_id={{item.content[1]}}">
+                                    <view class="cont">
+                                        <view class="left_project_img">
+                                            <image src="{{item.content[2]}}"></image>
+                                        </view>
+                                        <view class="right_project_cont">
+                                            <view class="project_name fz-14 black1a-color">{{item.content[0]}}</view>
+                                        </view>
+                                    </view>
+                                </navigator>
+                            </block>
+                        </view>
+                    </view>
+                </block>
+            </block>
+        </block>
+        <view class="bottom_project" style="bottom:{{projectHeight}}px" wx:if="{{project_id&&showProjectInfo&&historyList.length>=5&&baseInfo.me_is_sales_man==0}}">
+            <view class="cont">
+                <view class="left_project_img">
+                    <image src="{{project_img}}"></image>
+                </view>
+                <view class="right_project_cont">
+                    <view class="project_name fz-14 black1a-color">{{project_name}}</view>
+                    <view bindtap="sendProjectInfo" class="project_send_btn fz-11">发送楼盘</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_project" style="bottom:{{projectHeight}}px" wx:if="{{project_id&&showProjectInfo&&historyList.length<5&&baseInfo.me_is_sales_man==0}}">
+        <view class="cont">
+            <view class="left_project_img">
+                <image src="{{project_img}}"></image>
+            </view>
+            <view class="right_project_cont">
+                <view class="project_name fz-14 black1a-color">{{project_name}}</view>
+                <view bindtap="sendProjectInfo" class="project_send_btn fz-11">发送楼盘</view>
+            </view>
+        </view>
+    </view>
+    <form bindsubmit="formSubmit" class="commont-answer" reportSubmit="true" style="bottom:{{bottom}}px">
+        <view style="padding: 20rpx 30rpx;">
+            <view catchtap="getMore" class="btn-img fz-25 font-bold" wx:if="{{!isFocus}}">{{moreThing?'×':'+'}}</view>
+            <button catchtap="sendMessage" class="fz-14 font-bold" formType="submit" style="color:#6bc2c8;float:right;line-height:54rpx;" wx:if="{{isFocus&&comment_cont.length>0}}">发送</button>
+            <view class="left-cont">
+                <text catchtap="getOftenWords" class="oftenWords fz-12 white-color">常用语</text>
+                <input adjustPosition="{{false}}" bindblur="loseFocus" bindfocus="getFocus" bindinput="bindContChange" class="fz-14" cursorSpacing="20" maxlength="{{-1}}" placeholder="请输入内容" showConfirmBar="{{false}}" style="width:auto" type="text" value="{{comment_cont}}"></input>
+            </view>
+        </view>
+        <view class="more-btn" wx:if="{{moreThing}}">
+            <view class="icon-btn">
+                <button catchtap="openPhotos" class="icon iconfont icon-xiangce2 fz-25 height-level-color" formType="submit"></button>
+                <view class="txt">相册</view>
+            </view>
+        </view>
+        <scroll-view scrollY class="oftenWords-list" wx:if="{{oftenWordsView}}">
+            <view catchtap="useOftenWords" class="line-often" data-wpyuseoftenwords-a="{{index}}" wx:for="{{oftenWordsList}}" wx:key="key">{{item}}</view>
+        </scroll-view>
+    </form>
+    <view class="callPhone" wx:if="{{callView}}">
+        <view class="telNum fz-16 black1a-color font-bold">15639856894</view>
+        <view class="btn">
+            <text class="left fz-14 black1a-color font-bold">匿名拨打</text>
+            <text class="right fz-14 blue-color font-bold">直接拨打</text>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

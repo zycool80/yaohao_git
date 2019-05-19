@@ -1,0 +1,94 @@
+.news-container-one {
+    position: relative;
+    width: 100%;
+    padding: 20rpx 0;
+    overflow: hidden;
+}
+
+.news-container-one .user-info {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20rpx;
+}
+
+.news-container-one .user-info .avatar {
+    float: left;
+    width: 40rpx;
+    height: 40rpx;
+    overflow: hidden;
+}
+
+.news-container-one .user-info,.news-container-one .time {
+    line-height: 40rpx;
+}
+
+.news-container-one .user-info .user-info-name {
+    padding-left: 10rpx;
+    float: left;
+}
+
+.news-container-one .news-cont {
+    position: relative;
+    width: 100%;
+    height: 270rpx;
+    border-radius: 8rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+
+.news-container-one .news-cont .news-cont-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.news-container-one .news-cont .news-cont-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-container-one .news-cont .news-cont-bg-zz {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.news-container-one .tool-bar {
+    position: absolute;
+    bottom: 20rpx;
+    right: 0;
+    padding: 20rpx 20rpx;
+}
+
+.news-container-one .tool-bar .tool {
+    display: inline-block;
+    float: left;
+    margin-left: 20rpx;
+    line-height: 1;
+}
+
+.news-container-one .tool-bar button {
+    color: #FFFFFF;
+    background-color: transparent;
+}
+
+.news-container-one .tool-bar .tool.width {
+    float: left;
+}
+
+.news-container-one .tool-bar .tool .val {
+    padding-left: 4rpx;
+}

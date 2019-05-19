@@ -1,0 +1,284 @@
+@import "manageUsers.wxss";
+
+.layout-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layout-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.layout-3 {
+    display: flex;
+    align-items: center;
+}
+
+.layout-4 {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.coupons-header {
+    padding: 22rpx 30rpx;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coupons-header .allQuan {
+    font-size: 28rpx;
+    letter-spacing: 1rpx;
+}
+
+.coupons-header .p {
+    color: #6d7999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coupons-header .p .iconfont {
+    font-size: 34rpx;
+}
+
+.coupons-header .p .span {
+    font-size: 24rpx;
+    margin-bottom: 4rpx;
+    margin-left: 10rpx;
+}
+
+.coupons-container {
+    position: relative;
+}
+
+.coupons-item {
+    margin: 38rpx 30rpx 0;
+    border-radius: 10rpx;
+    position: relative;
+    height: 180rpx;
+}
+
+.coupons-item image {
+    width: 100%;
+}
+
+.coupons-item-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 34rpx 16rpx 30rpx 24rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.coupons-item-content .left-img {
+    float: left;
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 8rpx;
+    position: relative;
+}
+
+.coupons-item-content .left-img image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    float: left;
+    width: 100%;
+    height: 100%;
+    border-radius: 8rpx;
+}
+
+.coupons-item-content .left-img .left-hide-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8rpx;
+    background: rgba(205,205,205,0.1);
+}
+
+.project-title {
+    float: left;
+    height: 128rpx;
+    margin-left: 20rpx;
+}
+
+.project-title .price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10rpx;
+    box-sizing: border-box;
+    height: 90rpx;
+}
+
+.project-title .price .origin {
+    display: inline-block;
+    margin-left: 22rpx;
+    position: relative;
+}
+
+.project-title .price .origin .line {
+    position: absolute;
+    top: 16rpx;
+    width: 100%;
+    left: 0;
+    content: '';
+    background: #999;
+    height: 1rpx;
+}
+
+.project-title .price .now {
+    display: inline-block;
+    width: 320rpx;
+    height: 34rpx;
+}
+
+.project-title .price .wrap {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.project-title-address {
+    color: #373232;
+    line-height: 1;
+    max-width: 330rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.project-address {
+    line-height: 1.3;
+    margin-top: 20rpx;
+    width: 330rpx;
+    color: #777777;
+}
+
+.project-price {
+    float: right;
+    padding: 46rpx 16rpx;
+    overflow: hidden;
+}
+
+.project-price .use-btn {
+    height: 48rpx;
+    line-height: 48rpx;
+    width: 120rpx;
+    text-align: center;
+    background: #e7433f;
+    border-radius: 25rpx;
+}
+
+.price-label {
+    width: 70rpx;
+    height: 26rpx;
+    border-radius: 15rpx 15rpx 15rpx 0;
+    border: 1rpx solid #ffbd95;
+    color: #f87c31;
+    line-height: 26rpx;
+    margin-left: 14rpx;
+    float: left;
+}
+
+.price-font {
+    color: #e7433f;
+    display: inline-block;
+}
+
+.project_box_list {
+    padding: 20rpx 30rpx;
+    overflow: hidden;
+}
+
+.project_box_list .text {
+    padding: 50rpx 0;
+    text-align: center;
+}
+
+.gray-color {
+    color: #cdcdcd!important;
+}
+
+.consultation-reserve-price {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 600rpx;
+    border-radius: 10rpx;
+    background-color: #ffffff;
+    z-index: 199;
+    transform: translate(-50%,-50%);
+    padding: 48rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.consultation-reserve-price .input-item {
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 20rpx;
+}
+
+.consultation-reserve-price .prompt {
+    color: #999999;
+    padding: 24rpx 0 36rpx;
+    line-height: 1;
+}
+
+.consultation-reserve-price .layout-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.consultation-reserve-price .layout-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.consultation-reserve-price .layout-3 {
+    display: flex;
+    align-items: center;
+}
+
+.consultation-reserve-price .get-preferential-btn {
+    margin: auto;
+    width: 550rpx;
+    height: 80rpx;
+    color: #ffffff;
+    border-radius: 80rpx 80rpx;
+    background: linear-gradient(to right,#f47048 0,#e14537 100%);
+}
+
+.consultation-reserve-price .get-preferential-rules {
+    padding-top: 30rpx;
+    color: #e04739;
+    background: #fff;
+}
+
+.application-from {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 198;
+}

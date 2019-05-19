@@ -1,0 +1,112 @@
+<view class="points">
+    <view catchtap="hideBg" catchtouchmove="stopMove" class="application-from" wx:if="{{showType}}"></view>
+    <view class="application-from-content" wx:if="{{showType}}">
+        <view style="padding: 86rpx 50rpx">
+            <text bindtap="submit" class="fz-17 font-bold">充值金币</text>
+        </view>
+        <view class="user-input">
+            <view class="layout-3 input-item" style="padding-top: 20rpx">
+                <text class="fz-17" style="margin-right: 20rpx">￥</text>
+                <input bindinput="inputChange" class="fz-17" placeholder="请输入金额" placeholderClass="gray-color" type="number" value="{{inputMoney}}"></input>
+            </view>
+        </view>
+        <view class="prompt fz-11">
+            <view>提示：</view>
+            <view>暂时只支持微信充值，请小主仔细确认金额并充值。</view>
+        </view>
+        <view bindtap="inputSubmit" class="get-preferential-btn layout-1">
+            <text class="fz-15 font-bold">确认充值</text>
+        </view>
+    </view>
+    <view class="point-title">
+        <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190304/5c7c95bb65ad4.png"></image>
+        <view class="mes">
+            <image class="avatar" mode="aspectFill" src="{{userInfo.avatarUrl||defaultAvatar}}"></image>
+            <view class="white-color self_introduce">
+                <view class="fz-12" style="text-align: left">{{userInfo.nickName}}</view>
+                <view style="margin-top:20rpx;overflow: hidden">
+                    <view style="float: left">
+                        <text class="goldNum">{{baseInfo.coins||0}}</text>
+                        <text class="fz-12">  枚金币</text>
+                    </view>
+                    <view style="margin-left:140rpx;float: left">
+                        <text class="goldNum font-bold">{{baseInfo.sales_man_recommend_index||0}}</text>
+                        <text class="fz-12">  积分</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="points-content">
+        <view class="ios-option white-bg" wx:if="{{systemType=='ios'}}">
+            <view class="focus-option-item">
+                <text class="font-bold black1a-color fz-14">兑换金币</text>
+                <view class="option-color color-style"></view>
+            </view>
+        </view>
+        <view class="focus-option white-bg" wx:if="{{systemType=='android'}}">
+            <view bindtap="changetype" class="focus-option-item" data-wpychangetype-a="1">
+                <text class="{{changeType===1?'font-bold black1a-color fz-14':'gray-9-color fz-14'}}">兑换金币</text>
+                <view class="option-color {{changeType===1?'color-style':'color-style2'}}"></view>
+            </view>
+            <view class="gray-line"></view>
+            <view bindtap="changetype" class="focus-option-item" data-wpychangetype-a="2">
+                <text class="{{changeType===2?'font-bold black1a-color fz-14':'gray-9-color fz-14'}}">充值金币</text>
+                <view class="option-color {{changeType===2?'color-style':'color-style2'}}"></view>
+            </view>
+        </view>
+        <block wx:if="{{changeType===1}}">
+            <view class="rechargeContent">
+                <view class="points-content">
+                    <view class="left-input conmmon-input">
+                        <input bindinput="pointChange" class="fz-20 blue-color" placeholderClass="fz-14 small-level-color" type="number" value="{{inputPoint}}"></input>
+                        <text class="fz-12">积分</text>
+                    </view>
+                    <view class="center-input fz-20 gray-9-color font-bold">
+                        <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190305/5c7e4ef853768.png" style="width:60rpx;height:30rpx"></image>
+                    </view>
+                    <view class="right-input conmmon-input">
+                        <input class="fz-18 blue-color" disabled="{{true}}" placeholderClass="fz-14 small-level-color" type="number" value="{{inputCoin}}"></input>
+                        <text class="fz-12">金币</text>
+                    </view>
+                </view>
+                <view style="border-bottom: 1px solid #e2e2e2;overflow: hidden;padding-bottom: 10rpx">
+                    <view style="overflow: hidden">
+                        <view class="fz-11 gray-9-color" style="float:left">注: {{currency}}积分=1金币</view>
+                        <view class="fz-11" style="float:right">当前最多兑换{{maxCoin}}金币</view>
+                    </view>
+                    <view class="fz-11 red-color" style="margin:10rpx 0 15rpx" wx:if="{{showBalance}}">余额不足</view>
+                </view>
+                <view bindtap="coinsCharge" class="charge-btn fz-15 white-color">确认兑换</view>
+                <button class="getCoin-btn fz-15 white-bg" hoverClass="none" openType="contact" sessionFrom="{{weapp}}">
+                        获取更多金币(回复"3")
+                    </button>
+            </view>
+            <view class="goldRule white-bg" wx:if="{{currency_rules.length>0}}">
+                <view class="fz-14" style="margin-bottom: 20rpx">金币兑换规则:</view>
+                <view class="fz-13 small-level-color" style="line-height: 40rpx" wx:for="{{currency_rules}}" wx:key="key">{{index+1}}、{{item}}</view>
+            </view>
+        </block>
+        <block wx:if="{{changeType===2}}">
+            <view class="charge-content white-bg">
+                <block wx:for="{{money}}" wx:key="key">
+                    <view bindtap="changeMoney" class="charge-box fz-20 {{item.toggle?'active':'normal'}}" data-wpychangemoney-a="{{index}}" wx:if="{{item.value!='其他金额'}}">￥{{item.value}}</view>
+                    <view bindtap="showModel" class="charge-box fz-13 {{item.toggle?'active':'normal'}}" wx:if="{{item.value=='其他金额'}}">{{item.value}}</view>
+                </block>
+            </view>
+            <view class="money-charge white-bg">
+                <view class="fz-11 gray-9-color">注：充值金额1元=1金币</view>
+                <view bindtap="submit" class="charge-btn fz-15 white-color">立即充值</view>
+            </view>
+        </block>
+        <view class="noData" wx:if="{{listData.length<=0&&loading}}">
+            <image mode="aspectFill" src="http://imgcdn.qi.la/assets/img/20181226/5c23167e65de1.png"></image>
+            <view class="fz-13 small-level-color">还没有记录，小主加油</view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,14 @@
+<view class="page">
+    <view class="calculation">
+        <view class="calculation-title black-color fz-14">摇中概率计算方式：</view>
+        <view class="calculation-content">
+            <image mode="widthFix" src="{{probability_calculation}}"></image>
+        </view>
+        <view class="calculation-footer fz-10 small-level-color">本程序信息旨在为用户提供更多信息的无偿服务，信息以政府部分登记备案为准，请谨慎核查。如楼盘信息有误，您可以及时反馈纠错。</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

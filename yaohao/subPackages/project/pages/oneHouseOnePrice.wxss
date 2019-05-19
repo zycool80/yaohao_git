@@ -1,0 +1,239 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page,.page {
+    height: 100%;
+}
+
+.layout-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.layout-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-color {
+    background-color: #51ca97;
+    color: #FFFFFF;
+}
+
+.back-color2 {
+    background-color: #f2f5f6;
+    color: #6d7999;
+}
+
+.back-color3 {
+    background-color: #f97d75;
+    color: #FFFFFF;
+}
+
+.house-price-header {
+    box-shadow: 0 1rpx 3rpx #e6e6e6;
+    height: 122rpx;
+}
+
+.house-price-header .header-title {
+    width: 500rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 36rpx;
+}
+
+.house-price-header .share-btn {
+    width: 142rpx;
+    height: 52rpx;
+    background-color: #f4f4f4;
+    font-size: 24rpx;
+    color: #a9a9a9;
+    border-radius: 27rpx 0 0 27rpx;
+}
+
+.house-price-container {
+    margin-top: 2rpx;
+    background-color: #f9fafc;
+    margin-bottom: 10rpx;
+}
+
+.house-price-container .container-top {
+    padding: 0 30rpx;
+}
+
+.house-price-container .container-top .price-tip-content {
+    padding: 32rpx 66rpx 26rpx 20rpx;
+    background: #2d8cf0;
+    border-radius: 8rpx;
+    margin-bottom: 10rpx;
+    line-height: 1.6;
+    position: relative;
+}
+
+.house-price-container .container-top .price-tip-content .close-handle {
+    position: absolute;
+    right: 16rpx;
+    top: 0;
+    width: 60rpx;
+    text-align: right;
+}
+
+.house-price-container .container-top .container-top-content {
+    font-size: 26rpx;
+    color: #999;
+}
+
+.house-price-container .container-top .container-top-content .filter {
+    line-height: 64rpx;
+    flex: 1;
+    position: relative;
+}
+
+.house-price-container .container-top .container-top-content .filter .triangle {
+    width: 0;
+    height: 0;
+    border-width: 0 10rpx 8rpx;
+    border-style: solid;
+    border-color: transparent transparent #2d8cf0;
+    position: absolute;
+    left: 76rpx;
+    bottom: 0;
+}
+
+.house-price-container .container-top .container-top-content .filter.active {
+    color: #5a6ca0;
+}
+
+.house-price-container .house-price-list .house-price-item {
+    position: relative;
+    margin: auto;
+    margin-bottom: 20rpx;
+    background-color: #FFFFFF;
+    box-shadow: 0 1rpx 3rpx #e6e6e6;
+    overflow: hidden;
+}
+
+.house-price-container .house-price-list .house-price-item .item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.house-price-container .house-price-list .house-price-item .item-header .item-header-left {
+    display: flex;
+    align-items: center;
+}
+
+.house-price-container .house-price-list .house-price-item .item-header .item-header-left .building-mark {
+    margin-left: 10rpx;
+    width: 70rpx;
+    height: 36rpx;
+    border-radius: 8rpx;
+}
+
+.house-price-container .house-price-list .house-price-item .item-header .item-header-left .building-mark text {
+    line-height: 0;
+}
+
+.building-type {
+    height: 44rpx;
+    padding: 0 16rpx;
+    border: 1rpx solid #e9e9e9;
+    border-radius: 44rpx;
+    line-height: 38rpx;
+    margin-right: 10rpx;
+}
+
+.building-bounced {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000000;
+    width: 100%;
+    height: 100%;
+}
+
+.building-bounced .grey-background {
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.building-bounced .buiding-choose {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    -webkit-transition: .35s ease;
+}
+
+.building-bounced .buiding-choose .choose-item {
+    padding: 30rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+    overflow: hidden;
+}
+
+.building-bounced .buiding-choose .choose-item .choose-item-left {
+    float: left;
+}
+
+.building-bounced .buiding-choose .choose-item .choose-item-right {
+    float: right;
+    line-height: 1;
+}
+
+.building-bounced .buiding-choose .choose-item .choose-item-color {
+    color: #3772cc;
+}
+
+.building-bounced .buiding-choose .choose-item .choose-item-color2 {
+    color: #FFFFFF;
+}
+
+.hardcover-code {
+    position: absolute;
+    right: -190rpx;
+    top: 56rpx;
+    background-color: #FFFFFF;
+    z-index: 999999999;
+    border-radius: 10rpx;
+    padding: 4rpx 10rpx;
+    width: 280rpx;
+    line-height: 28rpx;
+}
+
+.triangle_border_up {
+    position: absolute;
+    left: 30%;
+    top: -7rpx;
+    margin-left: -2rpx;
+    width: 0;
+    height: 0;
+    border-width: 0 4px 4px;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+}
+
+.mortgage-in {
+    position: absolute;
+    bottom: 82rpx;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130rpx;
+    height: 48rpx;
+    background-color: #fff3c9;
+    color: #682d00;
+    border-radius: 24rpx 0 0 24rpx;
+}
+
+.mortgage-in .iconfont {
+    font-size: 16rpx;
+}
+
+.full-screen {
+    position: absolute;
+}

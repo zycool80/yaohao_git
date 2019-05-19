@@ -1,0 +1,68 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.building_search {
+    background-color: #3772cc;
+    overflow: hidden;
+    height: 80rpx;
+}
+
+.search_container {
+    position: relative;
+    float: left;
+    width: 612rpx;
+    height: 64rpx;
+    border-radius: 6rpx;
+    background-color: #ffffff;
+    margin-left: 30rpx;
+    margin-top: 10rpx;
+}
+
+.search_container input {
+    width: 80%;
+    padding-left: 62rpx;
+    display: flex;
+    align-items: center;
+    margin-top: 8rpx;
+}
+
+.search_icon {
+    position: absolute;
+    left: 20rpx;
+    top: 17rpx;
+}
+
+.delete_icon {
+    position: absolute;
+    right: 12rpx;
+    top: 17rpx;
+    z-index: 9;
+}
+
+.search_text {
+    float: right;
+    color: #ffffff;
+    font-size: 30rpx;
+    margin-right: 30rpx;
+    margin-top: 20rpx;
+}
+
+.input_style {
+    font-size: 23rpx;
+    color: #cccccc;
+}
+
+.choose_title {
+    background-color: #f7f7f7;
+    padding: 20rpx 30rpx;
+}
+
+.building_item {
+    width: 690rpx;
+    margin: auto;
+    padding: 20rpx 0;
+    overflow: hidden;
+}
+
+.building_item:not(:last-child) {
+    border-bottom: 1px solid #e6e6e6;
+}

@@ -1,0 +1,47 @@
+@import "manageUsers.wxss";
+
+.page {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 50rpx;
+}
+
+.img {
+    width: 100%;
+}
+
+.code-box {
+    display: flex;
+    justify-content: space-around;
+    padding: 100rpx;
+}
+
+.code {
+    width: 180rpx;
+}
+
+.cont>text {
+    display: block;
+}
+
+.share {
+    height: 70rpx;
+    line-height: 70rpx;
+    border-radius: 70rpx;
+    padding: 0 85rpx;
+    border: 1rpx solid #3772cc;
+    background: transparent;
+    margin: 50rpx auto;
+    display: inline-block;
+}
+
+.bottom-bg {
+    position: absolute;
+    bottom: -12rpx;
+    width: 100%;
+}
+
+.bottom-bg image {
+    width: 100%;
+}

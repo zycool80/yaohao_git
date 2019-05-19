@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "特色楼盘",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#da5e4f",
+    "usingComponents": {
+        "indexProjectBox": "../../../components/SquareLayout/indexProjectBox",
+        "guideImg": "../../../components/GuideImg/guideImg"
+    },
+    "enablePullDownRefresh": true
+}

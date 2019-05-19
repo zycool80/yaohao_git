@@ -1,0 +1,75 @@
+<view class="page">
+    <view class="comment-detail">
+        <view class="postComment">
+            <block wx:for="{{commentList}}" wx:key="key">
+                <view class="default-avatar">
+                    <image mode="aspectFill" src="{{item.avatar_url||avatar}}"></image>
+                </view>
+                <view class="right-content">
+                    <view class="top-cont">
+                        <view class="top-name fz-13 black1a-color font-bold">{{item.name}}</view>
+                    </view>
+                    <view class="content fz-13 black1a-color">{{item.content}}</view>
+                    <view class="bottom-btn">
+                        <view class="time fz-12 gray-9-color">{{item.time}}</view>
+                        <view class="tap-btn">
+                            <view bindtap="touchGood" class="pagesView fz-12" data-wpytouchgood-a="{{index}}">
+                                <text class="iconfont {{item.is_like==1?'red-color':'gray-9-color'}} icon-dianzan1"></text>
+                                <text class="gray-9-color fz-12">{{item.count}}</text>
+                            </view>
+                            <view bindtap="comment" bindtouchend="touchEnd" bindtouchstart="touchStart" class="follow fz-12" data-wpycomment-a="{{item.id}}" data-wpycomment-b="{{item.name}}">
+                                <text class="iconfont gray-9-color icon-xiaoxi"></text>
+                                <text class="gray-9-color fz-12"></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="allAnswer" style="padding-bottom:132rpx">
+            <view class="title fz-12 small-level-color">全部评论</view>
+            <view class="comment_box">
+                <view class="comment_list" wx:for="{{commentList}}" wx:for-index="groupIndex" wx:for-item="group">
+                    <view class="comment_list_item">
+                        <view class="height-level-color fz-14" style="margin-top:20px;text-align:center;line-height:100px" wx:if="{{group.parent.length<=0}}">暂无回复，小主快来抢占第一楼沙发~</view>
+                        <block wx:else>
+                            <view class="fz-12" style="margin-top:10rpx;overflow:hidden;width:100%;box-sizing:border-box;padding:15rpx 10rpx 5rpx;" wx:if="{{group.parent.length>0}}">
+                                <block wx:for="{{group.parent}}" wx:for-index="parent_index" wx:for-item="child">
+                                    <view class="default-avatar">
+                                        <image mode="aspectFill" src="{{child.avatar_url||avatar}}"></image>
+                                    </view>
+                                    <view class="comment_list_user small-level-color fz-12" style="margin-left: 80rpx">
+                                        <view style="padding:15rpx 0">
+                                            <block wx:if="{{child.sales_man_id!='0'}}">
+                                                <text bindtap="comment" bindtouchend="touchEnd" bindtouchstart="touchStart" class="blue-color1" data-wpycomment-a="{{child.id}}" data-wpycomment-b="{{child.name}}">{{child.name}} <text class="fz-12 blue-color1">置业顾问</text>
+                                                </text>
+                                                <navigator class="contact small-level-color fz-10" hoverClass="none" url="/pages/salesMan/detail?id={{child.sales_man_id}}">联系我</navigator>
+                                            </block>
+                                            <text bindtap="comment" class="black1a-color fz-13 " data-wpycomment-a="{{child.id}}" data-wpycomment-b="{{child.name}}" wx:else>{{child.name}}</text>
+                                            <view bindlongtap="delComment" bindtap="comment" bindtouchend="touchEnd" bindtouchstart="touchStart" class="black1a-color fz-13" data-wpycomment-a="{{child.id}}" data-wpycomment-b="{{child.name}}" data-wpydelcomment-a="{{child.user_id}}" data-wpydelcomment-b="{{child.id}}" style="padding:15rpx 0">{{child.content}}</view>
+                                        </view>
+                                    </view>
+                                    <view class="gray-9-color" style="margin-top:10rpx;overflow:hidden;margin-left:80rpx;box-sizing:border-box;">
+                                        <text class="fz-12" style="float:left">{{child.time}}</text>
+                                        <view bindtap="comment" bindtouchend="touchEnd" bindtouchstart="touchStart" class="float-right" data-wpycomment-a="{{child.id}}" data-wpycomment-b="{{child.name}}" style="float:right">
+                                            <text class="iconfont icon-xiaoxi fz-14"></text>
+                                        </view>
+                                    </view>
+                                </block>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <form bindsubmit="formSubmit" class="commont-answer" reportSubmit="true" style="bottom:{{bottom}}px">
+                <input adjustPosition="{{false}}" bindblur="bindContblur" bindfocus="bindContfocus" bindinput="bindContChange" class="fz-14" cursorSpacing="20" focus="{{isFocus}}" maxlength="200" placeholder="{{inputPlace}}" showConfirmBar="{{false}}" type="text" value="{{comment_cont}}"></input>
+                <button class="{{comment_cont?'blue-color':'gray-9-color'}} fz-14" formType="submit">发送</button>
+            </form>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

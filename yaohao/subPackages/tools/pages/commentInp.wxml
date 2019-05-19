@@ -1,0 +1,32 @@
+<view class="page {{comment_show?'popup':''}}">
+    <view>
+        <view class="fz-14 comment-top white-bg">对【 {{title}} 】的评价</view>
+        <view class="inputval">
+            <textarea bindinput="inputVal" class="fz-15 black1a-color" placeholder="{{placeholder}}" placeholderStyle="color:999" value="{{comment_cont}}" wx:if="{{!comment_show}}"></textarea>
+            <view bindtap="lookRules" class="rules">
+                <text class="iconfont icon-xinxi1 fz-14 small-level-color"></text>
+                <text class="fz-13" style="color: #6d7999;margin-left: 10rpx">评论规则</text>
+            </view>
+        </view>
+        <view class="submit">
+            <button bindtap="formSubmit" class="fz-15 white-color" style="background: #4371e2">{{this.name?'确认提交':'确认发表'}}</button>
+        </view>
+    </view>
+</view>
+<view catchtouchmove="$Popup$true" class="common-model" wx:if="{{$Popup$rules_show}}">
+    <view class="model-tip black1a-color fz-16 font-bold">{{$Popup$rules_title}}</view>
+    <scroll-view scrollY class="comment-box">
+        <view class="fz-13 height-level-color model-text1" style="line-height: 40rpx">
+            <text>{{$Popup$rules}}</text>
+        </view>
+    </scroll-view>
+    <view bindtap="$Popup$cancelRulesShow" class="common-model-btn">
+        <button class="fz-16 white-bg">我知道了</button>
+    </view>
+</view>
+<view bindtap="$Popup$cancelRulesShow" class="common-model-bg" wx:if="{{$Popup$rules_show}}"></view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

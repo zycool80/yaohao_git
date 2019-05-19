@@ -1,0 +1,65 @@
+<view class="purIntention">
+    <image class="bgImg" lazyLoad="{{true}}" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20181123/5bf7a8ee35620.png"></image>
+    <view class="content" wx:if="{{count!=5&&loading}}">
+        <view class="title-top fz-14">
+            <text class="left">我的购房意向</text>
+            <text catchtap="clear" class="small-level-color right">清除</text>
+        </view>
+        <view class="comment-list">
+            <view class="comment-list-col">
+                <view class="list-col left fz-13 small-level-color">{{projects[0].title}}</view>
+                <view class="list-col-right">
+                    <text class="fz-13 font-bold">{{projects[0].list.length>0?projects[0].list:'暂无'}}</text>
+                </view>
+            </view>
+            <view class="comment-list-col">
+                <view class="list-col left fz-13 small-level-color">{{projects[1].title}}</view>
+                <view class="list-col-right">
+                    <block wx:if="{{projects[1].list[0]!=''}}">
+                        <text class="fz-13 font-bold" wx:for="{{projects[1].list}}" wx:key="key">{{item}}</text>
+                    </block>
+                    <text class="fz-13 font-bold" wx:else>暂无</text>
+                </view>
+            </view>
+            <view class="comment-list-col">
+                <view class="list-col left fz-13 small-level-color">{{projects[2].title}}</view>
+                <view class="list-col-right">
+                    <text class="fz-13 font-bold">{{projects[2].list.length>0?projects[2].list:'暂无'}}</text>
+                </view>
+            </view>
+            <view class="comment-list-col">
+                <view class="list-col left fz-13 small-level-color">{{projects[3].title}}</view>
+                <view class="list-col-right">
+                    <block wx:if="{{projects[3].list[0]!=''&&projects[3].list[0]}}">
+                        <text class="fz-13 font-bold" wx:for="{{projects[3].list}}" wx:key="key">{{item}}</text>
+                    </block>
+                    <text class="fz-13 font-bold" wx:else>暂无</text>
+                </view>
+            </view>
+            <view class="comment-list-col">
+                <view class="list-col left fz-13 small-level-color">{{projects[4].title}}</view>
+                <view class="list-col-right">
+                    <block wx:if="{{projects[4].list[0]!=''}}">
+                        <text class="fz-13 font-bold" wx:for="{{projects[4].list}}" wx:key="key">{{item}}</text>
+                    </block>
+                    <text class="fz-13 font-bold" wx:else>暂无</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="noContent" wx:if="{{count==5&&loading}}">
+        <image class="noImg" lazyLoad="{{true}}" mode="modeFix" src="http://imgcdn.huanjutang.com/assets/img/20181123/5bf7a8d5b49a0.png"></image>
+        <view class="fz-13 small-level-color tip">小主人还未添加购房意向</view>
+        <view class="fz-13 small-level-color">添加购房意向可以更快更精准的选中您中意的房子</view>
+    </view>
+    <navigator class="advisory-content" hoverClass="none" openType="navigate" url="/subPackages/lottery/pages/houseIntention">
+        <view class="btn">
+            <view class="addMsg white-color fz-15">{{count!=5&&loading?'修改意向':'添加意向'}}</view>
+        </view>
+    </navigator>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

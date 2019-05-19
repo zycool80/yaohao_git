@@ -1,0 +1,77 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.article {
+    border-bottom: 20rpx solid #f5f5f5;
+}
+
+.article>view {
+    padding: 30rpx;
+}
+
+.article-title {
+    line-height: 1.4;
+}
+
+.article-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 80rpx;
+    height: 80rpx;
+}
+
+.article-tip text {
+    color: #8e8e8e;
+}
+
+.article-btn {
+    display: flex;
+    margin-top: 40rpx;
+}
+
+.article-btn view {
+    width: 50%;
+    text-align: center;
+}
+
+.article-btn view button {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+    line-height: 80rpx;
+    display: inline-block;
+    font-size: 40rpx;
+}
+
+.article-btn view:first-child button {
+    background: #3772cc;
+}
+
+.article-btn view:last-child button {
+    background: #37ccb2;
+}
+
+.article-text {
+    display: flex;
+    text-align: center;
+    margin-bottom: 40rpx;
+}
+
+.article-tip text {
+    display: block;
+}
+
+.article-text text,.article-text button {
+    width: 50%;
+    margin-top: 20rpx;
+    line-height: 1.4;
+}
+
+.article-footer {
+    text-align: center;
+    margin: 30rpx 0;
+}
+
+.article-footer iamge {
+    display: inline-block;
+}

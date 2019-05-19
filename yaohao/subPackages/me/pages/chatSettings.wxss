@@ -1,0 +1,156 @@
+@import "manageUsers.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.settings-top {
+    padding: 30rpx;
+    background: #fff;
+}
+
+.settings-top image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    float: left;
+}
+
+.settings-top .right-info {
+    margin-left: 120rpx;
+    padding: 10rpx 0 15rpx;
+}
+
+.settings-top .right-info .sales-man {
+    padding-bottom: 25rpx;
+}
+
+.settings-top .right-info .sales-man .name {
+    max-width: 350rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10rpx;
+}
+
+.settings-top .right-info .tags .tag {
+    background: #f2f2f2;
+    padding: 0 15rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    margin-right: 12rpx;
+    border-radius: 8rpx;
+    border: none;
+}
+
+.settings-top .right-info .project-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.setting-change-name {
+    padding: 20rpx;
+    margin: 20rpx 0;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.setting-change-name .left-txt {
+    float: left;
+}
+
+.setting-change-name .right-icon {
+    float: right;
+}
+
+.settings {
+    background: #fff;
+    padding: 0 30rpx;
+}
+
+.settings .settings-line {
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #e6e6e6;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+}
+
+.settings .settings-line .left-txt {
+    float: left;
+}
+
+.settings .settings-line .right-icon {
+    float: right;
+}
+
+.settings .no-border {
+    border: none;
+}
+
+.del-person {
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 80rpx 30rpx;
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.showModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.showModal .select {
+    z-index: 990;
+    bottom: 0;
+    left: 30rpx;
+    right: 30rpx;
+    position: absolute;
+    border-radius: 30rpx 30rpx 0 0;
+    background-color: #fff;
+}
+
+.showModal .select .select-lists {
+    text-align: center;
+    max-height: 700rpx;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    margin-bottom: 130rpx;
+}
+
+.showModal .select .select-lists .select-list1 {
+    padding: 15rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.showModal .select .select-lists .select-list {
+    padding: 30rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.showModal .select .delete {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 35rpx 0;
+    border-top: 10rpx solid #f7f7f7;
+}
+
+.showModal .bg {
+    z-index: 889;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
+}

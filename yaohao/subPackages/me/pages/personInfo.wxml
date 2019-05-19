@@ -1,0 +1,41 @@
+<view class="page">
+    <view class="personInfo" style="margin-top:-{{bottom}}px">
+        <view class="personInfo-edit">
+            <view class="avatar bd0">
+                <image bindtap="uploadFile" mode="aspectFill" src="{{default_avatar}}"></image>
+                <view class="fz-11 gray-9-color changeName">点击头像可更换图片</view>
+            </view>
+            <view class="personInfo-name">
+                <view class="left fz-14 small-level-color">
+                        昵称
+                    </view>
+                <view class="personInfo-line1 font-bold">{{inputData.nick_name}}</view>
+            </view>
+            <view class="personInfo-weixin">
+                <view class="left fz-14 small-level-color">
+                        微信号
+                    </view>
+                <view class="personInfo-line1 font-bold">{{inputData.wechat_code}}</view>
+            </view>
+            <navigator class="personInfo-tel" hoverClass="none" url="/subPackages/me/pages/changeInfoPhone">
+                <view class="left fz-14 small-level-color">
+                        手机号
+                    </view>
+                <text class="right gray-9-color fz-14 iconfont icon-xiayibu"></text>
+                <view class="personInfo-line1 font-bold">{{inputData.phone||'请输入电话号码'}}</view>
+            </navigator>
+            <navigator class="personInfo-sign1" hoverClass="none" style="border:none" url="/subPackages/me/pages/changeInfoIntroduce?data={{inputData.content}}">
+                <view class="left fz-14 small-level-color">
+                        个性签名
+                    </view>
+                <text class="right gray-9-color fz-14 iconfont icon-xiayibu"></text>
+                <view class="personInfo-line1 font-bold">{{inputData.content||'请输入个性签名'}}</view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

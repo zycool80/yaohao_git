@@ -1,0 +1,14 @@
+<view class="page">
+    <view class="avatar">
+        <image bindtap="changeAvatar" mode="aspectFill" src="{{avatar}}"></image>
+        <view class="fz-12 small-level-color changeName">点击头像可更换图片</view>
+    </view>
+    <view class="name">
+        <text class="left fz-14 small-level-color">昵称</text>
+        <input bindinput="inputing" class="right" placeholder="{{palceHolder}}" type="text" value="{{inputVal}}"></input>
+        <text bindtap="clearInput" class="iconfont icon-delete fz-18 gray-color" wx:if="{{inputVal}}"></text>
+    </view>
+    <view class="bottom">
+        <view bindtap="saveInfo" class="btn white-color blue-bg">保存</view>
+    </view>
+</view>

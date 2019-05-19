@@ -1,0 +1,83 @@
+@import "manageUsers.wxss";
+
+page {
+    background-color: #f7f7f7;
+}
+
+button[type=primary] {
+    background: linear-gradient(to right,#4677e7,#3753cc);
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    margin: 67rpx 30rpx 0;
+    border-radius: 40rpx;
+}
+
+.weui-input {
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.weui-cells {
+    font-size: 28rpx;
+    overflow: hidden;
+}
+
+.weui-cells .weui-cell {
+    overflow: hidden;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.weui-cells .weui-cell .weui-label {
+    float: left;
+    font-weight: bold;
+}
+
+.weui-cells .weui-cell .weui-cell__bd {
+    margin-left: 160rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.weui-cells .weui-cell .weui-select {
+    float: left;
+}
+
+.weui-cells .weui-cell .icon-xiayibu {
+    float: right;
+}
+
+.weui-cell-textArea {
+    overflow: hidden;
+    padding: 0 30rpx;
+    margin-top: 20rpx;
+    box-sizing: border-box;
+}
+
+.weui-cell-textArea .weui-title {
+    margin-top: 36rpx;
+}
+
+.weui-cell-textArea textarea {
+    width: 100%;
+    height: 440rpx;
+    margin-top: 28rpx;
+}
+
+.weui-cell-textArea .weui-textarea-counter {
+    text-align: right;
+}
+
+.weui-cells__tips {
+    line-height: 35rpx;
+    margin-top: 37rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.weui-textarea-counter {
+    margin-bottom: 38rpx;
+}

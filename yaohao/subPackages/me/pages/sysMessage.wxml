@@ -1,0 +1,51 @@
+<view class="answer-cont" id="sysMessage" style="padding-bottom: 30rpx">
+    <view bindtap="getHistory" class="moreMessage fz-13" wx:if="{{more&&loading}}">加载历史消息</view>
+    <block wx:if="{{sysInfo.length>0}}">
+        <block wx:if="{{item.content}}" wx:for="{{sysInfo}}" wx:key="key">
+            <view class="time fz-11 gray-9-color">{{item.created_at||''}}</view>
+            <view class="main-cont">
+                <button class="left-avatar" openType="contact">
+                    <image mode="aspectFill" src="{{item.content.system_user.avatar_url}}"></image>
+                </button>
+                <view bindtap="toUrlHandle" class="postCard" data-wpytourlhandle-a="{{item.content.url}}" hidden="{{item.content.type!=1}}">
+                    <view class="title fz-13 black1a-color">{{item.content.content}}</view>
+                </view>
+                <view bindtap="toUrlHandle" class="postCard" data-wpytourlhandle-a="{{item.content.url}}" hidden="{{item.content.type!=2}}">
+                    <view class="project_name fz-15 black1a-color font-bold">{{item.content.project.title}}</view>
+                    <view class="project_info fz-13 black1a-color">{{item.content.content}}</view>
+                    <view class="lookFor">
+                        <view class="left btn fz-15">立即查看</view>
+                        <view class="right btn fz-15">>></view>
+                    </view>
+                </view>
+                <view bindtap="toUrlHandle" class="postCard" data-wpytourlhandle-a="{{item.content.url}}" hidden="{{item.content.type!=4}}">
+                    <image class="post-img" mode="widthFix" src="{{item.content.article.img}}"></image>
+                    <view class="descript fz-14 black1a-color font-bold" style="margin-bottom: 24rpx">{{item.content.article.title}}</view>
+                    <view class="autor">
+                        <view class="name">
+                            <image mode="aspectFill" src="{{item.content.article_source.avatar_url}}"></image>
+                            <text class="fz-11 small-level-color" style="position: relative;top: -4rpx;">{{item.content.article_source.name}}</text>
+                        </view>
+                        <view class="post_time fz-11 small-level-color">{{item.content.system_user.updated_at}}</view>
+                    </view>
+                </view>
+                <view bindtap="toUrlHandle" class="postCard" data-wpytourlhandle-a="{{item.content.url}}" wx:if="{{item.content.type==3||item.content.type==5}}">
+                    <image class="post-img" mode="widthFix" src="{{item.content.project.img}}"></image>
+                    <view class="descript fz-13 black1a-color">{{item.content.project.title}}</view>
+                    <view class="lookFor">
+                        <view class="left btn fz-15">立即查看</view>
+                        <view class="right btn fz-15">>></view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </block>
+    <block wx:else>
+        <view class="nothing fz-13 black1a-color" wx:if="{{loading}}">暂无消息</view>
+    </block>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

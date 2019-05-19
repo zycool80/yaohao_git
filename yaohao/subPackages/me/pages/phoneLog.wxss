@@ -1,0 +1,84 @@
+@import "manageUsers.wxss";
+
+.phoneLog-top {
+    position: relative;
+    text-align: center;
+}
+
+.phoneLog-top image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.phoneLog-top .phoneLog-top-cont {
+    padding: 70rpx 0 20rpx;
+}
+
+.phoneLog-top .log {
+    padding-bottom: 56rpx;
+}
+
+.phoneLog-top .today-log {
+    padding-bottom: 20rpx;
+}
+
+.picker-view {
+    height: 88rpx;
+    line-height: 88rpx;
+    padding: 0 30rpx;
+    border-bottom: 20rpx solid #f7f7f7;
+}
+
+.log-cont-line {
+    height: 100rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+    margin: 0 30rpx;
+    overflow: hidden;
+}
+
+.log-cont-line .line-icon {
+    float: left;
+    line-height: 100rpx;
+}
+
+.log-cont-line .line-cont {
+    margin: 0 130rpx 0 60rpx;
+    padding-top: 20rpx;
+}
+
+.log-cont-line .line-cont>text {
+    display: block;
+    line-height: 1;
+}
+
+.log-cont-line .line-time {
+    float: right;
+    line-height: 1;
+    padding-top: 27rpx;
+}
+
+.phoneLog-bg {
+    text-align: center;
+    padding: 200rpx 150rpx 0;
+}
+
+.phoneLog-bg image {
+    width: 100%;
+}
+
+.phoneLog-bg .homeBack {
+    background: #f7776a;
+    line-height: 80rpx;
+    border-radius: 80rpx;
+    padding: 0 145rpx;
+    display: inline-block;
+    margin: 120rpx auto 0;
+}
+
+.red-color {
+    color: #f7776a!important;
+}

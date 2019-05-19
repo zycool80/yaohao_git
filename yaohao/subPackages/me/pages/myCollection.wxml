@@ -1,0 +1,36 @@
+<view class="myLottery">
+    <block wx:if="{{projects.length>0}}">
+        <view class="title-top fz-12 font-bold">
+                我关注的楼盘({{length}})
+            </view>
+        <navigator class="hot_house_list" hoverClass="none" url="{{item.url}}" wx:for="{{projects}}" wx:key="key">
+            <view bindtap="follow" class="attention gray-color fz-11 iconfont icon-xiayibu"></view>
+            <view class="hot_house_img">
+                <image class="lottery-img" lazyLoad="{{true}}" mode="aspectFill" src="{{item.cover}}"></image>
+                <image class="lottery-img-bottom" lazyLoad="{{true}}" mode="aspectFill" src="{{item.list_tag}}" wx:if="{{item.list_tag}}"></image>
+            </view>
+            <view class="hot_house_info">
+                <view class="title black1a-color fz-14 font-bold">{{item.name}}</view>
+                <view class="prise fz-12">
+                    <text class="fz-14 red-color" wx:if="{{item.price==='待定'}}">{{item.price}}</text>
+                    <block wx:else>
+                        <text class="fz-14 red-color">¥{{item.price}}元</text>/m²
+                                <text wx:if="{{item.decorate_situation}}">({{item.decorate_situation}})</text>
+                    </block>
+                </view>
+                <view class="tags">
+                    <view class="tip fz-10" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="key">{{tag}}</view>
+                </view>
+            </view>
+        </navigator>
+    </block>
+    <view class="not_id_card" wx:if="{{projects.length<=0&&loading}}">
+        <image lazyLoad="{{true}}" mode="widthFix" src="../../../images/icons/not_id_card.png"></image>
+        <view class="small-level-color fz-12">小主人~目前你还没有关注内容喔！</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

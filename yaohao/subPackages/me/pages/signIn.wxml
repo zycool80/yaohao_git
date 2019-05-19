@@ -1,0 +1,198 @@
+<view hidden="{{type!=1}}">
+    <view class="modalDialog">
+        <view class="modalDialog_content">
+            <view class="modalDialog_style2">
+                <view style="display: flex;align-items: center">
+                    <image class="title_img" src="../../../images/zuo_03.png"></image>
+                    <text class="prompt_xinxi">恭喜小主人</text>
+                    <image class="title_img" src="../../../images/you_05.png"></image>
+                </view>
+            </view>
+            <view class="modalDialog_xiaoxi">
+                <image src="../../../images/luckyBean.png" style="width: 240rpx;height: 240rpx"></image>
+                <text class="modalDialog_xiaoxi_title">今日获得 <text style="color: #f7b55e">3</text> 幸运豆</text>
+                <view class="modalDialog_xiaoxi_content">
+                    <text class="modalDialog_xiaoxi_cishu">今日次数已完</text>
+                </view>
+            </view>
+            <view style="display: flex;justify-content: center;">
+                <image src="../../../images/quxiao.png" style="width: 70rpx;height: 70rpx;margin-top: 50rpx"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view hidden="{{type!=2}}">
+    <view class="modalDialog">
+        <view class="modalDialog_content">
+            <view class="modalDialog_style2"></view>
+            <view class="modalDialog_xiaoxi">
+                <image src="../../../images/luckyBean.png" style="width: 240rpx;height: 240rpx"></image>
+                <text class="modalDialog_xiaoxi_title">本次抽奖需要消耗幸运豆 5</text>
+                <text style="font-size: 24rpx">幸运豆剩余 <text style="font-weight: 700;font-size: 32;margin-top: 20rpx">120</text>
+                </text>
+                <view class="modalDialog_xiaoxi_content1">
+                    <text class="modalDialog_xiaoxi_cishu1">确认抽奖</text>
+                </view>
+            </view>
+            <view style="display: flex;justify-content: center;">
+                <image src="../../../images/quxiao.png" style="width: 70rpx;height: 70rpx;margin-top: 50rpx"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view hidden="{{type!=3}}">
+    <view class="modalDialog">
+        <view class="modalDialog_content">
+            <view class="modalDialog_style2">
+                <view style="display: flex;align-items: center">
+                    <image class="title_img" src="../../../images/zuo_03.png"></image>
+                    <text class="prompt_xinxi">小主人加油</text>
+                    <image class="title_img" src="../../../images/you_05.png"></image>
+                </view>
+            </view>
+            <view class="modalDialog_xiaoxi">
+                <image src="../../../images/kuqi.png" style="width: 240rpx;height: 128rpx"></image>
+                <text class="modalDialog_xiaoxi_title">再接再厉</text>
+                <text style="font-size: 24rpx">小主人别伤心，在我心里你是最棒的</text>
+                <view class="modalDialog_xiaoxi_content1">
+                    <text class="modalDialog_xiaoxi_cishu1">再试一次</text>
+                </view>
+            </view>
+            <view style="display: flex;justify-content: center;">
+                <image src="../../../images/quxiao.png" style="width: 70rpx;height: 70rpx;margin-top: 50rpx"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view hidden="{{type!=4}}">
+    <view class="modalDialog">
+        <view class="modalDialog_content">
+            <view class="modalDialog_style2">
+                <view style="display: flex;align-items: center">
+                    <image class="title_img" src="../../../images/zuo_03.png"></image>
+                    <text class="prompt_xinxi">恭喜小主人</text>
+                    <image class="title_img" src="../../../images/you_05.png"></image>
+                </view>
+            </view>
+            <view class="modalDialog_xiaoxi">
+                <image src="../../../images/wanmei.png" style="width: 240rpx;height: 128rpx"></image>
+                <text class="modalDialog_xiaoxi_title">获得100元话费充值卡</text>
+                <view class="modalDialog_xiaoxi_content1">
+                    <text class="modalDialog_xiaoxi_cishu1">前去兑换</text>
+                </view>
+                <view class="modalDialog_xiaoxi_content" style="margin-top: 30rpx">
+                    <text class="modalDialog_xiaoxi_cishu">今日次数已完</text>
+                </view>
+            </view>
+            <view style="display: flex;justify-content: center;">
+                <image src="../../../images/quxiao.png" style="width: 70rpx;height: 70rpx;margin-top: 50rpx"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="page">
+    <image class="back-image" src="/images/sign-bg.png"></image>
+    <view class="sign-head">
+        <view class="sign-head-detail"></view>
+        <view class="sign-head-img">
+            <image class="sign-head-tittle" mode="aspectFill" src="{{userInfo['avatarUrl']&&userInfo['avatarUrl']!='null'?userInfo['avatarUrl']:defaultAvatar}}"></image>
+            <text class="fz-12 white-color">当前幸运豆 {{grades}}</text>
+        </view>
+        <view class="sign-head-Instructions">
+            <navigator class="fz-12 white-color" hoverClass="none" url="{{signExplainPath}}">规则说明</navigator>
+        </view>
+    </view>
+    <view class="sign-tip" style="background: #fff">
+        <view class="black-color fz-14" wx:if="{{status==1}}">今日签到
+                <text class="yellow-color">+{{addPoint}}</text>！
+            </view>
+        <view class="black-color fz-14">连续签到
+                <text class="yellow-color">{{days}}</text>
+                天! 已签到
+                <text class="yellow-color">{{allDays}}</text>
+                天
+            </view>
+        <view class="gray-9-color fz-12">再连续签到{{10-days>0?10-days:0}}天! 可额外获取20幸运豆</view>
+    </view>
+    <view class="sign-btn">
+        <button bindtap="signBtn" class="{{status==2?'icon-yellow-bg':'gray-bg'}}">
+            <text class="fz-14 white-color">{{status==2?'签到':'今日已签到'}}</text>
+        </button>
+    </view>
+    <view>
+        <navigator class="sign-more" hoverClass="none" url="{{pointExplainPath}}">
+            <text class="black1a-color fz-15">赚取更多幸运豆</text>
+            <text class="iconfont icon-wentiquestions1 small-level-color"></text>
+        </navigator>
+        <view class="sign-share">
+            <view class="sign-share-top">
+                <view class="share-cont">
+                    <text class="black1a-color fz-14 font-bold">评论</text>
+                    <text class="fz-12 black1a-color">在小程序分享堂、楼盘界面评论可获取幸运豆 </text>
+                </view>
+                <view bindtap="share" class="fz-12 blue-color shareNav">去评论</view>
+            </view>
+            <view class="addPoint">
+                <view class="progressBar">
+                    <text class="progress-len" style="width: {{commentProcessLen}}rpx"></text>
+                </view>
+                <view class="fz-12 blue-color progressBar-text">+2幸运豆 <text class="small-level-color fz-11">({{commentProgress}}/3)</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="sign-benefit">
+        <block wx:for="{{banners[0]}}" wx:for-item="banner" wx:key="key">
+            <view class="weui-footer__text" wx:if="{{banner.type=='text'}}">{{banner.text}}</view>
+            <navigator class="" hoverClass="weui-form-preview__btn_active" url="{{banner.url}}" wx:if="{{banner.type=='link'}}">
+                <image mode="widthFix" src="{{banner.image}}" style="width: 100%;" wx:if="{{banner.image}}"></image>
+                <view class="weui-footer__text">{{banner.text}}</view>
+            </navigator>
+            <block wx:if="{{banner.type=='image'}}">
+                <image bindtap="preview" data-wpypreview-a="{{banner.image}}" mode="widthFix" src="{{banner.image}}" style="width: 100%;" wx:if="{{banner.image}}"></image>
+                <view class="fz-12 weui-footer__text">{{banner.text}}</view>
+                <text class="fz-12 small-level-color">实时获取买房干货</text>
+                <text class="fz-12 gray-9-color">努力做一个完完美美的公众号</text>
+            </block>
+        </block>
+    </view>
+    <view class="signBox" wx:if="{{status==1&&isShow}}">
+        <view class="signTop">
+            <view class="signTop-avatar">
+                <image src="{{defaultAvatar}}"></image>
+            </view>
+            <view class="signTop-middle white-color">
+                <text class="fz-13">坚持签到了 <text class="fz-14 orange">{{allDays}}</text> 天</text>
+                <text class="fz-11">再接再励，获取更多幸运豆</text>
+            </view>
+            <view class="signTop-last white-color">
+                <text class="fz-13">已经连续</text>
+                <text class="fz-13">签到 <text class="fz-14 orange">{{days}}</text> 天</text>
+            </view>
+        </view>
+        <view class="signCont">
+            <view class="signCont-title fz-15 black1a-color">今天加油，相信你是最棒的喔！</view>
+            <view class="signCont-img">
+                <image src="/images/luckyBean.png"></image>
+            </view>
+            <view class="fz-13 black1a-color today">今日获得 <text class="orange fz-14">{{addPoint}}</text> 幸运豆，已有 <text class="fz-14 orange">{{grades}}</text> 幸运豆</view>
+            <view class="fz-13 black1a-color more">获得更多幸运豆 <view class="rotate">
+                    <text class="fz-20 iconfont icon-shoudong orange"></text>
+                </view>
+            </view>
+        </view>
+        <view class="signCont-btn">
+            <view bindtap="toUrl" class="fz-14 {{touch==1?'green':'black1a-color'}} comment" data-wpytourl-a="1">去评论</view>
+            <view bindtap="toUrl" class="fz-14  touch == 2?'green':'black1a-color'" data-wpytourl-a="2">去分享</view>
+        </view>
+        <view bindtap="close" class="closeBtn">
+            <text class="icon-guanbi white-color iconfont fz-16"></text>
+        </view>
+    </view>
+    <view bindtap="close" class="signBg" wx:if="{{status==1&&isShow}}"></view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

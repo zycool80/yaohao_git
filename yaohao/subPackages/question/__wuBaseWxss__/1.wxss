@@ -1,0 +1,66 @@
+.comment_box {
+    background-color: #fff;
+    padding: 20rpx 0;
+}
+
+.comment_box .comment_list,.comment_box .comment_list_child {
+    line-height: 1.4;
+    overflow: hidden;
+}
+
+.comment_box .comment_list_cont {
+    font-weight: normal;
+}
+
+.comment_box .comment_list_time {
+    color: #999;
+    padding-bottom: 20rpx;
+}
+
+.comment_box .comment_list_child {
+    box-sizing: border-box;
+    padding-left: 60px;
+    margin-top: 20rpx;
+}
+
+.comment_box .comment_list_item {
+    width: 100%;
+    overflow: hidden;
+}
+
+.comment_box .comment_list_item .comment_list_avatar {
+    float: left;
+    width: 100rpx;
+    display: flex;
+    padding: 20rpx 0 20rpx 20rpx;
+    overflow: hidden;
+}
+
+.comment_box .comment_list_item .comment_list_avatar image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 100%;
+}
+
+.comment_box .comment_list_item .comment_list_right {
+    margin-left: 130rpx;
+    padding: 20rpx 20rpx 20rpx 0;
+    border-bottom: 1rpx solid #e5e5e5;
+    overflow: hidden;
+}
+
+.comment_box .comment_list_item .comment_list_user {
+    margin-bottom: 30rpx;
+    line-height: 36rpx;
+}
+
+.comment_box .comment_list_item .comment_time_share {
+    width: 100%;
+    margin-top: 10rpx;
+    overflow: hidden;
+}
+
+.comment_box .comment_list_right .wrap {
+    max-height: 138rpx;
+    overflow: hidden;
+}

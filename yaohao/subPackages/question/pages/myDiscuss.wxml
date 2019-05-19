@@ -1,0 +1,75 @@
+<view class="page">
+    <view class="tab-bar">
+        <view bindtap="toggleTab" class="tabname {{nowTab==1?'active black-color fz-14 font-bold':'small-level-color fz-12'}}" data-wpytoggletab-a="1">我的讨论</view>
+        <view bindtap="toggleTab" class="tabname {{nowTab==2?'active black-color fz-14 font-bold':'small-level-color fz-12'}}" data-wpytoggletab-a="2">关注的话题</view>
+    </view>
+    <block wx:if="{{items.length>0}}">
+        <block wx:for="{{items}}" wx:for-index="parentIndex" wx:key="key">
+            <view class="myDiscuss-date fz-12 font-bold">{{item.time}}</view>
+            <block wx:if="{{nowTab==1}}">
+                <navigator class="myDiscuss-content" hoverClass="none" url="/subPackages/question/pages/questionComment?id={{discuss.id}}" wx:for="{{item.data}}" wx:for-index="childIndex" wx:for-item="discuss" wx:key="key">
+                    <view class="left-content">
+                        <view class="img">
+                            <image src=" {{discuss.user_avatar_url||'/images/default_sales_man_avatar.png'}}"></image>
+                        </view>
+                    </view>
+                    <view class="right-content">
+                        <view class="name fz-12 font-bold black-color">{{discuss.user_name}}</view>
+                        <view class="content">
+                            <text class="fz-12 height-level-color">{{discuss.content}}</text>
+                        </view>
+                        <div class="hot-topic">
+                            <view catchtap="toDiscuss" class="hot-topic-left blue-color fz-12" data-wpytodiscuss-a="{{discuss.topic_id}}">{{discuss.short_title}}</view>
+                            <view class="fz-10 small-level-color">
+                                <text class="view">{{discuss.page_views}} 浏览量</text>
+                            </view>
+                        </div>
+                        <view class="small-level-color right-btn">
+                            <text class="fz-10">{{discuss.time}}</text>
+                            <view catchtap="like" class="fz-14 iconfont icon-dianzan1 {{discuss.is_like==1?'red-color':''}} good" data-wpylike-a="{{parentIndex}}" data-wpylike-b="{{childIndex}}" data-wpylike-c="{{discuss.id}}">
+                                <text class="fz-10 right-btn-text">{{discuss.like_num}}</text>
+                            </view>
+                            <view class="fz-14 iconfont icon-xiaoxi comment">
+                                <text class="fz-10 right-btn-text">{{discuss.comment_num}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+            <block wx:if="{{nowTab==2}}">
+                <navigator class="content-box" hoverClass="none" url="/subPackages/comment/pages/discuss?id={{discuss.id}}" wx:for="{{item.data}}" wx:for-item="discuss" wx:key="key">
+                    <view class="content-img">
+                        <image mode="aspectFill" src="{{discuss.img||'/images/placeholder2.jpg'}}"></image>
+                    </view>
+                    <view class="content-text">
+                        <view class="content">
+                            <text class="fz-12 sky-color">{{discuss.short_title}}</text>
+                            <text class="fz-12 height-level-color">{{discuss.content}}</text>
+                        </view>
+                        <view class="hot-topic-left" style="margin:30rpx 0">
+                            <text class="fz-12 sky-color buyHouse">{{discuss.short_title}}</text>
+                            <text class="fz-12 small-level-color">一起讨论</text>
+                        </view>
+                        <div class="hot-topic">
+                            <view class="small-level-color fz-10">{{discuss.time}}</view>
+                            <view class="fz-10 small-level-color">
+                                <text class="view">{{discuss.page_views}} 浏览量</text>
+                                <text>{{discuss.attention_num}} 关注</text>
+                            </view>
+                        </div>
+                    </view>
+                </navigator>
+            </block>
+        </block>
+    </block>
+    <block wx:else>
+        <view class="nothing" wx:if="{{!loading}}">
+            <view class="nothing-text fz-13 small-level-color">小主人暂时未参与任何讨论</view>
+        </view>
+    </block>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

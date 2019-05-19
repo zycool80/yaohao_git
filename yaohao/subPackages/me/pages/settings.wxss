@@ -1,0 +1,49 @@
+@import "manageUsers.wxss";
+
+.title {
+    padding: 19rpx 30rpx;
+    background: #f7f7f7;
+}
+
+.settings-line-son .settings-line {
+    overflow: hidden;
+    margin-left: 30rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding-right: 30rpx;
+    border-top: 1rpx solid #e5e5e5;
+}
+
+.none-border {
+    border: none!important;
+}
+
+.settings-line.line-bottom {
+    overflow: hidden;
+    margin-left: 30rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding-right: 30rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.settings-small-line {
+    margin-left: 50rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding-right: 30rpx;
+    border-top: 1rpx solid #e5e5e5;
+    overflow: hidden;
+}
+
+.black-1a-color {
+    color: #1a1a1a!important;
+}

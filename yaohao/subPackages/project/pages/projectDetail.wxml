@@ -1,0 +1,129 @@
+<view class="page" style="padding-bottom: 72rpx">
+    <view class="projectDetail-bg">
+        <view class="projectDetail-title">
+            <view class="projectDetail-title-name">
+                <text class="fz-16 black-color font-bold" style="padding-bottom: 24rpx">{{title}}</text>
+                <text class="fz-12 small-level-color">{{area}}</text>
+            </view>
+            <view class="projectDetail-title-name-share" style="position: relative;top:16rpx">
+                <button class="share" openType="share">
+                    <text class="iconfont icon-fenxiang9 fz-14"></text>
+                    <text class="fz-12" style="line-height: 56rpx;margin-left: 8rpx;">分享</text>
+                </button>
+            </view>
+        </view>
+    </view>
+    <view class="projectDetail-bg" wx:if="{{main_message.length}}">
+        <view class="projecDetail-mainInfo">
+            <view class="projecDetail-mainInfo-content fz-13">
+                <view class="projecDetail-mainInfo-line" wx:for="{{main_message}}" wx:for-item="row" wx:key="key">
+                    <view class="fz-13 gray-color left-key">{{row.text}}</view>
+                    <block wx:if="{{row.text==='参考价格'}}">
+                        <block wx:if="{{row.value.length>1}}">
+                            <view class="weui-form-preview__value fz-13" style="color:#ff454e;" wx:for="{{row.value}}" wx:for-item="val" wx:key="key">{{val}}</view>
+                        </block>
+                        <view class="weui-form-preview__value fz-13" wx:else>暂无</view>
+                    </block>
+                    <block wx:else>
+                        <block wx:if="{{row.text==='楼盘地址'||row.text==='售楼处地址'}}">
+                            <view bindtap="toMap" class="dingwei fz-13" data-wpytomap-a="{{row.value[0]}}">{{row.value[0]}}</view>
+                            <text class="iconfont icon-you fz-18" style="float: left;color: #9a9a9a"></text>
+                        </block>
+                        <view class="weui-form-preview__value fz-13 black1a-color" wx:else>{{row.value[0]}}</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="projectDetail-bg">
+        <view class="projecDetail-mainInfo">
+            <view class="projecDetail-mainInfo-content fz-13">
+                <block wx:for="{{periphery}}" wx:for-item="row" wx:key="key">
+                    <block wx:if="{{row.text=='地铁交通'}}">
+                        <view class="projecDetail-mainInfo-line {{row.text=='地铁交通'?'mT-projecDetail-mainInfo-line':''}}" wx:if="{{row.value.length!==0}}">
+                            <view class="fz-13 gray-color left-key title">{{row.text}}</view>
+                            <view class="metroTraffic">
+                                <view class="p" wx:for="{{row.value}}" wx:for-item="mT" wx:key="key">
+                                    <view class="icon {{mTType[mT.type]}}">
+                                        <text class="iconfont icon-ic_train_px fz-14"></text>
+                                    </view>
+                                    <view class="span fz-13 black1a-color">
+                                                    {{mT.type}}号线{{mT.station}}站直线距离{{mT.distance}}米
+                                                </view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="projecDetail-mainInfo-line" wx:elif="{{row.text=='容积率'}}">
+                        <view class="fz-13 gray-color left-key">{{row.text}}<text bind:tap="openRJTipView" class="iconfont icon-wenhao" style="margin-left:10rpx;color:#6c7b8e"></text>
+                        </view>
+                        <view class="weui-form-preview__value fz-13 black1a-color" style="display:-webkit-flex;-webkit-justify-content:space-between">
+                            <text>{{row.value}}</text>
+                        </view>
+                    </view>
+                    <view class="projecDetail-mainInfo-line" wx:else>
+                        <view class="fz-13 gray-color left-key">{{row.text}}</view>
+                        <view class="weui-form-preview__value fz-13 black1a-color">{{row.value}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="projectDetail-bg" wx:if="{{lottery_detail}}">
+        <view class="projecDetail-mainInfo projecDetail-buildInfo">
+            <view class="projecDetail-mainInfo-content">
+                <view class="projecDetail-mainInfo-line" wx:for="{{lottery_detail}}">
+                    <view class="fz-13 gray-color left-key">{{item.text}}</view>
+                    <view class="fz-13 black1a-color right-value">{{item.value}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="projectDetail-bg" wx:if="{{property_message}}">
+        <view class="projecDetail-mainInfo projecDetail-buildInfo">
+            <view class="projecDetail-mainInfo-content">
+                <view class="projecDetail-mainInfo-line" wx:for="{{property_message}}">
+                    <view class="fz-13 gray-color left-key">{{item.text}}</view>
+                    <view class="fz-13 black1a-color right-value">{{item.value}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="projectDetail-bg" wx:if="{{content}}">
+        <view class="projecDetail-mainInfo projecDetail-introduce" style="padding-bottom:40rpx;">
+            <view class="fz-13 gray-color" style="padding: 30rpx 0;font-weight: bold">楼盘简介</view>
+            <text class="projecDetail-mainInfo-content fz-13 black1a-color" style="display:block;line-height: 1.4;padding-right: 30rpx">{{content}}</text>
+        </view>
+    </view>
+    <view class="projectDetail-bg">
+        <view class="projecDetail-mainInfo projecDetail-around">
+            <view class="fz-13 small-title {{index>0?'':'gray-color color-style'}}" wx:for="{{item.near}}" wx:key="key">
+                <view style="width: 690rpx;overflow: hidden;">
+                    <view style="float: left;width: 190rpx;text-align: left">{{item[2]}}</view>
+                    <view style="float: left;margin-left: 80rpx;width: 160rpx;text-align: center;">{{item[1]}}</view>
+                    <view style="float: right;width: 144rpx;text-align: right" wx:if="{{index===0}}">{{item[0]}}</view>
+                    <view style="float: right;width: 144rpx;" wx:else>{{item[0]}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <navigator class="errorCorrection" hoverClass="none" url="/subPackages/lottery/pages/errorCorrection?id={{project_id}}">
+        <text class="iconfont icon-mianze1 fz-12 small-level-color" style="padding-right: 10rpx"> 免责声明 </text>
+        <text class="fz-12 small-level-color">本楼盘信息仅供参考，具体以政府部门登记备案为准，如信息有误 </text>
+        <text class="fz-12 blue-color"> 点我信息纠错</text>
+    </navigator>
+    <view class="footer-btn">
+        <view style="width: 690rpx;height: 100%;margin: auto;display: flex;align-items: center;justify-content: space-between" wx:if="{{attetionList.result_url.type===4}}">
+            <view bindtap="phoneCall" class="layout btn-style call-phone" data-wpyphonecall-a="{{attetionList.result_url.url}}">电话咨询</view>
+            <view bindtap="toUrl" class="layout btn-style contact-salems">联系置业顾问</view>
+        </view>
+        <view style="width: 690rpx;height: 100%;margin: auto;display: flex;align-items: center;justify-content: space-between" wx:else>
+            <view bindtap="toUrl" class="layout btn-style2 contact-salems">联系置业顾问</view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

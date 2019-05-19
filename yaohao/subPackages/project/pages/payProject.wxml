@@ -1,0 +1,107 @@
+<view class="page">
+    <view class="page__bd haveSearchBar" style="overflow:hidden">
+        <navigator class="search-bar" hoverClass="none" style="background-color:#2c8cf0;" url="/pages/project/search?type=0">
+            <view class="search-btn fz-14 white-color">确定</view>
+            <view class="search-bar-form">
+                <view class="weui-icon-search iconfont icon-sousuo"></view>
+                <view class="weui-icon-clear iconfont icon-delete" wx:if="{{inputVal.length>0}}"></view>
+                <view class="ui-input search-bar-input search-input-place">{{inputPlace}}</view>
+            </view>
+        </navigator>
+        <view class="new-lottery-box">
+            <view class="new-lottery-title" style="top:50px;">
+                <view class="blue-bg white-color">{{title}}</view>
+                <view bindtap="chooseArea" class="chooseArea" wx:if="{{title!=='热门楼盘'&&title!=='优质楼盘'}}">
+                    <text class="{{!switchNum?'area_list_change':'area_list_change_active'}}">全部区域</text>
+                    <text class="iconfont icon-xialajiantou" style="font-size:12px;margin-left:6px;font-size:16rpx;"></text>
+                </view>
+            </view>
+            <view class="new-lottery-listbox">
+                <view class="not_id_card" wx:if="{{items.length<1&&!loading}}">
+                    <image mode="aspectFit" src="/images/icons/not_id_card.png" style="height:140rpx;display:block;margin:0 auto;"></image>
+                    <text class="small-level-color" style="margin-top:30px;font-size:14px">小主人~还没有楼盘信息</text>
+                </view>
+                <block wx:else>
+                    <navigator class="item_content" hoverClass="weui-cell_active" url="{{$ProjectItem$item.url}}" wx:for="{{$ProjectItem$items}}" wx:for-index="$ProjectItem$index" wx:for-item="$ProjectItem$item" wx:key="$ProjectItem$key">
+                        <view class="hot_house_img">
+                            <image class="lottery-img gray-bg" lazyLoad="{{$ProjectItem$true}}" mode="aspectFill" src="{{$ProjectItem$item.cover}}"></image>
+                            <view class="gray-shadow"></view>
+                            <view class="lottery-img-bottom white-color fz-10" wx:if="{{$ProjectItem$item.list_tag}}">{{$ProjectItem$item.list_tag}}</view>
+                            <view class="view white-color">
+                                <text class="fz-15 iconfont icon-chakanzhong"></text>
+                                <text class="fz-11" style="margin-left:5rpx">{{$ProjectItem$item.page_views}}</text>
+                            </view>
+                        </view>
+                        <view class="content_right">
+                            <view class="weui-media-box__title" style="line-height:44rpx">
+                                <view class="right fz-14 red-color" wx:if="{{$ProjectItem$item.avg_price&&$ProjectItem$item.avg_price!='0'}}">¥{{$ProjectItem$item.avg_price}}</view>
+                                <view class="left fz-14 black1a-color font-bold title_name">{{$ProjectItem$item.name}}</view>
+                            </view>
+                            <view class="left fz-12 black1a-color" style="padding: 12rpx 0 6rpx;line-height: 1" wx:if="{{$ProjectItem$item.alias}}">别名：{{$ProjectItem$item.alias}}</view>
+                            <view class="tags">
+                                <text class="tag fz-10" wx:for="{{$ProjectItem$item.tags}}" wx:for-index="$ProjectItem$index" wx:for-item="$ProjectItem$tag" wx:key="$ProjectItem$key">{{$ProjectItem$tag}}</text>
+                                <text class="tag1 fz-12 black1a-color">{{$ProjectItem$item.area}}</text>
+                            </view>
+                            <view class="list_bottom small-level-color">
+                                <view class="attention">
+                                    <view class="comment_follow" style="margin-left:30rpx">
+                                        <view class="follow">
+                                            <text class="iconfont icon-xiaoxi5 fz-14"></text>
+                                            <text class="fz-12"> {{$ProjectItem$item.comment_num}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                                <view class="area fz-12">
+                                    <text class="fz-11 sign-text" style="margin-right: 10rpx" wx:for="{{$ProjectItem$item.time}}" wx:for-index="$ProjectItem$index" wx:for-item="$ProjectItem$val" wx:key="$ProjectItem$key">{{$ProjectItem$val}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </navigator>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view>
+        <view>
+            <view class="foot_bottom" hidden="{{!loading}}">
+                <view class="loading-runing">
+                    <view class="loading-icon">
+                        <text class="iconfont icon-jiazai"></text>
+                    </view>
+                    <view class="left-font">
+                        <text>加载中</text>
+                    </view>
+                </view>
+            </view>
+            <view class="foot_bottom" hidden="{{more}}">
+                <view class="weui-loadmore__tips gray-color">我也是有底线的哦~ (๑•́ ₃ •̀๑)</view>
+            </view>
+        </view>
+    </view>
+</view>
+<block wx:if="{{switchNum}}">
+    <view class="fliterView" style="top:50px;margin-top:85rpx;">
+        <view class="project-select-content">
+            <view class="project-select_area">
+                <view class="select-right-cont gray-f7-bg no-left-cont">
+                    <block wx:for="{{areasDatas}}" wx:key="key">
+                        <view class="select-item_title black1a-color font-bold fz-14">{{item.title}}</view>
+                        <view class="select-item_group">
+                            <view bindtap="clickAreaHandle" class="select-item_btn fz-13 {{area.is_toggle?'active':''}}" data-wpyclickareahandle-a="{{index}}" data-wpyclickareahandle-b="{{areaIndex}}" wx:for="{{item.data}}" wx:for-index="areaIndex" wx:for-item="area" wx:key="key">{{area.key}}</view>
+                        </view>
+                    </block>
+                </view>
+                <view class="select-bottom">
+                    <view bindtap="resetHandle" class="select-btn white-style float_left fz-14 font-bold">重置</view>
+                    <view bindtap="submitHandle" class="select-btn float_right fz-14 font-bold">确定</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="closeFliterView" catchtouchmove="stopMove" class="model-bg"></view>
+</block>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

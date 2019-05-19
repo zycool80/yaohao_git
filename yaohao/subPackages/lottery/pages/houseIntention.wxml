@@ -1,0 +1,83 @@
+<view class="page">
+    <view class="condition-option">
+        <view class="option-unlimited">
+            <view class="title fz-14 black1a-color font-bold">你的买房预算</view>
+            <view class="text fz-13 orange-color" wx:if="{{low==0&&heigh==20000}}">{{usPrice}}</view>
+            <view class="text fz-13 orange-color" wx:else>{{low}}元/㎡ - {{heigh}}元/㎡</view>
+            <view class="zy-slider">
+                <view class="container {{$Slider$hideOption}}">
+                    <view catch:touchmove="$Slider$_minMove" class="slider-item min" style="left:{{$Slider$leftValue}}rpx;">
+                        <view class="_maxMove_item">
+                            <view class="shuxian"></view>
+                            <view class="shuxian"></view>
+                            <view class="shuxian"></view>
+                        </view>
+                    </view>
+                    <view catch:touchmove="$Slider$_maxMove" class="slider-item max" style="left:{{$Slider$rightValue}}rpx;">
+                        <view class="_maxMove_item" style="display: flex;align-items: center;justify-content: center">
+                            <view class="shuxian"></view>
+                            <view class="shuxian"></view>
+                            <view class="shuxian"></view>
+                        </view>
+                    </view>
+                    <view class="slider-body left" style="left:{{$Slider$sliderLength}}rpx; width:{{$Slider$leftValue}}rpx;height:10rpx; background-color:{{$Slider$backgroundColor}};"></view>
+                    <view class="slider-body body" style="left:{{$Slider$leftValue}}rpx; width:{{$Slider$rightValue-$Slider$leftValue}}rpx;height:10rpx;background-color:{{$Slider$selectedColor}};"></view>
+                    <view class="slider-body right" style="left:{{$Slider$rightValue}}rpx; width:{{$Slider$totalLength-$Slider$rightValue}}rpx;height:10rpx;background-color:{{$Slider$backgroundColor}};"></view>
+                </view>
+            </view>
+        </view>
+        <view class="option">
+            <view class="title fz-14 black1a-color font-bold">您想要哪种户型</view>
+            <view class="tags-list">
+                <text bindtap="selectHouse" class="tag-txt fz-12  {{item.type?'white-color  choosed':'black1a-color not-choose '}}" data-wpyselecthouse-a="{{index}}" data-wpyselecthouse-b="{{item}}" wx:for="{{hsType}}" wx:key="key">{{item.house_name}}</text>
+            </view>
+        </view>
+        <view class="option-unlimited">
+            <view class="title fz-14 black1a-color font-bold">户型面积</view>
+            <view class="text fz-13 orange-color" wx:if="{{low2==0&&heigh2==200}}">{{usPrice}}</view>
+            <view class="text fz-13 orange-color" wx:else>{{low2}}㎡ - {{heigh2}}㎡</view>
+            <view class="zy-slider">
+                <view class="container {{$Sliders$hideOption}}">
+                    <view catch:touchmove="$Sliders$_minMove" class="slider-item min" style="left:{{$Sliders$leftValue}}rpx;">
+                        <view class="_maxMove_item">
+                            <view class="shuxian"></view>
+                            <view class="shuxian"></view>
+                            <view class="shuxian"></view>
+                        </view>
+                    </view>
+                    <view catch:touchmove="$Sliders$_maxMove" class="slider-item max" style="left:{{$Sliders$rightValue}}rpx;">
+                        <view class="_maxMove_item" style="display: flex;align-items: center;justify-content: center">
+                            <view class="shuxian"></view>
+                            <view class="shuxian"></view>
+                            <view class="shuxian"></view>
+                        </view>
+                    </view>
+                    <view class="slider-body left" style="left:{{$Sliders$sliderLength}}rpx; width:{{$Sliders$leftValue}}rpx;height:10rpx; background-color:{{$Sliders$backgroundColor}};"></view>
+                    <view class="slider-body body" style="left:{{$Sliders$leftValue}}rpx; width:{{$Sliders$rightValue-$Sliders$leftValue}}rpx;height:10rpx;background-color:{{$Sliders$selectedColor}};"></view>
+                    <view class="slider-body right" style="left:{{$Sliders$rightValue}}rpx; width:{{$Sliders$totalLength-$Sliders$rightValue}}rpx;height:10rpx;background-color:{{$Sliders$backgroundColor}};"></view>
+                </view>
+            </view>
+        </view>
+        <view class="option">
+            <view class="title fz-14 black1a-color font-bold">区域位置</view>
+            <view class="tags-list">
+                <text bindtap="generations" class="tag-txt fz-12  {{component_type?'white-color  choosed':'black1a-color not-choose '}}" data-wpygenerations-a="{{component_type}}">不限</text>
+                <text bindtap="selectLocal" class="tag-txt fz-12  {{item.type?'white-color  choosed':'black1a-color not-choose '}}" data-wpyselectlocal-a="{{index}}" data-wpyselectlocal-b="{{item}}" wx:for="{{areaList}}" wx:key="key">{{item.area_name}}</text>
+            </view>
+        </view>
+        <view class="option">
+            <view class="title fz-14 black1a-color font-bold">房源特点</view>
+            <view class="tags-list">
+                <text bindtap="selectSource" class="tag-txt fz-12 {{item.type?'white-color  choosed':'black1a-color not-choose'}}" data-wpyselectsource-a="{{index}}" data-wpyselectsource-b="{{item}}" wx:for="{{sourceType}}" wx:key="key">{{item.air_name}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view bindtap="submit_list" class="submit">
+    <view class="btn blue-bg white-color fz-14">提交</view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

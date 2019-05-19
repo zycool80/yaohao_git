@@ -1,0 +1,73 @@
+@import "manageUsers.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.page {
+    height: 100%;
+    overflow: hidden;
+}
+
+.hou_plan_item {
+    padding: 0 0 0 30rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.hou_plan_live {
+    border-bottom: 1px solid #e6e6e6;
+    height: 86rpx;
+    line-height: 86rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hou_plan_live input {
+    margin-top: 20rpx;
+    font-size: 28rpx;
+}
+
+.identifyCode {
+    padding: 0 30rpx;
+    float: left;
+    font-size: 28rpx;
+    height: 45rpx;
+    margin-top: 20rpx;
+    line-height: 45rpx;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.bottom-msg {
+    width: 100%;
+    position: fixed;
+    bottom: 170rpx;
+    text-align: center;
+}
+
+.bottom-msg button {
+    border: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    background: none;
+    color: #3753cc;
+    line-height: 1;
+    border-radius: inherit;
+    display: inline-block;
+    font-size: 26rpx;
+    overflow: inherit;
+}
+
+.submit-btn {
+    background: linear-gradient(to right,#2d8cf0,#1068eb);
+    box-sizing: border-box;
+    text-align: center;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-radius: 6rpx;
+    position: fixed;
+    bottom: 40rpx;
+    left: 30rpx;
+    right: 30rpx;
+}

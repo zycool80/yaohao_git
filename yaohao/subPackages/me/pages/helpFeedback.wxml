@@ -1,0 +1,26 @@
+<view class="page">
+    <view class="reportType-title fz-13 small-level-color">帮助与反馈</view>
+    <view class="reportType">
+        <navigator bindtap="barTapAnalysis" class="reportType-line" data-title="联系我们" hoverClass="none" url="/subPackages/tools/pages/transaction">
+            <text class="fz-14 black-1a-color left">联系我们</text>
+            <text class="iconfont icon-xiayibu right gray-color fz-12"></text>
+        </navigator>
+        <navigator bindtap="barTapAnalysis" class="reportType-line" data-title="新手指引" hoverClass="none" url="/subPackages/me/pages/strangerDirect">
+            <text class="fz-14 black-1a-color left">新手指引</text>
+            <text class="iconfont icon-xiayibu right gray-color fz-12"></text>
+        </navigator>
+        <navigator bindtap="barTapAnalysis" class="reportType-line" data-title="官方公众号" hoverClass="none" url="/subPackages/me/pages/publicNumber">
+            <text class="fz-14 black-1a-color left">官方公众号</text>
+            <text class="iconfont icon-xiayibu right gray-color fz-12"></text>
+        </navigator>
+        <navigator bindtap="barTapAnalysis" class="reportType-line" data-title="反馈" hoverClass="none" style="border-bottom: none" url="/subPackages/me/pages/feedback">
+            <text class="fz-14 black-1a-color left">反馈</text>
+            <text class="iconfont icon-xiayibu right gray-color fz-12"></text>
+        </navigator>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,514 @@
+<view style="padding-bottom: 170rpx;overflow: hidden">
+    <block wx:if="{{items.length>0}}">
+        <view class="header-nav" style="width: 100%">
+            <view class="current current-option-left {{type==0?'current-option':'current-option-two'}}" wx:if="{{userType==1}}">
+                <text class="fz-15 {{type==0?'font-bold':''}}">住宅盘</text>
+            </view>
+            <view class="current current-option-right {{type==1?'current-option':'current-option-two'}}" wx:if="{{userType==2}}">
+                <text class="fz-15 {{type==1?'font-bold':''}}">公寓盘</text>
+            </view>
+            <block wx:if="{{userType==3}}">
+                <view bindtap="changeType" class="current current-option-left {{type==0?'current-option':'current-option-two'}}" data-wpychangetype-a="0">
+                    <text class="fz-15 {{type==0?'font-bold':''}}">住宅盘</text>
+                </view>
+                <view bindtap="changeType" class="current current-option-right {{type==1?'current-option':'current-option-two'}}" data-wpychangetype-a="1">
+                    <text class="fz-15 {{type==1?'font-bold':''}}">公寓盘</text>
+                </view>
+            </block>
+        </view>
+        <view hidden="{{type==0}}" style="margin-top: 100rpx;">
+            <block wx:for="{{items}}" wx:key="key">
+                <view class="project-item-details" wx:if="{{item.status==1&&item.is_checked==1}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view wx:if="{{item.noRangk}}">
+                                    <text class="fz-12" style="color: #666666">当前楼盘我的排行: </text>
+                                    <text class="font-bold fz-12" style="color: #000"> {{item.rangks}}</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right">
+                                <text class="fz-12">入驻成功</text>
+                            </view>
+                        </view>
+                        <view style="line-height: 24rpx;padding-bottom: 20rpx;color: #666666;margin-top: -12rpx">
+                            <block wx:if="{{item.noRangk}}">
+                                <text class="fz-12" style="margin-left: 30rpx" wx:if="{{item.typeRank=='type'}}">你是第一名</text>
+                                <block wx:else>
+                                    <text class="fz-12" style="margin-left: 30rpx">离上一名还差{{item.beforeRangk}}积分</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:if="{{item.afterType=='noType'}}">你是最后一名</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:else>下一名还差{{item.afterRank}}积分赶超你</text>
+                                </block>
+                            </block>
+                            <text class="fz-12" style="margin-left: 30rpx" wx:else>您当前没有活跃度，无法进入排名</text>
+                        </view>
+                        <view bindtap="changeProject" class="item-bottom" data-wpychangeproject-a="{{item.project_id}}">
+                            <view class="layout2" style="margin: auto;width: 634rpx; height: 80rpx;">
+                                <text class="fz-13 font-bold" style="color: #6498e6">申请更换楼盘</text>
+                                <text class="fz-14 font-bold" style="color:#6498e6">>></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==3&&item.is_checked==1}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view wx:if="{{item.noRangk}}">
+                                    <text class="fz-12" style="color: #666666">当前楼盘我的排行: </text>
+                                    <text class="font-bold fz-12" style="color: #000"> {{item.rangks}}</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right2">
+                                <text class="fz-12">已申请更换</text>
+                            </view>
+                        </view>
+                        <view style="line-height: 24rpx;padding-bottom: 20rpx;color: #666666;margin-top: -12rpx">
+                            <block wx:if="{{item.noRangk}}">
+                                <text class="fz-12" style="margin-left: 30rpx" wx:if="{{item.typeRank=='type'}}">你是第一名</text>
+                                <block wx:else>
+                                    <text class="fz-12" style="margin-left: 30rpx">离上一名还差{{item.beforeRangk}}积分</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:if="{{item.afterType=='noType'}}">你是最后一名</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:else>下一名还差{{item.afterRank}}积分赶超你</text>
+                                </block>
+                            </block>
+                            <text class="fz-12" style="margin-left: 30rpx" wx:else>您当前没有活跃度，无法进入排名</text>
+                        </view>
+                        <view class="item-bottom" style="display: flex;align-items: center;color:#6498e6">
+                            <view bindtap="hurry" class="layout" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-left">
+                                    <text class="fz-13 font-bold">催一下</text>
+                                </view>
+                            </view>
+                            <view catchtap="goToUrl2" class="layout" data-wpygotourl2-a="{{item}}" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-right">
+                                    <text class="fz-13 font-bold">查看更换进度</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==2&&item.is_putaway==1}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view>
+                                    <text class="fz-12" style="color: #666666">好可惜,该楼盘已被下架</text>
+                                </view>
+                                <view style="line-height: 26rpx;width: 430rpx" wx:if="{{item.down_reason}}">
+                                    <text class="fz-12" style="color: #666666">原因:{{item.down_reason}}</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-midden" wx:if="{{item.is_putaway==1}}">
+                                <view class="layout midden-in">
+                                    <text class="fz-11">已下架</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right3">
+                                <text class="fz-12">已下架</text>
+                            </view>
+                        </view>
+                        <view catchtap="goToUrl" class="item-bottom" data-wpygotourl-a="/subPackages/me/pages/applyShelves?sales_man_id={{item.salesman_id}}&title={{item.project_name}}">
+                            <view class="layout2" style="margin: auto;width: 634rpx; height: 80rpx;">
+                                <text class="fz-13 font-bold" style="color: #6498e6">申请上架</text>
+                                <text class="fz-14 font-bold" style="color:#6498e6">>></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==2&&item.is_putaway==2}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left" style="color: #999999">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view>
+                                    <text class="fz-12" wx:if="{{item.noRangk}}">当前楼盘我的排行: </text>
+                                    <text class="font-bold fz-12"> {{item.rangks}}</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right2">
+                                <text class="fz-12">已申请上架</text>
+                            </view>
+                        </view>
+                        <view style="line-height: 24rpx;padding-bottom: 20rpx;color: #999999;margin-top: -12rpx">
+                            <block wx:if="{{item.noRangk}}">
+                                <text class="fz-12" style="margin-left: 30rpx" wx:if="{{item.typeRank=='type'}}">你是第一名</text>
+                                <block wx:else>
+                                    <text class="fz-12" style="margin-left: 30rpx">离上一名还差{{item.beforeRangk}}积分</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:if="{{item.afterType=='noType'}}">你是最后一名</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:else>下一名还差{{item.afterRank}}积分赶超你</text>
+                                </block>
+                            </block>
+                            <text class="fz-12" style="margin-left: 30rpx" wx:else>您当前没有活跃度，无法进入排名</text>
+                        </view>
+                        <view class="item-bottom" style="display: flex;align-items: center;color:#6498e6">
+                            <view bindtap="hurry" class="layout" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-left">
+                                    <text class="fz-13 font-bold">催一下</text>
+                                </view>
+                            </view>
+                            <view catchtap="goToUrl" class="layout" data-wpygotourl-a="/subPackages/me/pages/saleManStatus?salesman_id={{item.salesman_id}}&type=99" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-right">
+                                    <text class="fz-13 font-bold">查看上架进度</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==1&&item.is_checked==0}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                <view>
+                                    <text class="fz-12" style="color: #666666">小主莫慌, 客服正在快马加鞭的为您审核。 </text>
+                                </view>
+                                <view style="line-height: 32rpx">
+                                    <text class="fz-12" style="color: #666666">审核时长为一个工作日。</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right2">
+                                <text class="fz-12">正在审核</text>
+                            </view>
+                        </view>
+                        <view class="item-bottom" style="display: flex;align-items: center;color:#6498e6">
+                            <view bindtap="hurry" class="layout" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-left">
+                                    <text class="fz-13 font-bold">催一下</text>
+                                </view>
+                            </view>
+                            <view catchtap="goToUrl3" class="layout" data-wpygotourl3-a="{{item}}" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-right">
+                                    <text class="fz-13 font-bold">查看审核进度</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==1&&item.is_checked==2}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view>
+                                    <text class="fz-12" style="color: #666666">好可惜, 本次申请更换楼盘审核失败</text>
+                                </view>
+                                <view style="line-height: 26rpx;width: 430rpx" wx:if="{{item.reason}}">
+                                    <text class="fz-12" style="color: #666666">原因:{{item.reason}}</text>
+                                </view>
+                                <view style="line-height: 32rpx">
+                                    <text class="fz-12" style="color: #666666">小主可查看失败原因, 重新申请！</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right3">
+                                <text class="fz-12">入驻失败</text>
+                            </view>
+                        </view>
+                        <view class="item-bottom" style="display: flex;align-items: center;color:#6498e6">
+                            <view catchtap="goToUrl" class="layout" data-wpygotourl-a="/subPackages/me/pages/saleManStatus?salesman_id={{item.salesman_id}}" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-left">
+                                    <text class="fz-13 font-bold">查看原因</text>
+                                </view>
+                            </view>
+                            <view catchtap="goToUrl" class="layout" data-wpygotourl-a="/subPackages/salesMan/pages/enteringSalesMan" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-right">
+                                    <text class="fz-13 font-bold">重新入驻</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view hidden="{{type==1}}" style="margin-top: 100rpx">
+            <block wx:for="{{items}}" wx:key="key">
+                <view class="project-item-details" wx:if="{{item.status==1&&item.is_checked==1}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view wx:if="{{item.noRangk}}">
+                                    <text class="fz-12" style="color: #666666">当前楼盘我的排行: </text>
+                                    <text class="font-bold fz-12" style="color: #000"> {{item.rangks}}</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right">
+                                <text class="fz-12">入驻成功</text>
+                            </view>
+                        </view>
+                        <view style="line-height: 24rpx;padding-bottom: 20rpx;color: #666666;margin-top: -12rpx">
+                            <block wx:if="{{item.noRangk}}">
+                                <text class="fz-12" style="margin-left: 30rpx" wx:if="{{item.typeRank=='type'}}">你是第一名</text>
+                                <block wx:else>
+                                    <text class="fz-12" style="margin-left: 30rpx">离上一名还差{{item.beforeRangk}}积分</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:if="{{item.afterType=='noType'}}">你是最后一名</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:else>下一名还差{{item.afterRank}}积分赶超你</text>
+                                </block>
+                            </block>
+                            <text class="fz-12" style="margin-left: 30rpx" wx:else>您当前没有活跃度，无法进入排名</text>
+                        </view>
+                        <view bindtap="changeProject" class="item-bottom" data-wpychangeproject-a="{{item.project_id}}">
+                            <view class="layout2" style="margin: auto;width: 634rpx; height: 80rpx;">
+                                <text class="fz-13 font-bold" style="color: #6498e6">申请更换楼盘</text>
+                                <text class="fz-14 font-bold" style="color:#6498e6">>></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==3&&item.is_checked==1}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view wx:if="{{item.noRangk}}">
+                                    <text class="fz-12" style="color: #666666">当前楼盘我的排行: </text>
+                                    <text class="font-bold fz-12" style="color: #000"> {{item.rangks}}</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right2">
+                                <text class="fz-12">已申请更换</text>
+                            </view>
+                        </view>
+                        <view style="line-height: 24rpx;padding-bottom: 20rpx;color: #666666;margin-top: -12rpx">
+                            <block wx:if="{{item.noRangk}}">
+                                <text class="fz-12" style="margin-left: 30rpx" wx:if="{{item.typeRank=='type'}}">你是第一名</text>
+                                <block wx:else>
+                                    <text class="fz-12" style="margin-left: 30rpx">离上一名还差{{item.beforeRangk}}积分</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:if="{{item.afterType=='noType'}}">你是最后一名</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:else>下一名还差{{item.afterRank}}积分赶超你</text>
+                                </block>
+                            </block>
+                            <text class="fz-12" style="margin-left: 30rpx" wx:else>您当前没有活跃度，无法进入排名</text>
+                        </view>
+                        <view class="item-bottom" style="display: flex;align-items: center;color:#6498e6">
+                            <view bindtap="hurry" class="layout" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-left">
+                                    <text class="fz-13 font-bold">催一下</text>
+                                </view>
+                            </view>
+                            <view catchtap="goToUrl2" class="layout" data-wpygotourl2-a="{{item}}" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-right">
+                                    <text class="fz-13 font-bold">查看更换进度</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==2&&item.is_putaway==1}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view>
+                                    <text class="fz-12" style="color: #666666">好可惜,该楼盘已被下架</text>
+                                </view>
+                                <view style="line-height: 26rpx;width: 430rpx" wx:if="{{item.down_reason}}">
+                                    <text class="fz-12" style="color: #666666">原因:{{item.down_reason}}</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-midden" wx:if="{{item.is_putaway==1}}">
+                                <view class="layout midden-in">
+                                    <text class="fz-11">已下架</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right3">
+                                <text class="fz-12">已下架</text>
+                            </view>
+                        </view>
+                        <view catchtap="goToUrl" class="item-bottom" data-wpygotourl-a="/subPackages/me/pages/applyShelves?sales_man_id={{item.salesman_id}}&title={{item.project_name}}">
+                            <view class="layout2" style="margin: auto;width: 634rpx; height: 80rpx;">
+                                <text class="fz-13 font-bold" style="color: #6498e6">申请上架</text>
+                                <text class="fz-14 font-bold" style="color:#6498e6">>></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==2&&item.is_putaway==2}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left" style="color: #999999">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view>
+                                    <text class="fz-12" wx:if="{{item.noRangk}}">当前楼盘我的排行: </text>
+                                    <text class="font-bold fz-12"> {{item.rangks}}</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right2">
+                                <text class="fz-12">已申请上架</text>
+                            </view>
+                        </view>
+                        <view style="line-height: 24rpx;padding-bottom: 20rpx;color: #999999;margin-top: -12rpx">
+                            <block wx:if="{{item.noRangk}}">
+                                <text class="fz-12" style="margin-left: 30rpx" wx:if="{{item.typeRank=='type'}}">你是第一名</text>
+                                <block wx:else>
+                                    <text class="fz-12" style="margin-left: 30rpx">离上一名还差{{item.beforeRangk}}积分</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:if="{{item.afterType=='noType'}}">你是最后一名</text>
+                                    <text class="fz-12" style="margin-left: 112rpx" wx:else>下一名还差{{item.afterRank}}积分赶超你</text>
+                                </block>
+                            </block>
+                            <text class="fz-12" style="margin-left: 30rpx" wx:else>您当前没有活跃度，无法进入排名</text>
+                        </view>
+                        <view class="item-bottom" style="display: flex;align-items: center;color:#6498e6">
+                            <view bindtap="hurry" class="layout" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-left">
+                                    <text class="fz-13 font-bold">催一下</text>
+                                </view>
+                            </view>
+                            <view catchtap="goToUrl" class="layout" data-wpygotourl-a="/subPackages/me/pages/saleManStatus?salesman_id={{item.salesman_id}}&type=99" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-right">
+                                    <text class="fz-13 font-bold">查看上架进度</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==1&&item.is_checked==0}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                <view>
+                                    <text class="fz-12" style="color: #666666">小主莫慌, 客服正在快马加鞭的为您审核。 </text>
+                                </view>
+                                <view style="line-height: 32rpx">
+                                    <text class="fz-12" style="color: #666666">审核时长为一个工作日。</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right2">
+                                <text class="fz-12">正在审核</text>
+                            </view>
+                        </view>
+                        <view class="item-bottom" style="display: flex;align-items: center;color:#6498e6">
+                            <view bindtap="hurry" class="layout" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-left">
+                                    <text class="fz-13 font-bold">催一下</text>
+                                </view>
+                            </view>
+                            <view catchtap="goToUrl3" class="layout" data-wpygotourl3-a="{{item}}" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-right">
+                                    <text class="fz-13 font-bold">查看审核进度</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="project-item-details" wx:if="{{item.status==1&&item.is_checked==2}}">
+                    <view style="background-color: #FFFFFF;">
+                        <view class="item-top">
+                            <view class="item-top-left">
+                                <view class="text-whsplic">
+                                    <text class="fz-15 font-bold">{{item.project_name}}</text>
+                                </view>
+                                <view>
+                                    <text class="fz-12" style="color: #666666">好可惜, 本次申请更换楼盘审核失败</text>
+                                </view>
+                                <view style="line-height: 26rpx;width: 430rpx" wx:if="{{item.reason}}">
+                                    <text class="fz-12" style="color: #666666">原因:{{item.reason}}</text>
+                                </view>
+                                <view style="line-height: 32rpx">
+                                    <text class="fz-12" style="color: #666666">小主可查看失败原因, 重新申请！</text>
+                                </view>
+                            </view>
+                            <view class="layout item-top-right3">
+                                <text class="fz-12">入驻失败</text>
+                            </view>
+                        </view>
+                        <view class="item-bottom" style="display: flex;align-items: center;color:#6498e6">
+                            <view catchtap="goToUrl" class="layout" data-wpygotourl-a="/subPackages/me/pages/saleManStatus?salesman_id={{item.salesman_id}}" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-left">
+                                    <text class="fz-13 font-bold">查看原因</text>
+                                </view>
+                            </view>
+                            <view catchtap="goToUrl" class="layout" data-wpygotourl-a="/subPackages/salesMan/pages/enteringSalesMan" style="width: 50%;height: 80rpx;">
+                                <view class="layout item-bottom-right">
+                                    <text class="fz-13 font-bold">重新入驻</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </block>
+    <block wx:else>
+        <view style="text-align: center;color: #666666" wx:if="{{!loading}}">
+            <image src="http://imgcdn.huanjutang.com/assets/img/20181227/5c247fd3c05cc.png" style="width: 400rpx;height: 310rpx;margin-top: 300rpx"></image>
+            <view>
+                <text class="fz-13">小主还未认领楼盘</text>
+            </view>
+            <view>
+                <text class="fz-13">认领楼盘后可直接生成专属名片喔</text>
+            </view>
+        </view>
+    </block>
+    <view class="footer-option">
+        <view class="footer-middle">
+            <view bindtap="inviteEnter" class="option-item option-left">
+                <text class="iconfont icon-weixin2" style="margin-right: 10rpx"></text>
+                <text>邀请入驻</text>
+            </view>
+            <view bindtap="toUrlSaleManHandle" class="option-item option-right" hoverClass="none" wx:if="{{is_broker==2}}">
+                <text class="iconfont icon-fangchan" style="margin-right: 10rpx"></text>
+                <text>继续入驻</text>
+            </view>
+            <navigator class="option-item option-right" hoverClass="none" url="/subPackages/lottery/pages/claimProject" wx:if="{{is_broker==1||items.length<=0&&tabLoading}}">
+                <text class="iconfont icon-fangchan" style="margin-right: 10rpx"></text>
+                <text>认领公寓</text>
+            </navigator>
+        </view>
+    </view>
+    <view bindtap="shutDown" catchtouchmove="stopMove" class="back-moddin" hidden="{{!isShare}}"></view>
+    <view catchtouchmove="stopMove" class="share-bottom" hidden="{{!isShare}}" style="bottom: {{bouncedType?endData:initialData}};">
+        <view class="shareBtn">
+            <button bindtap="cancel" class="shareBtn-bar" openType="share">
+                <view class="Btn-bg btn1">
+                    <text class="iconfont icon-weixin2 white-color fz-24"></text>
+                </view>
+                <view class="Btn-text small-level-color fz-15">发给朋友</view>
+            </button>
+            <view bindtap="shareTo" class="shareBtn-bar">
+                <view class="Btn-bg btn2">
+                    <text class="iconfont icon-pengyouquan white-color fz-24"></text>
+                </view>
+                <view class="Btn-text small-level-color fz-15">生成专属邀请码</view>
+            </view>
+        </view>
+        <view bindtap="cancel" class="fz-15 height-level-color cancel">取消</view>
+    </view>
+    <view bindtap="closeCanvas" catchtouchmove="stopMove" class="bg" wx:if="{{drawCanvas}}">
+        <view style="margin-top:8px">
+            <view class="create-canvas-box" style="width: {{canvasWidth}}px; height: {{canvasHeight}}px;">
+                <canvas canvasId="myCanvas" class="white-bg" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;overflow:hidden"></canvas>
+            </view>
+            <view class="share-btn-group">
+                <button catchtap="saveShareImage" class="canvas-btn" style="color: #d78e2e">保存图片</button>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

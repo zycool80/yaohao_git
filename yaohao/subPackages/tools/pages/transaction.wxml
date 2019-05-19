@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="contactUs">
+        <view class="contactUs-line1">
+            <navigator bindtap="barTapAnalysis" data-title="商务合作" hoverClass="none" style="background: #e6f5fb" url="/subPackages/tools/pages/companyCode">
+                <image class="icon" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190107/5c332abb0ce31.png"></image>
+                <text class="fz-14 black-color font-bold">商务合作</text>
+            </navigator>
+            <navigator bindtap="barTapAnalysis" class="company" data-title="加入我们" hoverClass="none" style="background: #e4f9f4" url="/subPackages/tools/pages/joinUs">
+                <image class="icon" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190108/5c3438656fc77.png"></image>
+                <text class="fz-14 black-color font-bold">加入我们</text>
+            </navigator>
+        </view>
+        <view class="contactUs-line2">
+            <navigator bindtap="barTapAnalysis" data-title="寻求报道" hoverClass="none" style="background: #f9ece8" url="/subPackages/tools/pages/reportCode">
+                <image class="icon" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190107/5c332ae472574.png"></image>
+                <text class="fz-14 black-color font-bold">寻求报道</text>
+            </navigator>
+            <button bindtap="barTapAnalysis" class="contact" data-title="联系客服" hoverClass="none" openType="contact" sessionFrom="{{weapp}}" style="background: #faf5e7; line-height: 1">
+                <image class="icon" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190107/5c332ad3e36f8.png"></image>
+                <text class="fz-14 black-color font-bold">联系客服</text>
+            </button>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="setting-title">
+        <view class="left-txt fz-14 black1a-color font-bold">设置备注</view>
+        <view bindtap="submit" class="right-txt fz-14 black1a-color font-bold">保存</view>
+    </view>
+    <view class="setting-cont">
+        <view class="line">
+            <view class="line-top fz-13 small-level-color">备注名</view>
+            <input bindinput="typeName" class="line-bottom black1a-color fz-14" placeholder="添加备注名" placeholderClass="place-class" type="text" value="{{name}}"></input>
+        </view>
+        <view class="line">
+            <view class="line-top fz-13 small-level-color">微信号</view>
+            <input bindinput="typeNumber" class="line-bottom black1a-color fz-14" placeholder="Ta的微信号" placeholderClass="place-class" type="text" value="{{number}}"></input>
+        </view>
+        <view class="line">
+            <view class="line-top fz-13 small-level-color">手机号</view>
+            <input bindinput="typePhone" class="line-bottom black1a-color fz-14" placeholder="Ta的手机号" placeholderClass="place-class" type="text" value="{{phone}}"></input>
+        </view>
+        <view class="line">
+            <view class="line-top fz-13 small-level-color">描述</view>
+            <textarea bindinput="bindContentChange" class="text-area black1a-color fz-14" maxlength="50" placeholder="添加更多备注信息(50字以内)" placeholderClass="text-area-style" type="text" value="{{text}}"></textarea>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

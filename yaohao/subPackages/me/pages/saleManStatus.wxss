@@ -1,0 +1,298 @@
+@import "manageUsers.wxss";
+
+.page {
+    width: 100%;
+    overflow: hidden;
+}
+
+.page .saleman-status-container {
+    width: 100%;
+    padding: 40rpx 30rpx 50rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.saleman-status-list-cont {
+    border-radius: 10rpx;
+    box-shadow: 0 0 20rpx 0 rgba(128,128,128,0.2);
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-bottom: 40rpx;
+}
+
+.saleman-status-list {
+    width: 100%;
+    padding: 30rpx 40rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.saleman-status-list .title {
+    color: #1a1a1a;
+    margin-bottom: 20rpx;
+}
+
+.saleman-status-list .saleman-status-speed {
+    display: flex;
+    box-sizing: border-box;
+    padding: 40rpx;
+    width: 100%;
+    height: 110rpx;
+}
+
+.saleman-status-speed .status-speed {
+    float: left;
+    position: relative;
+    width: 33.33%;
+}
+
+.saleman-status-speed .status-speed:first-child {
+    width: 0;
+}
+
+.blue-color {
+    color: #16a5af!important;
+}
+
+.yellow-color {
+    color: #f7776a!important;
+}
+
+.gray-color {
+    color: #999!important;
+}
+
+.saleman-status-list .saleman-status-speed .status-speed .status-speed-icon {
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+    width: 34rpx;
+    height: 34rpx;
+    border-radius: 100%;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.saleman-status-list .saleman-status-speed .status-speed .status-speed-icon.no {
+    right: -7rpx;
+    top: -5rpx;
+    width: 14rpx;
+    height: 14rpx;
+}
+
+.saleman-status-list .status-speed.blue-color .status-speed-icon {
+    background-color: #16a5af!important;
+}
+
+.saleman-status-list .status-speed.yellow-color .status-speed-icon {
+    background-color: #f7776a!important;
+}
+
+.saleman-status-list .status-speed.gray-color .status-speed-icon {
+    background-color: #e6e6e6!important;
+}
+
+.saleman-status-list .status-speed .status-speed-icon.ok:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 7rpx;
+    top: 30%;
+    width: 20rpx;
+    height: 8rpx;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+    transform: rotate(-45deg);
+}
+
+.saleman-status-list .status-speed .status-speed-icon.speed:after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 10rpx;
+    top: 10rpx;
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 100%;
+    background-color: #fff;
+}
+
+.saleman-status-list .status-speed .status-speed-icon.error {
+    color: #fff!important;
+    font-size: 20rpx;
+    line-height: 34rpx;
+    text-align: center;
+}
+
+.saleman-status-list .saleman-status-speed .status-speed .status-speed-line {
+    position: relative;
+    width: 100%;
+    height: 4rpx;
+    z-index: 1;
+}
+
+.saleman-status-list .saleman-status-speed .status-speed.blue-color .status-speed-line {
+    background-color: #16a5af!important;
+}
+
+.saleman-status-list .saleman-status-speed .status-speed.yellow-color .status-speed-line {
+    background-color: #f7776a!important;
+}
+
+.saleman-status-list .saleman-status-speed .status-speed.gray-color .status-speed-line {
+    background-color: #e6e6e6!important;
+}
+
+.saleman-status-list .saleman-status-speed .status-speed .status-speed-text {
+    position: absolute;
+    top: 30rpx;
+    right: -60rpx;
+    width: 120rpx;
+    text-align: center;
+}
+
+.saleman-status-list .saleman-status-message {
+    display: block;
+    width: 100%;
+    margin-top: 30rpx;
+    height: 60rpx;
+}
+
+.saleman-status-bottom {
+    padding: 30rpx 40rpx;
+    border-top: 1rpx solid #e6e6e6;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.saleman-status-bottom .change-project {
+    color: #16a5af;
+    float: left;
+}
+
+.saleman-status-bottom .change-btn {
+    color: #16a5af;
+    float: right;
+}
+
+.saleman-status-footer {
+    width: 100%;
+    padding: 40rpx 80rpx 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.saleman-status-footer .save-qrcode {
+    display: inline-block;
+    line-height: 60rpx;
+    padding: 0 40rpx;
+    border-radius: 8rpx;
+    margin-top: 10rpx;
+    border: 1px solid #666;
+    overflow: hidden;
+    margin-bottom: 40rpx;
+}
+
+.chart-service {
+    border: 1px solid #3772cc;
+    height: 60rpx;
+    width: 150rpx;
+    border-radius: 8rpx;
+    color: #3772cc;
+    text-align: center;
+    padding: 10rpx 5rpx;
+    display: inline-block;
+    line-height: 1;
+    background: #fff;
+    margin: 0 0 0 30rpx;
+}
+
+.saleman-status-footer-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-cont {
+    float: right;
+    height: 40rpx;
+    padding: 0 20rpx;
+    line-height: 40rpx;
+    border: 1rpx solid #f7776a;
+    border-radius: 40rpx;
+    position: relative;
+    top: 25rpx;
+}
+
+.reason-cont {
+    padding: 35rpx 0;
+}
+
+.exchange-item {
+    width: 690rpx;
+    box-shadow: 0 0 20rpx 0 rgba(128,128,128,0.2);
+    margin: auto;
+    margin-top: 40rpx;
+    padding-bottom: 40rpx;
+    margin-bottom: 50rpx;
+}
+
+.progress-list {
+    margin-top: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-list .progress-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.progress-list .progress-item .item-are {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34rpx;
+    height: 34rpx;
+    border-radius: 50%;
+    background-color: #16a5af;
+}
+
+.progress-list .progress-item .item-are2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34rpx;
+    height: 34rpx;
+    border-radius: 50%;
+}
+
+.xian {
+    width: 140rpx;
+    height: 4rpx;
+    background-color: #16a5af;
+}
+
+.xian2 {
+    width: 140rpx;
+    height: 4rpx;
+    background-color: #e6e6e6;
+}
+
+.progress-list-bottom {
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bot-item {
+    width: 1500rpx;
+    text-align: center;
+}
+
+.icon-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

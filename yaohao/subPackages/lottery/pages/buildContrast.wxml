@@ -1,0 +1,60 @@
+<view class="build_list">
+    <block wx:if="{{data_list.list.length}}">
+        <view class="build_item" wx:for="{{data_list.list}}" wx:key="key">
+            <view bindtap="opting" class="xuanxiang" data-wpyopting-a="{{item}}" data-wpyopting-b="{{index}}">
+                <view class="iconfont icon-gougou options_item" wx:if="{{item.type}}"></view>
+                <view class="options_item2" wx:else></view>
+            </view>
+            <navigator class="build_item_right" url="{{item.project.url}}">
+                <image src="{{item.project.cover}}"></image>
+                <view class="item_detail_right">
+                    <view style="display: flex;align-items: center">
+                        <text class="fz-14 font-bold" style="width: 370rpx; overflow:hidden; white-space: nowrap; text-overflow:ellipsis;">{{item.project.name}}</text>
+                    </view>
+                    <view class="item_tishi">
+                        <view class="item_tishi_dan" wx:for="{{item.project.tags}}" wx:key="key">
+                            <text>{{item}}</text>
+                        </view>
+                        <text class="fz-14" style="color: #d13c0e;float: right" wx:if="{{item.project.avg_price>0}}">¥ {{item.project.avg_price}}</text>
+                        <text class="fz-14" style="color: #d13c0e;float: right" wx:else>待定</text>
+                    </view>
+                    <view style="overflow: hidden;margin-top: 14rpx">
+                        <text class="fz-12" style="float: left;color: #666666">{{item.project.predict_preorder_time}}</text>
+                        <text class="fz-12 font-bold" style="float: right">{{item.project.area}}</text>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <block wx:if="{{data_list.list.length>10}}">
+            <blcok wx:if="{{loging_type}}">
+                <view style="width:100%;display: flex;justify-content: center;margin-top: 30rpx;margin-bottom: 30rpx" wx:if="{{more}}">
+                    <text style="color: #000">加载中</text>
+                </view>
+                <blcok wx:else>
+                    <view style="width:100%;display: flex;justify-content: center;margin-top: 30rpx;margin-bottom: 30rpx">
+                        <text style="color: #999999">到底咯</text>
+                    </view>
+                </blcok>
+            </blcok>
+        </block>
+    </block>
+    <view style="width: 100%;height:100%;display: flex;justify-content: center;padding-top: 100rpx" wx:else>
+        <text style="color: #999999;">暂无楼盘</text>
+    </view>
+</view>
+<view class="footer">
+    <view class="operation_list">
+        <view bindtap="delete_item" class="opt_style {{project_id.length<=2&&project_id.length>0?'bg3':'bg'}}">
+            <text>删除</text>
+        </view>
+        <view bindtap="add_building" class="opt_style bg2">
+            <text>添加</text>
+        </view>
+        <view bindtap="compareBegan" class="opt_style2 {{project_id.length===2?'opt_color2':'opt_color'}}">开始PK</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

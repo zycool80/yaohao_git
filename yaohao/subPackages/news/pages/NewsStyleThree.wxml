@@ -1,0 +1,17 @@
+<view class="news-container-three">
+    <view class="user-info">
+        <image class="avatar" mode="aspectFill" src="{{item.avatar_url||defaultAvatar}}"></image>
+        <view class="user-info-name fz-12 small-level-color">{{item.user_name}}</view>
+        <view class="time fz-12 small-level-color" style="float:right;">{{item.time}}</view>
+    </view>
+    <navigator class="right-cont" url="{{item.url}}">
+        <image mode="aspectFill" src="{{item.img}}"></image>
+    </navigator>
+    <view class="left-cont">
+        <navigator hoverClass="none" url="{{item.url}}">
+            <view class="title fz-15 height-level-color">{{item.title}}</view>
+            <view class="desc fz-12 small-level-color">{{item.content}}</view>
+        </navigator>
+        <view class="tool-bar small-level-color"></view>
+    </view>
+</view>

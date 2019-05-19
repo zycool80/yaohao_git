@@ -1,0 +1,260 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.search-bar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 8px 20rpx 0;
+    background-color: #3772cc;
+    z-index: 999;
+}
+
+.search-bar-form {
+    background: #fff;
+    line-height: 100%;
+    color: #ccc;
+    border-radius: 4px;
+    position: relative;
+    margin: 0 80rpx 20rpx;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.search-bar-form .weui-search-bar__input {
+    margin-left: 70rpx;
+    margin-right: 70rpx;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.search-bar-form .weui-icon-clear,.search-bar-form .weui-icon-search {
+    width: 76rpx;
+    height: 66rpx;
+    line-height: 66rpx;
+    text-align: center;
+    font-size: 38rpx;
+    color: #ccc;
+    padding: 0;
+}
+
+.search-bar-form .search-bar-input {
+    width: auto!important;
+    margin: 0 76rpx;
+    height: 66rpx;
+    color: #666;
+}
+
+.search-bar-form .weui-icon-clear {
+    position: relative;
+    float: right;
+    z-index: 2;
+    left: 0;
+}
+
+.search-bar-form .weui-icon-search {
+    position: relative;
+    float: left;
+    z-index: 2;
+    right: 0;
+    margin-right: 0;
+}
+
+.search-bar .search-bar-icon {
+    width: 70rpx;
+    text-align: center;
+    z-index: 2;
+    line-height: 1;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.search-bar .float-left {
+    float: left;
+}
+
+.search-bar .float-right {
+    float: right;
+}
+
+.search-bar .search-bar-icon button.e_btn {
+    width: 100%;
+    height: 44rpx;
+    line-height: 44rpx;
+    padding: 0;
+    background-color: transparent;
+    font-size: 44rpx;
+}
+
+.search-bar .search-bar-icon text {
+    line-height: 1;
+}
+
+.search-bar .search-bar-icon button::after {
+    display: none;
+}
+
+.search-input-place {
+    color: #ccc;
+}
+
+.search-btn {
+    float: right;
+    height: 70rpx;
+    width: 80rpx;
+    line-height: 70rpx;
+    text-align: center;
+    padding-left: 15rpx;
+    background: transparent;
+}
+
+.search-cont {
+    overflow: hidden;
+}
+
+.search-cont .title {
+    padding: 0 30rpx;
+    overflow: hidden;
+    background: #f7f7f7;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+.search-cont .title .left {
+    float: left;
+}
+
+.search-cont .title .right {
+    float: right;
+}
+
+.search-cont .search-cont-line {
+    padding: 0 30rpx 0 0;
+    margin-left: 30rpx;
+    height: 114rpx;
+    line-height: 114rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.search-cont .search-cont-line .cont-line-left {
+    float: left;
+    width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 100%;
+    line-height: 114rpx;
+}
+
+.search-cont .search-cont-line .cont-line-left .address {
+    height: 114rpx;
+    line-height: 114rpx;
+    margin-right: 20rpx;
+}
+
+.search-cont .search-cont-line .cont-line-right {
+    float: right;
+}
+
+.search-cont .no-border {
+    border: none;
+}
+
+.building_nofind {
+    margin-top: 320rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 28rpx;
+    color: #666666;
+}
+
+.addBuilding {
+    border: 2rpx solid #598dd2;
+    height: 68rpx;
+    width: 300rpx;
+    font-size: 24rpx;
+    border-radius: 68rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBuilding-style {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 180rpx;
+}
+
+.claimSuccess-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+}
+
+.claimSuccess {
+    z-index: 222;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 500rpx;
+    height: 420rpx;
+    transform: translate(-50%,-50%);
+    border-radius: 15rpx;
+    text-align: center;
+    overflow: hidden;
+}
+
+.claimSuccess image {
+    width: 100%;
+    height: 100%;
+}
+
+.claimSuccess .cont {
+    padding: 50rpx 50rpx 60rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.claimSuccess .cont .success-path {
+    line-height: 1.6;
+}
+
+.claimSuccess .cont .success-text {
+    padding: 36rpx 0 70rpx;
+}
+
+.claimSuccess .cont .icon-gougou {
+    font-size: 100rpx;
+    line-height: 1;
+}
+
+.blue-sky {
+    color: #16a5af!important;
+}
+
+.list {
+    overflow: hidden;
+    padding: 20rpx 30rpx;
+}
+
+.list .tags {
+    line-height: 1;
+    padding: 10rpx 14rpx;
+    background-color: #fff;
+    margin: 0 20rpx 20rpx 0;
+    border: 1rpx solid #333;
+    border-radius: 8rpx;
+    float: left;
+    color: #333;
+    font-size: 24rpx;
+}

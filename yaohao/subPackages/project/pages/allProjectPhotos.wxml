@@ -1,0 +1,30 @@
+<view class="page">
+    <scroll-view class="scroll-navbar">
+        <view class="navbar-container">
+            <view bind:tap="changeNavbarHandle" class="navbar-item fz-12 {{index==changeIndex?'active':''}}" data-index="{{index}}" wx:for="{{navbar}}" wx:key="key">{{item.text}}({{item.number}})</view>
+        </view>
+    </scroll-view>
+    <view class="banner-swiper swiper" style="height:{{winHeight}}px">
+        <view animation="{{animationData}}" class="scroll_photos" style="width:{{winWidth*swiperList.length}}px;">
+            <view catch:touchend="touchend" catch:touchmove="touchmove" catch:touchstart="touchstart" class="swiper-item" style="width:{{winWidth}}px;" wx:for="{{swiperList}}" wx:key="key">
+                <movable-area>
+                    <movable-view animation="{{false}}" bindchange="onChange" bindscale="onScale" direction="all" disabled="{{disabled}}" inertia="inertia" scale="scale" scaleMax="10" scaleMin="1" scaleValue="1">
+                        <image mode="aspectFit" src="{{item.image}}"></image>
+                    </movable-view>
+                </movable-area>
+            </view>
+        </view>
+    </view>
+    <view class="swiper-bottom">
+        <view class="bottom-text">
+            <text class="fz-12 gray-b8-color">{{navbar[changeIndex].text}}</text>
+            <view class="num fz-14 gray-b8-color">{{nowNumber}}/{{navbar[changeIndex].number}}</view>
+        </view>
+        <button bind:tap="goToPhotos" class="white-color">查看相册</button>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

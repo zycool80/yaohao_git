@@ -1,0 +1,1211 @@
+@import "manageUsers.wxss";
+
+.page {
+    padding-bottom: 100rpx;
+}
+
+.page__bd {
+    overflow: hidden;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.btn-group {
+    padding: 50rpx 0 0;
+}
+
+.btn-group button {
+    width: 50%;
+    height: 92rpx;
+    line-height: 92rpx;
+    text-align: center;
+    float: left;
+    border: 1rpx solid #f7776a;
+    overflow: hidden;
+}
+
+.btn-group button:first-child {
+    border-radius: 8rpx 0 0 8rpx;
+    color: #333;
+}
+
+.btn-group button.active {
+    border-radius: 0 8rpx 8rpx 0;
+    background-color: #f7776a;
+}
+
+.my-share {
+    overflow: hidden;
+    background-color: #f2f2f2;
+}
+
+.my-share .share-header {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.my-share .share-header .title {
+    line-height: 90rpx;
+    padding: 0 30rpx;
+    overflow: hidden;
+}
+
+.my-share .share-header .line {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 1rpx;
+    margin-bottom: 4rpx;
+    background-color: #e5e5e5;
+}
+
+.my-share .my-share-list {
+    padding: 30rpx 30rpx 15rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.preview-list {
+    margin: 24rpx 82rpx 0;
+}
+
+.preview-list .preview-list-item {
+    display: flex;
+}
+
+.preview-list .preview-list-item image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.preview-list .preview-list-item .post-image-wrap {
+    flex: 1;
+    padding-right: 12rpx;
+    border-radius: 6rpx;
+    overflow: hidden;
+}
+
+.preview-list .preview-list-item .post-image-wrap image {
+    border-radius: 6rpx;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 10rpx;
+}
+
+.preview-list .preview-list-item .post-image-wrap:last-child {
+    padding-right: 0;
+}
+
+.preview-list .share-article text {
+    display: inline-block;
+    line-height: 50rpx;
+    padding-bottom: 10rpx;
+    max-height: 300rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.my-share .my-share-list .time-comment-like {
+    padding: 10rpx 0;
+    line-height: 1;
+    overflow: hidden;
+}
+
+.my-share .my-share-list .time-comment-like text {
+    margin-right: 10rpx;
+}
+
+.my-share .my-share-list .time-comment-like .time {
+    float: left;
+    margin-left: 80rpx;
+}
+
+.liulan1 {
+    float: right;
+    margin-left: 20rpx;
+}
+
+.fenxiang {
+    float: right;
+    background: transparent;
+    line-height: 1;
+    margin-left: 20rpx;
+}
+
+.my-share .my-share-list .time-comment-like .like,.my-share .my-share-list .time-comment-like .comment {
+    float: right;
+    margin-left: 20rpx;
+}
+
+.my-share .my-share-list .time-comment-like .like .iconfont,.my-share .my-share-list .time-comment-like .comment .iconfont {
+    padding-right: 4rpx;
+}
+
+.my-share .nothing {
+    box-sizing: border-box;
+    padding: 200rpx 0 200rpx;
+    text-align: center;
+    background-color: #fff;
+}
+
+.tab-head {
+    padding: 12px 15px;
+    line-height: 28px;
+    box-sizing: border-box;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.tab-head .select_box {
+    float: left;
+}
+
+.tab-head>.height-level-color {
+    float: right;
+}
+
+.sales_man_card>.follow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40rpx;
+    height: 100rpx;
+    text-align: center;
+    overflow: hidden;
+}
+
+.sales_man_card>.follow image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40rpx;
+    height: 100rpx;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.sales_man_card>.follow text {
+    position: relative;
+    line-height: 1;
+    display: inline-block;
+    padding-top: 6rpx;
+    width: 100%;
+    height: 86rpx;
+    z-index: 2;
+    font-size: 24rpx;
+}
+
+.page__bd .like {
+    padding: 30rpx 0 0;
+    overflow: hidden;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.page__bd .like .like-icon {
+    display: inline-block;
+    width: 130rpx;
+    height: 130rpx;
+    overflow: hidden;
+    clear: both;
+    background-color: #fff;
+    border-radius: 100%;
+}
+
+.page__bd .like .like-icon .iconfont {
+    padding-top: 20rpx;
+    line-height: 1;
+}
+
+.page__bd .like .like-icon .fz-12 {
+    padding-top: 17rpx;
+    line-height: 1;
+}
+
+.page__bd .like .text {
+    text-align: center;
+    padding: 15rpx 0 35rpx;
+}
+
+.salesMan {
+    position: relative;
+    z-index: 22;
+}
+
+.salesMan-content {
+    border-right: 8rpx;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12rpx;
+    padding: 30rpx 50rpx;
+}
+
+.salesMan-content>image.salesMan-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.salesMan-content-left {
+    width: 140rpx;
+    height: 306rpx;
+    float: left;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+
+.salesMan .guanzhu {
+    background: rgba(255,255,255,0.25);
+    padding: 0 20rpx;
+    border-radius: 50rpx;
+    line-height: 50rpx;
+    color: rgba(200,0,100,0.4);
+    display: inline-block;
+    margin: 30rpx 0;
+    position: absolute;
+    top: 170rpx;
+    left: 62rpx;
+    z-index: 55;
+}
+
+.salesMan-content-left .liulan {
+    line-height: 1;
+    padding-top: 105rpx;
+}
+
+.salesMan-content-left .liulan>text {
+    display: block;
+}
+
+.gray-block1 {
+    height: 20rpx;
+    width: 100%;
+    background-color: #F7F7F7;
+}
+
+.join-lottery {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.join-lottery .title {
+    padding: 25rpx 30rpx;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.join-lottery scroll-view {
+    display: block;
+    height: 300rpx;
+    overflow: hidden;
+}
+
+.join-lottery scroll-view .scroll-view-col {
+    height: 100%;
+    overflow: hidden;
+}
+
+.join-lottery scroll-view .scroll-view-col .scroll-view-images {
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+    margin: 30rpx 20rpx;
+    width: 300rpx;
+    height: 250rpx;
+    text-align: center;
+    border-radius: 6rpx;
+}
+
+.join-lottery scroll-view .scroll-view-col .scroll-view-images .tip-title {
+    margin: 30rpx 0 13rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.join-lottery scroll-view .scroll-view-col .scroll-view-images .tip-num {
+    margin: 15rpx 0;
+    line-height: 1;
+}
+
+.join-lottery scroll-view .scroll-view-col .scroll-view-images .btn {
+    width: 200rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    line-height: 50rpx;
+    margin: 0 auto;
+    background-color: #ffffff;
+    color: #9ea3ab;
+}
+
+.join-lottery scroll-view .type1 {
+    background: #6d81af;
+}
+
+.join-lottery scroll-view .type2 {
+    background: #9ea3ab;
+}
+
+.join-lottery scroll-view .scroll-view-title {
+    line-height: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 20rpx 0;
+    max-width: 180rpx;
+}
+
+.join-lottery scroll-view .tagl {
+    dispslay: inline-block;
+    padding: 0 10rpx;
+    line-height: 36rpx;
+    box-sizing: border-box;
+    color: #1f9f55;
+    background-color: #e6fbef;
+}
+
+.tabBar {
+    overflow: hidden;
+    background-color: #fff;
+    padding-left: 70rpx;
+    border-bottom: 4rpx solid #f2f2f2;
+}
+
+.tabBar .tabBar-list {
+    float: left;
+    height: 94rpx;
+    line-height: 94rpx;
+    color: #666;
+    margin-right: 75rpx;
+}
+
+.tabBar .tabBar-list .top {
+    font-size: 50rpx;
+    margin-bottom: 10rpx;
+}
+
+.saleMans-content-bottom {
+    border-bottom: 20rpx solid #f7f7f7;
+}
+
+.saleMans-content-bottom .salesMans-content-title {
+    overflow: hidden;
+    padding: 30rpx;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.saleMans-content-bottom .salesMans-content-title .right {
+    float: right;
+}
+
+.saleMans-content-bottom .salesMans-content {
+    margin: 50rpx 30rpx;
+}
+
+.saleMans-content-bottom .salesMans-content-text {
+    position: relative;
+}
+
+.saleMans-content-bottom .salesMans-content-text>text {
+    position: relative;
+    padding: 15rpx 50rpx 15rpx 50rpx;
+    display: block;
+}
+
+.saleMans-content-bottom .salesMans-content-text>text :before {
+    position: absolute;
+    left: 30rpx;
+    top: 25rpx;
+    height: 10rpx;
+    width: 10rpx;
+    border-radius: 10rpx;
+    content: '';
+    background: #cccccc;
+}
+
+.saleMans-content-bottom .salesMans-content-text view {
+    padding-left: 50rpx;
+    box-sizing: border-box;
+}
+
+.saleMans-content-bottom .salesMans-content-text view button {
+    font-size: 20rpx;
+    border: 1px solid #3772cc;
+    border-radius: 4rpx;
+    color: #3772cc;
+    text-align: center;
+    padding: 10rpx 5rpx;
+    display: inline-block;
+    line-height: 1;
+}
+
+.tabBar .tabBar-list.active {
+    position: relative;
+    color: #1a1a1a!important;
+}
+
+.tabBar .tabBar-list.active:before {
+    position: absolute;
+    width: 80rpx;
+    height: 6rpx;
+    content: '';
+    bottom: -1rpx;
+    left: 10%;
+    background-color: #3772cc;
+}
+
+.tabBar .tabBar-list .top,.tabBar .tabBar-list .bottom {
+    line-height: 1;
+}
+
+.copy-and-msg-phone .contact>view {
+    display: inline-block;
+}
+
+.salesMan .copy-and-msg-phone .weixin {
+    display: flex;
+    align-items: center;
+    height: 65rpx;
+    font-size: 26rpx;
+}
+
+.person {
+    width: 100%;
+    height: 40rpx;
+    overflow: hidden;
+}
+
+.person image {
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-left: -10rpx;
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 100%;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+}
+
+.person image:first-child {
+    margin-left: 0;
+}
+
+.salesMan .copy {
+    position: absolute;
+    right: 50rpx;
+    top: 232rpx;
+    padding: 0 20rpx;
+    border: 1px solid #fff;
+    border-radius: 5rpx;
+    line-height: 36rpx;
+    display: inline-block;
+}
+
+.salesMan .call {
+    position: absolute;
+    right: 50rpx;
+    top: 164rpx;
+    padding: 0 20rpx;
+    border: 1px solid #fff;
+    border-radius: 5rpx;
+    line-height: 36rpx;
+    display: inline-block;
+}
+
+.salesMan-top {
+    padding: 0 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 55rpx;
+}
+
+.salesMan-top image {
+    width: 35rpx;
+    height: 35rpx;
+    padding: 10rpx 0 10rpx 20rpx;
+}
+
+.sign-text {
+    padding: 20rpx;
+    box-shadow: 0 0 10rpx rgba(0,0,0,0.3);
+    margin: 20rpx 0;
+    border-radius: 8rpx;
+    overflow: hidden;
+}
+
+.sign-text text:first-child {
+    position: relative;
+    float: left;
+    display: block;
+    white-space: normal;
+    width: 80rpx;
+    padding: 20rpx;
+    line-height: 40rpx;
+}
+
+.sign-text .block {
+    margin-left: 120rpx;
+    display: block;
+    padding: 23rpx 20rpx 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 45rpx;
+    height: 90rpx;
+}
+
+.sign-text .block1 {
+    margin-left: 120rpx;
+    display: block;
+    padding: 0 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 125rpx;
+    height: 90rpx;
+}
+
+.sign-text text:first-child:after {
+    position: absolute;
+    right: 0;
+    top: 20rpx;
+    border: 1rpx solid #ddd;
+    height: 80rpx;
+    content: '';
+}
+
+.code-img {
+    padding: 30rpx;
+    text-align: center;
+    border-bottom: 15rpx solid #f7f7f7;
+    border-top: 15rpx solid #f7f7f7;
+}
+
+.code-save {
+    width: 252rpx;
+    height: 75rpx;
+    line-height: 75rpx;
+    background: #f1f1f1;
+    text-align: center;
+    margin: 15rpx auto;
+    border-radius: 60rpx;
+}
+
+.header-icon {
+    width: 62rpx;
+    margin-right: 20rpx;
+    float: left;
+}
+
+.avatar {
+    display: block;
+    width: 62rpx;
+    height: 62rpx;
+    border-radius: 100%;
+}
+
+.header-content,.post-item-header {
+    overflow: hidden;
+}
+
+.header-content {
+    padding-bottom: 20rpx;
+}
+
+.weui-media-box__title text {
+    display: block;
+}
+
+.share-article {
+    margin-left: 82rpx;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    height: 80rpx;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    background: #fff;
+    padding: 10rpx 0;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.05);
+}
+
+.footer .xin {
+    width: 140rpx;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.footer>button {
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    display: inline-block;
+    border-radius: 8rpx;
+    width: 50%;
+    margin: 0 10rpx;
+    background: #3772cc;
+}
+
+.footer navigator {
+    background: #16a5af;
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    display: inline-block;
+    border-radius: 8rpx;
+    width: 50%;
+    margin: 0 10rpx;
+}
+
+.header-content .attention {
+    float: right;
+}
+
+.header-content .attention .guanzhu {
+    height: 40rpx;
+    padding: 0 15rpx;
+    line-height: 40rpx;
+    border: 1rpx solid #3772cc;
+    border-radius: 33rpx;
+    color: #3772cc;
+    display: inline-block;
+}
+
+.header-content .attention .yiguanzhu {
+    height: 40rpx;
+    padding: 0 15rpx;
+    line-height: 40rpx;
+    background: #f7f7f7;
+    border-radius: 15rpx;
+    display: inline-block;
+    color: #fff;
+}
+
+.header-content .attention .other {
+    padding-left: 25rpx;
+    color: #b3b3b3;
+}
+
+.like-icon .share-btn {
+    background-color: transparent;
+}
+
+.like-icon .fz-28 {
+    font-size: 50rpx;
+}
+
+.questionList {
+    padding: 35rpx 30rpx 20rpx;
+    background: #fff;
+    margin-bottom: 10rpx;
+}
+
+.questionList .question-cont {
+    padding-bottom: 30rpx;
+}
+
+.questionList .answer-cont {
+    padding-bottom: 30rpx;
+}
+
+.questionList .answer-cont .con-txt {
+    padding-bottom: 20rpx;
+}
+
+.questionList .answer-cont .content {
+    overflow: hidden;
+}
+
+.questionList .answer-cont .content .tags-list {
+    float: left;
+    overflow: hidden;
+}
+
+.questionList .answer-cont .content .tags-list navigator {
+    float: left;
+}
+
+.questionList .answer-cont .content .tags-list navigator .tag {
+    float: left;
+    height: 36rpx;
+    line-height: 36rpx;
+    padding: 0 16rpx;
+    text-align: center;
+    margin-right: 10rpx;
+    border-radius: 5rpx;
+    background: #e9f0fa;
+    border: none;
+}
+
+.questionList .answer-cont .content .year {
+    float: right;
+}
+
+.callPhone {
+    position: fixed;
+    width: 500rpx;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    z-index: 222;
+    border-radius: 15rpx;
+}
+
+.callPhone .telNum {
+    height: 140rpx;
+    line-height: 140rpx;
+    text-align: center;
+    border-bottom: 1rpx solid #e6e6e6;
+}
+
+.callPhone .btn {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    border-top: 1rpx solid #e6e6e6;
+}
+
+.callPhone .btn .left {
+    width: 50%;
+    text-align: center;
+    display: inline-block;
+    border-right: 1rpx solid #e6e6e6;
+    box-sizing: border-box;
+}
+
+.callPhone .btn .right {
+    width: 50%;
+    text-align: center;
+    display: inline-block;
+}
+
+.callPhone .title {
+    padding: 50rpx 0 30rpx;
+    text-align: center;
+    border-bottom: 1rpx solid #e6e6e6;
+}
+
+.callPhone .log {
+    text-align: center;
+    padding: 40rpx 0 30rpx;
+    margin: 0 40rpx;
+    border-bottom: 1rpx solid #e6e6e6;
+}
+
+.callPhone .log .icon {
+    width: 80rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 80rpx;
+    text-align: center;
+    display: block;
+    margin: 0 auto 30rpx;
+}
+
+.callPhone .telNum-txt {
+    padding: 50rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.callPhone .telNum-txt .tip-name {
+    margin-bottom: 30rpx;
+}
+
+.imgLayout1 {
+    width: 80%!important;
+    margin-left: 0;
+}
+
+.pink-color {
+    color: #f7776a;
+}
+
+.background-hide {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 100;
+}
+
+.salesMan {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.salesMan .achieve {
+    box-sizing: border-box;
+    padding-bottom: 20rpx;
+}
+
+.salesMan .achieve .title {
+    height: 80rpx;
+    line-height: 62rpx;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom: 20rpx;
+}
+
+.salesMan .achieve .table-cell {
+    line-height: 60rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.salesMan .achieve .table-cell .cell-row:nth-child(2) {
+    width: 30%;
+}
+
+.salesMan .achieve .table-cell .cell-row:nth-child(1) {
+    font-size: 24rpx;
+    width: 30%;
+    text-align: left;
+    float: left;
+}
+
+.salesMan .achieve .table-cell .cell-row:nth-child(3) {
+    font-size: 24rpx;
+    width: 40%;
+    text-align: left;
+    float: left;
+}
+
+.salesMan .salesMan-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40rpx 25rpx 30rpx 25rpx;
+}
+
+.salesMan .salesMan-content .avatar {
+    width: 103rpx;
+    height: 103rpx;
+    float: left;
+    margin-right: 25rpx;
+}
+
+.salesMan .salesMan-content .avatar image {
+    width: 100%;
+    height: 100%;
+    border-radius: 103rpx;
+}
+
+.salesMan .salesMan-content .salesMan-content-center {
+    float: left;
+}
+
+.salesMan .salesMan-content .salesMan-content-center .name {
+    overflow: hidden;
+}
+
+.salesMan .salesMan-content .salesMan-content-center .name .personInfo {
+    padding: 10rpx 15rpx;
+    border: 1px solid #e2e2e2;
+    border-radius: 40rpx;
+    margin-left: 30rpx;
+    display: inline-block;
+}
+
+.salesMan .salesMan-content .salesMan-content-center .name .invite {
+    padding: 10rpx 15rpx;
+    border-radius: 40rpx;
+    margin-left: 30rpx;
+    display: inline-block;
+    background: #37c0cc;
+}
+
+.salesMan .salesMan-content .salesMan-content-center .ttl1 .medal {
+    height: 20rpx;
+    width: 20rpx;
+    margin-right: 10rpx;
+    display: inline-block;
+}
+
+.salesMan .salesMan-content .salesMan-content-center .ttl1 .medal image {
+    height: 100%;
+    width: 100%;
+}
+
+.salesMan .salesMan-content .salesMan-content-right {
+    float: right;
+    line-height: 103rpx;
+    text-align: center;
+}
+
+.salesMan-content-data {
+    box-sizing: border-box;
+    padding: 0 25rpx 0 25rpx;
+    overflow: hidden;
+}
+
+.salesMan-content-data .salesMan-data-flex {
+    padding-bottom: 30rpx;
+    overflow: hidden;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.salesMan-content-data .salesMan-data-flex>view {
+    width: 33%;
+    text-align: center;
+    float: left;
+}
+
+.salesMan-content-data .salesMan-content-tools {
+    overflow: hidden;
+    width: 100%;
+    padding: 40rpx 0;
+    border-top: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.salesMan-content-data .salesMan-content-tools .tool1 {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.salesMan-content-data .salesMan-content-tools .tool2 {
+    width: 33%;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.salesMan-content-data .salesMan-content-tools .tool3 {
+    width: 33%;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.introduce {
+    padding: 26rpx 35rpx;
+    box-sizing: border-box;
+}
+
+.grayBlock {
+    height: 15rpx;
+    width: 100%;
+    background-color: #F7F7F7;
+}
+
+.opare-btn {
+    color: #9ea3ab;
+    display: inline-block;
+    border-radius: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0 35rpx;
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.share-bottom {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 5rpx 0 20rpx 0 rgba(0,0,0,0.2);
+    transition: all .35s;
+    z-index: 101;
+}
+
+.shareBtn {
+    display: flex;
+    justify-content: space-around;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.shareBtn-bar {
+    text-align: center;
+    padding-top: 45rpx;
+    background: transparent;
+}
+
+.btn-bg {
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.Btn-bg {
+    border-radius: 115rpx;
+    width: 115rpx;
+    height: 115rpx;
+    line-height: 115rpx;
+    display: inline-block;
+}
+
+.Btn-text {
+    padding: 40rpx 0;
+    line-height: 1;
+}
+
+.btn1 {
+    background: #1ccd6b;
+    box-shadow: 0 0 10rpx 0 #1ccd6b;
+}
+
+.btn2 {
+    background: #1ccdc7;
+    box-shadow: 0 0 10rpx 0 #1ccdc7;
+}
+
+.cancel {
+    text-align: center;
+    padding: 30rpx;
+    background: #fff;
+}
+
+.create-canvas-box {
+    z-index: 999;
+}
+
+.create-canvas-box>view {
+    box-shadow: 0 0 15rpx 0 rgba(0,0,0,0.2);
+}
+
+.create-canvas-box view.gray-9-color {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.share-btn-group .canvas-btn {
+    padding: 0 140rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 80rpx;
+    text-align: center;
+    z-index: 999;
+    display: inline-block;
+    background: #e4a74f;
+}
+
+.contact {
+    display: inline-block;
+    padding: 10rpx;
+    border: 1rpx solid #0ea8b0;
+    border-radius: 6rpx;
+    line-height: 1;
+    background-color: #fff;
+    margin: 0 8rpx;
+}
+
+.canvasArry>canvas {
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.bg {
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 995;
+}
+
+.icon-left {
+    transform: rotate(180deg);
+}
+
+.animate-canvas {
+    transition: transform .3s;
+    overflow: hidden;
+}
+
+.animate-canvas>view {
+    float: left;
+}
+
+.share-btn-group {
+    text-align: center;
+    padding-top: 15rpx;
+}
+
+.showCanvas {
+    display: block;
+}
+
+.swiper-box {
+    overflow: hidden;
+}
+
+.swiper-box swiper {
+    height: 100%;
+}
+
+.salesMans-content-title {
+    overflow: hidden;
+    padding: 30rpx;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.salesMans-content-title .right {
+    float: right;
+}
+
+.salesMans-content-title {
+    overflow: hidden;
+    padding: 30rpx;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.salesMans-content-title .right {
+    float: right;
+}

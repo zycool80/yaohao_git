@@ -1,0 +1,39 @@
+<view class="page">
+    <view class="header">
+        <text class="head_left font-bold">购房材料模版</text>
+        <button class="head_right fz-14 white-bg" hoverClass="none" openType="share">
+            <text style="margin-right: 14rpx;margin-top: 4rpx">分享</text>
+            <text class="iconfont icon-fenxiang9 fz-16"></text>
+        </button>
+    </view>
+    <view class="download_item" wx:for="{{data_list}}" wx:key="key">
+        <view class="download_item_title">
+            <view class="titel_left"></view>
+            <text class="title_right">{{item.name}}</text>
+        </view>
+        <view class="download_item_content">
+            <view bindtap="preview_img" class="content_left" data-wpypreview_img-a="{{item}}">
+                <image class="preview_img" src="{{item.image}}"></image>
+                <text class="fz-11" style="margin-top: 10rpx;color: #1a1a1a">点击预览</text>
+            </view>
+            <view class="content_right">
+                <block wx:if="{{item.subtitle}}">
+                    <text class="fz-15 font-bold">{{item.subtitle}}</text>
+                    <text class="fz-15" style="color: #bb2424">(仅供参考)</text>
+                </block>
+                <view bindtap="downloadFile_img" class="item_btn" data-wpydownloadfile_img-a="{{item}}">
+                    <text class="iconfont icon-xiazai fz-14" style="color: #ffffff;margin-right: 10rpx"></text>
+                    <text style="color: #ffffff">下载图片</text>
+                </view>
+                <view class="describe">
+                    <text class="fz-11">{{item.remark}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

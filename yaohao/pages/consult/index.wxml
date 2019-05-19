@@ -1,0 +1,330 @@
+<view class="page">
+    <view class="focus-option white-bg">
+        <view bindtap="changetype" class="focus-option-item" data-wpychangetype-a="1">
+            <text class="{{changeType==1?'font-bold blued-color fz-15':'black1a-color fz-15'}}">文章</text>
+            <view class="option-color {{changeType==1?'color-style':'color-style2'}}"></view>
+        </view>
+        <view bindtap="changetype" class="focus-option-item" data-wpychangetype-a="2">
+            <text class="{{changeType==2?'font-bold blued-color fz-15':'black1a-color fz-15'}}">问答</text>
+            <view class="option-color {{changeType==2?'color-style':'color-style2'}}"></view>
+        </view>
+        <view bindtap="changetype" class="focus-option-item" data-wpychangetype-a="3">
+            <text class="{{changeType==3?'font-bold blued-color fz-15':'black1a-color fz-15'}}">分享堂</text>
+            <view class="option-color {{changeType==3?'color-style':'color-style2'}}"></view>
+        </view>
+    </view>
+    <block wx:if="{{changeType==1}}">
+        <view class="article-top" wx:if="{{$consultTemplate$postBanners&&$consultTemplate$postBanners.length>0}}">
+            <view class="article-top-banner">
+                <swiper autoplay="true" duration="300" indicatorActiveColor="#ddd" indicatorDots="true" interval="4000" style="height:300rpx;">
+                    <swiper-item style="position: relative;" wx:for="{{$consultTemplate$postBanners}}" wx:key="index">
+                        <navigator hoverClass="weui-cell_active" url="{{item.url}}">
+                            <image class="slide-image" mode="aspectFill" src="{{item.image}}"></image>
+                        </navigator>
+                    </swiper-item>
+                </swiper>
+            </view>
+        </view>
+        <view class="posts-menu white-bg">
+            <navigator class="posts-menu-list black-color" hoverClass="none" url="/subPackages/news/pages/dailyConsultation?&type={{$consultTemplate$article.type}}" wx:for="{{$consultTemplate$articleTypes}}" wx:for-index="$consultTemplate$index" wx:for-item="$consultTemplate$article" wx:key="$consultTemplate$key">
+                <image class="icon" src="{{$consultTemplate$article.icon}}"></image>
+                <view class="text fz-13">{{$consultTemplate$article.text}}</view>
+            </navigator>
+        </view>
+        <view class="page-articles">
+            <view class="hot-articles" wx:if="{{$consultTemplate$hotResult.length>0}}">
+                <view class="dern-title common-box fz-15 height-level-color">
+                    <view class="common-title">热门推荐</view>
+                    <navigator hoverClass="none" style="float:right;color:#8f8f8f;position: relative;top: -10rpx" url="/subPackages/news/pages/hotArticle">
+                        <text class="fz-12">更多</text>
+                        <text class="iconfont icon-xiayibu fz-11"></text>
+                    </navigator>
+                </view>
+                <scroll-view scrollX scrollWithAnimation="{{$consultTemplate$true}}">
+                    <view class="article-list" style="width: {{$consultTemplate$hotResult.length>5?'3000':$consultTemplate$hotResult.length*600}}rpx">
+                        <navigator class="question-cont" hoverClass="none" url="{{$consultTemplate$article.url}}" wx:if="{{$consultTemplate$articleIndex<5}}" wx:for="{{$consultTemplate$hotResult}}" wx:for-index="$consultTemplate$articleIndex" wx:for-item="$consultTemplate$article" wx:key="$consultTemplate$key">
+                            <image mode="aspectFill" src="{{$consultTemplate$article.img}}"></image>
+                            <view class="text-cont fz-14 black1a-color">{{$consultTemplate$article.title}}</view>
+                        </navigator>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="dern white-bg" wx:if="{{$consultTemplate$dernResult.length>0}}">
+                <view class="dern-title common-box fz-15 height-level-color">
+                    <view class="dern-title common-title">大咖推荐</view>
+                </view>
+                <scroll-view scrollX class="scroll-view">
+                    <navigator class="scroll-view-list" hoverClass="none" url="/subPackages/news/pages/bigCoffeeDetail?id={{$consultTemplate$dernData.id}}" wx:for="{{$consultTemplate$dernResult}}" wx:for-index="$consultTemplate$index" wx:for-item="$consultTemplate$dernData" wx:key="$consultTemplate$key">
+                        <image class="slide-image" mode="aspectFill" src="{{$consultTemplate$dernData.avatar_url||$consultTemplate$defaultAvatar}}"></image>
+                        <view class="fz-10 small-level-color">{{$consultTemplate$dernData.name}}</view>
+                    </navigator>
+                </scroll-view>
+            </view>
+            <view class="news-articles" wx:if="{{$consultTemplate$articles.length>0}}">
+                <view class="dern-title common-box fz-15 height-level-color">
+                    <view class="common-title">最新文章</view>
+                </view>
+                <navigator class="article-style" hoverClass="none" url="{{$consultTemplate$article.url}}" wx:for="{{$consultTemplate$articles}}" wx:for-index="$consultTemplate$i" wx:for-item="$consultTemplate$article" wx:key="$consultTemplate$key">
+                    <image class="right-img" mode="aspectFill" src="{{$consultTemplate$article.img}}"></image>
+                    <view class="left-cont">
+                        <view class="article-detail fz-15 font-bold black1a-color">{{$consultTemplate$article.title}}</view>
+                        <view class="bottom">
+                            <view class="left-name">
+                                <image class="avatar" lazyLoad="{{$consultTemplate$articleStyle$true}}" mode="aspectFill" src="{{$consultTemplate$article.source.avatar_url||$consultTemplate$articleStyle$defaultAvatar}}"></image>
+                                <text class="name fz-10 gray-9-color">{{$consultTemplate$article.source.name}}</text>
+                            </view>
+                            <view class="time fz-10 gray-9-color">{{$consultTemplate$article.time}}</view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="loading-runing" wx:if="{{$consultTemplate$more}}">
+                <view class="loading-icon">
+                    <text class="iconfont icon-jiazai"></text>
+                </view>
+                <view class="left-font">
+                    <text>加载中</text>
+                </view>
+            </view>
+            <view class="nothing" wx:if="{{$consultTemplate$hotResult.length<=0}}">
+                <view class="nothing-text fz-13 small-level-color">暂无内容</view>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{changeType==2}}">
+        <view class="top-search white-bg">
+            <view class="answer-search-bar top-search">
+                <view class="question-search-right">
+                    <navigator class="question-search-right-btn message iconfont icon-wenda" closeTip="closeTip" hoverClass="none" style="margin-right: 15rpx" url="/subPackages/question/pages/questionMessages"></navigator>
+                    <navigator class="question-search-right-btn profile" hoverClass="none" url="/subPackages/question/pages/myQuestion">
+                        <image mode="aspectFill" src="{{$answerTemplate$userInfo.avatarUrl||$answerTemplate$avatar_url}}"></image>
+                    </navigator>
+                </view>
+                <navigator class="search-bar-form" hoverClass="none" url="/subPackages/question/pages/questionSearch">
+                    <view class="weui-icon-search iconfont icon-sousuo"></view>
+                    <text class="ui-input search-bar-input fz-12 gray-color" style="margin:0">房产知识有疑问？搜一搜就知道了</text>
+                </navigator>
+            </view>
+        </view>
+        <scroll-view scrollX scrollWithAnimation="{{$answerTemplate$true}}" wx:if="{{$answerTemplate$questionBanners.length>0}}">
+            <view class="scroll-view-list">
+                <navigator class="question-cont" hoverClass="none" url="{{$answerTemplate$item.url}}" wx:for="{{$answerTemplate$questionBanners}}" wx:for-index="$answerTemplate$index" wx:for-item="$answerTemplate$item" wx:key="$answerTemplate$key">
+                    <image mode="aspectFill" src="{{$answerTemplate$item.image}}"></image>
+                </navigator>
+            </view>
+        </scroll-view>
+        <scroll-view scrollX class="question-nav-container" scrollWithAnimation="{{$answerTemplate$true}}" style="height: 104rpx;" wx:if="{{$answerTemplate$questionNavs.length>0}}">
+            <view style="display: flex;display: -webkit-flex;justify-content: space-between">
+                <view bindtap="$answerTemplate$typeFilter" class="question-nav-list" data-wpytypefilter-a="{{$answerTemplate$index}}" data-wpytypefilter-b="3" hoverClass="none" wx:for="{{$answerTemplate$questionNavs}}" wx:for-index="$answerTemplate$index" wx:for-item="$answerTemplate$item" wx:key="$answerTemplate$key">
+                    <view class="text right fz-12 {{$answerTemplate$index==$answerTemplate$switchIndex?'active blue-color':'height-level-color'}}">{{$answerTemplate$item.type_text}}</view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="question-container">
+            <view class="question-head">
+                <view bindtap="$answerTemplate$openSwitch" class="fz-13 small-level-color {{$answerTemplate$index==$answerTemplate$switchIndex}} filter">筛选<text class="iconfont gray-color icon-xialajiantou i8" style="margin-left:6px;"></text>
+                </view>
+                <picker bindchange="$answerTemplate$answerSort" bindtap="$answerTemplate$closeCancel" class="area_list_change" range="{{$answerTemplate$answerType}}" rangeKey="name" value="{{$answerTemplate$answerIndex}}">
+                    <view class="small-level-color fz-13">{{$answerTemplate$answerType[$answerTemplate$answerIndex].name}}<text class="iconfont icon-xialajiantou i8 gray-color" style="margin-left:6px;"></text>
+                    </view>
+                </picker>
+                <picker bindchange="$answerTemplate$pickerSort" bindtap="$answerTemplate$closeCancel" class="area_list_change" range="{{$answerTemplate$sortList}}" rangeKey="name" value="{{$answerTemplate$SortIndex}}">
+                    <view class="small-level-color fz-13">{{$answerTemplate$sortList[$answerTemplate$sortIndex].name}}<text class="iconfont icon-xialajiantou i8 gray-color" style="margin-left:6px;"></text>
+                    </view>
+                </picker>
+            </view>
+            <view class="area-filter-cont" id="areaView" style="top: 70rpx;" wx:if="{{$answerTemplate$filterView}}">
+                <view style="{{$answerTemplate$switchBar=='area'?'display: flex':''}}">
+                    <view class="left fz-15">
+                        <view bindtap="$answerTemplate$typeFilter" class="line {{$answerTemplate$index==$answerTemplate$grandparentIndex?'oringe-color':''}}" data-wpytypefilter-a="{{$answerTemplate$index}}" data-wpytypefilter-b="1" wx:for="{{$answerTemplate$questionNavs}}" wx:for-index="$answerTemplate$index" wx:for-item="$answerTemplate$item" wx:key="$answerTemplate$key">{{$answerTemplate$item.type_text}}</view>
+                    </view>
+                    <view class="right-cont">
+                        <view class="middle fz-15">
+                            <view bindtap="$answerTemplate$typeFilter" class="line {{$answerTemplate$index==$answerTemplate$parentIndex?'oringe-color':''}}" data-wpytypefilter-a="{{$answerTemplate$index}}" data-wpytypefilter-b="2" wx:for="{{$answerTemplate$questionNavs[$answerTemplate$grandparentIndex].tags}}" wx:for-index="$answerTemplate$index" wx:for-item="$answerTemplate$item" wx:key="$answerTemplate$key">{{$answerTemplate$item.name}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="bottom-btn">
+                    <view bindtap="$answerTemplate$resetData" class="reset-btn fz-15 gray-9-color">重置</view>
+                    <view bindtap="$answerTemplate$submitData" class="sure-btn fz-15 white-color">确定</view>
+                </view>
+                <view bindtap="$answerTemplate$closeCancel" class="hide_bg"></view>
+            </view>
+            <block wx:if="{{$answerTemplate$questionItems.length>0&&!$answerTemplate$filterView}}">
+                <navigator class="question-list white-bg" hoverClass="none" url="/subPackages/question/pages/questionDetail?id={{$answerTemplate$item.id}}" wx:for="{{$answerTemplate$questionItems}}" wx:for-index="$answerTemplate$index" wx:for-item="$answerTemplate$item" wx:key="$answerTemplate$key">
+                    <view class="top-question">
+                        <view class="tips blue-bg fz-12">问</view>
+                        <view class="title-top">
+                            <view class="title-top-left">
+                                <view class="avatar">
+                                    <image mode="aspectFill" src="{{$answerTemplate$item.user_avatar_url||$answerTemplate$avatar_url}}"></image>
+                                </view>
+                                <view class="user-info fz-13 font-bold black-1a" style="line-height: 60rpx">{{$answerTemplate$item.user_name}}</view>
+                            </view>
+                            <view class="attention">
+                                <text catchtap="$answerTemplate$delBox" class="fz-24 other font-bold" data-wpydelbox-a="{{$answerTemplate$index}}">...</text>
+                            </view>
+                        </view>
+                        <text class="question-desc fz-13 black1a-color" style="display: inline-block">{{$answerTemplate$item.content}}</text>
+                        <view class="nine-img-view" style="overflow:hidden">
+                            <view class="weui-flex" style="overflow:hidden" wx:for="{{$answerTemplate$item.img}}" wx:for-index="$answerTemplate$index" wx:for-item="$answerTemplate$images" wx:key="$answerTemplate$key">
+                                <block wx:for="{{$answerTemplate$item.layout}}" wx:for-index="$answerTemplate$index" wx:for-item="$answerTemplate$i" wx:key="$answerTemplate$key">
+                                    <view class="layout{{$answerTemplate$item.layout}}" wx:if="{{$answerTemplate$images[$answerTemplate$i]}}">
+                                        <view class="img-box imgLayout imgLayout{{$answerTemplate$item.layout}}" style="overflow:hidden" wx:if="{{$answerTemplate$item.layout==1}}">
+                                            <image catchtap="$answerTemplate$preview" class="gray-bg" data-preview="{{$answerTemplate$images[$answerTemplate$i]}}" data-wpypreview-a="{{$answerTemplate$item}}" lazyLoad="{{$answerTemplate$true}}" mode="widthFix" src="{{$answerTemplate$images[$answerTemplate$i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                        </view>
+                                        <view class="img-smallBox imgLayout imgLayout{{$answerTemplate$item.layout}}" wx:else>
+                                            <image catchtap="$answerTemplate$preview" class="gray-bg" data-preview="{{$answerTemplate$images[$answerTemplate$i]}}" data-wpypreview-a="{{$answerTemplate$item}}" lazyLoad="{{$answerTemplate$true}}" mode="widthFix" src="{{$answerTemplate$images[$answerTemplate$i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                        </view>
+                                    </view>
+                                    <view class="layout{{$answerTemplate$item.layout}}" wx:else></view>
+                                </block>
+                            </view>
+                        </view>
+                        <view class="sign-line">
+                            <view class="sign-text">
+                                <text class="fz-10 blue-color sign-text-bg" wx:for="{{$answerTemplate$item.tags}}" wx:for-index="$answerTemplate$index" wx:for-item="$answerTemplate$val" wx:key="$answerTemplate$key">{{$answerTemplate$val.text}}</text>
+                            </view>
+                            <block wx:if="{{$answerTemplate$item.status!=3}}">
+                                <view catchtap="$answerTemplate$toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/questionCloselyDetail?id={{$answerTemplate$item.id}}" wx:if="{{$answerTemplate$userInfo.id==$answerTemplate$item.user_id&&!$answerTemplate$item.to_question_closely}}">我要追问</view>
+                                <view catchtap="$answerTemplate$toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/answerDetail?id={{$answerTemplate$item.id}}" wx:else>我要回答</view>
+                            </block>
+                        </view>
+                        <view class="question-user-info gray-9-color">
+                            <view class="left fz-12">{{$answerTemplate$item.time}}</view>
+                            <view class="right fz-12">
+                                <text class="view-num">{{$answerTemplate$item.page_views}}  浏览</text>
+                                <text class="answer-num">{{$answerTemplate$item.comment_num}} 回答</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+            <view class="loading-runing" wx:if="{{$answerTemplate$more}}">
+                <view class="loading-icon">
+                    <text class="iconfont icon-jiazai"></text>
+                </view>
+                <view class="left-font">
+                    <text>加载中</text>
+                </view>
+            </view>
+            <view class="nothing" wx:if="{{$answerTemplate$questionItems.length<=0}}">
+                <view class="nothing-text fz-13 small-level-color">暂无内容</view>
+            </view>
+        </view>
+        <navigator bindtap="$answerTemplate$createQuestionAnalysis" class="create-question iconfont icon-shenfen1 white-color" hoverClass="none" url="/subPackages/question/pages/askQuestion"></navigator>
+    </block>
+    <block wx:if="{{changeType==3}}">
+        <view class="search-bar">
+            <view bindtap="$sharingTemplate$doSearch" class="weui-icon-search iconfont icon-sousuo"></view>
+            <view bindtap="$sharingTemplate$clearInput" class="weui-icon-clear iconfont icon-delete" wx:if="{{$sharingTemplate$inputVal.length>0}}"></view>
+            <input bindconfirm="$sharingTemplate$doSearch" bindinput="$sharingTemplate$inputTyping" class="ui-input search-input" placeholder="{{$sharingTemplate$inputPlace}}" placeholderClass="search-input-place" type="text" value="{{$sharingTemplate$inputVal}}"></input>
+        </view>
+        <view class="share-line white-bg">
+            <picker bindchange="$sharingTemplate$chooseShareType" data-wpychoosesharetype-a="one" range="{{$sharingTemplate$shareType}}" rangeKey="value" value="{{$sharingTemplate$shareIndex}}">
+                <text class="fz-13 small-level-color">{{$sharingTemplate$shareType[$sharingTemplate$shareIndex].value}}</text>
+                <text class="iconfont gray-color icon-xialajiantou fz-10" style="color:#ddd;position:relative;left:8rpx;"></text>
+            </picker>
+            <picker bindchange="$sharingTemplate$chooseShareType" data-wpychoosesharetype-a="two" range="{{$sharingTemplate$myType}}" rangeKey="value" value="{{$sharingTemplate$newIndex}}">
+                <text class="fz-13 small-level-color">{{$sharingTemplate$myType[$sharingTemplate$newIndex].value}}</text>
+                <text class="iconfont gray-color icon-xialajiantou fz-10" style="color:#ddd;position:relative;left:8rpx;"></text>
+            </picker>
+            <button openType="share" style="background: transparent;line-height:2;">
+                <text class="fz-15 small-level-color iconfont icon-fenxiang9" style="margin-right: 6rpx"></text>
+                <text class="fz-13 small-level-color">分享</text>
+            </button>
+        </view>
+        <view class="posts">
+            <view class="post-items">
+                <block wx:if="{{$sharingTemplate$items.length>0}}">
+                    <view class="post-item gray-block preview-container" wx:for="{{$sharingTemplate$items}}" wx:for-index="$sharingTemplate$key" wx:for-item="$sharingTemplate$item" wx:key="$sharingTemplate$key">
+                        <view class="post-item-header">
+                            <navigator class="header-icon" hoverClass="none" url="/pages/salesMan/detail?id={{$sharingTemplate$item.sales_man_id}}">
+                                <image class="avatar no-preview gray-bg" lazyLoad="{{$sharingTemplate$true}}" src="{{$sharingTemplate$item.avatar_url||$sharingTemplate$defaultAvatar}}"></image>
+                            </navigator>
+                            <view class="header-content clearfix" style="position: relative">
+                                <view style="float: left">
+                                    <view class="weui-media-box__title">
+                                        <navigator class="weui-cell_link" hoverClass="none" style="margin-top:10rpx;" url="/pages/salesMan/detail?id={{$sharingTemplate$item.sales_man_id}}&project_id={{$sharingTemplate$item.project_id}}">
+                                            <text class="fz-13 font-bold red-color">{{$sharingTemplate$item.user_name}}</text>
+                                            <view style="display: inline-block;">
+                                                <text class="label label-danger fz-12" wx:for="{{$sharingTemplate$item.tags}}" wx:for-index="$sharingTemplate$index" wx:for-item="$sharingTemplate$tag" wx:key="$sharingTemplate$key">{{$sharingTemplate$tag}}</text>
+                                            </view>
+                                        </navigator>
+                                    </view>
+                                    <navigator hoverClass="none" url="/pages/lotteryDetail?project_id={{$sharingTemplate$item.project_id}}">
+                                        <view class="fz-12 small-level-color" style="margin-top:10rpx;">
+                                            <text class="fz-12 blue-color">{{$sharingTemplate$item.project_name}}</text>
+                                        </view>
+                                    </navigator>
+                                </view>
+                                <view class="attention">
+                                    <text bindtap="$sharingTemplate$focus" class="{{$sharingTemplate$item.attention==1?'yiguanzhu':'guanzhu'}} fz-12" data-wpyfocus-a="{{$sharingTemplate$key}}">{{$sharingTemplate$item.attention==1?'已关注':'+关注'}}</text>
+                                    <text bindtap="$sharingTemplate$talkdelBox" class="fz-24 other font-bold" data-wpytalkdelbox-a="{{$sharingTemplate$key}}">...</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="post-item-body">
+                            <navigator hoverClass="none" url="/pages/posts/detail?id={{$sharingTemplate$item.id}}">
+                                <view>
+                                    <text class="fz-13 text-content">{{$sharingTemplate$item.content}}</text>
+                                </view>
+                            </navigator>
+                        </view>
+                        <view style="overflow:hidden">
+                            <block wx:for="{{$sharingTemplate$item.images}}" wx:for-index="$sharingTemplate$index" wx:for-item="$sharingTemplate$images" wx:key="$sharingTemplate$key">
+                                <view class="weui-flex flex-item-wrap" style="overflow:hidden;display: flex;margin:0 0 0 120rpx;" wx:if="{{$sharingTemplate$item.video_url}}">
+                                    <view class="img-box imgLayout imgLayout{{$sharingTemplate$item.layout}}" style="width: 100%;height:300rpx;" wx:if="{{$sharingTemplate$item.imageView}}">
+                                        <video autoplay bindended="$sharingTemplate$closeVideoView" bindpause="$sharingTemplate$closeVideoView" data-wpyclosevideoview-a="{{$sharingTemplate$key}}" src="{{$sharingTemplate$item.video_url}}" style="overflow:hidden;height:300rpx;width: 100%"></video>
+                                    </view>
+                                    <view bindtap="$sharingTemplate$viewVideo" class="img-box imgLayout imgLayout{{$sharingTemplate$item.layout}}" data-wpyviewvideo-a="{{$sharingTemplate$key}}" style="height:300rpx;overflow:hidden;position:relative;" wx:else>
+                                        <image lazyLoad="{{$sharingTemplate$true}}" mode="widthFix" src="{{$sharingTemplate$item.video_url}}?vframe/jpg/offset/1/w/400/h/400 " style="height:300rpx"></image>
+                                        <view class="iconfont icon-bofangda white-color font-bold" style="position:absolute;z-index:0;width:100rpx;height:100rpx;margin:auto;top:0;left:0;bottom:0;right:0;text-align:center;font-size:80rpx;"></view>
+                                    </view>
+                                </view>
+                                <view class="weui-flex flex-item-wrap" style="overflow:hidden;display: flex;" wx:else>
+                                    <view class="layout{{$sharingTemplate$item.layout}}" wx:for="{{$sharingTemplate$item.layout}}" wx:for-index="$sharingTemplate$index" wx:for-item="$sharingTemplate$i" wx:key="$sharingTemplate$key">
+                                        <view class="img-box imgLayout imgLayout{{$sharingTemplate$item.layout}}" style="overflow:hidden;height:100%" wx:if="{{$sharingTemplate$item.layout==1}}">
+                                            <image bindtap="$sharingTemplate$preview" class="gray-bg" data-preview="{{$sharingTemplate$images[$sharingTemplate$i]}}" data-wpypreview-a="{{$sharingTemplate$item}}" lazyLoad="{{$sharingTemplate$true}}" mode="widthFix" src="{{$sharingTemplate$images[$sharingTemplate$i]}}?imageView2/1/w/400/h/400/q/75|imageslim" wx:if="{{$sharingTemplate$images[$sharingTemplate$i]}}"></image>
+                                            <image bindtap="$sharingTemplate$preview" class="gray-bg" data-preview="{{$sharingTemplate$images[$sharingTemplate$i]}}" data-wpypreview-a="{{$sharingTemplate$item}}" lazyLoad="{{$sharingTemplate$true}}" mode="widthFix" src="{{$sharingTemplate$images[$sharingTemplate$i]}}?imageView2/1/w/400/h/400/q/75|imageslim" wx:else></image>
+                                        </view>
+                                        <view class="img-smallBox imgLayout imgLayout{{$sharingTemplate$item.layout}}" wx:else>
+                                            <image bindtap="$sharingTemplate$preview" class="gray-bg" data-preview="{{$sharingTemplate$images[$sharingTemplate$i]}}" data-wpypreview-a="{{$sharingTemplate$item}}" lazyLoad="{{$sharingTemplate$true}}" mode="widthFix" src="{{$sharingTemplate$images[$sharingTemplate$i]}}?imageView2/1/w/400/h/400/q/75|imageslim" wx:if="{{$sharingTemplate$images[$sharingTemplate$i]}}"></image>
+                                        </view>
+                                    </view>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="fz-12 small-level-color" style="padding:20rpx 0 10rpx;line-height:1;position:relative">
+                            <text style="margin-left: 120rpx;">{{$sharingTemplate$item.time}}</text>
+                            <navigator class="comment" hoverClass="none" style="display:inline-block;" url="/pages/posts/detail?id={{$sharingTemplate$item.id}}&status_type=1">
+                                <text class="iconfont fz-14 icon-xiaoxi1" style="vertical-align:middle;"></text>
+                                <text class="text"> {{$sharingTemplate$item.comment_num}}</text>
+                            </navigator>
+                            <view bindtap="$sharingTemplate$like" class="like" data-wpylike-a="{{$sharingTemplate$item}}" data-wpylike-b="{{$sharingTemplate$key}}" style="display:inline-block">
+                                <text class="iconfont fz-14 {{$sharingTemplate$item.numstatus==1?'icon-dianzanxuanzhong':'icon-dianzan1'}}" style="vertical-align:middle;"></text>
+                                <text class="text"> {{$sharingTemplate$item.like_num}}</text>
+                            </view>
+                            <view class="see" style="display:inline-block">
+                                <text class="iconfont icon-chakan1 fz-14"></text>
+                                <text class="text"> {{$sharingTemplate$item.page_views||0}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <view class="loading-runing" wx:if="{{$sharingTemplate$more}}">
+                    <view class="loading-icon">
+                        <text class="iconfont icon-jiazai"></text>
+                    </view>
+                    <view class="left-font">
+                        <text>加载中</text>
+                    </view>
+                </view>
+                <view class="not_id_card" wx:if="{{$sharingTemplate$items.length<=0}}">
+                    <text class="small-level-color" style="margin-top:30px;font-size:14px">小主人~暂无内容</text>
+                </view>
+            </view>
+        </view>
+        <navigator class="create-question iconfont icon-shenfen1 white-color" hoverClass="none" url="/subPackages/posts/pages/create"></navigator>
+    </block>
+</view>

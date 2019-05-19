@@ -1,0 +1,77 @@
+<view class="page">
+    <block wx:if="{{type===3}}">
+        <view class="building_search">
+            <view class="search_container">
+                <view class="iconfont icon-sousuo search_icon fz-16" style="color: #cccccc"></view>
+                <input bindinput="valueTyping3" confirmType="search" placeholder="输入楼盘名字搜索" placeholderClass="input_style" value="{{getValue3}}"></input>
+                <view bindtap="delete_search" class="iconfont icon-delete delete_icon fz-16" style="color: #cccccc" wx:if="{{getValue3}}"></view>
+            </view>
+            <text bindtap="search_keword" class="search_text">确定</text>
+        </view>
+        <block wx:if="{{!getValue3}}">
+            <view class="building_choose">
+                <view class="choose_title">
+                    <text class="fz-12" style="color: #8a8a8a">热门搜索</text>
+                </view>
+                <view class="building_list">
+                    <view bindtap="hotList" class="building_item" data-wpyhotlist-a="{{item}}" wx:for="{{hotList}}" wx:key="key">
+                        <text class="iconfont icon-loupan fz-14"></text>
+                        <text class="fz-14" style="margin-left: 30rpx">{{item.name}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="building_choose" wx:if="{{hostory_list.length>0}}">
+                <view class="choose_title" style="overflow: hidden">
+                    <text class="fz-12" style="color: #8a8a8a">近期搜索</text>
+                    <text bindtap="delete_list" class="iconfont icon-shanchu fz-13" style="color: #9d9d9d;float: right"></text>
+                </view>
+                <view class="building_list">
+                    <view bindtap="hostory_item" class="building_item" data-wpyhostory_item-a="{{item}}" wx:for="{{hostory_list}}" wx:key="key">
+                        <text class="iconfont icon-loupan fz-14"></text>
+                        <text class="fz-14" style="margin-left: 30rpx">{{item}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="building_choose" wx:else>
+            <view class="choose_title">
+                <text class="fz-12" style="color: #8a8a8a">您可以直接添加</text>
+            </view>
+            <view class="building_list">
+                <view class="building_item" wx:for="{{building_list}}" wx:key="key">
+                    <text class="iconfont icon-loupan fz-14"></text>
+                    <text class="fz-14" style="margin-left: 30rpx">{{item.name}}</text>
+                    <view bindtap="add_buidl" class="fz-13" data-wpyadd_buidl-a="{{item}}" style="float: right">
+                        <text style="color:#5084d2">添加</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{type===1}}">
+        <view class="building_search">
+            <view class="search_container">
+                <view class="iconfont icon-sousuo search_icon fz-16" style="color: #cccccc"></view>
+                <input bindinput="valueTyping" confirmType="search" placeholder="输入小区名字搜索" placeholderClass="input_style" value="{{getValue}}"></input>
+                <view bindtap="delete_search2" class="iconfont icon-delete delete_icon fz-16" style="color: #cccccc" wx:if="{{getValue}}"></view>
+            </view>
+            <text bindtap="search_keword2" class="search_text">确定</text>
+        </view>
+        <view class="building_choose">
+            <view class="choose_title">
+                <text class="fz-12" style="color: #8a8a8a">你可以直接选择</text>
+            </view>
+            <view class="building_list">
+                <view bindtap="get_conmunity" class="building_item" data-wpyget_conmunity-a="{{item}}" wx:for="{{community_list}}" wx:key="key">
+                    <text class="iconfont icon-loupan fz-14"></text>
+                    <text class="fz-14" style="margin-left: 30rpx">{{item.resblock_name}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

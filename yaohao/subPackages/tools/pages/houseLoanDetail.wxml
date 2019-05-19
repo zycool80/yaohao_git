@@ -1,0 +1,43 @@
+<view class="container">
+    <view class="total-cont" id="loanDetail">
+        <view class="year-cont" wx:for="{{list}}" wx:key="key">
+            <view bindtap="toggleHandle" class="line-title" data-wpytogglehandle-a="{{index}}">
+                <text class="year-num fz-12 small-level-color">{{item.time}}年</text>
+                <text class="year-toggle {{item.toggle?'active':''}} iconfont fz-13 icon-xialajiantouxianxing "></text>
+            </view>
+            <view bindtap="toggleHandle" class="cont-line" data-wpytogglehandle-a="{{index}}">
+                <view class="left">
+                    <view class="top fz-16 black1a-color">{{item.yearTotal}}<text class="small-level-color fz-12">元</text>
+                    </view>
+                    <view class="bottom fz-12 gray-9-color">本年还款</view>
+                </view>
+                <view class="right">
+                    <view class="top fz-16 black1a-color">{{item.yearLxTotal}}<text class="small-level-color fz-12">元</text>
+                    </view>
+                    <view class="bottom fz-12 gray-9-color">本年利息</view>
+                </view>
+            </view>
+            <view class="year-detail-cont" wx:if="{{item.toggle}}">
+                <view class="detail-line fz-12 small-level-color">
+                    <view class="detail-text">月份</view>
+                    <view class="detail-text">本期还款</view>
+                    <view class="detail-text">本期本金</view>
+                    <view class="detail-text">本期利息</view>
+                    <view class="detail-text no-boder">本期剩余</view>
+                </view>
+                <view class="detail-line fz-12 {{startDay[0]==item.time&&startDay[1]==lineVal.month?'red-color':'height-level-color'}}" wx:for="{{item.data}}" wx:for-item="lineVal" wx:key="key">
+                    <view class="detail-text">{{lineVal.month}}</view>
+                    <view class="detail-text">{{lineVal.payMoney}}</view>
+                    <view class="detail-text">{{lineVal.payBenjin}}</view>
+                    <view class="detail-text">{{lineVal.payLx}}</view>
+                    <view class="detail-text no-boder">{{lineVal.payLast}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

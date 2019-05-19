@@ -1,0 +1,61 @@
+<view class="page">
+    <button class="tipMessage fz-12" openType="contact" sendMessageImg="https://imgcdn.huanjutang.com/assert/img/15530605000172798.jpg" sendMessageTitle="获取服务号二维码" showMessageCard="{{true}}" wx:if="{{!closeHandle}}">
+        <view catchtap="closeBtn" class="closeBtn fz-24">×</view>
+        <view class="left-cont">
+            <text class="iconfont icon-tongzhi"></text> 绑定【成都摇号助手服务号】接收消息更方便喔~ >></view>
+    </button>
+    <view class="advisory">
+        <navigator bindtap="clearUnRead" class="advisory-content" data-wpyclearunread-a="{{index}}" data-wpyclearunread-b="sys" style="background: #f0faff" url="/subPackages/me/pages/sysMessage?id={{item.id}}" wx:for="{{sysMsgList}}" wx:key="key">
+            <view class="advisory-content-left">
+                <image mode="aspectFill" src="{{item.system_user.avatar_url}}"></image>
+            </view>
+            <view class="advisory-content-right">
+                <view class="line top">
+                    <view class="top-name">
+                        <text class="name fz-16 black-color">系统消息</text>
+                    </view>
+                    <text class="time fz-12 small-level-color">{{item.last_message.created_at||''}}</text>
+                </view>
+                <view class="line bottom">
+                    <text class="message-tip fz-10" wx:if="{{item.unread_num>0}}">{{item.unread_num>10?'10+':item.unread_num}}</text>
+                    <text class="project-produce gray-9-color fz-13">你好！请问有什么能帮助你的么?</text>
+                </view>
+            </view>
+        </navigator>
+        <block wx:if="{{chatList.length!=0}}">
+            <navigator bindtap="clearUnRead" class="advisory-content" data-wpyclearunread-a="{{index}}" url="/subPackages/me/pages/chatInterface?user_id={{item.user.id}}&avatar={{item.user.avatar_url||avatar_url}}" wx:if="{{item.user.is_blacklist!=1}}" wx:for="{{chatList}}" wx:key="key">
+                <view class="advisory-content-left">
+                    <image mode="aspectFill" src="{{item.user.avatar_url||avatar_url}}"></image>
+                </view>
+                <view class="advisory-content-right">
+                    <view class="line top">
+                        <view class="top-name">
+                            <text class="name fz-16 black-color">{{item.user.name||'匿名'}}</text>
+                        </view>
+                        <text class="time fz-12 small-level-color">{{item.last_message.updated_at}}</text>
+                    </view>
+                    <view class="line bottom">
+                        <text class="message-tip fz-10" wx:if="{{item.unread_count>0}}">{{item.unread_count>10?'10+':item.unread_count}}</text>
+                        <text class="project-produce gray-9-color fz-13" wx:if="{{item.last_message.type==1}}">{{item.last_message.content}}</text>
+                        <text class="project-produce gray-9-color fz-13" wx:if="{{item.last_message.type==2}}">[图片]</text>
+                        <text class="project-produce gray-9-color fz-13" wx:if="{{item.last_message.type==3}}">[信息卡片]</text>
+                        <text class="project-produce gray-9-color fz-13" wx:if="{{item.last_message.type==4}}">[系统提示]</text>
+                        <text class="project-produce gray-9-color fz-13" wx:if="{{item.last_message.type==51}}">[请求获取手机号]</text>
+                        <text class="project-produce gray-9-color fz-13" wx:if="{{item.last_message.type==52}}">[请求获取微信号]</text>
+                        <text class="project-produce gray-9-color fz-13" wx:if="{{item.last_message.type==61}}">[申请手机号结果]</text>
+                        <text class="project-produce gray-9-color fz-13" wx:if="{{item.last_message.type==62}}">[申请微信号结果]</text>
+                        <text class="project-produce gray-9-color fz-13" wx:if="{{item.last_message.type==71}}">[楼盘信息卡片]</text>
+                    </view>
+                </view>
+            </navigator>
+        </block>
+        <block wx:else>
+            <view class="tip fz-14 height-level-color" wx:if="{{loading}}">暂无消息</view>
+        </block>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

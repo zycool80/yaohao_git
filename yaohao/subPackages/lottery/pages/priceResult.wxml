@@ -1,0 +1,59 @@
+<view class="result_container">
+    <image class="back_img" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20181115/5bed4213013d2.png"></image>
+    <view class="result_content">
+        <view class="result_content_top">
+            <text class="fz-22 font-bold">{{title}}</text>
+            <view class="list_details">
+                <view class="item_details">
+                    <text class="item_title fz-13 font-bold">{{house}}</text>
+                    <text class="fz-13 item_title">户型</text>
+                </view>
+                <view class="item_details">
+                    <text class="item_title fz-13 font-bold">{{result_data.build_size}}</text>
+                    <text class="fz-13 item_title">面积</text>
+                </view>
+                <view class="item_details">
+                    <text class="item_title fz-13 font-bold">{{result_data.floor}}</text>
+                    <text class="fz-13 item_title">楼层</text>
+                </view>
+            </view>
+            <view class="price_title">
+                <text class="fz-15">预估总价</text>
+                <text bindtap="look_ruls" class="iconfont icon-wentiquestions1 fz-15" style="margin-left: 10rpx"></text>
+                <view>
+                    <text class="fz-50" style="color: #16c295">{{price}}</text>
+                    <text class="fz-13">万</text>
+                </view>
+            </view>
+            <view class="divider">
+                <view class="semicircle semicircle_left"></view>
+                <view class="semicircle semicircle_right"></view>
+            </view>
+            <view bindtap="preview_img" style="margin-top: 50rpx;">
+                <image src="{{qrcode}}" style="width: 190rpx;height: 190rpx"></image>
+                <text class="prompt_title">扫码查看房子估价</text>
+            </view>
+            <button class="prompt_share" openType="share">
+                <text class="iconfont icon-fenxiang9 white-color fz-20"></text>
+            </button>
+        </view>
+        <view style="text-align: center;margin-top: 70rpx">
+            <text class="fz-15 white-color" style="display: block">分享记录我的每一步</text>
+        </view>
+    </view>
+</view>
+<view class="modal_prompt" wx:if="{{modal_type}}">
+    <view class="modal_dialog">
+        <view class="modal_text">
+            <text class="fz-15">该估值来源于贝壳找房,误差范围为{{result_data.low_price}}～{{result_data.high_price}},仅供参考。</text>
+        </view>
+        <view bindtap="guanbi" class="modak_btn">
+            <text class="fz-15" style="color: #3772cc">知道了</text>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

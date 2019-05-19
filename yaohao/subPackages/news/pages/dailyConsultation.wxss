@@ -1,0 +1,109 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+@import "../__wuBaseWxss__/1.wxss";
+
+page {
+    background-color: #f5f5f5;
+}
+
+.top {
+    height: 300rpx;
+    position: relative;
+}
+
+.top image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.top .title_line {
+    width: 40rpx;
+    height: 4rpx;
+    vertical-align: middle;
+    background: #fff;
+    display: inline-block;
+}
+
+.top .center {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -40rpx;
+    z-index: 3;
+    height: 80rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.top .center .align {
+    line-height: 80rpx;
+    display: inline-block;
+    margin: 0 30rpx;
+}
+
+.top .gray-filter {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background: rgba(0,0,0,0.6);
+}
+
+.comment_box {
+    overflow: hidden;
+    margin-top: 10rpx;
+}
+
+.comment_box .common-title {
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.yesterday-common {
+    margin-top: 20rpx;
+}
+
+.article-style {
+    margin-bottom: 10rpx;
+}
+
+.black_page {
+    text-align: center;
+    padding-top: 400rpx;
+}
+
+.black_page image {
+    width: 225rpx;
+}
+
+.bottom_tip {
+    padding: 15rpx 0 15rpx;
+    text-align: center;
+}
+
+.bottom_tip view {
+    display: inline-block;
+}
+
+.bottom_tip .bottom_line {
+    width: 60rpx;
+    height: 1rpx;
+    content: '';
+    background: #cccccc;
+    position: relative;
+    top: -4rpx;
+}
+
+.bottom_tip .before {
+    left: -40rpx;
+}
+
+.bottom_tip .after {
+    right: -40rpx;
+}

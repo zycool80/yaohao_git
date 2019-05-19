@@ -1,0 +1,60 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.page .map-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.map-container #localSearchMap {
+    width: 100%;
+    height: 100%;
+}
+
+.page .scroll-bar {
+    width: 100%;
+    height: 110rpx;
+    overflow: hidden;
+}
+
+.scroll-bar .scroll-bar-container {
+    width: 1200rpx;
+    height: 100%;
+    overflow: hidden;
+}
+
+.scroll-bar .scroll-bar-container .list-btn {
+    float: left;
+    width: 150rpx;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.scroll-bar .scroll-bar-container .list-btn .iconfont {
+    margin-top: 10rpx;
+    color: #666;
+}
+
+.scroll-bar .scroll-bar-container .list-btn .text {
+    line-height: 1;
+    color: #333;
+}
+
+.scroll-bar .scroll-bar-container .list-btn.active .iconfont,.scroll-bar .scroll-bar-container .list-btn.active .text {
+    color: #e12959;
+}

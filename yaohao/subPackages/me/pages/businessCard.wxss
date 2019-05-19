@@ -1,0 +1,79 @@
+@import "manageUsers.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.create-canvas-box {
+    margin-top: -80rpx;
+    z-index: 999;
+}
+
+.create-canvas-box>view {
+    box-shadow: 0 0 15rpx 0 rgba(0,0,0,0.2);
+}
+
+.create-canvas-box view.gray-9-color {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.share-btn-group {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 10rpx;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.share-btn-group .canvas-btn {
+    width: 47%;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 8rpx;
+    text-align: center;
+    z-index: 999;
+    display: inline-block;
+}
+
+.businessCard-bg {
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 995;
+}
+
+.projectList .line {
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 30rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+    background: #fff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.achieve {
+    border-top-left-radius: 20 rpx;
+    border-top-right-radius: 20 rpx;
+    position: relative;
+    top: -15 rpx;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.achieve image {
+    width: 100%;
+}

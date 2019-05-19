@@ -1,0 +1,130 @@
+@import "manageUsers.wxss";
+
+.settings-top {
+    padding: 0 50rpx;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.settings-top .top-info {
+    width: 100%;
+    margin-top: 70rpx;
+    border-radius: 4rpx;
+    padding: 20rpx 27rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 1rpx 1rpx 16rpx 1rpx rgba(0,0,0,0.1);
+}
+
+.settings-top .top-info image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    float: left;
+    margin-right: 15rpx;
+}
+
+.settings-top .top-info .center-info {
+    float: left;
+    line-height: 90rpx;
+}
+
+.settings-top .top-info .center-info .sales-man .sign-text {
+    margin-left: 10rpx;
+}
+
+.settings-top .top-info .right-info {
+    float: right;
+    margin-top: 15rpx;
+    align-self: center;
+}
+
+.settings-top .top-info .right-info view,.settings-top .top-info .right-info text {
+    padding: 20rpx;
+    background-color: #e6fbef;
+    color: #1f9f55;
+    border-radius: 40rpx;
+    line-height: 40rpx;
+    margin-left: 20rpx;
+    display: inline-block;
+    text-align: center;
+    width: 40rpx;
+}
+
+.settings-top .evaluate .evaluateTitle {
+    margin-top: 50rpx;
+    text-align: center;
+}
+
+.settings-top .evaluate .start .start-lists {
+    text-align: center;
+    margin: 35rpx 0;
+}
+
+.settings-top .evaluate .start .start-lists .start-list {
+    margin: 0 20rpx;
+}
+
+.settings-top .evaluate .start .start-lists .orange-color {
+    color: #f28244;
+}
+
+.settings-top .evaluate .start .start-score {
+    color: #eb734e;
+    text-align: center;
+}
+
+.settings-top .evaluate .tips {
+    overflow: hidden;
+    margin-top: 70rpx;
+}
+
+.settings-top .evaluate .tips .tip {
+    padding: 0 15rpx;
+    height: 60rpx;
+    float: left;
+    line-height: 60rpx;
+    text-align: center;
+    margin-right: 30rpx;
+    border-radius: 30rpx;
+    margin-bottom: 30rpx;
+}
+
+.settings-top .evaluate .tips .tipGray {
+    border: 1px solid #999;
+    color: #666;
+}
+
+.settings-top .evaluate .tips .tipBlack {
+    border: 1px solid #666;
+    color: #333;
+}
+
+.settings-top .evaluate .tips .tipOrange {
+    border: 1px solid #eb734e;
+    color: #eb734e;
+}
+
+.settings-top .evaluate .text-area {
+    margin-top: 40rpx;
+}
+
+.settings-top .evaluate .text-area textarea {
+    width: 100%;
+    padding: 25rpx;
+    box-sizing: border-box;
+    height: 250rpx;
+    border-radius: 8rpx;
+    background-color: #f7f7f7;
+}
+
+.settings-top .evaluate .btn {
+    margin-top: 70rpx;
+    width: 100%;
+    border-radius: 8rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    background-color: #3772cc;
+    margin-bottom: 10rpx;
+}

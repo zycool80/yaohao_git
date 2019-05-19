@@ -1,0 +1,269 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+@import "../__wuBaseWxss__/2.wxss";
+
+@import "../__wuBaseWxss__/1.wxss";
+
+page {
+    background-color: #f7f7f7;
+}
+
+.question-container {
+    padding: 0;
+    overflow: hidden;
+}
+
+.question-container .question-list {
+    padding: 40rpx 30rpx 20rpx;
+}
+
+.question-container .question-list .bottom-answer .answer-user-info .avatar {
+    top: 0;
+}
+
+.question-container .question-list .bottom-answer .answer-user-info .avatar,.question-container .question-list .bottom-answer .answer-user-info .avatar image {
+    width: 63rpx;
+    height: 63rpx;
+    border-radius: 63rpx;
+}
+
+.question-container .question-list .bottom-answer .answer-user-info .sales-man-info {
+    margin-left: 90rpx;
+}
+
+.question-container .question-list .bottom-answer .answer-user-info .user-info {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 310rpx;
+    overflow: hidden;
+}
+
+.question-container .question-list .top-question .question-desc,.question-container .question-list .bottom-answer .answer-desc,.question-container .question-list .top-question .question-user-info {
+    padding: 0 0 0 90rpx;
+}
+
+.question-container .question-list .time-and-like {
+    margin-left: 90rpx;
+    padding-left: 0;
+}
+
+.comment_box .blue-color {
+    color: #0ea8b0!important;
+}
+
+.comment_box .contact {
+    padding: 10rpx;
+    border: 1rpx solid #0ea8b0;
+    border-radius: 6rpx;
+    display: inline-block;
+    line-height: 1;
+    background-color: #fff;
+    margin: 0 8rpx;
+}
+
+.comment_box .comment_list_item .comment_list_avatar {
+    width: 63rpx;
+    height: 63rpx;
+    border-radius: 63rpx;
+    padding-left: 30rpx;
+}
+
+.comment_box .comment_list_item .comment_list_avatar image {
+    width: 63rpx;
+    height: 63rpx;
+    border-radius: 63rpx;
+}
+
+.comment_box .comment_list_item .comment_list_right {
+    margin-left: 120rpx;
+}
+
+.block-1a {
+    color: #1a1a1a;
+}
+
+.right-btn {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20rpx;
+    margin-left: 90rpx;
+}
+
+.right-btn-text {
+    margin-left: 10rpx;
+}
+
+.right-btnList {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-btnList>view {
+    margin-right: 25rpx;
+}
+
+.share {
+    right: 0;
+    background: transparent;
+    line-height: 1.5;
+}
+
+.contact-salesman-guanzhu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #fff;
+    padding: 10rpx 20rpx;
+    border: 1px solid #3772cc;
+    color: #3772cc;
+    line-height: 1;
+    border-radius: 24rpx;
+}
+
+.contact-salesman-yiguanzhu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #f7f7f7;
+    padding: 10rpx 20rpx;
+    color: #999;
+    line-height: 1;
+    border-radius: 8px;
+}
+
+.commont-answer {
+    width: 100%;
+    position: fixed;
+    z-index: 222;
+    background: #fff;
+    height: 105rpx;
+}
+
+.commont-answer input {
+    width: 75%;
+    min-height: 45rpx;
+    border: 1px solid #ddd;
+    border-radius: 8rpx;
+    background: rgba(255,255,255,.8);
+    display: inline-block;
+    margin: 15rpx;
+    padding: 15rpx;
+    height: 45rpx;
+    line-height: 1.4;
+}
+
+.comment-input-place {
+    line-height: 1.4;
+}
+
+.commont-answer button {
+    padding: 0 15rpx;
+    width: 125rpx;
+    line-height: 105rpx;
+    float: right;
+    font-size: 28rpx;
+    text-align: left;
+    background: transparent;
+    top: 0;
+}
+
+.commont-hide {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(0,0,0,.1);
+    top: 0;
+}
+
+.comment_in {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15rpx;
+    line-height: 1;
+    background-color: #fff;
+    box-shadow: 0 -4px 14px 1px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.comment_in button {
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    background: transparent;
+    line-height: 1;
+    padding: 20rpx 0;
+    border-radius: 0;
+}
+
+.comment_in button:not(.comment_good) {
+    border-right: 1px solid #ddd;
+}
+
+.comment_in button text {
+    padding: 15rpx;
+}
+
+.blue-color {
+    color: #0ea8b0!important;
+}
+
+.attention {
+    float: right;
+}
+
+.attention .guanzhu {
+    height: 40rpx;
+    padding: 0 15rpx;
+    line-height: 40rpx;
+    border: 1rpx solid #3772cc;
+    border-radius: 33rpx;
+    color: #3772cc;
+    display: inline-block;
+}
+
+.attention .yiguanzhu {
+    height: 40rpx;
+    padding: 0 15rpx;
+    line-height: 40rpx;
+    background: #f7f7f7;
+    border-radius: 40rpx;
+    display: inline-block;
+    color: #666;
+}
+
+.attention .other {
+    padding-left: 25rpx;
+    color: #b3b3b3;
+}
+
+.user-top {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 90rpx;
+    align-items: center;
+    line-height: 1;
+}
+
+.addQuestion {
+    padding: 30rpx 30rpx 30rpx 80rpx;
+    background: #fff;
+}
+
+.addQuestion .title {
+    padding-bottom: 20rpx;
+}
+
+.user-info-avatar {
+    float: left;
+}
+
+.avatar,.avatar image {
+    width: 63rpx;
+    height: 63rpx;
+    border-radius: 63rpx;
+    float: left;
+}

@@ -1,0 +1,36 @@
+@import "manageUsers.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.black-1a-color {
+    color: #1a1a1a!important;
+}
+
+.reportType-title {
+    padding: 19rpx 30rpx;
+}
+
+.reportType-line {
+    background: #fff;
+    overflow: hidden;
+    margin-left: 30rpx;
+    padding-right: 30rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.reportType {
+    background: #fff;
+    margin-bottom: 400rpx;
+}

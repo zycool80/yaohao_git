@@ -1,0 +1,85 @@
+<view class="container">
+    <view class="top_switch_bar">
+        <view bindtap="switchBarHandle" class="bar fz-15 font-bold {{type==2?'active':'height-level-color'}}" data-wpyswitchbarhandle-a="2">公积金贷款</view>
+        <view bindtap="switchBarHandle" class="bar fz-15 font-bold {{type==1?'active':'height-level-color'}}" data-wpyswitchbarhandle-a="1">商业贷款</view>
+        <view bindtap="switchBarHandle" class="bar fz-15 font-bold {{type==3?'active':'height-level-color'}}" data-wpyswitchbarhandle-a="3">组合贷款</view>
+    </view>
+    <view class="total-cont">
+        <block wx:if="{{loan==1}}">
+            <view class="cont-line">
+                <view class="left fz-14 black1a-color">购房总额</view>
+                <view class="right fz-14 black1a-color">
+                    <input bindinput="totalLoan" placeholder="0" type="digit" value="{{inputToatalMoney}}"></input>万</view>
+            </view>
+            <view class="cont-line">
+                <view class="left fz-14 black1a-color">首付金额</view>
+                <view class="right fz-14" style="position: absolute;right: 30rpx">
+                    <text class="fz-14 black1a-color" style="float: left;" wx:if="{{firstPayMoney}}">{{firstPayMoney}}万</text>
+                    <text bindtap="loanCalculationHandle" class="fz-13 loanRatio {{loanRatioIndex==item.val?'active':'small-level-color'}}" data-wpyloancalculationhandle-a="{{item.val}}" wx:for="{{loanRatio}}" wx:key="key">{{item.text}}</text>
+                </view>
+            </view>
+        </block>
+        <view class="cont-line" wx:if="{{type!=2}}">
+            <view class="left fz-14 black1a-color">商业贷款总额</view>
+            <view class="right fz-14 black1a-color">
+                <input bindinput="toatalmoney" data-wpytoatalmoney-a="bu" placeholder="0" type="digit" value="{{bu_totalMoney}}"></input>万</view>
+        </view>
+        <view class="cont-line" wx:if="{{type!=1}}">
+            <view class="left fz-14 black1a-color">公积金贷款总额</view>
+            <view class="right fz-14 black1a-color">
+                <input bindinput="toatalmoney" data-wpytoatalmoney-a="ac" placeholder="0" type="digit" value="{{ac_totalMoney}}"></input>万</view>
+        </view>
+        <picker bindchange="loanTermChange" class="cont-line" range="{{toatalYear}}">
+            <view class="left fz-14 black1a-color">贷款年限</view>
+            <view class="right">
+                <text class="fz-14 black1a-color">{{loanYear}}年</text>
+                <text class="fz-18 iconfont icon-you gray-9-color" style="padding-left: 40rpx"></text>
+            </view>
+        </picker>
+        <picker bindchange="loanTimeChange" class="cont-line" mode="date" start="{{startDay}}">
+            <view class="left fz-14 black1a-color">首还款时间</view>
+            <view class="right">
+                <text class="fz-14 black1a-color">{{firstGetMoneyDay}}</text>
+                <text class="fz-18 iconfont icon-you gray-9-color" style="padding-left: 40rpx"></text>
+            </view>
+        </picker>
+        <view class="cont-line-bottom" style="padding-bottom: {{type==3?'0':'40rpx'}}" wx:if="{{type!=1}}">
+            <view class="left fz-14 black1a-color">贷款利率</view>
+            <view class="right fz-14 black1a-color">
+                <view class="line-top-cont">
+                    <view class="inpVal">
+                        <input bindinput="interestRate" data-wpyinterestrate-a="ac" placeholder="0" type="digit" value="{{ac_interest}}"></input>
+                        <text class="small-level-color">%</text>
+                    </view> x <view class="inpVal">
+                        <input bindinput="insterestMultiple" data-wpyinsterestmultiple-a="ac" placeholder="0" type="text" value="{{ac_multiple}}"></input>
+                        <text class="small-level-color">倍</text>
+                    </view>
+                    <text class="fz-14 black1a-color"> = {{ac_interestData}}%</text>
+                </view>
+                <view class="line-bottom-cont fz-12 gray-9-color">当前基准利率：公积金3.25%</view>
+            </view>
+        </view>
+        <view class="cont-line-bottom" style="padding-bottom: 40rpx;" wx:if="{{type!=2}}">
+            <view class="left fz-14 black1a-color">{{type==1?'贷款利率':''}}</view>
+            <view class="right fz-14 black1a-color">
+                <view class="line-top-cont">
+                    <view class="inpVal">
+                        <input bindinput="interestRate" data-wpyinterestrate-a="bu" placeholder="0" type="digit" value="{{bu_interest}}"></input>
+                        <text class="small-level-color">%</text>
+                    </view> x <view class="inpVal">
+                        <input bindinput="insterestMultiple" data-wpyinsterestmultiple-a="bu" placeholder="0" type="text" value="{{bu_multiple}}"></input>
+                        <text class="small-level-color">倍</text>
+                    </view>
+                    <text class="fz-14 black1a-color"> = {{bu_interestData}}%</text>
+                </view>
+                <view class="line-bottom-cont fz-12 gray-9-color">当前基准利率：商业4.90%</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="getResultHandle" class="beginLoan fz-15 white-color">开始计算</view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

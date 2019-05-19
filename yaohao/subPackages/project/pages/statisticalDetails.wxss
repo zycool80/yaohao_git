@@ -1,0 +1,109 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.layout_style {
+    display: flex;
+    align-items: center;
+}
+
+page {
+    width: 100%;
+    height: 100%;
+}
+
+#page {
+    width: 100%;
+    height: 100%;
+}
+
+#page image {
+    width: 100%;
+    height: 100%;
+}
+
+#details_content {
+    position: absolute;
+    left: 0;
+    top: 10rpx;
+}
+
+#details_content .details_content_desricbe {
+    position: relative;
+    margin-left: 30rpx;
+    margin-top: 40rpx;
+    width: 690rpx;
+    background: #FFFFFF;
+    border-radius: 6rpx;
+}
+
+#details_content .details_content_desricbe .building_price {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10rpx 30rpx;
+}
+
+#details_content .details_content_desricbe .housing_type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20rpx 30rpx;
+    font-size: 24rpx;
+}
+
+#details_content .details_content_desricbe .housing_type .type_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#details_content .details_content_desricbe .housing_type .type_item text {
+    line-height: 48rpx;
+}
+
+#details_content .details_content_desricbe .stump_figure {
+    padding-top: 30rpx;
+}
+
+#details_content .details_content_desricbe .footer {
+    overflow: hidden;
+    padding: 30rpx 30rpx 78rpx 30rpx;
+    font-size: 20rpx;
+}
+
+#details_content .details_content_desricbe .footer .foot_text {
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+#details_content .details_content_desricbe .foot_share_btn {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    background-color: #f7776a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    bottom: -50rpx;
+    margin-left: -50rpx;
+}
+
+.result_predict {
+    position: absolute;
+    left: 50%;
+    bottom: 60rpx;
+    margin-left: -76rpx;
+    width: 152rpx;
+    height: 152rpx;
+    border: 1px solid #23aab4;
+    border-radius: 50%;
+    background-color: rgba(155,155,155,0.1);
+    color: #f7776a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}

@@ -1,0 +1,55 @@
+@import "manageUsers.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.setting-title {
+    background: #fff;
+    padding: 26rpx 30rpx;
+    overflow: hidden;
+}
+
+.setting-title .left-txt {
+    float: left;
+}
+
+.setting-title .right-txt {
+    float: right;
+}
+
+.setting-cont .line .line-top {
+    padding: 0 30rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.setting-cont .line .line-bottom {
+    padding: 0 30rpx;
+    background: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.setting-cont .line .text-area {
+    background: #ffff f;
+    width: 100%;
+    min-height: 328rpx;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+
+.setting-cont .line .text-area-style {
+    color: #ccc;
+    font-size: 30rpx;
+    margin: 30rpx;
+    background: #fff;
+    display: inline-block;
+}
+
+.setting-cont .line .place-class {
+    color: #ccc;
+    font-size: 30rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}

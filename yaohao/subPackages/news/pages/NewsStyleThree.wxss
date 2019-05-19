@@ -1,0 +1,96 @@
+.news-container-three {
+    position: relative;
+    width: 100%;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #d6d6d6;
+    overflow: hidden;
+}
+
+.news-container-three .user-info {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20rpx;
+}
+
+.news-container-three .user-info .avatar {
+    float: left;
+    width: 40rpx;
+    height: 40rpx;
+    overflow: hidden;
+}
+
+.news-container-one .user-info,.news-container-one .time {
+    line-height: 40rpx;
+}
+
+.news-container-three .user-info .user-info-name {
+    padding-left: 10rpx;
+    float: left;
+}
+
+.news-container-three .left-cont {
+    margin-right: 220rpx;
+    overflow: hidden;
+}
+
+.news-container-three .left-cont navigator {
+    width: 100%;
+    overflow: hidden;
+}
+
+.news-container-three .left-cont .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 40rpx;
+    height: 80rpx;
+    overflow: hidden;
+}
+
+.news-container-three .left-cont .desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 32rpx;
+    height: 66rpx;
+    margin-top: 10rpx;
+    overflow: hidden;
+}
+
+.news-container-three .tool-bar {
+    position: relative;
+    width: 100%;
+    padding: 10rpx 0 0;
+    overflow: hidden;
+}
+
+.news-container-three .tool-bar .tool {
+    display: inline-block;
+    float: left;
+    margin-right: 20rpx;
+    line-height: 1;
+}
+
+.news-container-three .tool-bar button {
+    background-color: transparent;
+}
+
+.news-container-three .tool-bar .tool.width {
+    float: left;
+}
+
+.news-container-three .tool-bar .tool .val {
+    padding-left: 4rpx;
+}
+
+.news-container-three .right-cont {
+    width: 200rpx;
+    float: right;
+    position: relative;
+}
+
+.news-container-three .right-cont image {
+    width: 100%;
+    height: 166rpx;
+    display: block;
+}

@@ -1,0 +1,65 @@
+<view class="page">
+    <view class="haveSearchBar">
+        <view>
+            <form bindsubmit="doSearch" class="search-bar" reportSubmit="true">
+                <button class="search-btn fz-14 white-color" formType="submit">确定</button>
+                <view class="search-bar-form" style="margin: 0 80rpx 20rpx 0;">
+                    <view bindtap="doSearch" class="weui-icon-search iconfont icon-sousuo"></view>
+                    <view bindtap="clearInput" class="weui-icon-clear iconfont icon-delete" wx:if="{{inputVal.length>0}}"></view>
+                    <input bindconfirm="doSearch" bindinput="inputTyping" class="ui-input search-bar-input" focus="{{inputPlace}}" placeholder="{{inputPlace}}" placeholderClass="search-input-place" type="text" value="{{inputVal}}"></input>
+                </view>
+            </form>
+        </view>
+        <view class="search-cont" wx:if="{{projectsItems.length>0}}">
+            <view class="title">
+                <text class="left fz-12 black1a-color">您可以直接认领</text>
+            </view>
+            <navigator hoverClass="none" url="" wx:for="{{projectsItems}}" wx:key="key">
+                <view class="search-cont-line">
+                    <view class="cont-line-left">
+                        <text class="iconfont address icon-fangzi fz-24 gray-9-color"></text>
+                        <text class="project-name fz-14 black1a-color">{{item.name}}</text>
+                    </view>
+                    <view catchtap="sureClaim" class="cont-line-right fz-13 blue-color font-bold" data-wpysureclaim-a="{{item.project_id}}">申请认领</view>
+                </view>
+            </navigator>
+        </view>
+        <view class="search-cont" wx:if="{{!showContent}}">
+            <view class="title">
+                <text class="left fz-12 black1a-color">近期搜索</text>
+                <text bindtap="clearHistory" class="right iconfont icon-shanchu fz-18 gray-9-color"></text>
+            </view>
+            <view class="list">
+                <view bindtap="setInputVal" class="tags" data-wpysetinputval-a="{{item}}" wx:for="{{historySearch}}" wx:key="key">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<block wx:if="{{projectsItems.length<1&&!projectsMore&&showContent}}">
+    <view class="building_nofind">
+        <text>该楼盘暂时未上架</text>
+        <text>点击收录新楼盘</text>
+    </view>
+    <view class="addBuilding-style">
+        <navigator class="addBuilding" openType="redirect" url="/subPackages/project/pages/addDuilding">
+            <text style="color:#598dd2">去添加楼盘</text>
+        </navigator>
+    </view>
+</block>
+<block wx:if="{{claimSuccess}}">
+    <view class="claimSuccess">
+        <image src="http://imgcdn.huanjutang.com/assets/img/20181114/5beb8cd70df5e.png"></image>
+        <view class="cont">
+            <view class="iconfont font-bold blue-sky icon-gougou"></view>
+            <view class="success-text blue-sky fz-15 font-bold">申请成功</view>
+            <view class="success-path fz-14 black1a-color">可在小程序我的<text class="font-bold">我是置业顾问/经纪人界面</text>查看<text class="font-bold">审核进度</text>
+            </view>
+        </view>
+    </view>
+    <view class="claimSuccess-bg"></view>
+</block>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

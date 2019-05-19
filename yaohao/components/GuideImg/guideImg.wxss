@@ -1,0 +1,37 @@
+.guide-form {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4c4c4c;
+    z-index: 999;
+}
+
+.guide-form image {
+    width: 100%;
+    z-index: 10000;
+}
+
+.nextStep {
+    position: fixed;
+    bottom: 124rpx;
+    left: 50%;
+    margin-left: -150rpx;
+    z-index: 10001;
+}
+
+.closeAll {
+    position: fixed;
+    right: 30rpx;
+    top: 190rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60rpx;
+    width: 124rpx;
+    height: 60rpx;
+    border: 1px solid #ffffff;
+    z-index: 101;
+    color: #FFFFFF;
+}

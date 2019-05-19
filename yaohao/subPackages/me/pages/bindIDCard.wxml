@@ -1,0 +1,35 @@
+<view class="page">
+    <view class="page__bd" style="overflow: hidden;">
+        <view class="title small-level-color fz-13">添加个人信息</view>
+        <view class="list-box white-bg">
+            <view class="w-cell">
+                <view class="left-key">姓名</view>
+                <view class="right-value">
+                    <input bindinput="bindNameChange" confirmType="next" placeholder="请输入您的姓名" type="text" value="{{inputName}}"></input>
+                </view>
+            </view>
+            <view class="w-cell">
+                <view class="left-key">身份证</view>
+                <view class="right-value border-gray">
+                    <input bindinput="bindIdCardChange" confirmType="next" placeholder="请输入您的身份证号码" type="idcard" value="{{inputIdCard}}"></input>
+                </view>
+            </view>
+            <view class="w-cell">
+                <view class="left-key">手机号码</view>
+                <view class="right-value border-gray">
+                    <input bindinput="bindPhoneChange" confirmType="next" placeholder="请输入您的手机号码" type="number" value="{{inputPhone}}"></input>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__tips fz-11 small-level-color">注：添加个人信息后，部分楼盘可以直接获取公正摇号编码，查询摇号结果更方便！</view>
+        <button bindtap="submit" class="weui-btn fz-14" type="primary">确定添加</button>
+    </view>
+</view>
+<view class="page__ft" wx:if="{{id>0}}">
+    <view bindtap="unbind" class="weui-footer__text weui-footer__link">解绑身份信息</view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

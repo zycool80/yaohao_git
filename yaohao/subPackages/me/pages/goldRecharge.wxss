@@ -1,0 +1,356 @@
+@import "manageUsers.wxss";
+
+page {
+    background-color: #f2f2f2;
+}
+
+picker {
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    height: 50rpx;
+    line-height: 48rpx;
+    text-align: center;
+    border-radius: 25rpx;
+}
+
+.points .point-title {
+    height: 240rpx;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+.points .point-title>image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.points .point-title .mes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.points .point-title .goldNum {
+    line-height: 1;
+    font-size: 60rpx;
+    color: #fbee7c;
+}
+
+.points .point-title .recharge {
+    position: absolute;
+    top: 50%;
+    margin-top: -30rpx;
+    right: 30rpx;
+    z-index: 4;
+    font-size: 60rpx;
+    width: 144rpx;
+    height: 60rpx;
+    border: 1px solid #fff;
+    border-radius: 30rpx;
+    line-height: 62rpx;
+    text-align: center;
+}
+
+.points .point-title .self_introduce {
+    position: absolute;
+    top: 65rpx;
+    left: 160rpx;
+    z-index: 4;
+}
+
+.points .point-title .avatar {
+    width: 104rpx;
+    height: 104rpx;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -52rpx;
+    left: 30rpx;
+    z-index: 4;
+}
+
+.points .points-content {
+    box-sizing: border-box;
+}
+
+.points .points-content .left {
+    float: left;
+}
+
+.points .points-content .right {
+    float: right;
+}
+
+.points .points-content .title {
+    padding: 37rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.points .focus-option {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e2e2e2;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.points .focus-option .option-color {
+    margin: 25rpx auto 0;
+    width: 60rpx;
+    height: 6rpx;
+}
+
+.points .focus-option .color-style {
+    background-color: #2d8cf0;
+}
+
+.points .focus-option .focus-option-item {
+    padding-top: 24rpx;
+    flex: 1;
+    text-align: center;
+}
+
+.points .focus-option .gray-line {
+    width: 2rpx;
+    height: 42rpx;
+    background-color: #e2e2e2;
+}
+
+.points .ios-option {
+    overflow: hidden;
+    padding-left: 30rpx;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e2e2;
+    box-sizing: border-box;
+}
+
+.points .ios-option .option-color {
+    margin: 25rpx 0 0 22rpx;
+    width: 60rpx;
+    height: 6rpx;
+}
+
+.points .ios-option .color-style {
+    background-color: #2d8cf0;
+}
+
+.points .ios-option .focus-option-item {
+    padding-top: 24rpx;
+    display: inline-block;
+    text-align: center;
+}
+
+.points .data-row {
+    padding: 35rpx 30rpx;
+    overflow: hidden;
+    border-bottom: 1px solid #e2e2e2;
+    box-sizing: border-box;
+}
+
+.points .data-row .row-left {
+    float: left;
+}
+
+.points .data-row .row-right {
+    float: right;
+}
+
+.money-charge {
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.charge-content {
+    overflow: hidden;
+    padding: 50rpx 0 35rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.charge-content .active {
+    border: 1px solid #f7462a;
+    color: #f7462a;
+}
+
+.charge-content .normal {
+    border: 1px solid #ccc;
+    color: #999;
+}
+
+.charge-content .charge-box {
+    margin: 0 20rpx 20rpx 0;
+    width: 150rpx;
+    float: left;
+    text-align: center;
+    line-height: 102rpx;
+    border-radius: 4rpx;
+    height: 100rpx;
+}
+
+.noData {
+    text-align: center;
+}
+
+.noData image {
+    width: 600rpx;
+    height: 300rpx;
+    margin-top: 150rpx;
+}
+
+.noData view {
+    margin-top: 10rpx;
+}
+
+.charge-btn {
+    height: 90rpx;
+    border-radius: 45rpx;
+    text-align: center;
+    line-height: 90rpx;
+    background-color: #4574e5;
+    margin: 108rpx 0 40rpx;
+}
+
+.application-from {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 198;
+}
+
+.application-from-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    margin-left: -320rpx;
+    margin-top: -310rpx;
+    width: 640rpx;
+    height: 620rpx;
+    border-radius: 10rpx;
+    background-color: #ffffff;
+    z-index: 199;
+}
+
+.application-from-content .user-input {
+    padding: 30rpx 50rpx 0 50rpx;
+}
+
+.application-from-content .input-item {
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 20rpx;
+}
+
+.application-from-content .prompt {
+    color: #999999;
+    padding: 0 50rpx;
+    box-sizing: border-box;
+    margin-top: 27rpx;
+}
+
+.application-from-content .layout-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.application-from-content .layout-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.application-from-content .layout-3 {
+    display: flex;
+    align-items: center;
+}
+
+.application-from-content .get-preferential-btn {
+    margin: 80rpx auto 0;
+    width: 550rpx;
+    height: 80rpx;
+    color: #ffffff;
+    border-radius: 80rpx 80rpx;
+    background: linear-gradient(to right,#4677e7 0,#3753cc 100%);
+}
+
+.application-from-content .join-rules {
+    margin-top: 10rpx;
+    text-align: center;
+    color: #e14537;
+}
+
+.application-from-content image {
+    width: 100%;
+    height: 346rpx;
+}
+
+.rechargeContent {
+    padding: 0 30rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.rechargeContent .points-content {
+    padding: 60rpx 0 46rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rechargeContent .points-content .conmmon-input {
+    width: 280rpx;
+    height: 90rpx;
+    line-height: 90rx;
+    display: flex;
+    padding: 0 30rpx 0 45rpx;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 45rpx;
+    overflow: hidden;
+}
+
+.rechargeContent .points-content .conmmon-input input {
+    width: 150rpx;
+}
+
+.rechargeContent .charge-btn {
+    height: 90rpx;
+    border-radius: 45rpx;
+    text-align: center;
+    line-height: 90rpx;
+    background-color: #4574e5;
+    margin: 45rpx 0 40rpx;
+}
+
+.rechargeContent .getCoin-btn {
+    height: 90rpx;
+    border-radius: 45rpx;
+    text-align: center;
+    line-height: 90rpx;
+    color: #416bde;
+    border: 1px solid #416bde;
+    margin: 0 0 40rpx;
+}
+
+.goldRule {
+    padding: 30rpx;
+    box-sizing: border-box;
+}

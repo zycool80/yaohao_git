@@ -1,0 +1,71 @@
+<view class="page">
+    <view class="page__bd haveSearchBar">
+        <form bindsubmit="doSearch" class="search-bar" reportSubmit="true">
+            <button class="search-btn fz-14 white-color" formType="submit">确定</button>
+            <view class="search-bar-form">
+                <view bindtap="doSearch" class="weui-icon-search iconfont icon-sousuo"></view>
+                <view bindtap="clearInput" class="weui-icon-clear iconfont icon-delete" wx:if="{{inputVal.length>0}}"></view>
+                <input bindconfirm="doSearch" bindinput="inputTyping" class="ui-input search-bar-input" focus="{{inputPlace}}" placeholder="搜索问答内容" placeholderClass="search-input-place" type="text" value="{{inputVal}}"></input>
+            </view>
+        </form>
+        <view>
+            <view class="search-history white-bg" wx:if="{{!showContent}}">
+                <view class="searchList">
+                    <view class="search-title">
+                        <view class="small-level-color fz-12">近期搜索</view>
+                        <view bindtap="clearHistory" class="fz-15 gray-9-color iconfont icon-shanchu"></view>
+                    </view>
+                    <view class="search-line" style=" margin-left: 30rpx;" wx:for="{{historySearch}}">
+                        <view bindtap="setInputVal" class="black1a-color fz-13" data-wpysetinputval-a="{{item}}" style="max-width:70%;overflow:hidden">{{item}}</view>
+                        <view bindtap="delOne" class="iconfont icon-shanchu fz-15 gray-9-color" data-wpydelone-a="{{index}}"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <block wx:if="{{searchList.length>0}}">
+            <navigator class="question-container" style="background-color: #fff;margin: 20rpx 30rpx;" url="/subPackages/question/pages/questionDetail?id={{item.id}}" wx:for="{{searchList}}" wx:key="key">
+                <view class="top-question">
+                    <view class="tips blue-bg fz-12">问</view>
+                    <view class="title-top">
+                        <view class="title-top-left">
+                            <view class="avatar">
+                                <image src="{{item.user_avatar_url||avatar_url}}"></image>
+                            </view>
+                            <view class="user-info fz-12 black-1a" style="line-height: 60rpx">{{item.user_name}}</view>
+                        </view>
+                        <view class="attention">
+                            <text catchtap="delBox" class="fz-24 other font-bold" data-wpydelbox-a="{{index}}">...</text>
+                        </view>
+                    </view>
+                    <text class="question-desc fz-14 black1a-color" style="display: inline-block;padding: 20rpx 0;">{{item.content}}</text>
+                    <view class="sign-line">
+                        <view class="sign-text">
+                            <text class="fz-10 blue-color sign-text-bg" wx:for="{{item.tags}}" wx:for-item="val" wx:key="key">{{val.text}}</text>
+                        </view>
+                        <block wx:if="{{item.status!=3}}">
+                            <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/questionCloselyDetail?id={{item.id}}" wx:if="{{userInfo.id==item.user_id&&!item.to_question_closely}}">我要追问</view>
+                            <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/answerDetail?id={{item.id}}" wx:else>我要回答</view>
+                        </block>
+                    </view>
+                    <view class="question-user-info gray-9-color">
+                        <view class="left fz-12">{{item.time}}</view>
+                        <view class="right fz-12">
+                            <text class="view-num">{{item.page_views}}  浏览</text>
+                            <text class="answer-num">{{item.comment_num}} 回答</text>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </block>
+        <block wx:if="{{searchList.length==0&&showContent}}">
+            <view class="nothing" wx:if="{{!loading}}">
+                <view class="nothing-text fz-13 small-level-color">暂无内容</view>
+            </view>
+        </block>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

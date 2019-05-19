@@ -1,0 +1,203 @@
+<view class="page">
+    <view class="question-container">
+        <view class="question-list white-bg" style="width: {{item.to_question_closely?'margin-bottom:10rpx':''}}">
+            <view class="top-question">
+                <view class="tips blue-bg fz-12">问</view>
+                <view class="title-top">
+                    <view catchtap="toUrl" class="title-top-left" data-wpytourl-a="/subPackages/question/pages/userQuestion?user_id={{item.user_id}}">
+                        <view class="avatar">
+                            <image src="{{item.user_avatar_url||avatar_url}}"></image>
+                        </view>
+                        <view class="user-info fz-13 font-bold black-1a" style="line-height: 60rpx">{{item.user_name}}</view>
+                    </view>
+                    <view class="attention">
+                        <text catchtap="delQuestion" class="fz-24 other font-bold">...</text>
+                    </view>
+                </view>
+                <text class="question-desc fz-13 black1a-color" style="display: inline-block">{{item.content}}</text>
+                <view class="nine-img-view" style="overflow:hidden">
+                    <view class="weui-flex" style="overflow:hidden" wx:for="{{item.img}}" wx:for-item="images" wx:key="key">
+                        <block wx:for="{{item.layout}}" wx:for-item="i" wx:key="key">
+                            <view class="layout{{item.layout}}" wx:if="{{images[i]}}">
+                                <view class="img-box imgLayout imgLayout{{item.layout}}" style="overflow:hidden" wx:if="{{item.layout==1}}">
+                                    <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                </view>
+                                <view class="img-smallBox imgLayout imgLayout{{item.layout}}" wx:else>
+                                    <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                </view>
+                            </view>
+                            <view class="layout{{item.layout}}" wx:else></view>
+                        </block>
+                    </view>
+                </view>
+                <view class="sign-line">
+                    <view class="sign-text">
+                        <text class="fz-10 blue-color sign-text-bg" wx:for="{{item.tags}}" wx:for-item="val" wx:key="key">{{val.text}}</text>
+                    </view>
+                    <view catchtap="toUrl" class="fz-11 wantAnswer" data-wpytourl-a="/subPackages/question/pages/questionCloselyDetail?id={{item.id}}" wx:if="{{item.user_id==user_id&&!item.to_question_closely}}">我要追问</view>
+                </view>
+                <view class="question-user-info gray-9-color" style="padding-right: 0">
+                    <view class="fz-12">{{item.time}}</view>
+                    <view class="fz-12">
+                        <text class="view-num">{{item.page_views}}浏览</text>
+                        <navigator class="answer-num" hoverClass="none" url="/subPackages/question/pages/answerDetail?id={{id}}">{{item.comment_num}}回答</navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="addQuestion" wx:if="{{item.to_question_closely}}">
+            <view class="title fz-13 font-bold black1a-color">【追问】</view>
+            <view class="cont fz-13 black1a-color">{{item.to_question_closely}}</view>
+        </view>
+    </view>
+    <block wx:if="{{hotAnswer.length>0}}">
+        <view class="question-head">
+            <view class="fz-14 font-bold">精选回答</view>
+        </view>
+        <view class="question-container">
+            <view class="question-list white-bg">
+                <navigator class="top-question white-bg" hoverClass="none" url="/subPackages/question/pages/answerComment?id={{answer.id}}" wx:for="{{hotAnswer}}" wx:for-item="answer" wx:key="key">
+                    <view class="tips blue-bg fz-12" wx:if="{{index<1}}">答</view>
+                    <view class="answer-title-top">
+                        <view catchtap="toUrl" class="avatar answer-title-avatar" data-wpytourl-a="/subPackages/question/pages/userQuestion?user_id={{answer.user_id}}&sales_man_id={{answer.sales_man_id}}">
+                            <image src="{{answer.user_avatar_url||avatar_url}}"></image>
+                        </view>
+                        <view class="answer-line">
+                            <view catchtap="toUrl" class="sales-man-info" data-wpytourl-a="/subPackages/question/pages/userQuestion?user_id={{answer.user_id}}&sales_man_id={{answer.sales_man_id}}" wx:if="{{answer.sales_man_id>0}}">
+                                <view>
+                                    <text class="fz-13 font-bold height-level-color">{{answer.user_name}}</text>
+                                    <text catchtap="toUrl" class="contactTa" data-wpytourl-a="/pages/salesMan/detail?id={{answer.sales_man_id}}">联系Ta</text>
+                                </view>
+                                <view class="sales_man">
+                                    <text class="fz-10 height-level-color">置业顾问</text>
+                                    <text class="sales-men-info-bottom fz-10 height-level-color">{{answer.project_name}}</text>
+                                </view>
+                            </view>
+                            <view catchtap="toUrl" class="user-info fz-13 font-bold height-level-color" data-wpytourl-a="/subPackages/question/pages/userQuestion?user_id={{answer.user_id}}&sales_man_id={{answer.sales_man_id}}" wx:else>{{answer.user_name}}</view>
+                            <view class="attention">
+                                <text catchtap="follow" class="{{answer.attention==1?'yiguanzhu':'guanzhu'}} fz-11" data-wpyfollow-a="1" data-wpyfollow-b="{{index}}">{{answer.attention==1?'已关注':'+关注'}}</text>
+                                <text catchtap="delBox" class="fz-24 other font-bold" data-wpydelbox-a="1" data-wpydelbox-b="{{index}}">...</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="answer-desc fz-13 height-level-color">
+                        <text>{{answer.content}}</text>
+                    </view>
+                    <view catchtap="adopt" class="adoption font-bold fz-10" data-wpyadopt-a="" data-wpyadopt-b="{{index}}" wx:if="{{user_id==item.user_id&&item.status!=3}}">采纳该回答</view>
+                    <view class="time-and-like" style="width: 100%">
+                        <view class="time gray-9-color fz-12">{{answer.time}}</view>
+                        <view catchtap="jump" class="message small-level-color" data-wpyjump-a="{{answer.id}}">
+                            <text class="iconfont icon-xiaoxi fz-16"></text>
+                            <text class="fz-12"> {{answer.comment_num}}</text>
+                        </view>
+                        <view catchtap="aversion" class="like {{answer.is_aversion==1?'orange-color':'small-level-color'}}" data-wpyaversion-a="" data-wpyaversion-b="{{index}}">
+                            <text class="iconfont icon-cai fz-16"></text>
+                            <text class="fz-12"> {{answer.aversion_num}}</text>
+                        </view>
+                        <view catchtap="like" class="like {{answer.is_like==1?'orange-color':'small-level-color'}}" data-wpylike-a="" data-wpylike-b="{{index}}">
+                            <text class="iconfont icon-dianzan1 fz-16"></text>
+                            <text class="fz-12"> {{answer.like_num}}</text>
+                        </view>
+                    </view>
+                    <image class="adopt" src="/images/adopt.png" wx:if="{{answer.is_adopt==2}}"></image>
+                </navigator>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{newAnswer.length>0}}">
+        <view class="question-head">
+            <view class="fz-14 font-bold">最新回答</view>
+        </view>
+        <view class="question-container">
+            <view class="question-list white-bg">
+                <view bindtap="jumpNav" class="top-question white-bg" data-wpyjumpnav-a="{{index}}" style="overflow: hidden" wx:for="{{newAnswer}}" wx:for-item="answer" wx:key="key">
+                    <view class="tips blue-bg fz-12" wx:if="{{index<1}}">答</view>
+                    <view class="answer-title-top">
+                        <view catchtap="toUrl" class="avatar answer-title-avatar" data-wpytourl-a="/subPackages/question/pages/userQuestion?user_id={{answer.user_id}}&sales_man_id={{answer.sales_man_id}}">
+                            <image src="{{answer.user_avatar_url||avatar_url}}"></image>
+                            <image class="exportLog" mode="widthFix" src="/images/exportLog.png" wx:if="{{answer.is_specialist==1}}"></image>
+                        </view>
+                        <view class="answer-line">
+                            <view catchtap="toUrl" class="sales-man-info" data-wpytourl-a="/subPackages/question/pages/userQuestion?user_id={{answer.user_id}}&sales_man_id={{answer.sales_man_id}}" wx:if="{{answer.sales_man_id>0}}">
+                                <view>
+                                    <text class="fz-13 font-bold height-level-color">{{answer.user_name}}</text>
+                                    <text catchtap="toUrl" class="contactTa" data-wpytourl-a="/pages/salesMan/detail?id={{answer.sales_man_id}}">联系Ta</text>
+                                </view>
+                                <view class="sales_man">
+                                    <text class="fz-10 height-level-color">置业顾问</text>
+                                    <text class="sales-men-info-bottom fz-10 height-level-color">{{answer.project_name}}</text>
+                                </view>
+                            </view>
+                            <view catchtap="toUrl" class="user-info fz-13 {{answer.is_specialist==1?'yellow':'height-level-color'}} font-bold" data-wpytourl-a="/subPackages/question/pages/userQuestion?user_id={{answer.user_id}}&sales_man_id={{answer.sales_man_id}}" wx:else>{{answer.user_name}}</view>
+                            <view class="attention">
+                                <text catchtap="follow" class="{{answer.attention==1?'yiguanzhu':'guanzhu'}} fz-11" data-wpyfollow-a="" data-wpyfollow-b="{{index}}">{{answer.attention==1?'已关注':'+关注'}}</text>
+                                <text catchtap="delBox" class="fz-24 other font-bold" data-wpydelbox-a="2" data-wpydelbox-b="{{index}}">...</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="exportContImg" wx:if="{{answer.is_specialist==1&&answer.is_jurisdiction==2}}">
+                        <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20180904/5b8e2cedb28fe.png"></image>
+                        <view catchtap="toUrl" class="lookCont fz-13 yellow" data-wpytourl-a="/subPackages/question/pages/expertAnswer?answer_id={{answer.id}}">点击查看</view>
+                    </view>
+                    <block wx:else>
+                        <view class="answer-desc fz-13 height-level-color">
+                            <text>{{answer.content}}</text>
+                        </view>
+                        <view class="nine-img-view" style="overflow:hidden">
+                            <view class="weui-flex" style="overflow:hidden" wx:for="{{answer.img}}" wx:for-item="images" wx:key="key">
+                                <block wx:for="{{answer.layout}}" wx:for-item="i" wx:key="key">
+                                    <view class="layout{{answer.layout}}" wx:if="{{images[i]}}">
+                                        <view class="img-box imgLayout imgLayout{{answer.layout}}" style="overflow:hidden" wx:if="{{answer.layout==1}}">
+                                            <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{answer}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                        </view>
+                                        <view class="img-smallBox imgLayout imgLayout{{answer.layout}}" wx:else>
+                                            <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{answer}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                        </view>
+                                    </view>
+                                    <view class="layout{{answer.layout}}" wx:else></view>
+                                </block>
+                            </view>
+                        </view>
+                        <view catchtap="adopt" class="adoption font-bold fz-10" data-wpyadopt-a="" data-wpyadopt-b="{{index}}" wx:if="{{user_id==item.user_id&&item.status!=3}}">采纳该回答</view>
+                        <view class="time-and-like" style="width: 100%">
+                            <view class="time gray-9-color fz-12">{{answer.time}}</view>
+                            <view catchtap="jump" class="message small-level-color" data-wpyjump-a="{{answer.id}}">
+                                <text class="iconfont icon-xiaoxi fz-16"></text>
+                                <text class="gray-9-color fz-12"> {{answer.comment_num}}</text>
+                            </view>
+                            <view catchtap="aversion" class="like {{answer.is_aversion==1?'orange-color':'small-level-color'}}" data-wpyaversion-a="" data-wpyaversion-b="{{index}}">
+                                <text class="iconfont icon-cai fz-16"></text>
+                                <text class="fz-12 gray-9-color"> {{answer.aversion_num}}</text>
+                            </view>
+                            <view catchtap="like" class="like {{answer.is_like==1?'orange-color':'small-level-color'}}" data-wpylike-a="" data-wpylike-b="{{index}}">
+                                <text class="iconfont icon-dianzan1 fz-16"></text>
+                                <text class="fz-12 gray-9-color"> {{answer.like_num}}</text>
+                            </view>
+                        </view>
+                        <image class="adopt" src="/images/adopt.png" wx:if="{{answer.is_adopt==2}}"></image>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="question-footer">
+        <button class="question-footer-list" openType="share" style="background-color:transparent">
+            <view class="question-footer-list-icon iconfont icon-fenxiangzhong fz-22"></view>
+            <view class="question-footer-text fz-10">分享</view>
+        </button>
+        <view bindtap="followQuestion" class="question-footer-list {{item.is_attention==2?'':'active'}}">
+            <view class="question-footer-list-icon iconfont icon-xiangyaozhong fz-22"></view>
+            <view class="question-footer-text fz-10 gray-9-color">收藏{{item.attention_num}}</view>
+        </view>
+        <view bindtap="likeQuestion" class="question-footer-list {{item.is_like==2?'':'active'}}">
+            <view class="question-footer-list-icon iconfont icon-dianzanzhong fz-22"></view>
+            <view class="question-footer-text fz-10 gray-9-color">赞{{item.like_num}}</view>
+        </view>
+        <navigator class="meAnswer fz-14 white-color" hoverClass="none" url="/subPackages/question/pages/answerDetail?id={{id}}">我要回答</navigator>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

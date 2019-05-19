@@ -1,0 +1,117 @@
+<view id="page">
+    <view class="coupons-header">
+        <text class="fz-14 allQuan">全部优惠券</text>
+        <navigator class="p" hoverClass="none" url="{{couponsRules}}">
+            <text class="icon-wenhao iconfont"></text>
+            <view class="span">使用规则</view>
+        </navigator>
+    </view>
+    <block wx:if="{{myCoupons.length>0}}">
+        <block wx:for="{{myCoupons}}" wx:key="key">
+            <view class="coupons-container" wx:if="{{item.status==0}}">
+                <navigator class="coupons-item" hoverClass="none" url="/pages/lotteryDetail?id=&project_id={{item.project.id}}" wx:if="{{item.project}}">
+                    <image mode="widthFix" src="/images/coupons1.png"></image>
+                    <view class="coupons-item-content">
+                        <view class="left-img">
+                            <image mode="aspectFill" src="{{item.project.cover||item.vendor_coupons.vendor.avatar}}"></image>
+                        </view>
+                        <view class="layout-4 project-title">
+                            <view class="fz-14 project-title-address font-bold">{{item.project.name||item.vendor_coupons.vendor.name}}</view>
+                            <view class="price">
+                                <view class="wrap">
+                                    <view class="price-font font-bold">
+                                        <text class="fz-12 ml">¥</text>
+                                        <text style="font-size:36rpx;margin-left:5rpx;">{{item.vendor_coupons.coupon.amount}}</text>
+                                        <text class="fz-12"></text>
+                                    </view>
+                                    <view class="price-label layout-1">
+                                        <text class="fz-10">优惠券</text>
+                                    </view>
+                                </view>
+                                <view class="now fz-11 gray-9-color">有效期:{{item.vendor_coupons.started_at}}-{{item.vendor_coupons.ended_at}}<view class="line"></view>
+                                </view>
+                            </view>
+                        </view>
+                        <view catchtap="toUrl" class="project-price" data-wpytourl-a="/subPackages/activity/pages/specialPrice?project_name={{item.project.name}}&price={{item.vendor_coupons.coupon.amount}}&project_time={{item.vendor_coupons.started_at+'-'+item.vendor_coupons.ended_at}}&project_id={{item.project.id}}">
+                            <view class="use-btn fz-11 white-color">去查看</view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class="coupons-item" wx:else>
+                    <image mode="widthFix" src="/images/coupons1.png"></image>
+                    <view class="coupons-item-content">
+                        <view class="left-img">
+                            <image mode="aspectFill" src="{{item.project.cover||item.vendor_coupons.vendor.avatar}}"></image>
+                        </view>
+                        <view class="layout-4 project-title">
+                            <view class="fz-14 project-title-address font-bold">{{item.project.name||item.vendor_coupons.vendor.name}}</view>
+                            <view class="price">
+                                <view class="wrap">
+                                    <view class="price-font font-bold">
+                                        <text class="fz-12 ml">¥</text>
+                                        <text style="font-size:36rpx;margin-left:5rpx;">{{item.vendor_coupons.coupon.amount}}</text>
+                                        <text class="fz-12"></text>
+                                    </view>
+                                    <view class="price-label layout-1">
+                                        <text class="fz-10">优惠券</text>
+                                    </view>
+                                </view>
+                                <view class="now fz-11 gray-9-color">有效期:{{item.vendor_coupons.started_at}}-{{item.vendor_coupons.ended_at}}<view class="line"></view>
+                                </view>
+                            </view>
+                        </view>
+                        <view catchtap="toUrl" class="project-price" data-wpytourl-a="/subPackages/activity/pages/specialPrice?project_name={{item.vendor_coupons.vendor.name}}&price={{item.vendor_coupons.coupon.amount}}&project_time={{item.vendor_coupons.started_at+'-'+item.vendor_coupons.ended_at}}&project_id=">
+                            <view class="use-btn fz-11 white-color">去查看</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="coupons-container" wx:if="{{item.status!=0}}">
+                <view class="coupons-item">
+                    <image mode="widthFix" src="/images/coupons2.png" wx:if="{{item.status==1}}"></image>
+                    <image mode="widthFix" src="/images/coupons3.png" wx:if="{{item.status==2}}"></image>
+                    <image mode="widthFix" src="/images/coupons4.png" wx:if="{{item.status==3}}"></image>
+                    <image mode="widthFix" src="/images/coupons5.png" wx:if="{{item.status==4}}"></image>
+                    <view class="coupons-item-content">
+                        <view class="left-img">
+                            <image src="{{item.project.cover||item.vendor_coupons.vendor.avatar}}"></image>
+                            <view class="left-hide-cover"></view>
+                        </view>
+                        <view class="layout-4 project-title">
+                            <view class="fz-14 project-title-address font-bold" style="color: #cdcdcd">{{item.project.name||item.vendor_coupons.vendor.name}}</view>
+                            <view class="price">
+                                <view class="wrap">
+                                    <view class="price-font font-bold">
+                                        <text class="fz-12 ml">¥</text>
+                                        <text style="font-size:36rpx;margin-left:5rpx;">{{item.vendor_coupons.coupon.amount}}</text>
+                                        <text class="fz-12"></text>
+                                    </view>
+                                    <view class="price-label layout-1">
+                                        <text class="fz-10">优惠券</text>
+                                    </view>
+                                </view>
+                                <view class="now fz-11 gray-9-color">
+                                        有效期:{{item.vendor_coupons.started_at}}-{{item.vendor_coupons.ended_at}}
+                                    <view class="line"></view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="project-price">
+                            <view class="use-btn fz-11 white-color" style="background: #cdcdcd;color: #fff">去查看</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </block>
+    <block wx:else>
+        <view class="project_box_list" wx:if="{{loading}}">
+            <view class="fz-13 black1a-color text">暂无优惠券</view>
+        </view>
+    </block>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

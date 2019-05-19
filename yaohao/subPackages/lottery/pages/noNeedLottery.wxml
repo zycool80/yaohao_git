@@ -1,0 +1,184 @@
+<view class="project-nav fixed-top" style="top:50px" wx:if="{{showSelect}}">
+    <view class="project-menu-cont">
+        <view bindtap="switchMenuHandle" class="menu-select {{menuIndex==1?'active':''}}" data-wpyswitchmenuhandle-a="1">
+            <text class="text fz-12 gray-9-color">筛选类型</text>
+            <text class="iconfont icon-xialajiantou gray-color"></text>
+        </view>
+        <view bindtap="switchMenuHandle" class="menu-select {{menuIndex==2?'active':''}}" data-wpyswitchmenuhandle-a="2">
+            <text class="text fz-12 gray-9-color">价格筛选</text>
+            <text class="iconfont icon-xialajiantou gray-color"></text>
+        </view>
+        <view bindtap="switchMenuHandle" class="menu-select {{menuIndex==3?'active':''}}" data-wpyswitchmenuhandle-a="3">
+            <text class="text fz-12 gray-9-color">全部区域</text>
+            <text class="iconfont icon-xialajiantou gray-color"></text>
+        </view>
+        <view bindtap="switchMenuHandle" class="menu-select {{menuIndex==4?'active':''}}" data-wpyswitchmenuhandle-a="4">
+            <text class="iconfont icon-paixu gray-9-color fz-14"></text>
+        </view>
+    </view>
+    <view class="project-select-content">
+        <view class="project-select_category" wx:if="{{menuIndex==1}}">
+            <view class="select-right-cont no-left-cont gray-f7-bg">
+                <block wx:for="{{categoryDatas}}" wx:key="key">
+                    <view class="select-item_title black1a-color font-bold fz-14">{{item.title}}</view>
+                    <view class="select-item_group">
+                        <view bindtap="clickCateHandle" class="select-item_btn fz-13 {{item.toggle_val==cate.val?'active':''}}" data-wpyclickcatehandle-a="{{index}}" data-wpyclickcatehandle-b="{{cate.val}}" wx:for="{{item.data}}" wx:for-index="cateIndex" wx:for-item="cate" wx:key="key">{{cate.key}}</view>
+                    </view>
+                </block>
+            </view>
+            <view class="select-bottom">
+                <view bindtap="resetHandle" class="select-btn white-style float_left fz-14 font-bold">重置</view>
+                <view bindtap="submitHandle" class="select-btn float_right fz-14 font-bold">确定</view>
+            </view>
+        </view>
+        <view class="project-select_price" wx:if="{{menuIndex==2}}">
+            <view class="select-right-cont no-left-cont gray-f7-bg">
+                <block wx:for="{{pricesDatas}}" wx:key="key">
+                    <view bindtap="clickPriceHandle" class="select-item_list fz-13 {{item.toggle_val==price.val?'active':''}}" data-wpyclickpricehandle-a="{{index}}" data-wpyclickpricehandle-b="{{price.val}}" wx:if="{{index==pricesIndex}}" wx:for="{{item.data}}" wx:for-index="i" wx:for-item="price" wx:key="key">{{price.key}}</view>
+                </block>
+            </view>
+            <view class="select-bottom">
+                <view class="select-input gray-f7-bg">
+                    <input bindinput="inputPriceHandle" data-wpyinputpricehandle-a="min" placeholder="最低价格" placeholderClass="gray-color fz-14" type="number" value="{{minPrice}}"></input>
+                    <text class="line fz-14 black1a-color">-</text>
+                    <input bindinput="inputPriceHandle" data-wpyinputpricehandle-a="max" placeholder="最高价格" placeholderClass="gray-color fz-14" type="number" value="{{maxPrice}}"></input>
+                </view>
+                <view bindtap="submitHandle" class="select-btn float_right fz-14 font-bold">确定</view>
+            </view>
+        </view>
+        <view class="project-select_area" wx:if="{{menuIndex==3}}">
+            <view class="select-left-cont">
+                <view bindtap="clickAreaTypeHandle" class="select-item fz-13 font-bold {{areasIndex==index?'active':''}}" data-wpyclickareatypehandle-a="{{index}}" wx:for="{{areasDatas}}" wx:key="key">{{item.title}}</view>
+            </view>
+            <view class="select-right-cont gray-f7-bg {{areasIndex==2?'tow-columns':''}}">
+                <block wx:for="{{areasDatas}}" wx:for-index="aIndex" wx:for-item="areas" wx:key="akey">
+                    <block wx:if="{{areasIndex==aIndex&&aIndex!=2}}" wx:for="{{areas.data}}" wx:key="itemKey">
+                        <view bindtap="clickNearHandle" class="select-item_list fz-13 {{areas.toggle_val==item.val?'active':''}}" data-wpyclicknearhandle-a="{{item.val}}" wx:if="{{areasIndex==0}}">{{item.key}}</view>
+                        <block wx:if="{{areasIndex==1}}">
+                            <view class="select-item_title black1a-color font-bold fz-14">{{item.title}}</view>
+                            <view class="select-item_group">
+                                <view bindtap="clickAreaHandle" class="select-item_btn fz-13 {{area.is_toggle?'active':''}}" data-wpyclickareahandle-a="{{index}}" data-wpyclickareahandle-b="{{areaIndex}}" wx:for="{{item.data}}" wx:for-index="areaIndex" wx:for-item="area" wx:key="key">{{area.key}}</view>
+                            </view>
+                        </block>
+                    </block>
+                    <block wx:if="{{areasIndex==2&&areasIndex==aIndex}}">
+                        <view class="short-column">
+                            <view bindtap="clickLineHandle" class="select-item_list fz-13 {{index==areas.def_index?'active':''}}" data-wpyclicklinehandle-a="{{aIndex}}" data-wpyclicklinehandle-b="{{index}}" wx:for="{{areas.data}}" wx:for-item="line" wx:key="lineKey">{{line.title}}</view>
+                        </view>
+                        <view class="long-column">
+                            <block wx:for="{{areas.data}}" wx:for-index="lineIndex" wx:for-item="line" wx:key="lineKey">
+                                <view bindtap="clickTubeHandle" class="select-item_list fz-13 {{tube.is_toggle?'active':''}}" data-child="{{tubeIndex}}" data-index="{{lineIndex}}" data-parent="{{aIndex}}" wx:if="{{lineIndex==areas.def_index}}" wx:for="{{line.data}}" wx:for-index="tubeIndex" wx:for-item="tube" wx:key="tubeKey">{{tube.title}}</view>
+                            </block>
+                        </view>
+                    </block>
+                </block>
+            </view>
+            <view class="select-bottom">
+                <view bindtap="resetHandle" class="select-btn white-style float_left fz-14 font-bold">重置</view>
+                <view bindtap="submitHandle" class="select-btn float_right fz-14 font-bold">确定</view>
+            </view>
+        </view>
+        <view class="project-select_sort" wx:if="{{menuIndex==4}}">
+            <view class="select-right-cont no-left-cont gray-f7-bg">
+                <view bindtap="sortHandle" class="select-item_list fz-13 {{sortIndex==index?'active':''}}" data-wpysorthandle-a="{{item.val}}" data-wpysorthandle-b="{{index}}" wx:for="{{sortDatas}}" wx:key="key">{{item.key}}</view>
+            </view>
+            <view class="select-bottom">
+                <view bindtap="resetHandle" class="select-btn white-style float_left fz-14 font-bold">重置</view>
+                <view bindtap="submitHandle" class="select-btn float_right fz-14 font-bold">确定</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="closeSelect" bindtouch="bindtouch" class="close-select"></view>
+</view>
+<view class="page">
+    <view class="page__bd haveSearchBar">
+        <view class="search-bar" hoverClass="none">
+            <view bindtap="inputSubmit" class="search-btn fz-14 white-color">确定</view>
+            <view class="search-bar-form">
+                <view class="weui-icon-search iconfont icon-sousuo"></view>
+                <view bindtap="emptyInputVal" class="weui-icon-clear iconfont icon-delete" wx:if="{{inputVal.length>0}}"></view>
+                <textarea bindconfirm="doSearch" bindinput="inputTyping" class="ui-input search-bar-input {{platform?'platform':''}}" fixed="true" placeholder="{{inputPlace}}" placeholderClass="search-bar-placeholder gray-color" value="{{inputVal}}"></textarea>
+            </view>
+        </view>
+        <view class="project-nav">
+            <view class="project-menu-cont">
+                <view bindtap="switchMenuHandle" class="menu-select {{menuIndex==1?'active':''}}" data-wpyswitchmenuhandle-a="1" data-wpyswitchmenuhandle-b="force">
+                    <text class="text fz-12 gray-9-color">筛选类型</text>
+                    <text class="iconfont icon-xialajiantou gray-color"></text>
+                </view>
+                <view bindtap="switchMenuHandle" class="menu-select {{menuIndex==2?'active':''}}" data-wpyswitchmenuhandle-a="2" data-wpyswitchmenuhandle-b="force">
+                    <text class="text fz-12 gray-9-color">价格筛选</text>
+                    <text class="iconfont icon-xialajiantou gray-color"></text>
+                </view>
+                <view bindtap="switchMenuHandle" class="menu-select {{menuIndex==3?'active':''}}" data-wpyswitchmenuhandle-a="3" data-wpyswitchmenuhandle-b="force">
+                    <text class="text fz-12 gray-9-color">全部区域</text>
+                    <text class="iconfont icon-xialajiantou gray-color"></text>
+                </view>
+                <view bindtap="switchMenuHandle" class="menu-select {{menuIndex==4?'active':''}}" data-wpyswitchmenuhandle-a="4" data-wpyswitchmenuhandle-b="force">
+                    <text class="iconfont icon-paixu gray-9-color fz-14"></text>
+                </view>
+            </view>
+        </view>
+        <view class="projects">
+            <block wx:if="{{projects.length>0}}">
+                <navigator class="item_content" hoverClass="weui-cell_active" url="/pages/lotteryDetail?id={{item.id}}&project_id={{item.project_id}}&is_not_lottery=1" wx:for="{{projects}}" wx:key="key">
+                    <view class="hot_house_img">
+                        <image class="lottery-img gray-bg" lazyLoad="{{true}}" src="{{item.cover}}"></image>
+                        <view class="lottery-img-bottom white-color fz-10" wx:if="{{item.list_tag}}">{{item.list_tag}}</view>
+                        <view class="view white-color">
+                            <text class="fz-15 iconfont icon-chakanzhong"></text>
+                            <text class="fz-11" style="margin-left:5rpx">{{item.page_views}}</text>
+                        </view>
+                    </view>
+                    <view class="content_right">
+                        <view class="weui-media-box__title" style="line-height:44rpx">
+                            <view class="right fz-14 red-color" wx:if="{{item.avg_price&&item.avg_price!='0'}}">¥{{item.avg_price}}</view>
+                            <view class="left fz-14 black1a-color font-bold title_name">{{item.name}}</view>
+                        </view>
+                        <view class="tags">
+                            <text class="fz-12 sign-text" style="margin-right: 10rpx" wx:for="{{item.characteristic}}" wx:for-item="val" wx:key="key">{{val}}</text>
+                            <text class="tag1 fz-12 black1a-color">{{item.area}}</text>
+                        </view>
+                        <view class="list_bottom small-level-color">
+                            <view class="attention">
+                                <view class="comment_follow" style="margin-left:30rpx">
+                                    <view class="follow">
+                                        <text class="iconfont icon-xiaoxi5 fz-14"></text>
+                                        <text class="fz-12"> {{item.comment_num}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="area fz-12">
+                                <text class="sign-text" style="margin-right: 10rpx">剩余套数：{{item.surplus_count}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+            <view class="not_id_card" wx:if="{{!more&&projects.length<1}}">
+                <image mode="aspectFit" src="/images/icons/not_id_card.png" style="height:140rpx;display:block;margin:0 auto;"></image>
+                <text class="small-level-color" style="margin-top:30px;font-size:14px">小主人~还没有楼盘信息</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{more}}">
+        <view class="flex_layout_c" style="width: 100%;margin-top: 30rpx;margin-bottom: 30rpx">
+            <view class="loading-runing">
+                <view class="loading-icon">
+                    <text class="iconfont icon-jiazai"></text>
+                </view>
+                <view class="left-font">
+                    <text>加载中</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="flex_layout_c" style="width: 100%;margin-top: 30rpx;margin-bottom: 30rpx" wx:if="{{!more&&projects.length>0}}">
+        <view class="weui-loadmore__tips gray-color">我也是有底线的哦~ (๑•́ ₃ •̀๑)</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

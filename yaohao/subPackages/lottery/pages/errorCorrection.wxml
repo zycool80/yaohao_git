@@ -1,0 +1,41 @@
+<view class="page">
+    <view class="w-cell" style="border-bottom: 2rpx solid #e6e6e6">
+        <view class="information fz-13">
+            <text>纠错类别</text>
+            <text style="color:red;margin-left: 8rpx">*</text>
+        </view>
+        <picker bindchange="bindTypePickerChange" range="{{typeList}}" rangeKey="name" style="overflow: hidden" value="{{typeIndex}}">
+            <view class="information-lei">
+                <text class="fz-13 black-color">{{typeList[typeIndex].name}}</text>
+                <text class="iconfont icon-xiayibu fz-13 gray-color" style="padding-right:30rpx"></text>
+            </view>
+        </picker>
+    </view>
+    <view class="err-information w-cell" style="margin-top: -30rpx">
+        <view class="left-key">
+            <text class="black-color fz-13">纠错信息</text>
+        </view>
+        <view class="right-value" style="margin-left: 0rpx;margin-top: -36rpx;">
+            <textarea bindinput="inputNum" data-wpyinputnum-a="1" maxlength="300" placeholder="纠错内容的信息（最多300字）" value="{{true_inputVal}}"></textarea>
+        </view>
+        <view class="upload-file">
+            <view bindtap="uploadFile" class="pic" data-wpyuploadfile-a="1" wx:if="{{inputData.true_tp.length<6}}">
+                <text style="position:absolute;line-height:1;bottom:-40rpx;font-size: 24rpx;color: #ccc;left:25rpx">图片 {{inputData.true_tp.length}}/6</text>
+            </view>
+            <block wx:if="{{inputData.true_tp.length>0}}">
+                <view class="pic" wx:for="{{inputData.true_tp}}" wx:key="key">
+                    <image bindtap="preview" data-preview="{{item}}" data-wpypreview-a="{{item}}" mode="aspectFill" src="{{item}}" style="width:100%;height:100%;"></image>
+                    <view bindtap="deletePic" class="small-level-color" data-wpydeletepic-a="1" data-wpydeletepic-b="{{index}}" style="position:absolute;line-height:1;bottom:-40rpx; left:0">点击删除图片</view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="footer">
+        <view catchtap="upMsg" class="upForm">确认提交</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

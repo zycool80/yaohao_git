@@ -1,0 +1,60 @@
+<view class="page" wx:if="{{attentionList.length>0}}">
+    <view class="attentionList-top fz-12 small-level-color">
+        <text style="margin-right: 10rpx">{{is_me==1?'我关注的达人':user_name+'关注的达人'}}</text>
+        <text>({{count}})</text>
+    </view>
+    <view class="attentionList-content">
+        <navigator class="attention-box" url="/subPackages/question/pages/userQuestion?user_id={{item.attention_object}}&sales_man_id={{item.sales_man_id}}" wx:for="{{attentionList}}" wx:key="key">
+            <view class="left-content">
+                <view class="img {{item.is_specialist==1?'wd-large':'wd-small'}}" style="position: relative">
+                    <image mode="aspectFill" src="{{item.user_avatar_url||avatar_url}}"></image>
+                    <image mode="widthFix" src="/images/exportLog.png" style="position:absolute;left:-6px;top:40px;width:60px;" wx:if="{{item.is_specialist==1}}"></image>
+                </view>
+            </view>
+            <view class="right-content">
+                <view class="right-content-title">
+                    <text class="fz-13 name  font-bold {{item.is_specialist==1?'font-gold-color':'black-color'}}">{{item.user_name}}</text>
+                    <block wx:if="{{item.sales_man_id>0}}">
+                        <text class="fz-10 salesMan small-level-color">置业顾问</text>
+                        <text class="fz-10 project_name small-level-color">【{{item.project_name}}】</text>
+                    </block>
+                </view>
+                <view class="right-btn">
+                    <view class="question fz-12">
+                        <text class="number">{{item.question_num}}</text>
+                        <text>提问</text>
+                    </view>
+                    <view class="answer fz-12">
+                        <text class="number">{{item.answer_num}}</text>
+                        <text>回答</text>
+                    </view>
+                    <view class="discuss fz-12">
+                        <text class="number">{{item.topic_num}}</text>
+                        <text>话题</text>
+                    </view>
+                    <view class="attention fz-12">
+                        <text class="number">{{item.attention_num}}</text>
+                        <text>我关注</text>
+                    </view>
+                </view>
+                <view class="right-btn">
+                    <view class="attention fz-12">
+                        <text class="number">{{item.attention_my_num}}</text>
+                        <text>关注我</text>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<block wx:else>
+    <view class="nothing" wx:if="{{!loading}}">
+        <view class="nothing-text fz-13 small-level-color">小主人暂时未关注任何人</view>
+        <view bindtap="toTab" class="getToQuestion fz-13 blue-color">前去问答区看看</view>
+    </view>
+</block>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

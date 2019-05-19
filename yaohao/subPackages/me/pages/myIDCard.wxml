@@ -1,0 +1,41 @@
+<view class="myIDCard" style="{{projects.length>3?'height:1400rpx;':''}}">
+    <image class="bgImg" lazyLoad="{{true}}" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20181123/5bf7a89877be8.png"></image>
+    <view class="content" style="{{projects.length<=0?'background:#fff;z-index:1':''}}">
+        <view style="min-height: 970rpx">
+            <block wx:if="{{projects.length>0&&loading}}">
+                <view class="contentList" wx:for="{{projects}}" wx:key="key">
+                    <view class="line bg{{index%4}}"></view>
+                    <view bindtap="removeSingle" class="attention black1a-color fz-11" data-wpyremovesingle-a="{{index}}">解除信息</view>
+                    <view class="list-item">
+                        <text class="fz-14 small-level-color">姓名</text>
+                        <view class="fz-14 black1a-color">{{item.name}}</view>
+                    </view>
+                    <view class="list-item">
+                        <text class="fz-14 small-level-color">身份证号</text>
+                        <view class="fz-14 black1a-color">{{item.id_card}}</view>
+                    </view>
+                    <view class="list-item">
+                        <text class="fz-14 small-level-color">手机号</text>
+                        <view class="fz-14 black1a-color">{{item.phone}}</view>
+                    </view>
+                </view>
+            </block>
+            <view class="noContent" wx:if="{{projects.length<=0&&loading}}">
+                <image class="noImg" lazyLoad="{{true}}" mode="modeFix" src="http://imgcdn.huanjutang.com/assets/img/20181123/5bf7a8d5b49a0.png"></image>
+                <view class="fz-13 small-level-color tip">小主人还未添加身份信息</view>
+                <view class="fz-13 small-level-color">添加身份信息可以直接查询摇号结果喔</view>
+            </view>
+        </view>
+        <view class="notice fz-12 small-level-color">注：绑定个人信息后，部分楼盘可以直接获取公正摇号编码，查询摇号结果更方便！</view>
+    </view>
+    <view class="btn">
+        <navigator hoverClass="none" url="/subPackages/me/pages/bindIDCard?type=1">
+            <view class="addMsg white-color fz-15">添加信息</view>
+        </navigator>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

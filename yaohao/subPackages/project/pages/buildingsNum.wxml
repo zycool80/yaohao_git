@@ -1,0 +1,32 @@
+<view class="romePrice">
+    <scroll-view scrollX class="buildingNum-scroll">
+        <view style="width: {{scrollWidth}}rpx;overflow: hidden">
+            <view bindtap="switchTab" class="scrollOne {{tab==index?'active':''}} fz-14" data-wpyswitchtab-a="{{index}}" data-wpyswitchtab-b="{{item.id}}" wx:for="{{buildingUnit}}" wx:key="key">{{item.unit}}</view>
+        </view>
+    </scroll-view>
+    <view class="buildingNum-title">
+        <button class="share" openType="share" style="border-radius: none;">
+            <text class="fz-14 black1a-color">分享</text>
+            <text class="iconfont icon-fenxiang9 black1a-color fz-16"></text>
+        </button>
+        <view class="title fz-12 black1a-color">
+            <view class="title-cont green">可售</view>
+            <view class="title-cont orange">已售</view>
+            <view class="title-cont blue">已备案</view>
+            <view class="title-cont gray">拟定合同</view>
+        </view>
+    </view>
+    <view class="buildingNum-cont">
+        <view class="cont-line" wx:for="{{buildingFloor}}" wx:key="key">
+            <view class="cont-num black1a-color fz-14 font-bold">{{item.key}}</view>
+            <view class="houseNum">
+                <navigator class="houseNum-line fz-13" hoverClass="none" style="background:{{background[val.sale_status]}};color:{{color[val.sale_status]}}" url="/subPackages/project/pages/buildingsNumDetail?id={{val.id}}" wx:for="{{item.data}}" wx:for-item="val" wx:key="key">{{val.room_num}}</navigator>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

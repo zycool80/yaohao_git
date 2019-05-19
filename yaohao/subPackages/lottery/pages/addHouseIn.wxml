@@ -1,0 +1,118 @@
+<view style="padding-bottom: 100rpx;">
+    <view wx:for="{{dataArr}}" wx:for-index="parentIndex" wx:key="key">
+        <view>
+            <view class="house_plan_title">
+                <text class="house_plan_text">上传户型({{parentIndex+1}})</text>
+                <view bindtap="deleteHouse" class="iconfont icon-shanchu" data-wpydeletehouse-a="{{parentIndex}}" style="color: #666666"></view>
+            </view>
+            <view class="hou_plan_from">
+                <view class="general_style hou_plan_item" style="justify-content: space-between">
+                    <view class="general_style">
+                        <text class="text-weight">户型标签</text>
+                        <text class="red-tip red-color">*</text>
+                    </view>
+                    <view bindtap="optHouse" class="general_style hou_plan_live" data-wpyopthouse-a="{{parentIndex}}">
+                        <text>{{item.house_live}}</text>
+                        <view class="iconfont icon-xiayibu" style="font-size:26rpx;color:#cccccc;"></view>
+                    </view>
+                </view>
+                <view class="general_style hou_plan_item" style="justify-content: space-between">
+                    <view class="general_style">
+                        <text class="text-weight">户型样式</text>
+                        <text class="red-tip red-color">*</text>
+                    </view>
+                    <view class="xian">
+                        <view class="general_style2" style="font-size:26rpx;">
+                            <view class="general_style house_item">
+                                <input bindinput="inputValue" class="general_style_font" data-wpyinputvalue-a="{{parentIndex}}" data-wpyinputvalue-b="shi" type="number" value="{{item.shi}}"></input>
+                                <text>室</text>
+                            </view>
+                            <view class="general_style house_item">
+                                <input bindinput="inputValue" class="general_style_font" data-wpyinputvalue-a="{{parentIndex}}" data-wpyinputvalue-b="ting" type="number" value="{{item.ting}}"></input>
+                                <text>厅</text>
+                            </view>
+                            <view class="general_style house_item">
+                                <input bindinput="inputValue" class="general_style_font" data-wpyinputvalue-a="{{parentIndex}}" data-wpyinputvalue-b="wei" type="number" value="{{item.wei}}"></input>
+                                <text>卫</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="general_style hou_plan_item" style="justify-content: space-between">
+                    <view class="general_style">
+                        <text class="text-weight">户型分类</text>
+                        <text class="red-tip red-color">*</text>
+                    </view>
+                    <view class="general_style hou_plan_live">
+                        <input bindinput="inputValue" data-wpyinputvalue-a="{{parentIndex}}" data-wpyinputvalue-b="house_class" placeholder="例: A1户型" value="{{item.house_class}}"></input>
+                    </view>
+                </view>
+                <view class="general_style hou_plan_item" style="justify-content: space-between">
+                    <view class="general_style">
+                        <text class="text-weight">建面面积</text>
+                        <text class="red-tip red-color">*</text>
+                    </view>
+                    <view class="general_style hou_plan_live2">
+                        <input bindinput="inputValue" data-wpyinputvalue-a="{{parentIndex}}" data-wpyinputvalue-b="house_area" placeholder="例: 144" style="width:140rpx" type="number" value="{{item.house_area}}"></input>
+                        <view>
+                            <text>平方米</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="general_style hou_plan_item" style="justify-content: space-between">
+                    <view class="general_style">
+                        <text class="text-weight">公摊面积</text>
+                    </view>
+                    <view class="general_style hou_plan_live2">
+                        <input bindinput="inputValue" data-wpyinputvalue-a="{{parentIndex}}" data-wpyinputvalue-b="house_shared" placeholder="例: 144" style="width:140rpx" type="number" value="{{item.house_shared}}"></input>
+                        <view class="house_square">
+                            <text>平方米</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="general_style hou_plan_item" style="justify-content: space-between">
+                    <view class="general_style">
+                        <text class="text-weight">户型单价</text>
+                    </view>
+                    <view class="general_style hou_plan_live2">
+                        <input bindinput="inputValue" data-wpyinputvalue-a="{{parentIndex}}" data-wpyinputvalue-b="house_item" placeholder="例: 144" style="width:140rpx" type="number" value="{{item.house_item}}"></input>
+                        <view>
+                            <text>元/平方米</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="general_style hou_plan_item hou_plan_item2">
+                    <view class="general_style">
+                        <text class="text-weight">户型图片</text>
+                        <text class="red-tip red-color">*</text>
+                    </view>
+                </view>
+                <view class="upload-file">
+                    <view bindtap="uploadFile" class="pic" data-wpyuploadfile-a="{{parentIndex}}" wx:if="{{item.imageList.length!=1}}">
+                        <text style="position:absolute;line-height:1;bottom:-40rpx;font-size: 22rpx;color: #ccc;margin-left: 8rpx">上传户型</text>
+                    </view>
+                    <view class="pic" wx:for="{{item.imageList}}" wx:for-item="img" wx:key="key">
+                        <image bindtap="preview" data-wpypreview-a="{{img}}" mode="aspectFill" src="{{img}}" style="width:100%;height:100%;"></image>
+                        <view bindtap="deletePic" class="small-level-color" data-wpydeletepic-a="{{parentIndex}}" data-wpydeletepic-b="{{index}}" style="position:absolute;line-height:1;bottom:-40rpx; left:0">删除</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="appendHouse" class="general_style3 add_pic_tohouse">
+        <view class="general_style">
+            <view class="iconfont icon-guanbi shizi_style" style="font-size:26rpx;font-weight: 700;margin-right:16rpx;color:#3772cc"></view>
+            <text style="color:#3772cc">增加户型上传</text>
+        </view>
+    </view>
+    <view class="add_submit general_style3">
+        <view bindtap="submit" class="general_style3 add_submit_item">
+            <text class="add_submit_text">确认提交</text>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

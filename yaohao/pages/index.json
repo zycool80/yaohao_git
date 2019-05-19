@@ -1,0 +1,7 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "LotteryItem": "../components/LotteryItem",
+        "HomeProjectItem": "../components/HomeProjectItem"
+    }
+}

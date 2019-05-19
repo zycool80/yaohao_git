@@ -1,0 +1,52 @@
+<view class="page">
+    <block wx:if="{{salesList.length>0||tuijian.length>0}}">
+        <view class="salesMan" wx:for="{{salesList}}" wx:key="key">
+            <view bindtap="follow" class="guanzhu fz-13" data-wpyfollow-a="{{index}}" style="color:{{font_color[item.grade]}}" wx:if="{{item.session_id&&item.session_id!='0'}}">已关注</view>
+            <navigator hoverClass="none" url="/pages/salesMan/detail?id={{item.sales_man_id}}&project_id={{project_id}}">
+                <view class="salesMan-content">
+                    <image class="salesMan-bg" mode="widthFix" src="{{color[item.grade]}}"></image>
+                    <view class="salesMan-content-left">
+                        <view class="avatar">
+                            <image class="gray-bg" lazyLoad="{{true}}" src="{{item.avatar_url!=null&&item.avatar_url?item.avatar_url:defaultAvatar}}"></image>
+                        </view>
+                        <view class="person">
+                            <image mode="aspectFill" src="{{val.avatar_url||defaultAvatar}}" wx:for="{{item.views_log}}" wx:for-item="val" wx:key="key"></image>
+                        </view>
+                    </view>
+                    <view class="salesMan-content-right">
+                        <view class="name">
+                            <view class="fz-18 white-color">{{item.name}}</view>
+                            <text class="fz-12 white-color">{{sort[item.grade]}}</text>
+                        </view>
+                        <view class="address white-color" style="font-size:28rpx">{{item.project_name}}</view>
+                        <view class="liulan-huoyue">
+                            <text class="white-color fz-12">浏览量:{{item.page_views}}</text>
+                            <text class="white-color fz-12">活跃度:{{item.recommend_index}}</text>
+                        </view>
+                    </view>
+                    <image class="paiming" mode="widthFix" src="{{img[item.grade]}}"></image>
+                </view>
+            </navigator>
+            <view class="copy-and-msg-phone">
+                <view class="weixin contact white-color">
+                    <view bindtap="toIMPage" class="message" data-wpytoimpage-a="{{item}}" data-wpytoimpage-b="{{item.avatar_url}}" wx:if="{{item.session_id&&item.session_id!='0'}}">
+                        <text class="iconfont white-color icon-xiaoxi3 fz-22"></text>
+                    </view>
+                    <view bindtap="phoneCall" class="phone" data-wpyphonecall-a="{{item.sales_man_id}}">
+                        <text class="iconfont icon-dianhua fz-22"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="nothing gray-block" wx:if="{{!loading}}">
+            <text class="fz-14 small-level-color">暂无关注置业顾问！</text>
+        </view>
+    </block>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

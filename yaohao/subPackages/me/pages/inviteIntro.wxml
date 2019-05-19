@@ -1,0 +1,27 @@
+<view style="padding: 30rpx">
+    <view class="text-danger">为什么要入驻摇号助手</view>
+    <view class="text-success">"摇号助手"是及时提供摇号信息的公众平台，用户能在平台第一时间了解到摇号楼盘及摇号结果的相关信息，每日为数十万用户提供上百万次的各类信息查询，受到了广大用户的一致喜爱和好评。</view>
+    <view class="h4">常见问题</view>
+    <view>
+        <view class="h3">1. 入驻摇号助手的好处？</view>
+        <view class="p">摇号助手作为信息整合平台，帮置业顾问更好的卖房，帮业主买到更心仪的好房，是我们服务的一贯忠旨。置业顾问入驻后，信息将会第一时间展现给用户，方便直接与用户沟通。</view>
+        <image mode="widthFix" src="https://web.huanjutang.com/img/inviteIntro1.png"></image>
+        <image mode="widthFix" src="https://web.huanjutang.com/img/inviteIntro2.png"></image>
+        <view class="h3">2. 入驻摇号助手需要费用吗？</view>
+        <view class="p">平台承诺将实行置业顾问<text>永久免费</text>入驻。</view>
+        <view class="h3">3. 置业顾问排名规则？</view>
+        <view class="p">平台秉承公平公正的原则，谢绝一切有偿的提升排名的行为，仅按照置业顾问对平台的贡献度（换作积分）进行排序，如邀请置业顾问、用户加入平台，修正楼盘基本信息，追加楼盘图片，户型图片，回答用户提问等皆有不同程度的积分奖励，具体规则近期出台，敬请随时关注。</view>
+        <image mode="widthFix" src="https://web.huanjutang.com/img/inviteIntro3.png"></image>
+        <image mode="widthFix" src="https://web.huanjutang.com/img/inviteIntro4.png"></image>
+        <view class="h4">4. 有任何疑问应该找谁？</view>
+        <view class="p">加摇号助手的微信：tiankongx123，他会帮你解答你所遇到的问题。</view>
+    </view>
+    <view>
+        <navigator hoverClass="none" openType="navigateBack">立马入驻</navigator>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

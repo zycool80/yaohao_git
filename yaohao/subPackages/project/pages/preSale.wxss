@@ -1,0 +1,51 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    width: 100%;
+    height: 100%;
+}
+
+#page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#page image {
+    width: 100%;
+    height: 100%;
+}
+
+#page #booking_potion {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#page #booking_potion .booking_potion_btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40rpx;
+    width: 690rpx;
+    height: 204rpx;
+    background-color: #FFFFFF;
+    border-radius: 10rpx;
+}
+
+#page #booking_potion .booking_potion_btn .booking_title {
+    font-weight: bold;
+    font-size: 50rpx;
+    color: #5b7ae1;
+}
+
+#page #booking_potion .booking_potion_btn text:nth-child(2) {
+    margin-top: 10rpx;
+}

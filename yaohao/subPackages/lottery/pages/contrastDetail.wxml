@@ -1,0 +1,256 @@
+<view>
+    <view class="header">
+        <view class="head_position">
+            <picker bindchange="change_left" class="fz-14" range="{{left_opt}}" style="float: left;overflow: hidden;width: 316rpx;border-bottom: 1px solid #e6e6e6;padding-bottom: 20rpx" value="{{index}}">
+                <text class="font-bold" style="float: left;width: 260rpx; overflow:hidden; white-space: nowrap; text-overflow:ellipsis;">{{left_opt[index]}}</text>
+                <text class="iconfont icon-xialajiantouxianxing fz-10" style="color: #779fdc;float: right;margin-top: 18rpx"></text>
+            </picker>
+            <picker bindchange="change_right" class="fz-14" range="{{right_opt}}" style="float: right;width: 316rpx;margin-right: 60rpx;border-bottom: 1px solid #e6e6e6;padding-bottom: 20rpx" value="{{index2}}">
+                <text class="font-bold;" style="float: left;width: 260rpx; overflow:hidden; white-space: nowrap; text-overflow:ellipsis; ">{{right_opt[index2]}}</text>
+                <text class="iconfont icon-xialajiantouxianxing fz-10" style="color: #779fdc;float: right;margin-top: 18rpx"></text>
+            </picker>
+        </view>
+        <view class="picture_show">
+            <navigator class="picture_show_left" url="{{project1.base.url}}">
+                <image src="{{project1.base.cover}}"></image>
+            </navigator>
+            <navigator class="picture_show_right" url="{{project2.base.url}}">
+                <image src="{{project2.base.cover}}"></image>
+            </navigator>
+        </view>
+    </view>
+    <view class="compare_container">
+        <view class="compare_title">
+            <text class="fz-15 font-bold">基本信息</text>
+            <image src="../../../images/title_img.png"></image>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.base.name}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">楼盘名称</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.base.name}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.base.statusText}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">楼盘状态</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.base.statusText}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details" wx:if="{{project1.base.avg_price=='暂无'||'0'}}">待定</text>
+                <text class="fz-12 font-bold left_details" wx:else>{{project1.base.avg_price}}元/平方米</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">楼盘价格</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details" wx:if="{{project2.base.avg_price=='暂无'||'0'}}">待定</text>
+                <text class="fz-12 font-bold right_details" wx:else>{{project2.base.avg_price}}元/平方米</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.base.verify_amount}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">验证金额</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.base.verify_amount}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.floor_condition}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">层高</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.floor_condition}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.car_rooms}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">车位数</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.car_rooms}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.developer}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">开发商</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.developer}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.zhuangxiu}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">装修情况</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.zhuangxiu}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.base.area}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">所在区域</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.base.area}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.rongji_ratio}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">容积率</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.rongji_ratio}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.lvhua_ratio}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">绿化率</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.lvhua_ratio}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.jiaofang}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">交房时间</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.jiaofang}}</text>
+            </view>
+        </view>
+        <view bindtap="look_more" class="code_build">
+            <image src="{{qrcode}}"></image>
+            <text style="font-size: 18rpx;display: block;">扫码查看更多</text>
+        </view>
+    </view>
+    <view class="compare_container compare_container_bottom">
+        <view class="compare_title">
+            <text class="fz-15 font-bold">物业与交通</text>
+            <image src="../../../images/title_img.png"></image>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.wuye_type}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">物业类型</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.wuye_type}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.wuyefei}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">物业费</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.wuyefei}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.wuyegongsi}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">物业公司</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.wuyegongsi}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <text class="fz-12 font-bold left_details">{{project1.attr.tudi}}</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">产权年限</text>
+            </view>
+            <view class="compare_details_item3">
+                <text class="fz-12 font-bold right_details">{{project2.attr.tudi}}</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <block wx:if="{{project1.attr.metro.length>0}}">
+                    <text class="fz-12 font-bold left_details" wx:for="{{project1.attr.metro}}" wx:key="key">{{item.station}}</text>
+                </block>
+                <text class="fz-12 font-bold left_details" wx:else>暂无</text>
+            </view>
+            <view class="compare_details_item2">
+                <text class="fz-12 left_details" style="color: #666666">地铁交通</text>
+            </view>
+            <view class="compare_details_item3">
+                <block wx:if="{{project1.attr.metro==[]}}">
+                    <text class="fz-12 font-bold right_details" wx:for="{{project1.attr.metro}}" wx:key="key">{{item.station}}</text>
+                </block>
+                <text class="fz-12 font-bold right_details" wx:else>暂无</text>
+            </view>
+        </view>
+        <view class="compare_details">
+            <view class="compare_details_item">
+                <navigator url="{{project1.base.url}}">
+                    <text class="fz-13 left_details" style="color: #25abb4">查看更多>></text>
+                </navigator>
+            </view>
+            <view class="compare_details_item3" style="float: right !important;">
+                <navigator url="{{project2.base.url}}">
+                    <text class="fz-13 right_details" style="float: right !important;color: #25abb4">查看更多>></text>
+                </navigator>
+            </view>
+        </view>
+        <view class="share_content">
+            <button class="share_btn" openType="share">
+                <text class="iconfont icon-fenxiang9" style="font-size: 40rpx"></text>
+            </button>
+            <text class="fz-11" style="margin-top: 14rpx">分享我的每一步</text>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,64 @@
+<view id="page">
+    <image src="http://imgcdn.huanjutang.com/assets/img/20181115/5bed4213013d2.png"></image>
+    <view id="details_content">
+        <view style="margin-left: 30rpx">
+            <text class="fz-20 white-color">{{buildingData.name}}</text>
+            <view bindtap="toMap" class="layout_style white-color" style="margin-top: 6rpx">
+                <text class="iconfont icon-dingwei1"></text>
+                <text class="fz-13" style="width: 600rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">【{{buildingData.area}}】{{buildingData.project_location}}</text>
+            </view>
+        </view>
+        <view class="details_content_desricbe">
+            <view class="building_price">
+                <text class="fz-13">楼盘价格: <text style="color: #d01616;font-weight: bold;">¥{{buildingData.avg_price}}元</text>/m²(清水)</text>
+            </view>
+            <view class="housing_type">
+                <view class="type_item">
+                    <text>{{buildingData.lottery_rate[0][0]}}</text>
+                    <text>{{buildingData.lottery_rate[1][0]}}</text>
+                </view>
+                <view class="type_item">
+                    <text>{{buildingData.lottery_rate[0][1]}}</text>
+                    <text class="font-bold">{{buildingData.lottery_rate[1][1]}}</text>
+                </view>
+                <view class="type_item">
+                    <text>{{buildingData.lottery_rate[0][2]}}</text>
+                    <text class="font-bold">{{buildingData.lottery_rate[1][2]}}</text>
+                </view>
+                <view class="type_item">
+                    <text>{{buildingData.lottery_rate[0][3]}}</text>
+                    <text class="font-bold">{{buildingData.lottery_rate[1][3]}}</text>
+                </view>
+                <view class="type_item">
+                    <text>{{buildingData.lottery_rate[0][4]}}</text>
+                    <text class="font-bold">{{buildingData.lottery_rate[1][4]}}</text>
+                </view>
+            </view>
+            <view style="width: 100%;height: 20rpx;background-color: #f7f7f7"></view>
+            <view class="stump_figure">
+                <view class="fz-10">
+                    <text style="margin-left:30rpx;">成都摇号助手报名人数实时预测</text>
+                    <text style="margin-left:10rpx;">{{created_at}}</text>
+                </view>
+                <view style="margin:auto;width: 690rpx;height: 520rpx;margin-left: 30rpx;position: relative">
+                    <canvas canvasId="ec-Canvas" class="ec-Canvas" style="height: 100%"></canvas>
+                </view>
+            </view>
+            <view class="footer">
+                <text style="float: left;">备注：</text>
+                <view class="foot_text">
+                    <text>该数据由成都摇号助手智能AI系统通过大数据预测得出。</text>
+                    <text>最终数据以官方复合结果为准。</text>
+                </view>
+            </view>
+            <button class="foot_share_btn" openType="share">
+                <text class="iconfont icon-fenxiang9" style="font-size: 56rpx"></text>
+            </button>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

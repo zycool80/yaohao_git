@@ -1,0 +1,87 @@
+<view class="page">
+    <view class="question-container">
+        <view class="question-list white-bg" style="{{item.to_question_closely?'margin-bottom:10rpx':''}}">
+            <view class="bottom-answer white-bg">
+                <view class="tips blue-bg fz-11" style="background-color:#3772cc !important;">问</view>
+                <view style="padding-top: 20rpx">
+                    <view class="avatar">
+                        <image src="{{item.user_avatar_url||avatar_url}}"></image>
+                    </view>
+                    <view class="user-info fz-12 black-1a" style="line-height: 60rpx">{{item.user_name}}</view>
+                </view>
+                <view class="answer-desc fz-12 small-level-color">
+                    <text>{{item.content}}</text>
+                </view>
+                <view class="nine-img-view" style="overflow:hidden">
+                    <view class="weui-flex" style="overflow:hidden" wx:for="{{item.img}}" wx:for-item="images" wx:key="key">
+                        <block wx:for="{{item.layout}}" wx:for-item="i" wx:key="key">
+                            <view class="layout{{item.layout}}" wx:if="{{images[i]}}">
+                                <view class="img-box imgLayout imgLayout{{item.layout}}" style="overflow:hidden" wx:if="{{item.layout==1}}">
+                                    <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                </view>
+                                <view class="img-smallBox imgLayout imgLayout{{item.layout}}" wx:else>
+                                    <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                </view>
+                            </view>
+                            <view class="layout{{item.layout}}" wx:else></view>
+                        </block>
+                    </view>
+                </view>
+                <view class="sign-line">
+                    <view class="sign-text">
+                        <text class="fz-10 blue-color sign-text-bg" wx:for="{{item.tags}}" wx:for-item="val" wx:key="key">{{val.text}}</text>
+                    </view>
+                </view>
+                <view class="time-and-like">
+                    <view class="time small-level-color fz-12">{{item.time}}</view>
+                    <view class="like small-level-color" style="margin-right: 0">
+                        <text class="fz-12">{{item.page_views}}次浏览</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="addQuestion" wx:if="{{item.to_question_closely}}">
+            <view class="title fz-13 font-bold black1a-color">【追问】</view>
+            <view class="cont fz-13 black1a-color">{{item.to_question_closely}}</view>
+        </view>
+    </view>
+    <view style="background: #fff;margin:0 30rpx">
+        <view class="input_area">
+            <textarea adjustPosition="{{false}}" bindinput="binInput" class="fz-13" hidden="{{false}}" maxlength="300" placeholder="在这里写下你的答案(520字以内)" placeholderClass="fz-13" showConfirmBar="false" style="min-height:300rpx" value="{{inputVal}}" wx:if="{{!answer_show}}"></textarea>
+        </view>
+        <view style="position: relative;overflow: hidden;height:80rpx;">
+            <view bindtap="lookRules" class="fz-13 rules" hoverClass="none">
+                <text class="fz-14 iconfont icon-wentiquestions1" style="margin-right: 10rpx"></text>回答规则</view>
+            <text class="fz-12 small-level-color number">{{num}}/520</text>
+        </view>
+        <view class="upload-file">
+            <view bindtap="uploadFile" class="pic" wx:if="{{imageList.length!=6}}">
+                <text class="small-level-color fz-10" style="position:absolute;line-height:1;bottom:-40rpx;">最多(6张)</text>
+            </view>
+            <view class="pic" wx:for="{{imageList}}" wx:key="key">
+                <image bindtap="preview" data-preview="{{item}}" data-wpypreview-a="{{item}}" mode="aspectFill" src="{{item}}" style="width:100%;height:100%;"></image>
+                <view bindtap="deletePic" class="small-level-color" data-wpydeletepic-a="{{index}}" style="position:absolute;line-height:1;bottom:-40rpx; left:0">删除</view>
+            </view>
+        </view>
+    </view>
+</view>
+<form bindsubmit="upFile" class="footer" reportSubmit="true">
+    <button class="upForm fz-13 white-color" formType="submit">发布</button>
+</form>
+<view catchtouchmove="$Popup$true" class="common-model" wx:if="{{$Popup$rules_show}}">
+    <view class="model-tip black1a-color fz-16 font-bold">{{$Popup$rules_title}}</view>
+    <scroll-view scrollY class="comment-box">
+        <view class="fz-13 height-level-color model-text1" style="line-height: 40rpx">
+            <text>{{$Popup$rules}}</text>
+        </view>
+    </scroll-view>
+    <view bindtap="$Popup$cancelRulesShow" class="common-model-btn">
+        <button class="fz-16 white-bg">我知道了</button>
+    </view>
+</view>
+<view bindtap="$Popup$cancelRulesShow" class="common-model-bg" wx:if="{{$Popup$rules_show}}"></view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

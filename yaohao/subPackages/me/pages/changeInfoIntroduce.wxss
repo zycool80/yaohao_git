@@ -1,0 +1,39 @@
+@import "manageUsers.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.page {
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 30rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    background: linear-gradient(to right,#2d8cf0,#1068eb);
+    box-sizing: border-box;
+    text-align: center;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-radius: 6rpx;
+    position: fixed;
+    bottom: 40rpx;
+    left: 30rpx;
+    right: 30rpx;
+}
+
+textarea {
+    height: 270prx;
+    margin-right: 50rpx;
+}
+
+.bottom-msg {
+    text-align: right;
+    margin: 20rpx 30rpx 0 0;
+}

@@ -1,0 +1,57 @@
+<view class="points">
+    <view class="point-title">
+        <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190304/5c7c95bb65ad4.png"></image>
+        <view class="mes">
+            <image class="avatar" mode="aspectFill" src="{{userInfo.avatarUrl||defaultAvatar}}"></image>
+            <view class="white-color self_introduce">
+                <view class="fz-12" style="text-align: left">{{userInfo.nickName}}</view>
+                <view style="margin-top:20rpx;">
+                    <text class="goldNum">{{baseInfo.coins}}</text>
+                    <text class="fz-12">  枚金币</text>
+                </view>
+            </view>
+            <view bindtap="toUrl" class="white-color fz-12 recharge">{{systemType=='ios'?'去兑换':'去充值'}} ></view>
+        </view>
+    </view>
+    <view class="points-content">
+        <view class="title fz-13">
+            <text class="gray-9-color" style="line-height:54rpx">金币明细</text>
+            <picker bindchange="getDate" class="right white-bg" fields="month" mode="date">
+                <text class="fz-13">{{date}}</text>
+                <text class="iconfont icon-xialajiantou fz-10 gray-color" style="margin-left:10rpx"></text>
+            </picker>
+        </view>
+        <view class="focus-option white-bg">
+            <view bindtap="changetype" class="focus-option-item" data-wpychangetype-a="0">
+                <text class="{{changeType===0?'font-bold black1a-color fz-14':'gray-9-color fz-14'}}">全部</text>
+                <view class="option-color {{changeType===0?'color-style':'color-style2'}}"></view>
+            </view>
+            <view class="gray-line"></view>
+            <view bindtap="changetype" class="focus-option-item" data-wpychangetype-a="2">
+                <text class="{{changeType===2?'font-bold black1a-color fz-14':'gray-9-color fz-14'}}">收入</text>
+                <view class="option-color {{changeType===2?'color-style':'color-style2'}}"></view>
+            </view>
+            <view class="gray-line"></view>
+            <view bindtap="changetype" class="focus-option-item" data-wpychangetype-a="1">
+                <text class="{{changeType===1?'font-bold black1a-color fz-15':'gray-9-color fz-14'}}">支出</text>
+                <view class="option-color {{changeType===1?'color-style':'color-style2'}}"></view>
+            </view>
+        </view>
+        <view class="data-row white-bg" wx:for="{{listData}}" wx:key="key">
+            <view class="row-left">
+                <view class="fz-14">{{item.type_text}}</view>
+                <view class="fz-11 gray-9-color">{{item.created_at}}</view>
+            </view>
+            <view class="row-right fz-14 {{item.type!=3?'blue-color':'red-color'}}">{{item.type!=3?'+':'-'}}{{item.coins}}</view>
+        </view>
+        <view class="noData" wx:if="{{listData.length<=0&&loading}}">
+            <image mode="aspectFill" src="http://imgcdn.qi.la/assets/img/20181226/5c23167e65de1.png"></image>
+            <view class="fz-13 small-level-color">暂无数据，小主加油</view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

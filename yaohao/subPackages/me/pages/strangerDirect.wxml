@@ -1,0 +1,20 @@
+<view class="page">
+    <image class="img" mode="widthFix" src="{{img_url}}"></image>
+    <view class="code-box">
+        <image bindtap="preview" class="code" data-wpypreview-a="{{code}}" mode="widthFix" src="{{code}}"></image>
+        <view class="cont">
+            <text class="fz-14 black1a-color font-bold">成都摇号助手</text>
+            <text class="fz-12 black1a-color">获取实用房源信息</text>
+            <text class="fz-12 black1a-color">买房总是快人一步</text>
+        </view>
+    </view>
+    <button class="share blue-color" openType="share">分享</button>
+    <view class="bottom-bg">
+        <image mode="widthFix" src="/images/bottom-bg.png"></image>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

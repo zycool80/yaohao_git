@@ -1,0 +1,60 @@
+<view class="result_container">
+    <image class="back_img" src="http://imgcdn.huanjutang.com/assets/img/20181115/5bed4213013d2.png"></image>
+    <view class="result_content">
+        <view class="result_content_top white-bg">
+            <navigator class="title" hoverClass="none" url="{{detail.buildingsNumDetail}}">
+                <view class="name fz-16 white-color font-bold">{{detail.project_name}}</view>
+                <image src="/images/title-bg.png"></image>
+            </navigator>
+            <view class="unit fz-16 black1a-color font-bold">{{detail.building}}{{detail.unit}}{{detail.floor}}{{detail.room_num}}号</view>
+            <view class="style_pa">
+                <view class="detail_content">
+                    <text class="fz-14 small-level-color left">建筑面积</text>
+                    <text class="fz-14 font-bold black1a-color right_style" wx:if="{{detail.total_square>0}}">{{detail.total_square}}㎡</text>
+                    <text class="fz-14 font-bold black1a-color right_style" wx:else>暂无</text>
+                </view>
+                <view class="detail_content">
+                    <text class="fz-14 small-level-color left">套内面积</text>
+                    <text class="fz-14 font-bold black1a-color right_style" wx:if="{{detail.inner_square>0}}">{{detail.inner_square}}㎡</text>
+                    <text class="fz-14 font-bold black1a-color right_style" wx:else>暂无</text>
+                </view>
+                <view class="detail_content">
+                    <text class="fz-14 small-level-color left">清水总价</text>
+                    <text class="fz-14 font-bold black1a-color right_style" wx:if="{{water_price>0}}">{{water_price}}万元</text>
+                    <text class="fz-14 font-bold black1a-color right_style" wx:else>暂无</text>
+                </view>
+                <view class="detail_content">
+                    <text class="fz-14 small-level-color left">装修价</text>
+                    <text class="fz-14 font-bold black1a-color right_style" wx:if="{{decoration_price>0}}">{{decoration_price}}万元</text>
+                    <text class="fz-14 font-bold black1a-color right_style" wx:else>暂无</text>
+                </view>
+                <view class="detail_content">
+                    <text class="fz-14 small-level-color left">房屋类型</text>
+                    <text class="fz-14 font-bold black1a-color right_style">{{detail.usage_type.length>0?detail.usage_type:'-'}}</text>
+                </view>
+                <view class="detail_content">
+                    <text class="fz-14 small-level-color left">户型结构</text>
+                    <text class="fz-14 font-bold black1a-color right_style">{{detail.house_type.length>0?detail.house_type:'-'}}</text>
+                </view>
+                <view class="detail_content">
+                    <text class="fz-14 small-level-color left">销售状态</text>
+                    <text class="fz-14 font-bold black1a-color right_style">{{sale_status[detail.sale_status]}}</text>
+                </view>
+            </view>
+            <view class="line"></view>
+            <view class="code_sao">
+                <image bindtap="previewImage" data-wpypreviewimage-a="{{detail.qrCode}}" mode="aspectFill" src="{{detail.qrCode}}" style="width: 154rpx;height: 154rpx;"></image>
+                <view class="btn_code fz-13 black1a-color">扫码查看更多</view>
+            </view>
+            <view class="share-button-cont">
+                <button class="share-button iconfont icon-fenxiang9 white-color" openType="share" style=""></button>
+                <view class="share-text fz-12 white-color">分享一下</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

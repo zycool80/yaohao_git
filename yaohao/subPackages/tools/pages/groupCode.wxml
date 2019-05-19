@@ -1,0 +1,15 @@
+<view class="page">
+    <image class="background" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190328/5c9c7eee71ce1.png"></image>
+    <view bind:tap="preview" class="qrcode">
+        <image mode="widthFix" src="{{groupInfo.wechat_code}}"></image>
+    </view>
+    <view class="add-card">
+        <view class="text fz-20 font-bold">添加<text class="blue-color">成都摇号助手</text>客服加群</view>
+        <view bind:tap="copyGroupID" class="btn white-color fz-14">点击加群</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,18 @@
+<view class="phoneSend">
+    <view class="title">手机快捷登录</view>
+    <view class="bc">
+        <input bindinput="inputTyping" class="search-bar-input fz-15" placeholder="请输入手机号" placeholderClass="small-level-color" type="text" value="{{phone}}"></input>
+        <text class="second fz-15 gray-9-color" wx:if="{{second>0}}">{{changeInput}}</text>
+        <text bindtap="getNumber" class="second fz-15 gray-9-color" wx:else>{{changeInput}}</text>
+    </view>
+    <view class="bc">
+        <input bindinput="codeTyping" class="fz-15" placeholder="请输入验证码" placeholderClass="small-level-color" type="text" value="{{number}}"></input>
+    </view>
+    <view bindtap="loginIn" class="btn fz-15 {{signIn?'blue':'gray'}}">登录</view>
+    <button bindgetphonenumber="getPhoneNumber" class="btn fz-15 blue" openType="getPhoneNumber" style="margin-top:40rpx">微信快捷登陆</button>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

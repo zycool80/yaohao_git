@@ -1,0 +1,34 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.article-list {
+    padding: 30rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.article-list .text-cont {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 50rpx;
+    padding: 10rpx 24rpx 20rpx;
+}
+
+.article-list .question-cont {
+    position: relative;
+    max-height: 420rpx;
+    width: 100%;
+    margin-bottom: 30rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 4rpx 12rpx 0 rgba(116,116,116,0.15);
+    overflow: hidden;
+}
+
+.article-list .question-cont image {
+    display: block;
+    width: 100%;
+    height: 294rpx;
+    border-top-right-radius: 10rpx;
+    border-top-left-radius: 10rpx;
+}

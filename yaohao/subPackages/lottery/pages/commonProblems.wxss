@@ -1,0 +1,89 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background-color: #f7f7f7;
+}
+
+.header {
+    padding: 30rpx;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    font-size: 30rpx;
+}
+
+.header .head_left {
+    float: left;
+}
+
+.header .head_right {
+    float: right;
+    height: 34rpx;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.download_item {
+    background-color: #FFFFFF;
+    margin-top: 20rpx;
+    padding: 30rpx;
+}
+
+.download_item .download_item_title {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.download_item .download_item_title .titel_left {
+    width: 6rpx;
+    height: 30rpx;
+    background-color: #377dcf;
+}
+
+.download_item .download_item_title .title_right {
+    font-weight: 700;
+    margin-left: 6rpx;
+}
+
+.download_item .download_item_content {
+    margin-top: 20rpx;
+    overflow: hidden;
+}
+
+.download_item .download_item_content .content_left {
+    float: left;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.download_item .download_item_content .content_right {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40rpx;
+}
+
+.preview_img {
+    width: 160rpx;
+    height: 230rpx;
+}
+
+.describe {
+    width: 460rpx;
+    margin-top: 30rpx;
+}
+
+.item_btn {
+    width: 286rpx;
+    height: 70rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+    background-color: #6b8bc6;
+    border-radius: 70rpx;
+    margin-top: 30rpx;
+}

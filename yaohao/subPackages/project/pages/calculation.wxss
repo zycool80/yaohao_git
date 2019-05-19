@@ -1,0 +1,22 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.calculation {
+    padding: 30rpx;
+}
+
+.calculation-content {
+    text-align: center;
+}
+
+.calculation-content image {
+    display: block;
+    width: 100%;
+}
+
+.calculation-title,.calculation-footer {
+    padding: 20rpx 0;
+}

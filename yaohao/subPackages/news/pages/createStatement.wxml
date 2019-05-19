@@ -1,0 +1,66 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell-top weui-cell_select" style="display:flex;justify-content: space-between;padding-left: 30rpx">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after" style="padding-left:0">
+                    <view class="weui-label" style="display:inline-block">动态类型<view class="span">{{' *'}}</view>
+                    </view>
+                </view>
+                <view class="weui-cell__bda">
+                    <picker bindchange="bindTypeChange" range="{{types}}" value="{{typeIndex}}">
+                        <view style="display: flex;align-items: center;justify-content: flex-end;">
+                            <view class="weui-select weui-select_in-select-after">{{types[typeIndex]+'   '}}</view>
+                            <view class="iconfont icon-xiayibu" style="font-size: 24rpx;color:#ccc;"></view>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_select" style="padding-left: 30rpx">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">动态标题<view class="span">{{' *'}}</view>
+                    </view>
+                </view>
+                <view class="weui-cell__bd">
+                    <textarea bindinput="bindTitleChange" class="weui-textarea" maxlength="{{maxTitleLen}}" placeholder="标题内容简短易懂更能吸引人哦~（30字以内）" placeholderClass="placeholder" style="height: 3.8em" value="{{inputTitle}}"></textarea>
+                    <view class="weui-textarea-counter" style="float: right;">{{titleLen}}/{{maxTitleLen}}</view>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_select1" style="padding-left: 30rpx">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">动态内容<view class="span">{{' *'}}</view>
+                    </view>
+                </view>
+                <view class="weui-cell__bd_content">
+                    <textarea bindinput="bindContentChange" class="weui-textarea" maxlength="{{maxContentLength}}" placeholder="请输入动态的具体内容（最多300字）" placeholderClass="placeholder" style="height: 360rpx" value="{{inputContent}}"></textarea>
+                    <view class="weui-textarea-counter" style="float: right">{{contentLen}}/{{maxContentLength}}</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="navigato" data-wpynavigato-a="{{relief_url}}" style="padding:0 20rpx;box-sizing:border-box;margin-top:15rpx;">
+            <text class="iconfont icon-xinxi" style="margin-right: 10rpx;font-size: 24rpx;color: #6d7999"></text>
+            <text style="color: #6d7999;font-size:24rpx;">发布规则</text>
+        </view>
+        <view class="weui-btn-area">
+            <view bindtap="submit" class="weui-btn">确定</view>
+        </view>
+    </view>
+    <view class="model" wx:if="{{comment_show}}">
+        <view class="model-tip black1a-color fz-15">动态发布须知</view>
+        <scroll-view scrollY class="comment-box">
+            <view class="fz-12 height-level-color model-text1" style="line-height: 40rpx">
+                <text>{{content}}</text>
+            </view>
+        </scroll-view>
+        <view class="model-btn">
+            <button bindtap="cancelCommentShow" class="small-level-color fz-15 white-bg" style="border-right:1px solid #e6e6e6">取消</button>
+            <button bindtap="CommentShow" class="fz-15 white-bg {{secondShow?'gray-9-color':'small-level-color'}}">确定 <text wx:if="{{secondShow}}">({{second}})</text>
+            </button>
+        </view>
+    </view>
+    <view bindtap="cancelCommentShow" class="model-bg" wx:if="{{comment_show}}"></view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

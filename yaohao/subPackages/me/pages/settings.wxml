@@ -1,0 +1,42 @@
+<view>
+    <view class="title small-level-color fz-11">消息通知</view>
+    <view class="settings-line-son" wx:for="{{settingsList}}" wx:key="key">
+        <view bindtap="isToggle" class="settings-line {{index===0?'none-border':''}}" data-wpyistoggle-a="{{index}}" data-wpyistoggle-b="{{item.status}}">
+            <text class="left fz-13 black-1a-color">{{item.text}}</text>
+            <view class="right fz-13" wx:if="{{item.status==1||item.status==2}}">
+                <switch bindchange="switchChange" checked="{{item.status==1}}" color="#3772cc" data-wpyswitchchange-a="{{index}}" data-wpyswitchchange-b=""></switch>
+            </view>
+            <text class="right fz-13 gray-color iconfont icon-xiayibu" style="{{isToggle?'-webkit-transform:rotate(-90deg)':''}}" wx:if="{{item.status.length>1}}"></text>
+        </view>
+        <block wx:if="{{item.status.length>1&&isToggle}}">
+            <view class="settings-small-line fz-13 {{childIndex==0?'none-border':''}}" wx:for="{{item.status}}" wx:for-index="childIndex" wx:for-item="val" wx:key="key">
+                <text class="left small-level-color">{{val.text}}</text>
+                <view class="right small-level-color">
+                    <switch bindchange="switchChange" checked="{{val.status==1}}" color="#3772cc" data-wpyswitchchange-a="{{index}}" data-wpyswitchchange-b="{{childIndex}}"></switch>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="title small-level-color fz-11">其他</view>
+    <view bindtap="mydetails" class="settings-line line-bottom" hoverClass="none">
+        <text class="left fz-13 black-1a-color">个人资料修改</text>
+        <text class="right gray-color fz-13 iconfont icon-xiayibu"></text>
+    </view>
+    <navigator class="settings-line line-bottom" hoverClass="none" url="/subPackages/me/pages/pushCode">
+        <text class="left fz-13 black-1a-color">推荐二维码</text>
+        <text class="right gray-color fz-13 iconfont icon-xiayibu"></text>
+    </navigator>
+    <navigator class="settings-line line-bottom" hoverClass="none" url="/subPackages/me/pages/about">
+        <text class="left fz-13 black-1a-color">关于我们</text>
+        <text class="right fz-13 gray-color iconfont icon-xiayibu"></text>
+    </navigator>
+    <navigator class="settings-line line-bottom" hoverClass="none" url="/subPackages/me/pages/service">
+        <text class="left fz-13 black-1a-color">服务声明</text>
+        <text class="right fz-13 gray-color iconfont icon-xiayibu"></text>
+    </navigator>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

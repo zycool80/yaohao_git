@@ -1,0 +1,80 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.top-bg {
+    height: 200rpx;
+}
+
+.top-self-info {
+    padding: 0 30rpx;
+}
+
+.top-self-info .avatar {
+    width: 164rpx;
+    height: 164rpx;
+    border-radius: 164rpx;
+    position: absolute;
+    top: 240rpx;
+    left: 30rpx;
+}
+
+.top-self-info .right {
+    margin-left: 200rpx;
+    padding-top: 22rpx;
+}
+
+.top-self-info .right .name .name-txt {
+    margin-right: 15rpx;
+    max-width: 350rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.title {
+    padding: 60rpx 30rpx 40rpx;
+}
+
+.tags-box {
+    margin: 0 30rpx;
+    position: relative;
+    border-radius: 8rpx;
+    background: #f2f6fc;
+}
+
+.tags-box .tags-cont {
+    border: 1rpx solid #3772cc;
+    position: relative;
+    z-index: 22;
+    padding: 30rpx;
+    border-radius: 8rpx;
+}
+
+.tags-box .cont-line {
+    padding-bottom: 30rpx;
+    overflow: hidden;
+}
+
+.tags-box .cont-line .left {
+    float: left;
+    width: 120rpx;
+}
+
+.tags-box .cont-line .right {
+    margin-left: 140rpx;
+}
+
+.tags-box .cont-line .right .txt {
+    padding-right: 40rpx;
+}
+
+.tags-box:after {
+    border: 1rpx solid #4da9ea;
+    position: absolute;
+    left: 5rpx;
+    top: 5rpx;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 8rpx;
+    z-index: -1;
+}

@@ -1,0 +1,14 @@
+<view class="page">
+    <view class="container white-bg">
+        <text bindtap="deleteInp" class="delete-btn iconfont icon-delete gray-color" style="float: right" wx:if="{{contentLen>0}}"></text>
+        <textarea bindinput="inputVal" class="fz-14 black1a-color" maxlength="50" placeholder="请输入个性签名" placeholderStyle="color:999" value="{{content}}"></textarea>
+    </view>
+    <view class="bottom-msg fz-14 gray-9-color">
+        <text class="blue-color">{{contentLen}}</text>/50</view>
+    <view bindtap="submit" class="submit-btn fz-15 white-color">保存</view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,1168 @@
+{
+  "subPackages": [{
+    "root": "subPackages/news",
+    "pages": ["subPackages/news/pages/search", "subPackages/news/pages/detail", "subPackages/news/pages/salesManTip", "subPackages/news/pages/statement", "subPackages/news/pages/createStatement", "subPackages/news/pages/secondaryDetail", "subPackages/news/pages/morningPaper", "subPackages/news/pages/bigCoffeeDetail", "subPackages/news/pages/dailyConsultation", "subPackages/news/pages/hotArticle"]
+  }, {
+    "root": "subPackages/me",
+    "pages": ["subPackages/me/pages/lottery", "subPackages/me/pages/feedback", "subPackages/me/pages/about", "subPackages/me/pages/addUser", "subPackages/me/pages/bindCode", "subPackages/me/pages/myCodes", "subPackages/me/pages/bindIDCard", "subPackages/me/pages/myIDCard", "subPackages/me/pages/manageUsers", "subPackages/me/pages/salesMan", "subPackages/me/pages/inviteIntro", "subPackages/me/pages/myCollection", "subPackages/me/pages/signIn", "subPackages/me/pages/publicNumber", "subPackages/me/pages/saleManStatus", "subPackages/me/pages/personInfo", "subPackages/me/pages/salesManInfo", "subPackages/me/pages/brokerInfo", "subPackages/me/pages/advisory", "subPackages/me/pages/chatInterface", "subPackages/me/pages/settings", "subPackages/me/pages/pushCode", "subPackages/me/pages/service", "subPackages/me/pages/strangerDirect", "subPackages/me/pages/myFocus", "subPackages/me/pages/myInvite", "subPackages/me/pages/chatSettings", "subPackages/me/pages/settingNotes", "subPackages/me/pages/broker", "subPackages/me/pages/evaluate", "subPackages/me/pages/helpFeedback", "subPackages/me/pages/changeEnterProject", "subPackages/me/pages/applyShelves", "subPackages/me/pages/editAvatar", "subPackages/me/pages/businessCard", "subPackages/me/pages/myAdvisor", "subPackages/me/pages/phoneLog", "subPackages/me/pages/follows", "subPackages/me/pages/myIntergral", "subPackages/me/pages/vitalityIntegral", "subPackages/me/pages/nowInteral", "subPackages/me/pages/myinproject", "subPackages/me/pages/myGold", "subPackages/me/pages/meCoupons", "subPackages/me/pages/goldRecharge", "subPackages/me/pages/sysMessage", "subPackages/me/pages/changeInfoPhone", "subPackages/me/pages/changeInfoIntroduce"]
+  }, {
+    "root": "subPackages/comment",
+    "pages": ["subPackages/comment/pages/project_comment", "subPackages/comment/pages/discuss", "subPackages/comment/pages/participation"]
+  }, {
+    "root": "subPackages/lottery",
+    "pages": ["subPackages/lottery/pages/buyers", "subPackages/lottery/pages/noNeedLottery", "subPackages/lottery/pages/errorCorrection", "subPackages/lottery/pages/map", "subPackages/lottery/pages/lotteryResult", "subPackages/lottery/pages/houseResults", "subPackages/lottery/pages/lotteryNews", "subPackages/lottery/pages/addHouseIn", "subPackages/lottery/pages/uploadPic", "subPackages/lottery/pages/houseIntention", "subPackages/lottery/pages/ordinaryUser", "subPackages/lottery/pages/houseValuation", "subPackages/lottery/pages/findBuilding", "subPackages/lottery/pages/houseAreaList", "subPackages/lottery/pages/priceResult", "subPackages/lottery/pages/addDetailsPrice", "subPackages/lottery/pages/buildContrast", "subPackages/lottery/pages/contrastDetail", "subPackages/lottery/pages/commonProblems", "subPackages/lottery/pages/claimProject", "subPackages/lottery/pages/purchaseIntention", "subPackages/lottery/pages/loginIndex", "subPackages/lottery/pages/loginIndexDetail"]
+  }, {
+    "root": "subPackages/salesMan",
+    "pages": ["subPackages/salesMan/pages/hotList", "subPackages/salesMan/pages/enteringSalesMan", "subPackages/salesMan/pages/salesmanSearchList", "subPackages/salesMan/pages/submitAudit", "subPackages/salesMan/pages/submissionOfInformation", "subPackages/salesMan/pages/redme"]
+  }, {
+    "root": "subPackages/project",
+    "pages": ["subPackages/project/pages/mapLookHouse", "subPackages/project/pages/payProject", "subPackages/project/pages/peripheralMap", "subPackages/project/pages/projectDetail", "subPackages/project/pages/peripheral", "subPackages/project/pages/photos", "subPackages/project/pages/calculation", "subPackages/project/pages/propertyData", "subPackages/project/pages/housePlan", "subPackages/project/pages/reportType", "subPackages/project/pages/reportDetail", "subPackages/project/pages/check", "subPackages/project/pages/preSale", "subPackages/project/pages/registry", "subPackages/project/pages/projectArticles", "subPackages/project/pages/oldHousePlan", "subPackages/project/pages/projectQuestionList", "subPackages/project/pages/addDuilding", "subPackages/project/pages/projectCommentDetail", "subPackages/project/pages/noLimitPay", "subPackages/project/pages/roomPrice", "subPackages/project/pages/buildingsNum", "subPackages/project/pages/buildingsNumDetail", "subPackages/project/pages/statisticalDetails", "subPackages/project/pages/projectLotteryDetail", "subPackages/project/pages/oneHouseOnePrice", "subPackages/project/pages/buildingLetters", "subPackages/project/pages/allProjects", "subPackages/project/pages/housePlanDetail", "subPackages/project/pages/allProjectPhotos", "subPackages/project/pages/houseTypePhotos", "subPackages/project/pages/featureProject"]
+  }, {
+    "root": "subPackages/tools",
+    "pages": ["subPackages/tools/pages/houseLoan", "subPackages/tools/pages/transaction", "subPackages/tools/pages/reportCode", "subPackages/tools/pages/companyCode", "subPackages/tools/pages/joinUs", "subPackages/tools/pages/telLogin", "subPackages/tools/pages/playVideoPage", "subPackages/tools/pages/commentInp", "subPackages/tools/pages/groupCode", "subPackages/tools/pages/demandCalculator", "subPackages/tools/pages/houseLoanResult", "subPackages/tools/pages/houseLoanDetail"]
+  }, {
+    "root": "subPackages/question",
+    "pages": ["subPackages/question/pages/questionDetail", "subPackages/question/pages/questionOther", "subPackages/question/pages/questionComment", "subPackages/question/pages/askQuestion", "subPackages/question/pages/questionMessages", "subPackages/question/pages/questionSearch", "subPackages/question/pages/myDiscuss", "subPackages/question/pages/questionList", "subPackages/question/pages/attentionList", "subPackages/question/pages/answerDetail", "subPackages/question/pages/myQuestion", "subPackages/question/pages/userQuestion", "subPackages/question/pages/answerList", "subPackages/question/pages/answerComment", "subPackages/question/pages/questionCloselyDetail", "subPackages/question/pages/commonProblems", "subPackages/question/pages/purchaseData", "subPackages/question/pages/discussList"]
+  }, {
+    "root": "subPackages/posts",
+    "pages": ["subPackages/posts/pages/create"]
+  }, {
+    "root": "subPackages/activity",
+    "pages": ["subPackages/activity/pages/projectVote", "subPackages/activity/pages/voteRanking", "subPackages/activity/pages/buildingVote", "subPackages/activity/pages/myPrize", "subPackages/activity/pages/prizeList", "subPackages/activity/pages/allUser", "subPackages/activity/pages/drawDetails", "subPackages/activity/pages/sponsor", "subPackages/activity/pages/addAddress", "subPackages/activity/pages/yearEndActivity", "subPackages/activity/pages/yearEndActivityDetail", "subPackages/activity/pages/yearEndActivityRank", "subPackages/activity/pages/housePurchaseHoliday", "subPackages/activity/pages/specialPrice"]
+  }],
+  "page": {
+    "pages/index.html": {
+      "window": {
+        "enablePullDownRefresh": true,
+        "usingComponents": {
+          "LotteryItem": "../components/LotteryItem",
+          "HomeProjectItem": "../components/HomeProjectItem"
+        }
+      }
+    },
+    "pages/me/index.html": {
+      "window": {
+        "navigationBarTitleText": "我的",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/index2.html": {
+      "window": {
+        "enablePullDownRefresh": true,
+        "usingComponents": {
+          "LotteryItem": "../components/LotteryItem"
+        }
+      }
+    },
+    "pages/lotteryDetail.html": {
+      "window": {
+        "navigationBarTitleText": "摇号详情",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/lotteryResult.html": {
+      "window": {
+        "navigationBarTitleText": "摇号结果",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/webview.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/webview2.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/lottery/showCode.html": {
+      "window": {
+        "navigationBarTitleText": "摇号结果详情",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/project/index.html": {
+      "window": {
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/project/search.html": {
+      "window": {
+        "navigationBarTitleText": "楼盘搜索",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/posts/detail.html": {
+      "window": {
+        "navigationBarTitleText": "分享堂",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/salesMan/index.html": {
+      "window": {
+        "navigationBarTitleText": "置业顾问",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/salesMan/detail.html": {
+      "window": {
+        "navigationBarTitleText": "置业顾问详情",
+        "enablePullDownRefresh": true
+      }
+    },
+    "pages/consult/index.html": {
+      "window": {
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/news/pages/search.html": {
+      "window": {
+        "navigationBarTitleText": "楼盘搜索",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/news/pages/detail.html": {
+      "window": {
+        "navigationBarTitleText": "文章详情",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/news/pages/salesManTip.html": {
+      "window": {
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/news/pages/statement.html": {
+      "window": {
+        "navigationBarTitleText": "动态",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/news/pages/createStatement.html": {
+      "window": {
+        "navigationBarTitleText": "发布动态"
+      }
+    },
+    "subPackages/news/pages/secondaryDetail.html": {
+      "window": {
+        "navigationBarTitleText": "详情",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/news/pages/morningPaper.html": {
+      "window": {
+        "navigationBarTitleText": "每日早报"
+      }
+    },
+    "subPackages/news/pages/bigCoffeeDetail.html": {
+      "window": {
+        "navigationBarTitleText": "大咖详情",
+        "enablePullDownRefresh": true,
+        "navigationBarBackgroundColor": "#fedbb9"
+      }
+    },
+    "subPackages/news/pages/dailyConsultation.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/news/pages/hotArticle.html": {
+      "window": {
+        "navigationBarTitleText": "热门推荐",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/lottery.html": {
+      "window": {
+        "navigationBarTitleText": "我的摇号",
+        "enablePullDownRefresh": true,
+        "backgroundColor": "#f2f2f2"
+      }
+    },
+    "subPackages/me/pages/feedback.html": {
+      "window": {
+        "navigationBarTitleText": "问题反馈"
+      }
+    },
+    "subPackages/me/pages/about.html": {
+      "window": {
+        "navigationBarTitleText": "关于我们"
+      }
+    },
+    "subPackages/me/pages/addUser.html": {
+      "window": {
+        "navigationBarTitleText": "绑定用户"
+      }
+    },
+    "subPackages/me/pages/bindCode.html": {
+      "window": {
+        "navigationBarTitleText": "绑定编码"
+      }
+    },
+    "subPackages/me/pages/myCodes.html": {
+      "window": {
+        "navigationBarTitleText": "我参与的摇号",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/bindIDCard.html": {
+      "window": {
+        "navigationBarTitleText": "添加身份信息"
+      }
+    },
+    "subPackages/me/pages/myIDCard.html": {
+      "window": {
+        "navigationBarTitleText": "我的身份信息",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/manageUsers.html": {
+      "window": {
+        "navigationBarTitleText": "管理绑定的信息"
+      }
+    },
+    "subPackages/me/pages/salesMan.html": {
+      "window": {
+        "navigationBarTitleText": "我是置业顾问"
+      }
+    },
+    "subPackages/me/pages/inviteIntro.html": {
+      "window": {
+        "navigationBarTitleText": "为什么要入驻"
+      }
+    },
+    "subPackages/me/pages/myCollection.html": {
+      "window": {
+        "navigationBarTitleText": "我的收藏",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/signIn.html": {
+      "window": {
+        "navigationBarTitleText": "签到厅",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/me/pages/publicNumber.html": {
+      "window": {
+        "navigationBarTitleText": "摇号助手-官方公众号"
+      }
+    },
+    "subPackages/me/pages/saleManStatus.html": {
+      "window": {
+        "navigationBarTitleText": "我的审核",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/personInfo.html": {
+      "window": {
+        "navigationBarTitleText": "摇号助手—个人资料",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/salesManInfo.html": {
+      "window": {
+        "navigationBarTitleText": "我是置业顾问",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/brokerInfo.html": {
+      "window": {
+        "navigationBarTitleText": "我是经纪人",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/advisory.html": {
+      "window": {
+        "navigationBarTitleText": "我的消息",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/chatInterface.html": {
+      "window": {
+        "navigationBarTitleText": "我的聊天",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/me/pages/settings.html": {
+      "window": {
+        "navigationBarTitleText": "设置",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/me/pages/pushCode.html": {
+      "window": {
+        "navigatorBarTitleText": "推荐二维码"
+      }
+    },
+    "subPackages/me/pages/service.html": {
+      "window": {
+        "navigationBarTitleText": "服务声明",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/me/pages/strangerDirect.html": {
+      "window": {
+        "navigatorBarTitleText": "新手指引",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/me/pages/myFocus.html": {
+      "window": {
+        "navigationBarTitleText": "关注",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/myInvite.html": {
+      "window": {
+        "navigationBarTitleText": "邀请",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/chatSettings.html": {
+      "window": {
+        "navigationBarTitleText": "设置"
+      }
+    },
+    "subPackages/me/pages/settingNotes.html": {
+      "window": {
+        "navigationBarTitleText": "聊天设置",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/broker.html": {
+      "window": {
+        "navigationBarTitleText": "我是经纪人"
+      }
+    },
+    "subPackages/me/pages/evaluate.html": {
+      "window": {
+        "navigationBarTitleText": "评价"
+      }
+    },
+    "subPackages/me/pages/helpFeedback.html": {
+      "window": {
+        "navigationBarTitleText": "帮助与反馈",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/changeEnterProject.html": {
+      "window": {
+        "navigationBarTitleText": "申请更换楼盘"
+      }
+    },
+    "subPackages/me/pages/applyShelves.html": {
+      "window": {
+        "navigationBarTitleText": "申请上架",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/me/pages/editAvatar.html": {
+      "window": {
+        "navigationBarTitleText": "个人资料",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/me/pages/businessCard.html": {
+      "window": {
+        "navigationBarTitleText": "名片",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/myAdvisor.html": {
+      "window": {
+        "navigationBarTitleText": "我的顾问",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/phoneLog.html": {
+      "window": {
+        "navigationBarTitleText": "通话记录",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/me/pages/follows.html": {
+      "window": {
+        "navigationBarTitleText": "我的关注",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/myIntergral.html": {
+      "window": {
+        "navigationBarTitleText": "我的积分",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/vitalityIntegral.html": {
+      "window": {
+        "navigationBarTitleText": "活跃度明细",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/nowInteral.html": {
+      "window": {
+        "navigationBarTitleText": "积分明细",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/myinproject.html": {
+      "window": {
+        "navigationBarTitleText": "入驻的楼盘",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/myGold.html": {
+      "window": {
+        "navigationBarTitleText": "我的金币",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/meCoupons.html": {
+      "window": {
+        "navigationBarTitleText": "我的优惠券",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/goldRecharge.html": {
+      "window": {
+        "navigationBarTitleText": "兑换金币",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/sysMessage.html": {
+      "window": {
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/changeInfoPhone.html": {
+      "window": {
+        "navigationBarTitleText": "修改手机号",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/me/pages/changeInfoIntroduce.html": {
+      "window": {
+        "navigationBarTitleText": "修改个性签名",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/comment/pages/project_comment.html": {
+      "window": {
+        "navigationBarTitleText": "全部评论",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/comment/pages/discuss.html": {
+      "window": {
+        "navigationBarTitleText": "摇号助手-讨论",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/comment/pages/participation.html": {
+      "window": {
+        "navigationBarTitleText": "参与热论",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/buyers.html": {
+      "window": {
+        "navigationBarTitleText": "复核名单",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/noNeedLottery.html": {
+      "window": {
+        "navigationBarTitleText": "摇号剩余",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/errorCorrection.html": {
+      "window": {
+        "navigationBarTitleText": "纠错",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/lottery/pages/map.html": {
+      "window": {
+        "navigationBarTitleText": "位置地图"
+      }
+    },
+    "subPackages/lottery/pages/lotteryResult.html": {
+      "window": {
+        "navigationBarTitleText": "摇号结果"
+      }
+    },
+    "subPackages/lottery/pages/houseResults.html": {
+      "window": {
+        "navigationBarTitleText": "选房详情",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/lotteryNews.html": {
+      "window": {
+        "navigationBarTitleText": "楼盘快报",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/addHouseIn.html": {
+      "window": {
+        "navigationBarTitleText": "上传户型图"
+      }
+    },
+    "subPackages/lottery/pages/uploadPic.html": {
+      "window": {
+        "navigationBarTitleText": "上传相册",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/lottery/pages/houseIntention.html": {
+      "window": {
+        "navigationBarTitleText": "购房意向",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/ordinaryUser.html": {
+      "window": {
+        "navigationBarTitleText": "主页",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/houseValuation.html": {
+      "window": {
+        "navigationBarTitleText": "房产估价",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/lottery/pages/findBuilding.html": {
+      "window": {
+        "navigationBarTitleText": "楼盘搜索",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/lottery/pages/houseAreaList.html": {
+      "window": {
+        "navigationBarTitleText": "二手房区域排行",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/priceResult.html": {
+      "window": {
+        "navigationBarTitleText": "估价结果",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/lottery/pages/addDetailsPrice.html": {
+      "window": {
+        "navigationBarTitleText": "估价详情"
+      }
+    },
+    "subPackages/lottery/pages/buildContrast.html": {
+      "window": {
+        "navigationBarTitleText": "PK列表",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/contrastDetail.html": {
+      "window": {
+        "navigationBarTitleText": "PK详情"
+      }
+    },
+    "subPackages/lottery/pages/commonProblems.html": {
+      "window": {
+        "navigationBarTitleText": "资料模版"
+      }
+    },
+    "subPackages/lottery/pages/claimProject.html": {
+      "window": {
+        "navigationBarTitleText": "楼盘认领搜索",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/lottery/pages/purchaseIntention.html": {
+      "window": {
+        "navigationBarTitleText": "购房意向",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/loginIndex.html": {
+      "window": {
+        "navigationBarTitleText": "我要上推荐",
+        "navigationBarBackgroundColor": "#1e81dd",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/lottery/pages/loginIndexDetail.html": {
+      "window": {
+        "navigationBarTitleText": "我要上首页",
+        "navigationBarBackgroundColor": "#1e81dd",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/salesMan/pages/hotList.html": {
+      "window": {
+        "navigationBarTitleText": "置业顾问排行榜",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/salesMan/pages/enteringSalesMan.html": {
+      "window": {
+        "navigationBarTitleText": "我要入驻",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/salesMan/pages/salesmanSearchList.html": {
+      "window": {
+        "navigatorBarTitleText": "置业顾问排行榜",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/salesMan/pages/submitAudit.html": {
+      "window": {
+        "navigationBarTitleText": "提交审核列表",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/salesMan/pages/submissionOfInformation.html": {
+      "window": {
+        "navigationBarTitleText": "提交资料"
+      }
+    },
+    "subPackages/salesMan/pages/redme.html": {
+      "window": {
+        "navigationBarTitleText": "审核上传说明",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/mapLookHouse.html": {
+      "window": {
+        "navigationBarTitleText": "地图找房"
+      }
+    },
+    "subPackages/project/pages/payProject.html": {
+      "window": {
+        "navigatorBarTitleText": "",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/peripheralMap.html": {
+      "window": {}
+    },
+    "subPackages/project/pages/projectDetail.html": {
+      "window": {
+        "navigationBarTitleText": "楼盘详情信息",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/peripheral.html": {
+      "window": {
+        "navigationBarTitleText": "周边配套",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/project/pages/photos.html": {
+      "window": {
+        "navigationBarTitleText": "楼盘相册",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/calculation.html": {
+      "window": {}
+    },
+    "subPackages/project/pages/propertyData.html": {
+      "window": {
+        "navigationBarTitleText": "房产数据",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/housePlan.html": {
+      "window": {
+        "navigationBarTitleText": "户型",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/reportType.html": {
+      "window": {
+        "navigationBarTitleText": "举报",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/project/pages/reportDetail.html": {
+      "window": {
+        "navigationBarTitleText": "垃圾广告信息",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/project/pages/check.html": {
+      "window": {
+        "navigationBarTitleText": "核验"
+      }
+    },
+    "subPackages/project/pages/preSale.html": {
+      "window": {
+        "navigatorBarTitleText": "预售"
+      }
+    },
+    "subPackages/project/pages/registry.html": {
+      "window": {
+        "navigationBarTitleText": "登记"
+      }
+    },
+    "subPackages/project/pages/projectArticles.html": {
+      "window": {
+        "navigatorBarTitleText": "楼盘文章",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/oldHousePlan.html": {
+      "window": {
+        "navigationBarTitleText": "户型",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/projectQuestionList.html": {
+      "window": {
+        "navigationBarTitleText": "问答",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/addDuilding.html": {
+      "window": {
+        "navigationBarTitleText": "添加楼盘"
+      }
+    },
+    "subPackages/project/pages/projectCommentDetail.html": {
+      "window": {
+        "navigationBarTitleText": "评论详情",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/noLimitPay.html": {
+      "window": {
+        "navigationBarTitleText": "不限购",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/roomPrice.html": {
+      "window": {
+        "navigationBarTitleText": "一房一价",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/buildingsNum.html": {
+      "window": {
+        "navigationBarTitleText": "栋数",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/buildingsNumDetail.html": {
+      "window": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/project/pages/statisticalDetails.html": {
+      "window": {
+        "navigationBarTitleText": "实时统计详情"
+      }
+    },
+    "subPackages/project/pages/projectLotteryDetail.html": {
+      "window": {
+        "navigationBarTitleText": "历史摇号",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/oneHouseOnePrice.html": {
+      "window": {
+        "navigationBarTitleText": "一房一价",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/buildingLetters.html": {
+      "window": {
+        "navigationBarTitleText": "楼盘快报",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/allProjects.html": {
+      "window": {
+        "navigationBarTitleText": "全部楼盘",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/housePlanDetail.html": {
+      "window": {
+        "navigationBarTitleText": "户型图",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/project/pages/allProjectPhotos.html": {
+      "window": {
+        "navigationBarTitleText": "楼盘相册",
+        "backgroundColor": "#000000",
+        "disableScroll": true
+      }
+    },
+    "subPackages/project/pages/houseTypePhotos.html": {
+      "window": {
+        "backgroundColor": "#000000",
+        "disableScroll": true
+      }
+    },
+    "subPackages/project/pages/featureProject.html": {
+      "window": {
+        "navigationBarTitleText": "特色楼盘",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#da5e4f",
+        "usingComponents": {
+          "indexProjectBox": "../../../components/SquareLayout/indexProjectBox",
+          "guideImg": "../../../components/GuideImg/guideImg"
+        },
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/tools/pages/houseLoan.html": {
+      "window": {
+        "navigationBarTitleText": "房贷计算"
+      }
+    },
+    "subPackages/tools/pages/transaction.html": {
+      "window": {
+        "navigationBarTitleText": "联系我们"
+      }
+    },
+    "subPackages/tools/pages/reportCode.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手"
+      }
+    },
+    "subPackages/tools/pages/companyCode.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手"
+      }
+    },
+    "subPackages/tools/pages/joinUs.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手"
+      }
+    },
+    "subPackages/tools/pages/telLogin.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手"
+      }
+    },
+    "subPackages/tools/pages/playVideoPage.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手"
+      }
+    },
+    "subPackages/tools/pages/commentInp.html": {
+      "window": {
+        "navigationBarTitleText": "发表评论"
+      }
+    },
+    "subPackages/tools/pages/groupCode.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手"
+      }
+    },
+    "subPackages/tools/pages/demandCalculator.html": {
+      "window": {
+        "navigationBarTitleText": "刚需资格查询"
+      }
+    },
+    "subPackages/tools/pages/houseLoanResult.html": {
+      "window": {
+        "navigationBarTitleText": "贷款计算"
+      }
+    },
+    "subPackages/tools/pages/houseLoanDetail.html": {
+      "window": {
+        "navigationBarTitleText": "贷款计算"
+      }
+    },
+    "subPackages/question/pages/questionDetail.html": {
+      "window": {
+        "navigationBarTitleText": "问答详情",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/questionOther.html": {
+      "window": {
+        "navigationBarTitleText": "其他",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/questionComment.html": {
+      "window": {
+        "navigationBarTitleText": "评论",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/askQuestion.html": {
+      "window": {
+        "navigationBarTitleText": "我要提问",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/question/pages/questionMessages.html": {
+      "window": {
+        "navigationBarTitleText": "消息",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/questionSearch.html": {
+      "window": {
+        "navigationBarTitleText": "搜索",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/myDiscuss.html": {
+      "window": {
+        "navigationBarTitleText": "我的话题",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/questionList.html": {
+      "window": {
+        "navigationBarTitleText": "提问",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/attentionList.html": {
+      "window": {
+        "navigationBarTitleText": "关注",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/answerDetail.html": {
+      "window": {
+        "navigationBarTitleText": "我要回答",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/myQuestion.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/userQuestion.html": {
+      "window": {
+        "navigationBarTitleText": "成都摇号助手",
+        "navigationBarBackgroundColor": "#3772cc",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/answerList.html": {
+      "window": {
+        "navigationBarTitleText": "回答",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/answerComment.html": {
+      "window": {
+        "navigationBarTitleText": "评论",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/question/pages/questionCloselyDetail.html": {
+      "window": {
+        "navigationBarTitleText": "我要追问",
+        "enablePullDownRefresh": false
+      }
+    },
+    "subPackages/question/pages/commonProblems.html": {
+      "window": {
+        "navigationBarTitleText": "常见问题",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/question/pages/purchaseData.html": {
+      "window": {
+        "navigationBarTitleText": "购房资料",
+        "navigationBarBackgroundColor": "#3772cc"
+      }
+    },
+    "subPackages/question/pages/discussList.html": {
+      "window": {
+        "navigationBarTitleText": "摇号助手-话题",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/posts/pages/create.html": {
+      "window": {
+        "navigationBarTitleText": "发布分享堂"
+      }
+    },
+    "subPackages/activity/pages/projectVote.html": {
+      "window": {
+        "navigationBarBackgroundColor": "#da4036",
+        "navigatorBarTitleText": "成都摇号助手",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/activity/pages/voteRanking.html": {
+      "window": {
+        "navigationBarBackgroundColor": "#ea2e51",
+        "navigationBarTitleText": "成都摇号助手",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/activity/pages/buildingVote.html": {
+      "window": {
+        "navigationBarBackgroundColor": "#da4036",
+        "navigationBarTitleText": ""
+      }
+    },
+    "subPackages/activity/pages/myPrize.html": {
+      "window": {
+        "navigationBarTitleText": "我的抽奖",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/activity/pages/prizeList.html": {
+      "window": {
+        "navigationBarTitleText": "免费抽奖",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/activity/pages/allUser.html": {
+      "window": {
+        "navigationBarTitleText": "全部",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/activity/pages/drawDetails.html": {
+      "window": {
+        "navigationBarTitleText": "抽奖详情",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/activity/pages/sponsor.html": {
+      "window": {
+        "navigationBarTitleText": "赞助商",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/activity/pages/addAddress.html": {
+      "window": {
+        "navigationBarTitleText": "地址信息"
+      }
+    },
+    "subPackages/activity/pages/yearEndActivity.html": {
+      "window": {
+        "navigationBarBackgroundColor": "#da4036",
+        "navigatorBarTitleText": "成都摇号助手",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/activity/pages/yearEndActivityDetail.html": {
+      "window": {
+        "navigationBarBackgroundColor": "#da4036",
+        "navigationBarTitleText": ""
+      }
+    },
+    "subPackages/activity/pages/yearEndActivityRank.html": {
+      "window": {
+        "navigationBarBackgroundColor": "#dc6451",
+        "navigationBarTitleText": "成都摇号助手",
+        "enablePullDownRefresh": true
+      }
+    },
+    "subPackages/activity/pages/housePurchaseHoliday.html": {
+      "window": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": true,
+        "navigationBarBackgroundColor": "#3f0187"
+      }
+    },
+    "subPackages/activity/pages/specialPrice.html": {
+      "window": {
+        "navigationBarTitleText": "领券成功",
+        "enablePullDownRefresh": true
+      }
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取地理位置"
+    }
+  },
+  "entryPagePath": "pages/index.html",
+  "pages": ["pages/index", "pages/me/index", "pages/index2", "pages/lotteryDetail", "pages/lotteryResult", "pages/webview", "pages/webview2", "pages/lottery/showCode", "pages/project/index", "pages/project/search", "pages/posts/detail", "pages/salesMan/index", "pages/salesMan/detail", "pages/consult/index", "subPackages/news/pages/search", "subPackages/news/pages/detail", "subPackages/news/pages/salesManTip", "subPackages/news/pages/statement", "subPackages/news/pages/createStatement", "subPackages/news/pages/secondaryDetail", "subPackages/news/pages/morningPaper", "subPackages/news/pages/bigCoffeeDetail", "subPackages/news/pages/dailyConsultation", "subPackages/news/pages/hotArticle", "subPackages/me/pages/lottery", "subPackages/me/pages/feedback", "subPackages/me/pages/about", "subPackages/me/pages/addUser", "subPackages/me/pages/bindCode", "subPackages/me/pages/myCodes", "subPackages/me/pages/bindIDCard", "subPackages/me/pages/myIDCard", "subPackages/me/pages/manageUsers", "subPackages/me/pages/salesMan", "subPackages/me/pages/inviteIntro", "subPackages/me/pages/myCollection", "subPackages/me/pages/signIn", "subPackages/me/pages/publicNumber", "subPackages/me/pages/saleManStatus", "subPackages/me/pages/personInfo", "subPackages/me/pages/salesManInfo", "subPackages/me/pages/brokerInfo", "subPackages/me/pages/advisory", "subPackages/me/pages/chatInterface", "subPackages/me/pages/settings", "subPackages/me/pages/pushCode", "subPackages/me/pages/service", "subPackages/me/pages/strangerDirect", "subPackages/me/pages/myFocus", "subPackages/me/pages/myInvite", "subPackages/me/pages/chatSettings", "subPackages/me/pages/settingNotes", "subPackages/me/pages/broker", "subPackages/me/pages/evaluate", "subPackages/me/pages/helpFeedback", "subPackages/me/pages/changeEnterProject", "subPackages/me/pages/applyShelves", "subPackages/me/pages/editAvatar", "subPackages/me/pages/businessCard", "subPackages/me/pages/myAdvisor", "subPackages/me/pages/phoneLog", "subPackages/me/pages/follows", "subPackages/me/pages/myIntergral", "subPackages/me/pages/vitalityIntegral", "subPackages/me/pages/nowInteral", "subPackages/me/pages/myinproject", "subPackages/me/pages/myGold", "subPackages/me/pages/meCoupons", "subPackages/me/pages/goldRecharge", "subPackages/me/pages/sysMessage", "subPackages/me/pages/changeInfoPhone", "subPackages/me/pages/changeInfoIntroduce", "subPackages/comment/pages/project_comment", "subPackages/comment/pages/discuss", "subPackages/comment/pages/participation", "subPackages/lottery/pages/buyers", "subPackages/lottery/pages/noNeedLottery", "subPackages/lottery/pages/errorCorrection", "subPackages/lottery/pages/map", "subPackages/lottery/pages/lotteryResult", "subPackages/lottery/pages/houseResults", "subPackages/lottery/pages/lotteryNews", "subPackages/lottery/pages/addHouseIn", "subPackages/lottery/pages/uploadPic", "subPackages/lottery/pages/houseIntention", "subPackages/lottery/pages/ordinaryUser", "subPackages/lottery/pages/houseValuation", "subPackages/lottery/pages/findBuilding", "subPackages/lottery/pages/houseAreaList", "subPackages/lottery/pages/priceResult", "subPackages/lottery/pages/addDetailsPrice", "subPackages/lottery/pages/buildContrast", "subPackages/lottery/pages/contrastDetail", "subPackages/lottery/pages/commonProblems", "subPackages/lottery/pages/claimProject", "subPackages/lottery/pages/purchaseIntention", "subPackages/lottery/pages/loginIndex", "subPackages/lottery/pages/loginIndexDetail", "subPackages/salesMan/pages/hotList", "subPackages/salesMan/pages/enteringSalesMan", "subPackages/salesMan/pages/salesmanSearchList", "subPackages/salesMan/pages/submitAudit", "subPackages/salesMan/pages/submissionOfInformation", "subPackages/salesMan/pages/redme", "subPackages/project/pages/mapLookHouse", "subPackages/project/pages/payProject", "subPackages/project/pages/peripheralMap", "subPackages/project/pages/projectDetail", "subPackages/project/pages/peripheral", "subPackages/project/pages/photos", "subPackages/project/pages/calculation", "subPackages/project/pages/propertyData", "subPackages/project/pages/housePlan", "subPackages/project/pages/reportType", "subPackages/project/pages/reportDetail", "subPackages/project/pages/check", "subPackages/project/pages/preSale", "subPackages/project/pages/registry", "subPackages/project/pages/projectArticles", "subPackages/project/pages/oldHousePlan", "subPackages/project/pages/projectQuestionList", "subPackages/project/pages/addDuilding", "subPackages/project/pages/projectCommentDetail", "subPackages/project/pages/noLimitPay", "subPackages/project/pages/roomPrice", "subPackages/project/pages/buildingsNum", "subPackages/project/pages/buildingsNumDetail", "subPackages/project/pages/statisticalDetails", "subPackages/project/pages/projectLotteryDetail", "subPackages/project/pages/oneHouseOnePrice", "subPackages/project/pages/buildingLetters", "subPackages/project/pages/allProjects", "subPackages/project/pages/housePlanDetail", "subPackages/project/pages/allProjectPhotos", "subPackages/project/pages/houseTypePhotos", "subPackages/project/pages/featureProject", "subPackages/tools/pages/houseLoan", "subPackages/tools/pages/transaction", "subPackages/tools/pages/reportCode", "subPackages/tools/pages/companyCode", "subPackages/tools/pages/joinUs", "subPackages/tools/pages/telLogin", "subPackages/tools/pages/playVideoPage", "subPackages/tools/pages/commentInp", "subPackages/tools/pages/groupCode", "subPackages/tools/pages/demandCalculator", "subPackages/tools/pages/houseLoanResult", "subPackages/tools/pages/houseLoanDetail", "subPackages/question/pages/questionDetail", "subPackages/question/pages/questionOther", "subPackages/question/pages/questionComment", "subPackages/question/pages/askQuestion", "subPackages/question/pages/questionMessages", "subPackages/question/pages/questionSearch", "subPackages/question/pages/myDiscuss", "subPackages/question/pages/questionList", "subPackages/question/pages/attentionList", "subPackages/question/pages/answerDetail", "subPackages/question/pages/myQuestion", "subPackages/question/pages/userQuestion", "subPackages/question/pages/answerList", "subPackages/question/pages/answerComment", "subPackages/question/pages/questionCloselyDetail", "subPackages/question/pages/commonProblems", "subPackages/question/pages/purchaseData", "subPackages/question/pages/discussList", "subPackages/posts/pages/create", "subPackages/activity/pages/projectVote", "subPackages/activity/pages/voteRanking", "subPackages/activity/pages/buildingVote", "subPackages/activity/pages/myPrize", "subPackages/activity/pages/prizeList", "subPackages/activity/pages/allUser", "subPackages/activity/pages/drawDetails", "subPackages/activity/pages/sponsor", "subPackages/activity/pages/addAddress", "subPackages/activity/pages/yearEndActivity", "subPackages/activity/pages/yearEndActivityDetail", "subPackages/activity/pages/yearEndActivityRank", "subPackages/activity/pages/housePurchaseHoliday", "subPackages/activity/pages/specialPrice"],
+  "global": {
+    "window": {
+      "navigationBarTextStyle": "white",
+      "navigationBarTitleText": "成都摇号助手",
+      "navigationBarBackgroundColor": "#2d8cf0",
+      "backgroundColor": "#f2f2f2"
+    }
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "connectSocket": 10000,
+    "uploadFile": 30000,
+    "downloadFile": 10000
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [{
+      "pagePath": "pages/index.html",
+      "text": "首页",
+      "active": false,
+      "iconData": "iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YzlmNWU5MC1hNjQyLTA4NDgtOTgwYS05N2VhNDIwZDJjMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0JDRDQ4MTc1MUY4MTFFOTg1NTlFM0U4QTI3MDc3NDUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0JDRDQ4MTY1MUY4MTFFOTg1NTlFM0U4QTI3MDc3NDUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmU0OWFmNGMzLWI0ZjEtZDQ0Ni04MjlmLWIwYmY4ODE5ZmJkZiIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmFhMzJiYWI4LWM5YmYtYjE0OC05ZDhkLTM4OTY2MWQ1NjkxZSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pjq88sMAAASCSURBVHja7JpLSFRRGMfPjDPqQiUrTXyMOTolZgVFi7KCUXyM1KZFtXBRBEJQJBERERm1qBYV1SYsKgqCVkEwBQUR9JKgqAiJCg1c9FjoOL6f0/9/OzdOZs7De0fTe+DHjJ/nnnP+3/m+75wZtYVCITEbm13M0mYJs4RZwixhlrA5IcwRSaempqZYx08CB8E2kAE+gCvgZqwD1tfXT/uO1YFP4DhYBjLBRnADPAFl/1sorgWP5K7kKfaA8n49eAqujeszI4UtABfBc+BV7O9AFXCBBtCh/G4H+CjDdUYKa5Bht0exBaV9JXgIusF54AEXlH7J4LTMv60zRZgPvAXnQLpivwSWSCHjG3dsH1gN/Ip9KbgNHoBV0yVsscyhe2CFYn8q82c3+B5mjNdgE9gOPiv2SvAKnAHz4iWMx0OjzIs6xd4OdoIN4FmUY96Wu3sY9Cr2/TK895otzCsFHQNOxX5C5s31KUQOP+2elONcVuwLZT6+AWvMEOaRJbxAsTE/loOjYNCgnP/KM1g68YViZwF6CdxGCzurvG8DW2R+vDfpfH0M1oFd4IdiP2+0sPXytUdWrDtxuvJdlbsVHLcOw4QlKKESiPN99puMEnUdhgkbjnZgg5s+74hZ5d42aWkLhYRJX+fZpuVKZbP9mndgYECMjY39/jmiOg9H8Dm+RvNcXIRxUV1dXcLtdovMzExtoZE0OiExMVFkZGTE5BTThXV0dIiioiJRUVEhEhISxMjISMTChoeHRVlZmSgpKRGdnZ2GibMbIYo7VVlZKUZHR0V/f3/EC2O/oaEh7bny8nLh8Xg0cUbk6ZSEcREFBQWiqqpK83Rvb6+w26Mbkv37+vq0naNzuPN01rQIo6cpyuVyiZqaGs0Wi6jx4rhzFEdnTVWcPRZRnDQnJ0dUV1f/uo709MQsShVH5zAMOW5+fr7mvLgI00VlZ2cLn8+nFYru7u7forgohmQ047G/XjA4Dp3ExkjIy8uLWZw9mkVg0qHc3FxRW1srHA7HX6L091joXbx8CQee4ceRYj6nO0QXx1c6j+GOnRyItlI6Iu04ODgoUlJSFnm93mM8e3huqeHHheH39HJxa2vr5qSkpLCOCgQC+YWFhf6srKybHF8NSzotLS1Nq5Z+v9/FMA03ZkzCmNhY+DyIamSiT5RTPGSxUNHe3q6F7GQL4Xjp6emitLTUjZBu5M/qrugFhU5MTU0VwWDQnB3jpJycZZm5NVGjsOTkZO2gVsP0X4cz+xL2nSjUaON8PPBNC8VIKxtDyul0arsx2UGrFw72N/KOaIowfcH0cKTXKrPanP8zkk3fDTPCJlwEKHPajA5Fp/4hUq908RDIIqUXKpmvDqOFBVF2U3h24YzS7nK8lZvdWDHb2trUo6PPaGG3cNM4wNLb3NwsWlpaRDz+o4dVls5kdPCmgznvGC3sCAb1oYwvY7XT729mhqPuOB4dUhS/3z9gtDDed1Zh8FOI+c1gvkxkM7dNH78T897H6yHx53f7kz9s/ZOYJcwSZgmzhFnCLGEzr/0UYABxdc2b2Y7khwAAAABJRU5ErkJggg==",
+      "selectedColor": "#000",
+      "selectedIconData": "iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YzlmNWU5MC1hNjQyLTA4NDgtOTgwYS05N2VhNDIwZDJjMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkRERURGRjI1MUY0MTFFOTk3MjRDQkQ1RjhCNTkyMTgiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkRERURGRjE1MUY0MTFFOTk3MjRDQkQ1RjhCNTkyMTgiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU3OTU2MTY0LTliYzUtZDk0ZC1iYWE3LTJlMGRlMjhjZDAwNSIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmFhMzJiYWI4LWM5YmYtYjE0OC05ZDhkLTM4OTY2MWQ1NjkxZSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqFI5eoAAAUxSURBVHja7Jp7aFt1FMfPfeed9CZNupa0Tdq8+kgf8cEU51v03ynbPwoy/3GOgcL+0m4V/EPwL0GRFRTEvyuKfzg2ZerQDXGVwbAUrNpWK23IknYteTW51/O77a3r7WaTLjfN5v1BaBPS3zmf3++c7zknDSXLMtyNi4a7dBlgBpgBZoAZYP8LMCAFeqfHblcikXAFg8HzDocjbzKZyh6PZykSiYzp7a/is15g0Wj0tMViKRFftA+3273c19f3yh0Fhg6/jDeT0cJwHCdpX2tra5seHBx8oKHB0MFwe3v7Va3zTqcz19vb+/rQ0FBbKBT6jOf5LYAMw8hdXV1fNiRYd3f351qHyQ0REO17h4eHQ3gAV7QHYLfbCxi+7zYEWE9Pzyi5Ea2Tfr9/Em8o/l8OxuPx530+X1L7t16v91p/f/8LewKGYXegtbX1j1uIwrEqReY9m81W1O7V0dExgbcbqAsYyrcF5ftbmqa3OEHUD2X8o9soCyzm2TmWZbfsKwgCCedPdQVDAThhtVrXtCcbCAS+J/WqFjUVI2EIw3hKa8PlcuUwPI/UHGxgYOAprTGSH5gnB/VoGvAQXxNFcUVrE/14uKZgCLGobk5uLRaLvVOPrgjD+2PSsdxwmIs1BVOlHHNAullC67lQXQfV4k78qCmYuvGGetV9qSWF+FEpWEXdPaqgqkjUHjXqil2Kqtz8nTK2VH2gxqBZybKFngRL+z3VOcBbgGvyNy6YLfI0RE+dA1qwVpc/Ugm6jp0Bcf/RxgMz+++D2Mkzyu/F9Gx1YCUUWoqG6MgHYA0eaBwwBerUJWWnQjIHFMNXvUcx9TsCYkM88h3CPbT3YKZ9cYievAg0RyNUGaF2Vw0ohoNCal37Im9cwMO6d+/AeE8YT/giMAID+cUMOnebes6QG1/fJzryA5ha4vUHE7xhiI3+CKzdCvkF4gxNqicKgbyeM9UW4PKacltknwIeEmPiIDp6CeF6dg3GVvNmScLOCsOm8+hZ4DwuyM6uQymTTRl7VZYB7HkAB86FfD7v3tE4y5ZwYD2co81fkK0lWWlzIPt3GixBEfxHxuHXt/tw67KkKxg6Qs9PT795frml+/Jk2idE5DWgVJvXwbVPlL969njsmw9P+CrdkvOExo8/9+DXudXrIDWVNq4QBaW8xD36Ynh2/6sLf4XDYU5XMGxCaRwjRid/K8Ev1/iNaWKzoQMuWwbm/pfAfvYTWJmf2tm42Q6dB9/ifl4Rnlmdz6Pq/6uopC/sTBfhEZ9A7OobiqRrxhCDSJMVkk0MmJnylnZOLmdB6HBC9P3LsJL6E1+5tUpiNgKPYHavB4pLqwDereqTk1jocEiKvd18aMvuJjFFbC7anDTwtLytV5WlLHAitkktgQpyFpVwNQeyg9rWuRdlGhwmqT7ioa5mBYwCbtsYoT7PV67JDuqmzTtWRXCZoc5gNgC/k9F1NJBoBpxmLAMFHcHUGCfhQh4kHVYdNICOX6WgWRqaUDPKRWpz0K05mFK/Nn7a7XYwMQwMtGI+yYxuYCTKi0UWJLR3o/2agqHcyqVSiVpeXoaxsdNw6NBhWMpk1q3r93kAiG43jI+PQzqdVutoxSFCVSKlgUDgp5mZmc0J0uv1Atazqk6w6lAkHUg2C6lUavM18j+Bubm53prdGLZIj2cymSTemECeJ5PJuo/6NpttzePxPFbTGyOCkUgkbHh6FzAs+gqFAlsvIJ7nS6IoTjU3Nz8xMTGRrLRYU8aXxAwwA8wAM8AMMAOs8dY/AgwA6pzBX6tDMkgAAAAASUVORK5CYII="
+    }, {
+      "pagePath": "pages/project/index.html",
+      "text": "楼盘",
+      "active": false,
+      "iconData": "iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YzlmNWU5MC1hNjQyLTA4NDgtOTgwYS05N2VhNDIwZDJjMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0JDRDQ4MUY1MUY4MTFFOTg1NTlFM0U4QTI3MDc3NDUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0JDRDQ4MUU1MUY4MTFFOTg1NTlFM0U4QTI3MDc3NDUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmU0OWFmNGMzLWI0ZjEtZDQ0Ni04MjlmLWIwYmY4ODE5ZmJkZiIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmFhMzJiYWI4LWM5YmYtYjE0OC05ZDhkLTM4OTY2MWQ1NjkxZSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pjz/2VAAAAHlSURBVHja7Jq9TsMwEMcvab5o2gUhnoGpeRBegIEJiS6sMCImJmBHlXiRrjwAc4cyMMJA1dI2X016Z7kSU5M6UWu1d9I/tpVLrZ99cXJujDzPYR/NhD01BmMwBmMwBjsIMKuMU6/Xu8LiEeXX0Ce9EbyjLlEjlR/odrv1gKG91Tyg56gL1OtOZwwtQdmy/idHXcVclCPrzZ2HIloowWJUgPpR7O8FdS3rkQ5g/+0LlSr2N9Z5VTyu0J/Hyz2D6Qf2q9viUZedSW1itCp/6g52L7WpPaPutAQzDAPiOIYkSUR97ftXnoNpmuB5nvDF9q22YIvFAlqtFriuC1mWFQ4C+UynU1Fie6xtKM5mMwiCADqdDkwmk7W+juMIqH6/D/P5nNqptmAUXjQTFGKktcs2ni8KV63uMQqrNE2FisAodPkBzWAMxmAMxmAMxmAMxmAMdqhgKmnLqEJ/0SofazQaIom0bbsw0aRthG2AnaK+FcGaq3yM8rAwDCGKosKktMinCpgrSxreD1SmCNamg+/7MBgMYDgcQpkPaMiHkk05u3adYKu/fihHP6l8Y2NWTLNFs1Ym7ScfCkm6DiHbdYLdoB5QR3XteViWJbThdRSTT6W2H/hbKgZjMAZjMAZjMAbbmi0FGACpbJTCEgy/kQAAAABJRU5ErkJggg==",
+      "selectedColor": "#000",
+      "selectedIconData": "iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YzlmNWU5MC1hNjQyLTA4NDgtOTgwYS05N2VhNDIwZDJjMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkRERURGRkE1MUY0MTFFOTk3MjRDQkQ1RjhCNTkyMTgiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkRERURGRjk1MUY0MTFFOTk3MjRDQkQ1RjhCNTkyMTgiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU3OTU2MTY0LTliYzUtZDk0ZC1iYWE3LTJlMGRlMjhjZDAwNSIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmFhMzJiYWI4LWM5YmYtYjE0OC05ZDhkLTM4OTY2MWQ1NjkxZSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiOllhYAAALESURBVHja7Jq/b9NAFMff2WefncSJQVAqJCJFXdgYUDdGysrIwsCCkJAQEwWxsDFU6sbC/4D4B8pG+wcgMbAgJCQQNAU3TiGkKTbvnIuUAV/ci1F85Z705FPk3L1P3t33foWkaQon0Sw4oWbADJgBM2AG7L8Ao0VeIoTcwsdT9EYJbSbor9FvovdUKii0qOAvzXL+2j/wO6q/TJGYacG6RuiOKB+IwFSMobuiXF94V0T7JcAO0S+hdxXb20S/LcrDKoBN20f0I8X24iqr4uk52vOM3Buw6oFFVROPsuyi8OMYV9IPpU12Qs1SUfHSHDDPSpjYN4rErOMYe1D1rvgZ/XtBHeCLgxVRjisNZnnN++HlGy/AopD+/vt8b7suHPa60H/zMkiToy/4Ua3o4mBhYMvXHq6v3Ht8fbiLAyfJgcdVJaHw/O36le2D9zt6qGItCFdrP2E1jfoYfc52CbPJTvnvKKttayP3bjqAEDNiM8k+0CbAKER2OtJnHvMcAi2fF0j+OORg+A5V0O7FgWHLIS6JEyYH8z3dwDDoELMxkmXMIlBHMNsi+oAxnJl4VxzOyFgjA9OqK5KsKw4kYDYdg1ECeokH74o/PDlYwDNmawSGMg4tDDp25WCtLGNEP/HYZ7PBtMqYx8UDAw4kpyAUo2tqJ/eYDX4q1GX5UTt0rJxadUU+xvhSvSkRD56xkGgm9747jjaQjDHHzeAdamuUsQvLZ7PnUmNm0ElQ94/fgMKZhzsHz+bk7GJt7eqj/V7vHNYv9e7eHrTbbf7dyZ3BtzIvJaaNH+bsqm7DJoWtrVefOp3O11YQSG84oiiCOI7PQ+6uLWfLU+SuiRAyyVT2i8H4jkvFAj68RBl3mDAoGif6GfHsY8zNssAq9fcdjJmUJR530Z9Md6UFGb/O2iitK+po5lLCgBkwA2bADJgBq6D9EWAAzMpoNHVz1x0AAAAASUVORK5CYII="
+    }, {
+      "pagePath": "pages/consult/index.html",
+      "text": "发现",
+      "active": false,
+      "iconData": "iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YzlmNWU5MC1hNjQyLTA4NDgtOTgwYS05N2VhNDIwZDJjMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0JEM0ZBNUI1MUY4MTFFOTg1NTlFM0U4QTI3MDc3NDUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0JEM0ZBNUE1MUY4MTFFOTg1NTlFM0U4QTI3MDc3NDUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmU0OWFmNGMzLWI0ZjEtZDQ0Ni04MjlmLWIwYmY4ODE5ZmJkZiIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmFhMzJiYWI4LWM5YmYtYjE0OC05ZDhkLTM4OTY2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",
+      "selectedColor": "#000",
+      "selectedIconData": "iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YzlmNWU5MC1hNjQyLTA4NDgtOTgwYS05N2VhNDIwZDJjMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkRFNkEyREM1MUY0MTFFOTk3MjRDQkQ1RjhCNTkyMTgiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkRFNkEyREI1MUY0MTFFOTk3MjRDQkQ1RjhCNTkyMTgiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU3OTU2MTY0LTliYzUtZDk0ZC1iYWE3LTJlMGRlMjhjZDAwNSIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmFhMzJiYWI4LWM5YmYtYjE0OC05ZDhkLTM4OTY2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"
+    }, {
+      "pagePath": "pages/me/index.html",
+      "text": "我的",
+      "active": false,
+      "iconData": "iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YzlmNWU5MC1hNjQyLTA4NDgtOTgwYS05N2VhNDIwZDJjMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0JEQUY5NDk1MUY4MTFFOTg1NTlFM0U4QTI3MDc3NDUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0JEQUY5NDg1MUY4MTFFOTg1NTlFM0U4QTI3MDc3NDUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmU0OWFmNGMzLWI0ZjEtZDQ0Ni04MjlmLWIwYmY4ODE5ZmJkZiIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmFhMzJiYWI4LWM5YmYtYjE0OC05ZDhkLTM4OTY2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",
+      "selectedColor": "#000",
+      "selectedIconData": "iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5YzlmNWU5MC1hNjQyLTA4NDgtOTgwYS05N2VhNDIwZDJjMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkRFRDdEMDk1MUY0MTFFOTk3MjRDQkQ1RjhCNTkyMTgiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkRFRDdEMDg1MUY0MTFFOTk3MjRDQkQ1RjhCNTkyMTgiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU3OTU2MTY0LTliYzUtZDk0ZC1iYWE3LTJlMGRlMjhjZDAwNSIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmFhMzJiYWI4LWM5YmYtYjE0OC05ZDhkLTM4OTY2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"
+    }],
+    "position": "bottom"
+  },
+  "navigateToMiniProgramAppIdList": ["wxba2b83f614aabe46", "wx427d97dcecaf9d0d", "wx56e7d11c3d442700", "wx173dab6b85581480", "wx307458db245a39a0"]
+}

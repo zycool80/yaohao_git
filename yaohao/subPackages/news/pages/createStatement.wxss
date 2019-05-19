@@ -1,0 +1,146 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.page__bd .weui-cell {
+    padding: 11px 0 25px 0;
+    font-size: 30rpx;
+    align-items: flex-start;
+}
+
+.page__bd .weui-cell-top {
+    padding: 11px 0 5px 0;
+    font-size: 30rpx;
+    align-items: flex-start;
+}
+
+.weui-label {
+    height: 30px!important;
+    line-height: 28px!important;
+    color: #333;
+    font-weight: 700;
+    display: block;
+}
+
+.weui-label .span {
+    display: inline;
+    color: #d13c0e;
+}
+
+.weui-select_in-select-after {
+    padding-left: 0;
+    height: 30px!important;
+    line-height: 30px!important;
+    border-right: 0;
+    min-height: auto;
+    color: black;
+    letter-spacing: 1rpx;
+    margin-right: 3rpx;
+}
+
+.weui-btn-area {
+    padding: 1.176em 15px .3prx;
+    margin-top: 60rpx;
+    background-color: #fff;
+}
+
+.weui-btn-area .weui-btn {
+    height: 93rpx;
+    width: 690rpx;
+    border-radius: 90rpx;
+    margin: 0 auto;
+    color: white;
+    font-size: 31rpx;
+    letter-spacing: 10rpx;
+    text-align: center;
+    line-height: 93rpx;
+    background: linear-gradient(to right,#2d8cf0,#1068eb);
+}
+
+.weui-cell_select {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.weui-cell_select1 {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.weui-cell__bda {
+    width: 70%;
+    margin-right: 30rpx;
+    color: black;
+}
+
+.weui-cell__bd_content {
+    width: 100%;
+    color: black;
+}
+
+.weui-cell__bd {
+    width: 100%;
+    color: black;
+}
+
+textarea {
+    width: 100%;
+}
+
+.placeholder {
+    color: #ccc;
+}
+
+.weui-textarea-counter {
+    color: #ccc!important;
+    margin-right: 30rpx;
+    font-size: 24rpx;
+}
+
+.model {
+    position: fixed;
+    background: #fff;
+    border-radius: 10rpx;
+    width: 600rpx;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.model-tip {
+    padding: 30rpx 0;
+    text-align: center;
+}
+
+.model-text1 {
+    padding-bottom: 50rpx;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15rpx 0;
+}
+
+.model-btn {
+    display: flex;
+    justify-content: space-around;
+}
+
+.model-btn button {
+    flex: 1;
+}
+
+.model-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    z-index: 999;
+}
+
+.comment-box {
+    height: 520rpx;
+    padding: 15rpx 50rpx;
+    box-sizing: border-box;
+}

@@ -1,0 +1,118 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background-color: #ebebeb;
+}
+
+.page {
+    padding: 0 30rpx;
+}
+
+.attentionList-top {
+    padding: 15rpx 0 20rpx;
+}
+
+.attention-box {
+    padding: 40rpx;
+    border-radius: 15rpx;
+    position: relative;
+    box-sizing: border-box;
+    background: #fff;
+    margin-bottom: 40rpx;
+}
+
+.attention-box:after {
+    content: '';
+    background: #f7f7f7;
+    width: 96%;
+    height: 9rpx;
+    position: absolute;
+    bottom: -8rpx;
+    display: inline-block;
+    left: 2%;
+    border-bottom-left-radius: 4rpx;
+    border-bottom-right-radius: 4rpx;
+    z-index: 22;
+}
+
+.attention-box:before {
+    content: '';
+    background: #f0f0f0;
+    width: 92%;
+    height: 6rpx;
+    position: absolute;
+    bottom: -13rpx;
+    display: inline-block;
+    left: 4%;
+    border-bottom-left-radius: 4rpx;
+    border-bottom-right-radius: 4rpx;
+    z-index: 20;
+}
+
+.left-content {
+    float: left;
+}
+
+.left-content .wd-small {
+    width: 95rpx;
+    height: 95rpx;
+    border-radius: 90rpx;
+}
+
+.left-content .wd-large {
+    width: 95rpx;
+    height: 95rpx;
+}
+
+.left-content .wd-small image {
+    border-radius: 90rpx;
+}
+
+.left-content .img image {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    display: inline-block;
+}
+
+.right-content {
+    margin-left: 150rpx;
+}
+
+.right-btn {
+    padding-top: 10rpx;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nothing-text {
+    line-height: 800rpx;
+}
+
+.nothing-text,.getToQuestion {
+    text-align: center;
+}
+
+.salesMan {
+    margin: 0 15rpx 0 30rpx;
+}
+
+.project_name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.right-content-title .font-gold-color {
+    color: #926a25;
+}
+
+.right-content-title {
+    line-height: 26rpx;
+}
+
+.question .number {
+    margin-right: 10rpx;
+}

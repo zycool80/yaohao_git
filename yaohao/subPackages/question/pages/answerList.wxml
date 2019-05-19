@@ -1,0 +1,80 @@
+<view class="page">
+    <view class="question-type-select">
+        <view bindtap="toggle" class="select-list fz-11 {{is_adopt==''?'active':''}}" data-wpytoggle-a="">已回答({{count}})</view>
+        <view bindtap="toggle" class="select-list fz-11 {{is_adopt==1?'active':''}}" data-wpytoggle-a="1">已解决({{adopt_count}})</view>
+    </view>
+    <block wx:if="{{items.length>0}}">
+        <block wx:for="{{items}}" wx:for-item="question" wx:key="key">
+            <view class="question-head">
+                <view class="fz-14 font-bold">{{question.time}}</view>
+            </view>
+            <view class="question-container">
+                <view class="question-list white-bg" url="" wx:for="{{question.data}}" wx:key="key">
+                    <navigator class="top-question" hoverClass="none" url="/subPackages/question/pages/questionDetail?id={{item.question.question_id}}" wx:if="{{item.question}}">
+                        <view class="tips blue-bg fz-12">问</view>
+                        <view class="cont_box">
+                            <view class="cont_top">
+                                <view class="avatar">
+                                    <image src="{{item.question.questions_user_avatar_url||avatar_url}}"></image>
+                                </view>
+                                <view class="user-name">{{item.question.question_user_name}}</view>
+                            </view>
+                            <view class="question-desc fz-13">
+                                <text>{{item.question.question_content}}</text>
+                            </view>
+                            <view class="small-level-color fz-12" style="overflow: hidden;">
+                                <view class="right" style="float: right;">{{item.answer.time}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view bindtap="jumpNav" class="bottom-answer" data-wpyjumpnav-a="{{item.answer.is_specialist}}" data-wpyjumpnav-b="{{item.answer.is_jurisdiction}}" data-wpyjumpnav-c="{{item.answer.id}}" wx:if="{{item.answer}}">
+                        <view class="tips blue-bg fz-12">答</view>
+                        <view class="cont_box">
+                            <view class="cont_top">
+                                <view class="avatar" style="float: left;">
+                                    <image mode="aspectFill" src="{{item.answer.user_avatar_url||avatar_url}}"></image>
+                                    <image class="exportLog" mode="widthFix" src="/images/exportLog.png" wx:if="{{item.answer.is_specialist==1}}"></image>
+                                </view>
+                                <view class="answer_top">
+                                    <view class="sales-man-info" wx:if="{{item.answer.sales_man_id!='0'}}">
+                                        <view class="sales-men-info-top">
+                                            <text class="fz-12 {{item.answer.is_specialist==1?'yellow-color':'black1a-color'}}">{{item.answer.user_name}}</text>
+                                            <text class="fz-10 height-level-color">置业顾问</text>
+                                        </view>
+                                        <view class="sales-men-info-bottom fz-10 height-level-color">{{item.answer.project_name}}</view>
+                                    </view>
+                                    <view class="user-info fz-12 {{item.answer.is_specialist==1?'yellow-color':'black1a-color'}}" wx:else>{{item.answer.user_name}}</view>
+                                    <view catchtap="delBox" class="attention fz-24 font-bold" data-wpydelbox-a="{{item.answer.id}}" data-wpydelbox-b="{{item.answer.user_id}}" style="color:#b3b3b3">...</view>
+                                </view>
+                            </view>
+                            <view class="exportContImg" wx:if="{{item.answer.is_specialist==1&&item.answer.is_jurisdiction==2}}">
+                                <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20180904/5b8e2cedb28fe.png"></image>
+                                <view catchtap="toUrl" class="lookCont fz-13 yellow-color" data-wpytourl-a="/subPackages/question/pages/expertAnswer?answer_id={{item.answer.id}}">点击查看</view>
+                            </view>
+                            <block wx:else>
+                                <view class="answer-desc fz-13 small-level-color">
+                                    <text>{{item.answer.content}}</text>
+                                </view>
+                                <view class="question-user-info small-level-color fz-12" style="overflow: hidden;">
+                                    <view class="right" style="float: right;">{{item.answer.time}}</view>
+                                </view>
+                            </block>
+                        </view>
+                        <image class="adopt" src="/images/adopt.png" wx:if="{{item.answer.is_adopt==2}}"></image>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </block>
+    <block wx:else>
+        <view class="nothing" wx:if="{{!loading}}">
+            <view class="nothing-text fz-13 small-level-color">暂无内容</view>
+            <view bindtap="toTab" class="getToQuestion fz-13 blue-color">前去问答区看看</view>
+        </view>
+    </block>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

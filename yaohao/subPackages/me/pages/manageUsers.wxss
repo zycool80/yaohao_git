@@ -1,0 +1,8 @@
+.backHome {
+    text-align: center;
+    padding: 10rpx;
+}
+
+.back-home {
+    bottom: 226rpx;
+}

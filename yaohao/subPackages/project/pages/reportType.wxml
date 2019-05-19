@@ -1,0 +1,14 @@
+<view class="page">
+    <view class="reportType-title fz-12 small-level-color">请选择投诉原因</view>
+    <view class="reportType">
+        <navigator class="reportType-line" hoverClass="none" url="/subPackages/project/pages/reportDetail?id={{id}}&type={{type}}&blowing_type={{item.type}}&title={{item.text||item}}" wx:for="{{typeList}}" wx:key="key">
+            <text class="fz-13 black-1a-color left">{{item.text||item}}</text>
+            <text class="iconfont icon-xiayibu right small-level-color"></text>
+        </navigator>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

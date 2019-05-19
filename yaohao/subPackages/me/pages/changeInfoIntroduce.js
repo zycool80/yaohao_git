@@ -1,0 +1,142 @@
+var regeneratorRuntime = require("../../../npm/regenerator-runtime/runtime.js");
+function _interopRequireDefault(e) {
+    return e && e.__esModule ? e : {
+        default: e
+    };
+}
+
+function _asyncToGenerator(e) {
+    return function() {
+        var t = e.apply(this, arguments);
+        return new Promise(function(e, n) {
+            function r(o, a) {
+                try {
+                    var i = t[o](a), u = i.value;
+                } catch (e) {
+                    return void n(e);
+                }
+                if (!i.done) return Promise.resolve(u).then(function(e) {
+                    r("next", e);
+                }, function(e) {
+                    r("throw", e);
+                });
+                e(u);
+            }
+            return r("next");
+        });
+    };
+}
+
+function _classCallCheck(e, t) {
+    if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+}
+
+function _possibleConstructorReturn(e, t) {
+    if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    return !t || "object" != typeof t && "function" != typeof t ? e : t;
+}
+
+function _inherits(e, t) {
+    if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + typeof t);
+    e.prototype = Object.create(t && t.prototype, {
+        constructor: {
+            value: e,
+            enumerable: !1,
+            writable: !0,
+            configurable: !0
+        }
+    }), t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : e.__proto__ = t);
+}
+
+Object.defineProperty(exports, "__esModule", {
+    value: !0
+});
+
+var _createClass = function() {
+    function e(e, t) {
+        for (var n = 0; n < t.length; n++) {
+            var r = t[n];
+            r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), 
+            Object.defineProperty(e, r.key, r);
+        }
+    }
+    return function(t, n, r) {
+        return n && e(t.prototype, n), r && e(t, r), t;
+    };
+}(), _wepy = require("./../../../npm/wepy/lib/wepy.js"), _wepy2 = _interopRequireDefault(_wepy), _api = require("./../../../api/api.js"), _api2 = _interopRequireDefault(_api), _index = require("./../../../utils/utilsKit/index.js"), _BackHome = require("./../../../components/BackHome.js"), _BackHome2 = _interopRequireDefault(_BackHome), globalModel = require("./../../../models/GlobalModel.js"), Index = function(e) {
+    function t() {
+        var e, n, r, o;
+        _classCallCheck(this, t);
+        for (var a = arguments.length, i = Array(a), u = 0; u < a; u++) i[u] = arguments[u];
+        return n = r = _possibleConstructorReturn(this, (e = t.__proto__ || Object.getPrototypeOf(t)).call.apply(e, [ this ].concat(i))), 
+        r.config = {
+            navigationBarTitleText: "修改个性签名",
+            enablePullDownRefresh: !0
+        }, r.data = {
+            content: "",
+            contentLen: 0
+        }, r.computed = {
+            showHome: function() {
+                return 1 == getCurrentPages().length;
+            }
+        }, r.$repeat = {}, r.$props = {
+            BackHome: {
+                "xmlns:wx": ""
+            }
+        }, r.$events = {}, r.components = {
+            BackHome: _BackHome2.default
+        }, r.methods = {
+            inputVal: function(e) {
+                this.content = e.detail.value, this.contentLen = this.content.length, this.$apply();
+            },
+            deleteInp: function() {
+                this.content = "", this.contentLen = 0, this.$apply();
+            },
+            submit: function() {
+                var e = this;
+                return _asyncToGenerator(regeneratorRuntime.mark(function t() {
+                    var n;
+                    return regeneratorRuntime.wrap(function(t) {
+                        for (;;) switch (t.prev = t.next) {
+                          case 0:
+                            return t.next = 2, _api2.default.sales.updateSalesMan({
+                                content: e.content
+                            });
+
+                          case 2:
+                            n = t.sent, 0 == n.code ? (_index.tip.toast("修改成功", "", "none"), wx.navigateBack()) : _index.tip.toast("修改失败", "", "none"), 
+                            e.$apply();
+
+                          case 5:
+                          case "end":
+                            return t.stop();
+                        }
+                    }, t, e);
+                }))();
+            }
+        }, o = n, _possibleConstructorReturn(r, o);
+    }
+    return _inherits(t, e), _createClass(t, [ {
+        key: "onLoad",
+        value: function() {
+            function e(e) {
+                return t.apply(this, arguments);
+            }
+            var t = _asyncToGenerator(regeneratorRuntime.mark(function e(t) {
+                return regeneratorRuntime.wrap(function(e) {
+                    for (;;) switch (e.prev = e.next) {
+                      case 0:
+                        t.data && (this.content = t.data, this.contentLen = this.content.length), this.$apply();
+
+                      case 2:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e, this);
+            }));
+            return e;
+        }()
+    } ]), t;
+}(_wepy2.default.page);
+
+Page(require("./../../../npm/wepy/lib/wepy.js").default.$createPage(Index, "subPackages/me/pages/changeInfoIntroduce"));

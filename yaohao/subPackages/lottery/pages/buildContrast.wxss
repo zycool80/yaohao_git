@@ -1,0 +1,139 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background-color: #f7f7f7;
+}
+
+.build_list {
+    background-color: #FFFFFF;
+    padding-bottom: 100rpx;
+}
+
+.build_list .build_item {
+    padding: 30rpx;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.build_list .build_item .xuanxiang {
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140rpx;
+}
+
+.build_list .build_item .options_item {
+    width: 38rpx;
+    height: 38rpx;
+    background-color: #16a5af;
+    border: 1px solid #16a5af;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36rpx;
+    color: #FFFFFF;
+}
+
+.build_list .build_item .options_item2 {
+    width: 38rpx;
+    height: 38rpx;
+    border: 1px solid #b3b3b3;
+    border-radius: 50%;
+}
+
+.build_list .build_item .build_item_right {
+    float: left;
+    margin-left: 20rpx;
+    overflow: hidden;
+}
+
+.build_list .build_item .build_item_right image {
+    width: 210rpx;
+    height: 140rpx;
+    float: left;
+}
+
+.build_list .build_item .build_item_right .item_detail_right {
+    width: 398rpx;
+    float: left;
+    margin-left: 20rpx;
+}
+
+.build_list .build_item .build_item_right .item_detail_right .item_tishi {
+    overflow: hidden;
+    margin-top: 20rpx;
+}
+
+.build_list .build_item .build_item_right .item_detail_right .item_tishi .item_tishi_dan {
+    width: 100rpx;
+    height: 36rpx;
+    background-color: #e6fbef;
+    color: #51b67c;
+    font-size: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    margin-right: 10rpx;
+}
+
+.footer {
+    width: 100%;
+    background-color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.operation_list {
+    width: 690rpx;
+    height: 90rpx;
+    margin: auto;
+    font-size: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.operation_list .opt_style {
+    width: 152rpx;
+    height: 80rpx;
+    border-radius: 10rpx;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.operation_list .opt_style2 {
+    width: 356rpx;
+    height: 80rpx;
+    border-radius: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.operation_list .bg {
+    background-color: #b3b3b3;
+}
+
+.operation_list .bg3 {
+    background-color: #df795a;
+}
+
+.operation_list .bg2 {
+    background-color: #16a5af;
+}
+
+.operation_list .opt_color {
+    color: #999999;
+    background-color: #e6e6e6;
+}
+
+.operation_list .opt_color2 {
+    color: #ffffff;
+    background-color: #df795a;
+}

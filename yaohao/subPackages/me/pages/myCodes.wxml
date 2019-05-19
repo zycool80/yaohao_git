@@ -1,0 +1,93 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-cells__title title1 clearfix">
+            <picker bindchange="bindPickerChange" class="name_picker weui-cell_link" range="{{idCardsPicker}}" value="{{index}}">
+                <text>{{idCards[index]['name']}}</text>
+                <text class="iconfont icon-xialajiantouxianxing"></text>
+            </picker>
+            <view bindtap="syncData" class="sync_data weui-cell_access  weui-cell_link">同步我的登记数据</view>
+        </view>
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text" wx:for="{{myLotteries}}" wx:for-index="itemIndex" wx:key="itemIndex">
+                    <navigator class="weui-cell weui-cell_access lottery_name" hoverClass="weui-cell_active" url="/pages/lotteryDetail?id={{item.lottery_id}}">
+                        <text class="weui-cell__bd">{{item.lottery_name}}</text>
+                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                    </navigator>
+                    <view class="weui-media-box__desc">
+                        <view class="row">
+                            <view class="label">姓名</view>
+                            <text class="value">{{item.name}}</text>
+                        </view>
+                        <view class="row">
+                            <view class="label">摇号结果</view>
+                            <view class="value red">
+                                <block wx:if="{{item.results.length>0}}">
+                                    <navigator class="weui-cell_access goto-link" url="/pages/lottery/showCode?id={{item.lottery_id}}&code={{item.code}}&type={{result.type}}" wx:for="{{item.results}}" wx:for-item="result">
+                                        <view class="weui-cell__bd">{{result.resultText}}</view>
+                                        <view class="weui-cell__ft weui-cell__ft_in-access arrow-icon"></view>
+                                    </navigator>
+                                </block>
+                                <view wx:else>{{item.lottery_status_text}}</view>
+                            </view>
+                        </view>
+                        <view class="row">
+                            <view class="label">审核状态</view>
+                            <text class="value green">{{item.status_text}}</text>
+                        </view>
+                        <view class="row">
+                            <view class="label">登记号</view>
+                            <text class="value">{{item.reg_num}}</text>
+                        </view>
+                        <view class="row">
+                            <view class="label">公正摇号编码</view>
+                            <text class="value">{{item.code||'暂无'}}</text>
+                        </view>
+                        <view class="row" wx:if="{{item.message}}">
+                            <text class="value gray">{{item.message}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="weui-media-box weui-media-box_text" wx:if="{{!myLotteries||myLotteries.length==0}}">
+                            暂未获取到登记信息，<view bindtap="syncData" class="weui-cell_access  weui-cell_link">点击这里同步我的登记数据</view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells__title">我绑定的编码</view>
+        <view class="weui-panel" wx:for="{{items}}" wx:for-index="itemIndex" wx:key="itemIndex">
+            <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" style="border-bottom: 1px solid #f5f5f5;" url="/pages/lotteryDetail?id={{item.id}}">
+                <view class="weui-cell__bd">{{item.name}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">{{myCode.code}}</view>
+            </navigator>
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                    <view class="weui-cells weui-cells_in-small-appmsg" wx:if="{{item.myCodes.length>0}}">
+                        <view bindtouchend="touchEndToDel" bindtouchmove="touchMoveToDel" bindtouchstart="touchStartToDel" class="item" data-matindex="{{matIndex}}" style="webkit-transform:translate({{myCode.moveLeft}}px,0);-webkit-transform:translate({{myCode.moveLeft}}px,0);" wx:for="{{item.myCodes}}" wx:for-index="matIndex" wx:for-item="myCode" wx:key="matIndex">
+                            <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="/pages/lottery/showCode?id={{item.id}}&code={{myCode.code}}">
+                                <view class="weui-cell__bd weui-cell_primary">
+                                    <view>{{myCode.name}}</view>
+                                </view>
+                                <view class="weui-cell__ft weui-cell__ft_in-access">{{myCode.code}}</view>
+                            </navigator>
+                            <button bindtap="removeSingle" class="btn-del" data-matindex="{{matIndex}}" wx:if="{{!mat.isEdit}}">删除</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-panel" wx:if="{{!items||items.length==0}}">
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                    <view class="weui-cell">
+                        <view class="weui-cell__bd">您尚未添加摇号编码，快到楼盘详情页绑定吧...</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

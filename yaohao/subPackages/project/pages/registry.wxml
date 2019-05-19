@@ -1,0 +1,346 @@
+<view id="page">
+    <view id="guide_header">
+        <image src="http://imgcdn.huanjutang.com/assets/img/20181128/5bfdf416bcb5f.png"></image>
+        <view id="guide_header_text">
+            <text class="font_title">新手购房</text>
+            <text class="font_title">网络登记指引</text>
+            <view class="guide_bottom_text">
+                <view class="text_left">
+                    <view class="layout_style text_left_btn">
+                        <view class="layout_style text_left_yao">
+                            <text>摇</text>
+                        </view>
+                    </view>
+                    <text class="fz-11" style="color: #FFFFFF;margin-left: 14rpx">该网络登记指引由成都摇号助手官方提供</text>
+                </view>
+                <view class="text_right">
+                    <button class="fenxiang_btn layout_style" openType="share">
+                        <text class="iconfont icon-fenxiang9" style="font-size: 50rpx;color: #FFFFFF"></text>
+                    </button>
+                    <text class="fz-12">分享</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view id="guide_content">
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第一步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>登陆成都房协官网</text>
+                            <text style="color: #e26527">【www.cdfangxie.com】</text>
+                        </view>
+                        <view>
+                            <text>点击<text style="color: #e26527">【购房者入口】</text>进行网上登记</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[0]}}" mode="widthFix" src="{{getPicList[0]}}"></image>
+            </view>
+        </view>
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第二步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>点击</text>
+                            <text style="color: #e26527">【公证摇号购房登记】</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[1]}}" mode="widthFix" src="{{getPicList[1]}}"></image>
+            </view>
+        </view>
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第三步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>选择区域和勾选要报名的楼盘名</text>
+                        </view>
+                        <view>
+                            <text>然后点击下方的</text>
+                            <text style="color: #e26527">【下一步】</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[2]}}" mode="widthFix" src="{{getPicList[2]}}"></image>
+            </view>
+        </view>
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第四步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>查看商品住房须知，点击</text>
+                            <text style="color: #e26527">【我已阅读并理解】</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[3]}}" mode="widthFix" src="{{getPicList[3]}}"></image>
+            </view>
+        </view>
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第五步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>购房者根据自己实际情况选择购房类型</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[4]}}" mode="widthFix" src="{{getPicList[4]}}"></image>
+            </view>
+        </view>
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第六步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>如实正确填写【购房人信息】,点击【下一步】</text>
+                        </view>
+                        <view>
+                            <text style="color: #e26527;margin-left: -14rpx">【提示】:</text>
+                        </view>
+                        <view style="width: 580rpx;line-height: 32rpx">
+                            <text style="color: #e26527;font-size: 24rpx !important;">购房者姓名不能有标点符号，名字中间不能有空格。请谨慎检查，不可出现错别字，身份证号不能填错。</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[5]}}" mode="widthFix" src="{{getPicList[5]}}"></image>
+            </view>
+        </view>
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第七步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>确认购房者信息后点击</text>
+                            <text style="color: #e26527">【确认】</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[6]}}" mode="widthFix" src="{{getPicList[6]}}"></image>
+            </view>
+        </view>
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第八步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>阅读承诺书，点击</text>
+                            <text style="color: #e26527">【确认承诺】</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[7]}}" mode="widthFix" src="{{getPicList[7]}}"></image>
+            </view>
+        </view>
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第九步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>填写手机号并输入验证码，点击</text>
+                            <text style="color: #e26527">【提交】</text>
+                        </view>
+                        <view>
+                            <text style="color: #e26527;margin-left: -14rpx">【提示】:</text>
+                        </view>
+                        <view style="width: 580rpx;line-height: 32rpx">
+                            <text style="color: #e26527;font-size: 24rpx !important;">请与楼盘的置业顾问确认手机号后，再进行输入。</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[8]}}" mode="widthFix" src="{{getPicList[8]}}"></image>
+            </view>
+        </view>
+        <view id="container_text">
+            <view class="guide_item">
+                <view class="prompt_box">
+                    <view class="prompt_box_top">
+                        <view class="layout_style">
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian"></view>
+                        </view>
+                        <text class="fz-20">第十步</text>
+                        <view class="layout_style">
+                            <view class="three_dian"></view>
+                            <view class="three_dian" style="background-color: #7e87e3 !important;"></view>
+                            <view class="three_dian" style="background-color: #daddfa !important;"></view>
+                        </view>
+                    </view>
+                    <view class="prompt_text">
+                        <view>
+                            <text>登记成功后请</text>
+                            <text style="color: #e26527">保存"购房登记号"</text>
+                            <text>,摇号结果可通过"摇号查询"获取, 也可通过</text>
+                            <text style="color: #e26527">"成都摇号助手"小程序直接进行查询!</text>
+                        </view>
+                    </view>
+                    <view class="sanjiao"></view>
+                    <view class="sanjiao2"></view>
+                </view>
+                <image bindtap="preImages" class="tips_image" data-wpypreimages-a="{{getPicList[9]}}" mode="widthFix" src="{{getPicList[9]}}"></image>
+            </view>
+        </view>
+        <view id="container_text" style="font-size: 28rpx;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+            <text>将<text style="color: #e5004f">"成都摇号助手"</text>添加到我到小程序，可以更快到查看房源信息和摇号结果喔!</text>
+            <image bindtap="prePic" src="{{getPicList[10]}}" style="width: 200rpx;height: 200rpx;margin: 40rpx 0;"></image>
+        </view>
+    </view>
+    <view class="layout_style" style="width: 100%;position: fixed;left: 0;bottom: 0;z-index: 9;background-color: #FFFFFF">
+        <view style="width: 720rpx;height: 90rpx;display: flex;align-items: center;justify-content: space-between">
+            <button class="foot_btn layout_style" openType="share" style="background-color: #16a5af">
+                <text class="iconfont icon-fenxiang9 fz-18" style="margin-right: 10rpx"></text>
+                <text>分享给好友</text>
+            </button>
+            <view bindtap="savePicture" class="foot_btn layout_style" style="background-color: #3772cc">
+                <text class="iconfont icon-xiangce fz-18" style="margin-right: 10rpx"></text>
+                <text>保存图片</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

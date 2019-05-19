@@ -1,0 +1,57 @@
+<view class="page">
+    <view class="article">
+        <view>
+            <view class="article-head">
+                <view class="article-title fz-22 black-color">{{item.title}}</view>
+                <view class="article-content">
+                    <view class="article-top fz-12 gray-9-color">
+                        <text>{{item.user_name}}</text>
+                        <text style="position:relative;left:-48rpx">{{item.updated_at}}</text>
+                        <view>
+                            <text class="iconfont icon-chakan"></text>
+                            <text>{{item.page_views}}</text>
+                        </view>
+                    </view>
+                    <view class="article-tip">
+                        <image mode="widthFix" src="{{item.img}}" style="width:100%"></image>
+                        <text>
+                                {{item.content}}
+                            </text>
+                    </view>
+                    <view class="article-btn">
+                        <view>
+                            <button bindtap="like" class="iconfont {{item.is_like==1?'icon-dianzanxuanzhong':'icon-dianzan'}} white-color"></button>
+                        </view>
+                        <view>
+                            <button class="iconfont icon-fenxiang1 white-color" openType="share"></button>
+                        </view>
+                    </view>
+                    <view class="article-text">
+                        <text class="fz-12 height-level-color">赞一个（{{item.likeCount}}）</text>
+                        <button class="fz-12 height-level-color" openType="share" style="line-height:1;background:transparent">分享给朋友</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="page__ft">
+        <view class="weui-footer">
+            <block wx:for="{{banners}}" wx:for-item="banner" wx:key="key">
+                <view class="weui-footer__text" wx:if="{{banner.type=='text'}}">{{banner.text}}</view>
+                <navigator class="" hoverClass="weui-form-preview__btn_active" url="{{banner.url}}" wx:if="{{banner.type=='link'}}">
+                    <image mode="widthFix" src="{{banner.image}}" style="width: 100%;" wx:if="{{banner.image}}"></image>
+                    <view class="weui-footer__text">{{banner.text}}</view>
+                </navigator>
+                <block wx:if="{{banner.type=='image'}}">
+                    <image bindtap="preview" data-wpypreview-a="{{banner.image}}" mode="widthFix" src="{{banner.image}}" style="width: 100%;" wx:if="{{banner.image}}"></image>
+                    <view class="weui-footer__text">{{banner.text}}</view>
+                </block>
+            </block>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

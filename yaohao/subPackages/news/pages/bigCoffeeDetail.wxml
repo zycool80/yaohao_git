@@ -1,0 +1,41 @@
+<view class="page">
+    <view class="point-title">
+        <image class="back_bg" mode="widthFix" src="http://imgcdn.qi.la/assets/img/20190226/5c749eb7a5f2d.png"></image>
+        <image bindtap="preview" class="avatar" data-wpypreview-a="{{bigCoffeeDetails.avatar_url}}" mode="aspectFill" src="{{bigCoffeeDetails.avatar_url||'/image/default_sales_man_avatar.png'}}"></image>
+        <view class="bigCoffeeCont">
+            <view class="name fz-20 black1a-color font-bold">{{bigCoffeeDetails.name}}</view>
+            <view class="small-name fz-13 black1a-color" wx:if="{{bigCoffeeDetails.total}}">共{{bigCoffeeDetails.total}}篇文章</view>
+            <view class="description fz-12 gray-9-color" wx:if="{{bigCoffeeDetails.intro}}">{{bigCoffeeDetails.intro}}</view>
+            <button class="share fz-15 white-color" openType="share">分享主页</button>
+        </view>
+    </view>
+    <view class="article-list">
+        <view class="title fz-15">文章列表</view>
+        <view class="article-line" wx:for="{{articleList}}" wx:for-index="i" wx:for-item="article" wx:key="key">
+            <navigator class="article-style" hoverClass="none" url="{{article.url}}">
+                <image class="right-img" mode="aspectFill" src="{{article.img}}"></image>
+                <view class="left-cont">
+                    <view class="article-detail fz-15 font-bold black1a-color">{{article.title}}</view>
+                    <view class="bottom">
+                        <view class="left-name">
+                            <image class="avatar" lazyLoad="{{$articleStyle$true}}" mode="aspectFill" src="{{article.source.avatar_url||$articleStyle$defaultAvatar}}"></image>
+                            <text class="name fz-10 gray-9-color">{{article.source.name}}</text>
+                        </view>
+                        <view class="time fz-10 gray-9-color">{{article.time}}</view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <view class="not_id_card small-level-color" style="padding-top:80px;font-size:14px;text-align: center" wx:if="{{articleList.length<=0}}">暂无内容</view>
+    </view>
+    <view class="bottom_tip" wx:if="{{articleList.length>0}}">
+        <view class="bottom_line before"></view>
+        <view class="bottom_tip_text fz-10 gray-9-color">我的底线在这里~</view>
+        <view class="bottom_line after"></view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

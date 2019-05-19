@@ -1,0 +1,110 @@
+<view class="page">
+    <view class="my-user-info blue-bg">
+        <view class="right" wx:if="{{item.is_me==1}}">
+            <navigator class="btn white-bg blue-color fz-11" style="width:112rpx;" url="/pages/salesMan/detail?id={{item.sales_man_id}}" wx:if="{{item.sales_man_id>0}}">个人主页</navigator>
+            <navigator class="btn white-bg blue-color fz-11" style="margin-left: 30rpx;" url="/subPackages/question/pages/questionMessages">消息</navigator>
+        </view>
+        <view class="right" wx:else>
+            <navigator class="btn white-bg blue-color fz-11" url="/pages/salesMan/detail?id={{item.sales_man_id}}" wx:if="{{item.sales_man_id>0}}">个人主页</navigator>
+            <view catchtap="follow" class="btn white-bg blue-color fz-11 {{item.attention==2?'contact-salesman-guanzhu':'contact-salesman-yiguanzhu'}}" style=" margin-left: 30rpx;">{{item.attention==2?'+关注':'已关注'}}</view>
+        </view>
+        <view class="left">
+            <view class="avatar" style="position: relative">
+                <image src="{{item.avatar_url||avatar_url}}"></image>
+                <image mode="widthFix" src="/images/exportLog.png" style="position:absolute;left:-12rpx;top:65rpx;width:60px;" wx:if="{{item.is_specialist==1}}"></image>
+            </view>
+            <view class="userinfo white-color">
+                <view class="fz-14 font-bold white-color">{{item.name}}</view>
+                <view class="fz-12 project_name" wx:if="{{item.sales_man_id>0}}">{{item.is_broker==1?'经纪人':'置业顾问'}} 【{{item.project_name}}】</view>
+            </view>
+            <view class="fz-12 white-color">关注我（{{item.attention_my_num}}）</view>
+        </view>
+    </view>
+    <view class="my-nav-topic">
+        <view class="nav-container">
+            <navigator class="nav-list" hoverClass="none" url="/subPackages/question/pages/questionList?user_id={{user_id}}">
+                <view class="top fz-16 black-1a">{{item.question_num}}</view>
+                <view class="bottom fz-12 small-level-color">提问</view>
+            </navigator>
+            <navigator class="nav-list" hoverClass="none" url="/subPackages/question/pages/answerList?user_id={{user_id}}">
+                <view class="top fz-16 black-1a">{{item.answer_num}}</view>
+                <view class="bottom fz-12 small-level-color">回答</view>
+            </navigator>
+            <navigator class="nav-list" hoverClass="none" url="/subPackages/question/pages/myDiscuss?user_id={{user_id}}">
+                <view class="top fz-16 black-1a">{{item.discussion_num}}</view>
+                <view class="bottom fz-12 small-level-color">话题</view>
+            </navigator>
+            <navigator class="nav-list" hoverClass="none" url="/subPackages/question/pages/attentionList?user_id={{user_id}}&is_me={{item.is_me}}&user_name={{item.name}}">
+                <view class="top fz-16 black-1a">{{item.attention_num}}</view>
+                <view class="bottom fz-12 small-level-color">关注</view>
+            </navigator>
+        </view>
+        <view class="topic-container white-bg fz-13">
+            <view class="title small-level-color">最新话题</view>
+            <scroll-view scrollX class="scroll-topic-view">
+                <view class="scroll-topic-view-container" style="width:{{scrollViewWidth}}px;padding: 30rpx 30rpx;overflow:hidden">
+                    <navigator class="scroll-topic-list font-bold blue-color" hoverClass="none" url="{{item.url}}" wx:for="{{topics}}" wx:key="key">{{item.text}}</navigator>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <block wx:for="{{questions}}" wx:for-index="question_index" wx:for-item="question" wx:key="key">
+        <view class="question-head" style="margin-top:150rpx">
+            <view class="fz-14 font-bold">{{question.time}}</view>
+        </view>
+        <view class="question-container">
+            <view class="question-list white-bg">
+                <navigator class="bottom-answer white-bg" hoverClass="none" url="/subPackages/question/pages/questionDetail?id={{item.id}}" wx:for="{{question.data}}" wx:key="key">
+                    <view style="float:left;margin-right: 30rpx">
+                        <view class="avatar">
+                            <image mode="aspectFill" src="{{item.user_avatar_url||avatar_url}}"></image>
+                        </view>
+                    </view>
+                    <view class="title-top">
+                        <view class="user-info fz-13 black-1a font-bold">{{item.user_name}}</view>
+                        <view catchtap="delBox" class="fz-24 other font-bold" data-wpydelbox-a="{{index}}">...</view>
+                    </view>
+                    <view class="answer-desc fz-13 black1a-color">
+                        <text>{{item.content}}</text>
+                    </view>
+                    <view class="nine-img-view" style="overflow:hidden">
+                        <view class="weui-flex" style="overflow:hidden" wx:for="{{item.img}}" wx:for-item="images" wx:key="key">
+                            <block wx:for="{{item.layout}}" wx:for-item="i" wx:key="key">
+                                <view class="layout{{item.layout}}" wx:if="{{images[i]}}">
+                                    <view class="img-box imgLayout imgLayout{{item.layout}}" style="overflow:hidden" wx:if="{{item.layout==1}}">
+                                        <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                    </view>
+                                    <view class="img-smallBox imgLayout imgLayout{{item.layout}}" wx:else>
+                                        <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                    </view>
+                                </view>
+                                <view class="layout{{item.layout}}" wx:else></view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="tags-page_views">
+                        <view class="tags fz-10">
+                            <view class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="key">{{tag.text}}</view>
+                        </view>
+                        <block wx:if="{{item.status!=3}}">
+                            <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/questionCloselyDetail?id={{item.id}}" wx:if="{{userInfo.id==item.user_id&&!item.to_question_closely}}">我要追问</view>
+                            <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/answerDetail?id={{item.id}}" wx:else>我要回答</view>
+                        </block>
+                    </view>
+                    <view class="time-and-like">
+                        <view class="time gray-9-color fz-12">{{item.time}}</view>
+                        <view>
+                            <text class="page_views fz-12 gray-9-color" style="margin-right: 30rpx">{{item.page_views}} 浏览</text>
+                            <text class="answer_num fz-12 gray-9-color">{{item.comment_num}} 回答</text>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

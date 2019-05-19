@@ -1,0 +1,77 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f9fafc;
+}
+
+.year-cont {
+    margin-bottom: 20rpx;
+    border-top: 1rpx solid #e2e2e2;
+    background: #fff;
+}
+
+.year-cont .line-title {
+    padding: 34rpx 30rpx 25rpx 60rpx;
+    overflow: hidden;
+}
+
+.year-cont .line-title .year-num {
+    float: left;
+}
+
+.year-cont .line-title .year-toggle {
+    float: right;
+}
+
+.year-cont .line-title .year-toggle.active {
+    transform: rotateZ(180deg);
+}
+
+.year-cont .cont-line {
+    overflow: hidden;
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.year-cont .cont-line .left {
+    float: left;
+    text-align: left;
+    width: 50%;
+    border-right: 1rpx solid #e2e2e2;
+    box-sizing: border-box;
+    padding: 0 60rpx;
+}
+
+.year-cont .cont-line .right {
+    float: left;
+    text-align: left;
+    width: 50%;
+    padding: 0 60rpx;
+    box-sizing: border-box;
+}
+
+.year-cont .year-detail-cont {
+    background: #f7f7f7;
+}
+
+.year-cont .year-detail-cont .detail-line {
+    overflow: hidden;
+    padding: 22rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.year-cont .year-detail-cont .detail-line .detail-text {
+    width: 20%;
+    text-align: center;
+    border-right: 1rpx solid #e2e2e2;
+    float: left;
+    box-sizing: border-box;
+}
+
+.year-cont .year-detail-cont .detail-line .no-boder {
+    border: none;
+}
+
+.red-color {
+    color: #ff454e!important;
+}

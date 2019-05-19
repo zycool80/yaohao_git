@@ -1,0 +1,28 @@
+<view class="page">
+    <image class="bg_img" src="http://imgcdn.huanjutang.com/assets/img/20181115/5bed4213013d2.png"></image>
+    <view class="{{type?'middle_content2':'middle_content'}}">
+        <view class="title_text">
+            <image class="title_img" src="../../../images/howmaning.png"></image>
+        </view>
+        <view class="big_container">
+            <view class="input_content">
+                <input bindblur="type_under" bindfocus="type_on" bindinput="inputTyping" class="community_input" placeholder="输入您要估价的小区名字" placeholderClass="placeholder_style" value="{{getValue}}"></input>
+                <text bindtap="delete_value" class="iconfont icon-delete detile" style="font-size: 40rpx;z-index: 99;margin-top: 2rpx" wx:if="{{getValue}}"></text>
+            </view>
+            <scroll-view class="scroll_foot" scrollY="true" wx:if="{{foot_type}}">
+                <view bindtap="getItem" class="item_content" data-wpygetitem-a="{{item}}" wx:for="{{community}}" wx:key="key">
+                    <view class="iconfont icon-fangzi iocn fz-13"></view>
+                    <text class="fz-13">{{item.resblock_name}}</text>
+                </view>
+            </scroll-view>
+        </view>
+        <view bindtap="guess_price" class="estimate_to">
+            <text class="fz-15 white-color">去估价</text>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

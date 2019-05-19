@@ -1,0 +1,47 @@
+<view class="page">
+    <view class="projectDetail-bg">
+        <view class="projectDetail-title">
+            <view class="projectDetail-title-name">
+                <text class="fz-16 black-color font-bold" style="padding-bottom: 24rpx">{{title}}</text>
+                <text class="fz-12 small-level-color">{{area}}</text>
+            </view>
+            <view class="projectDetail-title-name-share">
+                <button class="share" openType="share">
+                    <text class="iconfont icon-fenxiang fz-14"></text>
+                    <text class="fz-12" style="line-height: 56rpx;margin-left: 8rpx;">分享</text>
+                </button>
+            </view>
+        </view>
+    </view>
+    <view class="history-lottery has-icon-list">
+        <view class="head border">
+            <view style="float:left;color: #6d7999;">
+                <text class="fz-12 ">全部摇号({{historyLottery.length}})</text>
+            </view>
+        </view>
+        <navigator class="history-lottery-container" hoverClass="none" url="{{'/pages/lotteryDetail?id='+history.id+'&project_id='+project_id}}" wx:for="{{historyLottery}}" wx:for-item="history" wx:key="key">
+            <view class="top">
+                <text class="fz-13 black1a-color font-bold" style="float:left">{{history.name}}</text>
+                <text class="fz-13 red-color" style="float:right">{{history.avg_price}}</text>
+            </view>
+            <view class="center" style="color: #808080">
+                <view class="left fz-12">摇号时间：{{history.time}}</view>
+            </view>
+            <view class="bottom fz-12" style="color: #6b5224">
+                <view class="left add-circle">
+                    <text>总套数：</text>
+                    <text>{{history.total_room_num}}</text>
+                </view>
+                <view class="right">
+                    <text>摇中率：</text>
+                    <text wx:for="{{history.rate}}" wx:for-item="rate" wx:key="key">{{rate.name}}:{{rate.value}} </text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

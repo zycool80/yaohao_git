@@ -1,0 +1,79 @@
+<view class="page" wx:if="{{guideImg.length<=0}}">
+    <view class="myTopInfo">
+        <form bindsubmit="signSubmitHandle" class="signIn" reportSubmit="true">
+            <button class="fz-12 white-color" formType="submit">
+                <text class="fz-18 icon-qiandao3 iconfont"></text>
+                <text> 签到</text>
+            </button>
+        </form>
+        <button bindtap="shareAnalysis" class="share fz-12 white-color" openType="share">
+            <text class="iconfont icon-fenxiang"></text>
+            <text> 分享</text>
+        </button>
+        <view class="left-avatar" wx:if="{{userInfo.nickName}}">
+            <navigator bindtap="avatarAnalysis" class="avatar" hoverClass="none" url="/pages/salesMan/detail?id={{sales_man_id}}" wx:if="{{sales_man_id>0}}">
+                <image mode="aspectFill" src="{{userInfo['avatarUrl']||defaultAvatar}}"></image>
+            </navigator>
+            <navigator class="avatar" hoverClass="none" url="/subPackages/me/pages/editAvatar" wx:else>
+                <image mode="aspectFill" src="{{userInfo['avatarUrl']||defaultAvatar}}"></image>
+            </navigator>
+            <button bindgetuserinfo="getUserInfo" class="name fz-14 white-color" lang="zh_CN" openType="getUserInfo">{{userInfo.nickName}}</button>
+        </view>
+        <view class="left-avatar" wx:else>
+            <view bindtap="avatarAnalysis" class="avatar">
+                <image mode="aspectFill" src="{{userInfo['avatarUrl']||defaultAvatar}}"></image>
+            </view>
+            <button bindgetuserinfo="getUserInfo" class="name fz-14 white-color" lang="zh_CN" openType="getUserInfo">点击这里获取昵称</button>
+        </view>
+    </view>
+    <view class="main-cont">
+        <view class="card_line card_line1">
+            <navigator class="line" hoverClass="none" url="{{item.url}}" wx:for="{{tagConfig.top}}" wx:key="key">
+                <image mode="aspectFit" src="{{item.icon}}"></image>
+                <view class="text fz-12 black1a-color">{{item.text}}</view>
+                <text class="red-circle" wx:if="{{item.badge}}"></text>
+            </navigator>
+        </view>
+        <navigator class="card_line card_line2" hoverClass="none" url="/subPackages/me/pages/myIDCard" wx:if="{{tagConfig.perfection.status==0}}">
+            <view class="title" style="padding-bottom: 20rpx">
+                <text class="black1a-color fz-14 font-bold left">完善您的资料</text>
+                <text class="fz-13 font-bold right">去完善 >></text>
+            </view>
+            <view class="cont fz-12 black1a-color">{{tagConfig.perfection.content}}</view>
+        </navigator>
+        <view class="swiper-box" style="overflow:hidden;margin-bottom:20rpx;border-radius:16rpx" wx:else>
+            <swiper autoplay duration="1000" interval="5000" style="height:206rpx;overflow:hidden;background-color:white" wx:if="{{myBanners.length>0}}">
+                <swiper-item wx:for="{{myBanners}}" wx:key="key">
+                    <navigator hoverClass="none" style="height:206rpx;margin:auto;border-radius:16rpx;overflow:hidden" url="{{item.url}}">
+                        <image src="{{item.image}}" style="width: 100%;height: 100%"></image>
+                    </navigator>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="card_line" wx:for="{{tagConfig.tags}}" wx:key="key">
+            <view class="title">
+                <text class="black1a-color fz-14 font-bold left">{{item.title}}</text>
+            </view>
+            <view class="card_line1">
+                <block wx:for="{{item.content}}" wx:for-item="val" wx:key="key">
+                    <navigator bindtap="batBtnAnalysis" class="line" data-title="{{val.text}}" hoverClass="none" style="margin-top: {{index>3?'30':'0'}}rpx" url="{{val.url}}" wx:if="{{val.url}}">
+                        <image mode="aspectFit" src="{{val.icon}}"></image>
+                        <view class="text fz-12 black1a-color">{{val.text}}</view>
+                    </navigator>
+                    <button bindtap="batBtnAnalysis" class="line" data-title="{{val.text}}" hoverClass="none" openType="contact" sessionFrom="{{weapp}}" wx:else>
+                        <image mode="aspectFit" src="{{val.icon}}"></image>
+                        <view class="text fz-12 black1a-color">{{val.text}}</view>
+                    </button>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>
+<block wx:if="{{guideImg.length>0}}">
+    <view class="guide-bg">
+        <image catchtap="hideGuide" mode="widthFix" src="{{guideImg}}"></image>
+    </view>
+    <view catchtap="hideGuide" class="nextStep fz-12 black1a-color">
+        <image src="http://imgcdn.huanjutang.com/assets/img/20190107/5c3306a4bae74.png" style="width: 300rpx;height: 100rpx"></image>
+    </view>
+</block>

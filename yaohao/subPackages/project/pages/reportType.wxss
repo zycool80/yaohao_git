@@ -1,0 +1,30 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.black-1a-color {
+    color: #1a1a1a!important;
+}
+
+.reportType-title {
+    background: #f7f7f7;
+    padding: 28rpx 30rpx;
+}
+
+.reportType-line {
+    overflow: hidden;
+    margin-left: 30rpx;
+    padding: 30rpx 30rpx 30rpx 0;
+    border-bottom: 1rpx solid #f7f7f7;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.reportType {
+    border-bottom: 1rpx solid #f7f7f7;
+    margin-bottom: 400rpx;
+}

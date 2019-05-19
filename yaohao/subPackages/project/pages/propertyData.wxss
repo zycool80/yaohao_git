@@ -1,0 +1,613 @@
+@import "Pie.wxss";
+
+@import "../__wuBaseWxss__/0.wxss";
+
+.page {
+    position: relative;
+}
+
+.propertyData {
+    background: #3772cc;
+}
+
+.propertyData-top {
+    padding: 30rpx 30rpx;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.top-btn {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+    overflow: hidden;
+    padding: 25rpx;
+    border: 1rpx solid #c1d2ee;
+    color: #fff;
+    background: #3772cc;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.top-btn-text {
+    padding: 23rpx 0 20rpx;
+    line-height: 1;
+    text-align: center;
+}
+
+.top-btn.active {
+    background: #fff;
+    color: #3772cc;
+}
+
+.switch-tab {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 30rpx 0;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.switch-tab-line {
+    border-bottom: 4rpx solid #3772cc;
+}
+
+.green-color {
+    color: #16a4ae!important;
+}
+
+.border {
+    padding: 5rpx 15rpx;
+    line-height: 1;
+    border-radius: 30rpx;
+}
+
+.echarts {
+    padding: 40rpx 30rpx;
+}
+
+.echarts .echarts-top {
+    border-left: 8rpx solid #3772cc;
+    padding-left: 10rpx;
+    box-sizing: border-box;
+}
+
+.echarts .echarts-center {
+    overflow: hidden;
+    margin-top: 35rpx;
+}
+
+.echarts .echarts-center .echarts-form {
+    width: 60%;
+    float: left;
+}
+
+.echarts .echarts-center .echarts-form canvas {
+    height: 450rpx;
+    width: 100%;
+}
+
+.echarts .echarts-center .echarts-form-right {
+    float: left;
+    width: 40%;
+}
+
+.echarts .echarts-center .echarts-form-right .form_right-tip1 {
+    margin-top: 30rpx;
+}
+
+.echarts .echarts-center .echarts-form-right .form_right-tip1 .right_tip1-top {
+    margin-top: 15rpx;
+}
+
+.echarts .echarts-center .echarts-form-right .form_right-tip1 .right_tip1-bottom {
+    margin-top: 15rpx;
+}
+
+.switch-time {
+    padding: 40rpx 30rpx;
+}
+
+.switch-time>text:not(.data) {
+    margin-left: 30rpx;
+}
+
+.echarts-time {
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+
+.echarts-time-tab {
+    overflow: hidden;
+}
+
+.echarts-time-tab .echarts_time-data {
+    float: left;
+}
+
+.echarts-time-tab .echarts_time-share {
+    float: right;
+}
+
+.tab-text {
+    padding: 0 15rpx;
+}
+
+.echarts-list {
+    background: #f7f7f7;
+    padding: 20rpx 0;
+}
+
+.echarts-list-content {
+    background: #fff;
+    border-radius: 8rpx;
+}
+
+.echarts-list-content-top {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    align-items: center;
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+
+.echarts-list-content-line {
+    padding: 35rpx 0;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    align-items: center;
+}
+
+.echarts-list-content-middle {
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.echarts-list-content-middle>text {
+    text-align: center;
+    display: inline-block;
+    width: 33%;
+}
+
+.echarts-list-content-line>text {
+    text-align: center;
+    display: inline-block;
+    width: 33%;
+}
+
+.echarts-list-content-bottom {
+    text-align: right;
+    background-color: #f7f7f7;
+    padding: 30rpx 0;
+    text-align: center;
+}
+
+.transactionData {
+    padding: 30rpx 0;
+    position: relative;
+}
+
+.transactionData .propertyData-share-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transactionData .propertyData-share-top view {
+    width: 264rpx;
+    text-align: center;
+}
+
+.transactionData .propertyData-share-top image {
+    height: 20rpx;
+    flex: 1;
+}
+
+.transactionData .propertyData-share {
+    width: 90rpx;
+    height: 90rpx;
+    z-index: 99;
+    top: 70rpx;
+    right: 30rpx;
+    line-height: 100rpx;
+    position: absolute;
+    text-align: center;
+    border-radius: 90rpx;
+    background-color: #16a5af;
+}
+
+.transactionData-product {
+    padding: 30rpx;
+}
+
+.transactionData-product .transactionData-title {
+    border-left: 8rpx solid #3772cc;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    margin-bottom: 30rpx;
+}
+
+.transactionData-product1 {
+    padding: 30rpx;
+}
+
+.transactionData-product1 .price_echarts-title {
+    border-left: 8rpx solid #3772cc;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+    padding-left: 20rpx;
+}
+
+.transactionData-product1 .price_echarts-form {
+    height: 480rpx;
+}
+
+.transactionData-product1 .price_echarts-form canvas {
+    height: 480rpx;
+    width: 100%;
+}
+
+.transactionData-content {
+    background: #fff;
+    border-radius: 8rpx;
+    box-shadow: 0 0 20rpx 0 rgba(0,0,0,0.1);
+    padding: 30rpx;
+}
+
+.transactionData-content-line {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.green-color {
+    color: #50bcc3;
+}
+
+.orange-color {
+    color: #f7776a;
+}
+
+.transactionData-content-line>text {
+    width: 25%;
+    text-align: center;
+    line-height: 70rpx;
+}
+
+.transactionData-content-line>text:first-child {
+    text-align: left;
+}
+
+.bottom {
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+}
+
+.updata-time {
+    padding: 30rpx 0 20rpx;
+}
+
+.dataArea,.bottom-content {
+    padding-bottom: 35rpx;
+}
+
+.bottom-content>text {
+    display: block;
+}
+
+.bottom-content-center {
+    padding-bottom: 30rpx;
+}
+
+.price-room-top {
+    padding: 30rpx;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.price-room-top .propertyData-share {
+    width: 90rpx;
+    height: 90rpx;
+    z-index: 99;
+    top: 45rpx;
+    right: 60rpx;
+    line-height: 100rpx;
+    position: absolute;
+    text-align: center;
+    border-radius: 90rpx;
+    background-color: #16a5af;
+}
+
+.price-room-top .price-room-content {
+    height: 324rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 10px 0 #ccc;
+}
+
+.price-room-top .price-room-content .price-room-tip2 {
+    height: 75rpx;
+    margin: 45rpx 0;
+    font-size: 80rpx;
+    text-align: center;
+}
+
+.price-room-top .price-room-content .price-room-tip3,.price-room-top .price-room-content .price-room-tip4 {
+    text-align: right;
+}
+
+.price-echarts {
+    margin: 20rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.price-echarts .price_echarts-title {
+    border-left: 8rpx solid #3772cc;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+    padding-left: 20rpx;
+}
+
+.price-echarts .price_echarts-form {
+    height: 570rpx;
+    border-top: 1px solid #e2e2e2;
+}
+
+.price-echarts .price_echarts-form canvas {
+    height: 462rpx;
+    width: 100%;
+}
+
+.block-gray {
+    height: 20rpx;
+    background-color: #f7f7f7;
+}
+
+.price_room-btn {
+    background-color: #fff;
+    height: 100rpx;
+    width: 100%;
+    padding: 10rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.price_room-btn .price-btn {
+    height: 80rpx;
+    width: 100%;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 6rpx;
+}
+
+.price_room-btnbg {
+    height: 100rpx;
+    background-color: #f7f7f7;
+}
+
+.echarts-price-risefall {
+    position: relative;
+}
+
+.echarts-price-risefall .propertyData-share {
+    width: 90rpx;
+    height: 90rpx;
+    z-index: 99;
+    top: 10rpx;
+    right: 30rpx;
+    line-height: 100rpx;
+    position: absolute;
+    text-align: center;
+    border-radius: 90rpx;
+    background-color: #16a5af;
+}
+
+.echarts-price-risefall .echarts-price-tab {
+    padding-top: 40rpx;
+    padding-left: 28rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.echarts-price-risefall .echarts-price-tab .rank-reduction {
+    margin-right: 120rpx;
+    float: left;
+}
+
+.echarts-price-risefall .price-risefall-meg {
+    padding: 26rpx 40rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.echarts-price-risefall .price-risefall-meg .meg-left {
+    float: left;
+    display: inline-block;
+    width: 48rpx;
+}
+
+.echarts-price-risefall .price-risefall-meg .meg-left image {
+    width: 34rpx;
+    height: 30rpx;
+}
+
+.echarts-price-risefall .price-risefall-meg .meg-right {
+    margin-left: 60rpx;
+}
+
+.echarts-price-risefall .price-risefall-meg .meg-right .price-meg-tip1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.echarts-price-risefall .price-risefall-meg .meg-right .price-meg-tip2 {
+    margin-top: 22rpx;
+}
+
+.echarts-price-risefall .price-risefall-meg .meg-right .price-meg-tip3 {
+    margin-top: 22rpx;
+    overflow: hidden;
+}
+
+.echarts-price-risefall .price-risefall-meg .meg-right .price-meg-tip3 .left {
+    float: left;
+}
+
+.echarts-price-risefall .price-risefall-meg .meg-right .price-meg-tip3 .right {
+    float: right;
+}
+
+.echarts-price-risefall .price-risefall-meg .meg-right .price-meg-tip4 {
+    margin-top: 10rpx;
+}
+
+.echarts_data-type {
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+
+.echarts_data-type .data_type-top {
+    border-left: 8rpx solid #377dcf;
+    padding-left: 20rpx;
+}
+
+.echarts_data-type .data_type-content .count-row {
+    margin-top: 40rpx;
+    overflow: hidden;
+    position: relative;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+}
+
+.echarts_data-type .data_type-content .count-row .count_row-column {
+    width: 33.33%;
+    float: left;
+}
+
+.echarts_data-type .data_type-content .count-row .add-icon:before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 100%;
+    top: 15rpx;
+    left: 10rpx;
+}
+
+.echarts_data-type .data_type-content .count-row .add-icon.circle-2-bg:before {
+    background-color: #16c295;
+}
+
+.echarts_data-type .data_type-content .count-row .add-icon.circle-3-bg:before {
+    background-color: #4da9ea;
+}
+
+.echarts_data-type .data_type-content .count-row .add-icon.circle-1-bg:before {
+    background-color: #f7b55e;
+}
+
+.echarts_data-type .data_type-content .count-row .add-icon.circle-0-bg:before {
+    background-color: #f7776a;
+}
+
+.echarts_data-type .data_type-content .count-row .add-icon.circle-4-bg:before {
+    background-color: #eb5a92;
+}
+
+.color-2 {
+    color: #16c295;
+}
+
+.color-3 {
+    color: #f7776a;
+}
+
+.weui-cell-third {
+    background: #fff;
+}
+
+.weui-cell-third .page__title {
+    margin-bottom: 10rpx;
+}
+
+.weui-cell-third .weui-cell-list {
+    margin: 0 20rpx;
+}
+
+.weui-cell-third .weui-cell-list .weui-cell-line {
+    margin-left: 15rpx;
+    border-left: 2px solid #e6e6e6;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.weui-cell-third .weui-cell-list .weui-cell-line .weui-cell-time {
+    height: 50rpx;
+    line-height: 50rpx;
+    border-radius: 4rpx;
+    text-align: center;
+    background-color: #6b8bc6;
+    width: 100rpx;
+}
+
+.weui-cell-third .weui-cell-list .weui-cell-line .weui-cell-bottom {
+    box-sizing: border-box;
+}
+
+.weui-cell-third .weui-cell-list .weui-cell-line .weui-cell-bottom .weui-cell-name {
+    margin-top: 20rpx;
+    font-size: 14px;
+    height: 23px;
+}
+
+.weui-cell-third .weui-cell-list .weui-cell-line .weui-cell-bottom .weui-cell-event {
+    color: #6b8bc6;
+}
+
+.weui-cell-third .weui-cell-list .weui-cell-circle {
+    border: 2px solid #e6e6e6;
+    border-radius: 30rpx;
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.showVisible {
+    visibility: visible;
+}
+
+.hideVisible {
+    height: 0!important;
+    overflow: hidden;
+}
+
+button {
+    line-height: 1;
+    display: inline-block;
+    background-color: transparent;
+}
+
+.button-hover {
+    background: transparent;
+}
+
+.propertyData-share2 {
+    position: absolute;
+    top: 72rpx;
+    right: 30rpx;
+    width: 90rpx;
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #16a5af;
+    border-radius: 50%;
+}

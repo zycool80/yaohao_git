@@ -1,0 +1,30 @@
+<view class="pages">
+    <block wx:for="{{systemMessageItemList}}" wx:for-item="items" wx:key="key">
+        <view class="lotteryYear">
+                {{items.time}}
+            </view>
+        <view bindtap="pageNavigateTo" class="comment_box" data-wpypagenavigateto-a="{{item.params.invite_id}}" data-wpypagenavigateto-b="{{item.id}}" wx:for="{{items.data}}" wx:key="key">
+            <view class="comment_list_item">
+                <view class="comment_list_avatar">
+                    <image mode="aspectFill" src="{{item.params.user_avatar_url}}"></image>
+                </view>
+                <view class="comment_list_right">
+                    <view>
+                        <view class="userAnswer">
+                            <view class="user">{{item.content}}</view>
+                            <text catchtap="cancelData" class="iconfont white-color icon-guanbi  cancel" data-wpycanceldata-a="{{item.id}}"></text>
+                        </view>
+                        <view class="commentTime">
+                            <view class="text-fz-22">{{item.created_at}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

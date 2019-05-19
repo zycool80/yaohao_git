@@ -1,0 +1,52 @@
+<view class="page">
+    <view class="page__bd haveSearchBar">
+        <view>
+            <view class="search-bar">
+                <view bindtap="doSearch" class="search-btn fz-14 white-color">确定</view>
+                <view class="search-bar-form">
+                    <view bindtap="doSearch" class="weui-icon-search iconfont icon-sousuo"></view>
+                    <view bindtap="clearInput" class="weui-icon-clear iconfont icon-delete" wx:if="{{inputVal.length>0}}"></view>
+                    <input bindconfirm="doSearch" bindinput="inputTyping" class="ui-input search-bar-input" placeholder="请输入身份证、姓名、登记号进行搜索" placeholderClass="search-input-place" type="text" value="{{inputVal}}"></input>
+                </view>
+            </view>
+        </view>
+        <view>
+            <navigator class="fz-15 height-level-color font-bold" style="line-height:3;border-bottom:1rpx solid #f2f2f2;text-align:center" url="/pages/lotteryDetail?id={{lottery_id}}">【{{lottery_name}}】复核名单</navigator>
+            <view class="lottery-result" wx:for="{{items}}" wx:key="key">
+                <view class="row">
+                    <view bindtap="addBuyers" class="add blue-color fz-14" data-wpyaddbuyers-a="{{item}}">添加</view>
+                    <view class="column fz-14">
+                        <view class="label">公证摇号编码</view>
+                        <view class="value">{{item.code}}</view>
+                    </view>
+                    <view class="column fz-14">
+                        <view class="label">姓名</view>
+                        <view class="value" wx:for="{{item.name}}" wx:key="key">{{item}}</view>
+                    </view>
+                    <view class="column fz-14" wx:if="{{item.reg_num.length>=0}}">
+                        <view class="label">购房登记号</view>
+                        <view class="value">{{item.reg_num}}</view>
+                    </view>
+                    <view class="column fz-14">
+                        <view class="label">身份证号</view>
+                        <view class="value" wx:for="{{item.id_num}}" wx:key="key">{{item}}</view>
+                    </view>
+                    <view class="column fz-14">
+                        <view class="label">审核状态</view>
+                        <view class="value">{{item.comments}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view>
+            <view class="weui-loadmore" hidden="{{more}}">
+                <view class="weui-loadmore__tips gray-color">我到底咯</view>
+            </view>
+        </view>
+        <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+            <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+                <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+            </navigator>
+        </view>
+    </view>
+</view>

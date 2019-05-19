@@ -1,0 +1,292 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.page {
+    padding-bottom: 300rpx;
+}
+
+.tab-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    z-index: 25;
+    background: #fff;
+}
+
+.tab-bar .tabname {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-bottom: 4rpx solid #f7f7f7;
+    text-align: center;
+    position: relative;
+}
+
+.tab-bar .tabname.active:after {
+    border: 4rpx solid #3772cc;
+    width: 60rpx;
+    content: "";
+    line-height: 0;
+    display: inline-block;
+    position: absolute;
+    bottom: -1rpx;
+    left: 40%;
+}
+
+.myDiscuss-date {
+    color: #1a1a1a;
+    padding: 130rpx 30rpx 30rpx;
+}
+
+.right-btn {
+    padding: 30rpx 0 0;
+    position: relative;
+    line-height: 1;
+}
+
+.right-btn .right-btn-text {
+    margin-left: 10rpx;
+}
+
+.right-btn .good {
+    right: 180rpx;
+}
+
+.right-btn .comment {
+    right: 60rpx;
+}
+
+.right-btn .share {
+    right: 0;
+    background: transparent;
+    line-height: 1;
+}
+
+.good,.share,.comment {
+    position: absolute;
+    display: inline-block;
+}
+
+.myDiscuss-content {
+    padding: 0 30rpx 30rpx;
+}
+
+.left-content .img {
+    float: left;
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50rpx;
+}
+
+.left-content image {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    border-radius: 50rpx;
+}
+
+.right-content {
+    margin-left: 65rpx;
+    background-color: #fff;
+    border-radius: 15rpx;
+    padding: 30rpx;
+}
+
+.right-content .content {
+    padding: 25rpx 0;
+}
+
+.right-content .name {
+    line-height: 1;
+}
+
+.sky-color {
+    color: #0ea8b0!important;
+}
+
+.hot-topic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hot-topic-left {
+    background-color: #f7f7f7;
+    padding: 0 20rpx;
+    line-height: 50rpx;
+    border-radius: 30rpx;
+    display: inline-block;
+    height: 50rpx;
+}
+
+.hot-topic-left .buyHouse {
+    margin-right: 38rpx;
+}
+
+.hot-topic .view {
+    margin-right: 15rpx;
+}
+
+.content-box {
+    background-color: #fff;
+    margin: 0 30rpx 30rpx;
+    border-radius: 15rpx;
+}
+
+.content-box .content-img {
+    height: 300rpx;
+    border-top-right-radius: 15rpx;
+    border-top-left-radius: 15rpx;
+}
+
+.content-box .content-img image {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 15rpx;
+    border-top-left-radius: 15rpx;
+}
+
+.content-text {
+    padding: 53rpx 30rpx 30rpx;
+}
+
+.nothing-text {
+    line-height: 800rpx;
+}
+
+.nothing-text,.getToQuestion {
+    text-align: center;
+}
+
+.myDiscuss-date {
+    color: #1a1a1a;
+    padding-bottom: 40rpx;
+}
+
+.myDiscuss-content {
+    padding-bottom: 30rpx;
+}
+
+.typeTab {
+    padding: 0 15rpx;
+    line-height: 42rpx;
+    height: 42rpx;
+    margin-right: 10rpx;
+    background-color: #fff;
+    border-radius: 8rpx;
+    display: inline-block;
+}
+
+.typeLise .active {
+    border: 1rpx solid #3772cc;
+}
+
+.typeLise {
+    padding: 130rpx 0 30rpx;
+}
+
+.list-content {
+    padding: 0 30rpx;
+}
+
+.left-content .img {
+    float: left;
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50rpx;
+}
+
+.left-content image {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    border-radius: 50rpx;
+}
+
+.right-content {
+    margin-left: 65rpx;
+    background-color: #fff;
+    border-radius: 15rpx;
+    padding: 30rpx;
+}
+
+.right-content .content {
+    padding: 25rpx 0;
+}
+
+.right-content .name {
+    line-height: 1;
+}
+
+.hot-topic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hot-topic-left {
+    background-color: #e2ecfb;
+    padding: 0 20rpx;
+    border-radius: 30rpx;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.hot-topic-left>text {
+    display: inline-block;
+    line-height: 30rpx;
+    height: 30rpx;
+}
+
+.hot-topic-left .buyHouse {
+    margin-right: 38rpx;
+}
+
+.hot-topic .view {
+    margin-right: 15rpx;
+}
+
+.right-btn {
+    padding: 30rpx 0 0;
+    position: relative;
+    line-height: 1;
+}
+
+.right-btn .right-btn-text {
+    margin-left: 10rpx;
+}
+
+.right-btn .good {
+    right: 180rpx;
+}
+
+.right-btn .comment {
+    right: 60rpx;
+}
+
+.right-btn .share {
+    right: 0;
+    background: transparent;
+    line-height: 1;
+}
+
+.right-btn .attention {
+    right: 300rpx;
+}
+
+.good,.share,.comment,.attention {
+    position: absolute;
+    display: inline-block;
+}
+
+.myDiscuss-date {
+    color: #1a1a1a;
+}

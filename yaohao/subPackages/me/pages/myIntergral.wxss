@@ -1,0 +1,150 @@
+@import "manageUsers.wxss";
+
+page {
+    background-color: #f7f7f7;
+    overflow: hidden;
+}
+
+.pointsDetail {
+    position: relative;
+    overflow: hidden;
+}
+
+.pointsDetail .tools {
+    width: 90rpx;
+    height: 90rpx;
+    line-height: 88rpx;
+    border: 1rpx solid #b2cffa;
+    border-radius: 100%;
+    position: absolute;
+    right: 30rpx;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #457dd3;
+    z-index: 3;
+}
+
+.pointsDetail .tools view {
+    display: inline-block;
+    line-height: 1.2;
+    vertical-align: middle;
+    overflow: hidden;
+    width: 52rpx;
+}
+
+.pointsDetail .rule {
+    top: 40rpx;
+}
+
+.pointsDetail .record {
+    top: 166rpx;
+}
+
+.pointsDetail swiper {
+    height: 560rpx;
+    width: 100%;
+    background: linear-gradient(to bottom,#2d8cf0,#6480fb);
+}
+
+.pointsDetail swiper .switchTab {
+    position: relative;
+}
+
+.pointsDetail swiper .switchTab .cicle {
+    width: 284rpx;
+    height: 284rpx;
+    border-radius: 100%;
+    position: absolute;
+    top: 57rpx;
+    left: 50%;
+    margin-left: -144rpx;
+    border: 5rpx solid #b2cffa;
+    background: transparent;
+    z-index: 2;
+}
+
+.pointsDetail swiper .switchTab .cicle .center-cicle {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.pointsDetail swiper .switchTab .rank {
+    position: absolute;
+    bottom: 74rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.pointsDetail .pointsMeg {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.pointsDetail .pointsMeg .title {
+    padding: 28rpx 30rpx;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.pointsDetail .pointsMeg .shareMsg {
+    overflow: hidden;
+    padding: 28rpx 30rpx 20rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.pointsDetail .pointsMeg .shareMsg .left {
+    float: left;
+    max-width: 520rpx;
+}
+
+.pointsDetail .pointsMeg .shareMsg .right {
+    float: right;
+    width: 140rpx;
+    height: 54rpx;
+    text-align: center;
+    line-height: 54rpx;
+    border-radius: 27rpx;
+    color: #66aff3;
+    border: 1px solid #66aff3;
+}
+
+.pointsDetail .up {
+    font-weight: 700;
+}
+
+.pointsDetail .check {
+    height: 90rpx;
+    line-height: 90rpx;
+    margin-bottom: 30rpx;
+    text-align: center;
+}
+
+.guide-bg {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+}
+
+.guide-bg image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+
+.guide-bg .btn {
+    position: absolute;
+    bottom: 155rpx;
+    left: 50%;
+    margin-left: -200rpx;
+    width: 400rpx;
+    height: 80rpx;
+    z-index: 10;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 40rpx;
+}

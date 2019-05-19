@@ -1,0 +1,40 @@
+<view class="page">
+    <view class="problems_header">
+        <image src="http://imgcdn.huanjutang.com/assets/img/20181128/5bfdf3fb8f7fe.png"></image>
+        <view class="problems_title">
+            <view class="problems_title_top">
+                <text>购房常见问题</text>
+                <view class="title_describe">
+                    <text class="fz-11">注:  如若小主还存在其他问题,可前往小程序"问答"模块进行提问!</text>
+                </view>
+            </view>
+            <view class="problems_title_bottom">
+                <image src="http://imgcdn.huanjutang.com/assets/img/20181227/5c2484a85102a.png"></image>
+                <view class="share_btn_content">
+                    <button class="share_btn" openType="share">
+                        <text class="iconfont icon-fenxiang9" style="color: #fff;font-size:50rpx"></text>
+                    </button>
+                    <text class="fz-12" style="color: #000 !important;">分享</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="problems_content">
+        <view class="problems_content_details" wx:for="{{problemsList}}" wx:key="key">
+            <view class="problems_details_top">
+                <view class="top_title">
+                    <text>Q</text>
+                </view>
+            </view>
+            <view class="problems_details_bottom">
+                <text class="title_text">{{item.title}}</text>
+                <text>{{item.content}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,225 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.page,page {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.property-title {
+    line-height: 50rpx;
+    padding: 40rpx;
+    font-size: 40rpx;
+    box-sizing: border-box;
+}
+
+.property-title:before {
+    cotent: '';
+    width: 10rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    background-color: #1e81dd;
+}
+
+.chooseBtn {
+    margin: 45rpx 30rpx 0;
+    height: 100rpx;
+    font-size: 28rpx;
+    line-height: 100rpx;
+    border-radius: 5rpx;
+    text-align: center;
+}
+
+.active {
+    border: 1px solid #1e81dd;
+    color: #1e81dd;
+}
+
+.normal {
+    color: #333;
+    border: 1px solid #999999;
+}
+
+.pre {
+    font-size: 28rpx;
+    color: #999;
+    margin-top: 50rpx;
+    margin-left: 40rpx;
+}
+
+.property-start {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.property-start .message {
+    font-size: 76rpx;
+    text-align: center;
+    z-index: 4;
+    position: absolute;
+    top: 498rpx;
+    left: 0;
+    right: 0;
+}
+
+.property-start .local {
+    font-size: 76rpx;
+    text-align: center;
+    z-index: 4;
+    position: absolute;
+    bottom: 200rpx;
+    letter-spacing: 8rpx;
+    left: 0;
+    right: 0;
+}
+
+.property-start .test {
+    font-size: 76rpx;
+    text-align: center;
+    z-index: 4;
+    position: absolute;
+    top: 370rpx;
+    left: 0;
+    right: 0;
+}
+
+.property-start image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+}
+
+.property-start .startTest {
+    z-index: 4;
+    position: absolute;
+    bottom: 328rpx;
+    height: 106rpx;
+    line-height: 106rpx;
+    width: 328rpx;
+    left: 50%;
+    background-color: #ffe900;
+    color: #79340a;
+    text-align: center;
+    margin-left: -164rpx;
+    border-radius: 5rpx;
+    box-shadow: 0 5rpx 5rpx 5rpx #a3a275;
+}
+
+.ifProperty {
+    height: 100%;
+    padding-top: 120rpx;
+}
+
+.ifProperty .line {
+    height: 55rpx;
+    width: 15rpx;
+    background-color: #1e81dd;
+    transform: translateY(100rpx);
+}
+
+.ifProperty .pre image {
+    width: 38rpx;
+    height: 22rpx;
+    margin-right: 15rpx;
+}
+
+.ifProperty .submitBtn {
+    background-color: #1e81dd;
+    color: #FFFFFF;
+    margin-top: 100rpx;
+}
+
+.property-result .preview-share button {
+    height: 80rpx;
+    width: 80rpx;
+    border-radius: 100%;
+    right: 30rpx;
+    top: 40rpx;
+    line-height: 80rpx;
+    background-color: transparent;
+    vertical-align: middle;
+    position: absolute;
+    z-index: 99;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+}
+
+.property-result .top {
+    position: relative;
+    height: 410rpx;
+}
+
+.property-result .top .bg {
+    width: 100%;
+    height: 410rpx;
+    position: absolute;
+    top: 0;
+}
+
+.property-result .result-msg {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 410rpx;
+    overflow: hidden;
+}
+
+.property-result .result-msg .msg {
+    margin-top: 27rpx;
+}
+
+.property-result .result-msg .tryAgain {
+    width: 194rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    background-color: #dafaff;
+    color: #11899f;
+    margin-top: 35rpx;
+    position: absolute;
+    left: 50%;
+    margin-left: -82rpx;
+    box-shadow: 3rpx 3rpx 13rpx 3rpx rgba(0,0,0,0.15);
+}
+
+.property-result .result-msg .user_avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 100%;
+    margin-top: 64rpx;
+}
+
+.property-result .content {
+    padding: 0 50rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.property-result .content .title {
+    margin: 50rpx 0 40rpx;
+}
+
+.property-result .content .question {
+    margin-bottom: 34rpx;
+}
+
+.property-result .focus {
+    box-sizing: border-box;
+    display: flex;
+    margin: 50rpx 0 60rpx 5rpx;
+    align-items: center;
+}
+
+.property-result .focus image {
+    width: 642rpx;
+    height: 170rpx;
+}
+
+.property-result .focus .tip {
+    marin-left: 35rpx;
+    width: 387rpx;
+}

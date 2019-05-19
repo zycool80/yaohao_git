@@ -1,0 +1,110 @@
+<view class="pages">
+    <view class="header">
+        <view class="head_left">
+            <text>区域排行</text>
+            <picker bindchange="switchMonth" fields="month" mode="date" style="display: inline-block">
+                <view class="month_choose">
+                    <text>{{array[1]}}月</text>
+                    <text class="iconfont icon-xialajiantou fz-11" style="color: #cccccc;margin-left: 16rpx"></text>
+                </view>
+            </picker>
+        </view>
+        <button class="head_right" openType="share">
+            <text>分享</text>
+            <text class="iconfont icon-fenxiang9 fz-14" style="margin-left: 16rpx"></text>
+        </button>
+    </view>
+    <view class="blank_bg"></view>
+    <view class="list_container">
+        <view style="width: 100%;display: flex;justify-content: center" wx:if="{{data_list.length==[]}}">
+            <text style="color: #999999;">暂无区域二手房</text>
+        </view>
+        <block wx:else>
+            <view class="house_item" wx:for="{{data_list}}" wx:key="key">
+                <view class="item_title">
+                    <view class="item_ranking">
+                        <text class="white-color">NO.{{item.cont}}</text>
+                    </view>
+                    <text class="fz-15" style="float: left">{{item.name}}</text>
+                </view>
+                <view class="item_container">
+                    <view class="item_container_title">
+                        <text class="fz-15" style="margin-right: 4rpx;color: #f7776a">{{item.listed}}</text>
+                        <block wx:if="{{item.listed_type>0}}">
+                            <view style="display: inline-block;width: 20rpx;height: 14rpx">
+                                <text class="iconfont icon-top fz-9" style="margin-right: 2rpx;color: #f7776a"></text>
+                            </view>
+                            <text class="fz-9 small-level-color">{{item.listed_rate}}%</text>
+                        </block>
+                        <block wx:if="{{item.listed_type<0}}">
+                            <view style="display: inline-block;transform: rotate(180deg);width: 20rpx;height: 14rpx">
+                                <text class="iconfont icon-top fz-9" style="margin-right: 2rpx;color: #4ad0ad"></text>
+                            </view>
+                            <text class="fz-9 small-level-color" style="margin-left: 4rpx">{{item.listed_rate}}%</text>
+                        </block>
+                        <block wx:if="{{item.listed_rate==0}}">
+                            <view style="display: inline-block;width: 20rpx;height: 14rpx">
+                                <text class="iconfont icon-top fz-9" style="margin-right: 2rpx;color: #ffffff;"></text>
+                            </view>
+                            <text class="fz-9 small-level-color">{{item.listed_rate}}%</text>
+                        </block>
+                    </view>
+                    <text class="fz-10 small-level-color {{item.listed_type<0?'foot_text2':'foot_text'}}">{{array[1]}}月成交均价(元/㎡)</text>
+                </view>
+                <view class="item_container boders_left">
+                    <view class="item_container_title">
+                        <text class="fz-15" style="margin-right: 4rpx;color: #f7776a">{{item.show_house}}</text>
+                        <block wx:if="{{item.show_house_type>0}}">
+                            <view style="display: inline-block;width: 20rpx;height: 14rpx">
+                                <text class="iconfont icon-top fz-9" style="margin-right: 2rpx;color: #f7776a"></text>
+                            </view>
+                            <text class="fz-9 small-level-color">{{item.show_house_rate}}%</text>
+                        </block>
+                        <block wx:if="{{item.show_house_type<0}}">
+                            <view style="display: inline-block;transform: rotate(180deg);width: 20rpx;height: 14rpx">
+                                <text class="iconfont icon-top fz-9" style="margin-right: 2rpx;color: #4ad0ad"></text>
+                            </view>
+                            <text class="fz-9 small-level-color" style="margin-left: 4rpx">{{item.show_house_rate}}%</text>
+                        </block>
+                        <block wx:if="{{item.show_house_rate==0}}">
+                            <view style="display: inline-block;width: 20rpx;height: 14rpx">
+                                <text class="iconfont icon-top fz-9" style="margin-right: 2rpx;color: #ffffff;"></text>
+                            </view>
+                            <text class="fz-9 small-level-color">{{item.show_house_rate}}%</text>
+                        </block>
+                    </view>
+                    <text class="fz-10 small-level-color  {{item.show_house_type<0?'foot_text2':'foot_text'}}">{{array[1]}}月成交量(套)</text>
+                </view>
+                <view class="item_container boders_left">
+                    <view class="item_container_title">
+                        <text class="fz-15" style="margin-right: 4rpx;color: #f7776a">{{item.new_house}}</text>
+                        <block wx:if="{{item.new_house_type>0}}">
+                            <view style="display: inline-block;width: 20rpx;height: 14rpx">
+                                <text class="iconfont icon-top fz-9" style="margin-right: 2rpx;color: #f7776a;"></text>
+                            </view>
+                            <text class="fz-9 small-level-color">{{item.new_house_rate}}%</text>
+                        </block>
+                        <block wx:if="{{item.new_house_type<0}}">
+                            <view style="display: inline-block;transform: rotate(180deg);width: 20rpx;height: 14rpx">
+                                <text class="iconfont icon-top fz-9" style="margin-right: 2rpx;color: #4ad0ad"></text>
+                            </view>
+                            <text class="fz-9 small-level-color" style="margin-left: 4rpx">{{item.new_house_rate}}%</text>
+                        </block>
+                        <block wx:if="{{item.new_house_rate==0}}">
+                            <view style="display: inline-block;width: 20rpx;height: 14rpx">
+                                <text class="iconfont icon-top fz-9" style="margin-right: 2rpx;color: #ffffff;"></text>
+                            </view>
+                            <text class="fz-9 small-level-color">{{item.new_house_rate}}%</text>
+                        </block>
+                    </view>
+                    <text class="fz-10 small-level-color {{item.new_house_type<0?'foot_text2':'foot_text'}}">本月新增房(套)</text>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

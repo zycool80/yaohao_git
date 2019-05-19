@@ -1,0 +1,65 @@
+<view class="page">
+    <navigator class="settings-top" hoverClass="none" url="/pages/salesMan/detail?id={{sales_man_id}}" wx:if="{{userInfo.is_broker!=''}}">
+        <image src="{{userInfo.avatar_url||avatar}}"></image>
+        <view class="right-info">
+            <view class="sales-man">
+                <text class="name fz-14 black1a-color">{{userInfo.name}}</text>
+                <text class="sign-text fz-10 small-level-color">置业顾问</text>
+            </view>
+            <view class="tags fz-12 small-level-color">
+                <text class="tag" wx:for="{{userInfo.ext}}" wx:key="key">{{item}}</text>
+            </view>
+        </view>
+    </navigator>
+    <navigator class="settings-top" hoverCalss="none" url="/subPackages/lottery/pages/ordinaryUser?id={{session_id}}" wx:else>
+        <image src="{{userInfo.avatar_url||avatar}}"></image>
+        <view class="right-info">
+            <view class="sales-man">
+                <text class="name fz-14 black1a-color">{{userInfo.name}}</text>
+                <text class="sign-text fz-10 small-level-color">{{userInfo.city}}</text>
+            </view>
+            <view class="tags fz-12 small-level-color">
+                <text class="tag" wx:for="{{userInfo.ext}}" wx:key="key">{{item}}</text>
+            </view>
+        </view>
+    </navigator>
+    <navigator class="setting-change-name" hoverClass="none" url="/subPackages/me/pages/settingNotes?object_id={{session_id}}">
+        <text class="left-txt fz-14 black1a-color">设置备注和标签</text>
+        <text class="right-icon iconfont icon-xiayibu gray9-color fz-14 small-level-color"></text>
+    </navigator>
+    <view class="settings">
+        <view class="settings-line">
+            <text class="left-txt fz-14 black1a-color">关注联系人</text>
+            <view class="right-icon small-level-color">
+                <switch bindchange="switchChangeFollow" checked="{{userInfo.is_follow==1}}" color="#3772cc"></switch>
+            </view>
+        </view>
+        <view class="settings-line">
+            <text class="left-txt fz-14 black1a-color">将对方加入黑名单</text>
+            <view class="right-icon small-level-color">
+                <switch bindchange="switchChangeBlacklist" checked="{{userInfo.is_blacklist}}" color="#3772cc"></switch>
+            </view>
+        </view>
+        <view bindtap="showReportModal" class="settings-line no-border">
+            <text class="left-txt fz-14 black1a-color">举报对方</text>
+            <text class="right-icon iconfont icon-xiayibu gray9-color fz-14 small-level-color"></text>
+        </view>
+    </view>
+    <view bindtap="deleteContact" class="del-person white-color blue-bg">删除联系人</view>
+</view>
+<view catchtap="cancelReportModal" catchtouchmove="stopMove" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:3;" wx:if="{{hideReport}}"></view>
+<view class="showModal" wx:if="{{hideReport}}">
+    <view class="select">
+        <view class="select-lists">
+            <view class="select-list1 fz-14">举报对方</view>
+            <navigator class="select-list fz-15 blue-color" hoverClass="none" url="/subPackages/project/pages/reportDetail?tab={{item.id}}&title={{item.text}}" wx:for="{{reason}}" wx:key="key">{{item.text}}</navigator>
+        </view>
+        <view bindtap="cancelReportModal" class="delete fz-15 font-bold white-bg"> 取消</view>
+    </view>
+    <view bindtap="cancelReportModal" class="bg"></view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,51 @@
+<view class="page">
+    <view class="page__bd haveSearchBar">
+        <view>
+            <view>
+                <view class="search-bar">
+                    <view bindtap="doSearch" class="search-btn fz-14 white-color">确定</view>
+                    <view class="search-bar-form">
+                        <view bindtap="doSearch" class="weui-icon-search iconfont icon-sousuo"></view>
+                        <view bindtap="clearInput" class="weui-icon-clear iconfont icon-delete" wx:if="{{inputVal.length>0}}"></view>
+                        <input bindconfirm="doSearch" bindinput="inputTyping" class="ui-input search-bar-input" placeholder="{{inputPlace}}" placeholderClass="search-input-place" type="text" value="{{inputVal}}"></input>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel weui-panel_access">
+                <view class="weui-panel__bd">
+                    <navigator hoverClass="weui-cell_active" url="{{article.url}}" wx:for="{{list}}" wx:for-item="article" wx:key="key">
+                        <view class="weui-media-box weui-media-box_appmsg">
+                            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                                <image class="weui-media-box__thumb" mode="aspectFill" src="{{article.cover?article.cover:defaultCover}}"></image>
+                            </view>
+                            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                                <view class="weui-media-box__title">{{article.title}}</view>
+                                <view class="weui-form-preview__value" style="color: #cc9650;">{{article.type}}</view>
+                                <view class="weui-media-box__desc">{{article.summary}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+            <view>
+                <view class="weui-loadmore" hidden="{{!loading}}">
+                    <view class="weui-loading"></view>
+                    <view class="weui-loadmore__tips">
+                        <view class="weui-loading weui-loading_transparent"></view>
+                    </view>
+                </view>
+                <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot" hidden="{{!showHasMore}}">
+                    <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+                </view>
+                <view class="weui-loadmore weui-loadmore_line" hidden="{{!showNoData}}">
+                    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多的搜索结果</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

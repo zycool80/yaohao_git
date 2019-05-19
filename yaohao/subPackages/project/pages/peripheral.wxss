@@ -1,0 +1,124 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.peripheral-bg {
+    background: #fff;
+    margin-top: 20rpx;
+}
+
+.title {
+    padding: 20rpx 30rpx;
+    border-bottom: 1rpx solid #eee;
+    height: 60rpx;
+    line-height: 60rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.peripheral-content {
+    margin: 0 30rpx;
+}
+
+.peripheral-line {
+    padding: 15rpx 0;
+}
+
+.peripheral-line-left {
+    margin-right: 120rpx;
+}
+
+.peripheral-line-left>text {
+    display: block;
+}
+
+.around-build-chance {
+    display: flex;
+    justify-content: space-between;
+}
+
+.around-build-chance .all-build {
+    padding-left: 30rpx;
+    position: relative;
+}
+
+.around-build-chance .all-build:before {
+    content: '';
+    height: 15rpx;
+    width: 15rpx;
+    border-radius: 15rpx;
+    background: #ea5990;
+    position: absolute;
+    left: 0;
+    top: 18rpx;
+}
+
+.around-build-left>image {
+    width: 150rpx;
+    border-radius: 8rpx;
+    float: left;
+}
+
+.around-build-left>view {
+    margin-left: 170rpx;
+}
+
+.around-build {
+    margin: 0 30rpx;
+}
+
+.around-build-line {
+    padding: 20rpx 0;
+    border-bottom: 1px solid #eee;
+    justify-content: space-between;
+    display: flex;
+}
+
+.around-build-chance {
+    padding: 30rpx 0 20rpx;
+}
+
+.yao-time>text {
+    display: block;
+}
+
+.peripheral-tip {
+    padding: 30rpx;
+}
+
+.peripheral-bg-small {
+    background: #fff;
+    border-bottom: 15rpx solid #f7f7f7;
+    padding: 20rpx 0;
+}
+
+#map-container {
+    width: 100%;
+    height: 350rpx;
+    overflow: hidden;
+}
+
+#map-container #map {
+    width: 100%;
+    height: 100%;
+}
+
+#map-container #map .showMoreLocal {
+    position: absolute;
+    right: 30rpx;
+    top: 20rpx;
+    display: inline-block;
+    width: 100rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 50rpx;
+    background-color: #3772cc;
+    color: #fff;
+    box-shadow: 0 0 10rpx 0 rgba(0,0,0,0.15);
+}
+
+.peripheral-line>view:nth-child(2) {
+    min-width: 92rpx;
+}

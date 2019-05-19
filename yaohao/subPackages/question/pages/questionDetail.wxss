@@ -1,0 +1,235 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+@import "../__wuBaseWxss__/2.wxss";
+
+page {
+    background-color: #f7f7f7;
+}
+
+.page {
+    padding-bottom: 90rpx;
+}
+
+.question-footer {
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10rpx 0 rgba(0,0,0,.05);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.question-footer .question-footer-list {
+    height: 100%;
+    color: #999;
+    text-align: center;
+    overflow: hidden;
+}
+
+.question-footer .question-footer-list.active {
+    color: #3772cc;
+}
+
+.question-footer .question-footer-list .question-footer-list-icon,.question-footer .question-footer-list .question-footer-text {
+    line-height: 1;
+    margin-top: 10rpx;
+}
+
+.adoption {
+    background-color: #f7f7f7;
+    padding: 0 20rpx;
+    line-height: 40rpx;
+    border-radius: 40rpx;
+    height: 40rpx;
+    color: #16a5af;
+    float: right;
+}
+
+.orange-color {
+    color: #f7776a;
+}
+
+.title-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1;
+}
+
+.title-top-left {
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50rpx;
+    margin-right: 30rpx;
+}
+
+.avatar image {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.top-question {
+    padding: 20rpx 30rpx 0rpx 60rpx;
+    box-sizing: border-box;
+    border-bottom: 15rpx solid #f7f7f7;
+}
+
+.sign-text-bg {
+    height: 36rpx;
+    line-height: 36rpx;
+    padding: 0 12rpx;
+    background: #E9F0FA;
+    border-radius: 8rpx;
+    margin-right: 10rpx;
+    display: inline-block;
+}
+
+.view-num {
+    margin-right: 40rpx;
+}
+
+.wantAnswer {
+    color: #16A5AF;
+    background: #EAF9FA;
+    height: 44rpx;
+    line-height: 44rpx;
+    padding: 0 16rpx;
+    border-radius: 44rpx;
+    float: right;
+}
+
+.sign-text {
+    float: left;
+}
+
+.answer-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 70rpx;
+}
+
+.contactTa {
+    color: #16A5AF;
+    border: 1rpx solid #16A5AF;
+    height: 38rpx;
+    line-height: 38rpx;
+    padding: 0 10rpx;
+    margin-left: 25rpx;
+    border-radius: 8rpx;
+    box-sizing: border-box;
+    font-size: 20rpx;
+    display: inline-block;
+}
+
+.answer-desc {
+    padding-top: 24rpx;
+}
+
+.meAnswer {
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 86rpx;
+    background: #3772cc;
+    border-radius: 8rpx;
+    margin: 5rpx -10rpx 5rpx 0;
+}
+
+.answer-num {
+    display: inline-block;
+}
+
+.adopt {
+    position: absolute;
+    z-index: 1;
+    bottom: 30rpx;
+    right: 30rpx;
+    width: 87rpx;
+    height: 87rpx;
+}
+
+.user-info {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 310rpx;
+}
+
+.addQuestion {
+    padding: 30rpx 30rpx 30rpx 70rpx;
+    background: #fff;
+}
+
+.addQuestion .title {
+    padding-bottom: 20rpx;
+}
+
+.sign-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wantAnswer {
+    color: #16A5AF;
+    background: #EAF9FA;
+    height: 44rpx;
+    line-height: 44rpx;
+    padding: 0 16rpx;
+    border-radius: 44rpx;
+}
+
+.answer-title-avatar {
+    float: left;
+    position: relative;
+}
+
+.answer-title-top {
+    padding-top: 15rpx;
+}
+
+.sales-man-info .sales_man {
+    line-height: 1;
+}
+
+.answer-title-avatar .exportLog {
+    position: absolute;
+    left: -9rpx;
+    top: 37rpx;
+    width: 70rpx;
+}
+
+.yellow {
+    color: #926a25!important;
+}
+
+.top-question .exportContImg {
+    position: relative;
+    padding-top: 20rpx;
+}
+
+.top-question .exportContImg image {
+    width: 100%;
+}
+
+.top-question .exportContImg .lookCont {
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 60rpx;
+    padding: 0 48rpx;
+    border: 1rpx solid #926a25;
+    position: absolute;
+    left: 180rpx;
+    top: 100rpx;
+}

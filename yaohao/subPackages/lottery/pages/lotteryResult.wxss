@@ -1,0 +1,26 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.lotteryResult {
+    padding: 0 30rpx;
+}
+
+.lotteryResult .title {
+    line-height: 3;
+    border-bottom: 1rpx solid #f2f2f2;
+    text-align: center;
+}
+
+.imageList {
+    padding-bottom: 20rpx;
+}
+
+.imageList image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8rpx;
+}
+
+.nothing {
+    line-height: 400rpx;
+    text-align: center;
+}

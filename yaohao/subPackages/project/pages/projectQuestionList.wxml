@@ -1,0 +1,55 @@
+<view class="pages">
+    <navigator class="myDiscuss-content" hoverClass="none" url="/subPackages/question/pages/questionDetail?id={{val.id}}" wx:for="{{questionItems}}" wx:for-index="childIndex" wx:for-item="val" wx:key="key">
+        <view class="left-content">
+            <view class="img">
+                <image src="{{val.user_avatar_url||avatar_url}}"></image>
+            </view>
+        </view>
+        <view class="right-content">
+            <view class="top_content">
+                <view class="name fz-12 font-bold black-color">{{val.user_name}}</view>
+                <view catchtap="delBox" class="attention fz-24 other font-bold" data-wpydelbox-a="{{childIndex}}">...</view>
+            </view>
+            <view class="content">
+                <text class="fz-12 height-level-color">{{val.content}}</text>
+            </view>
+            <view class="nine-img-view" style="overflow:hidden">
+                <view class="weui-flex" style="overflow:hidden" wx:for="{{val.img}}" wx:for-item="images" wx:key="key">
+                    <block wx:for="{{val.layout}}" wx:for-item="i" wx:key="key">
+                        <view class="layout{{val.layout}}" wx:if="{{images[i]}}">
+                            <view class="img-box imgLayout imgLayout{{val.layout}}" style="overflow:hidden" wx:if="{{val.layout==1}}">
+                                <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{val}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                            </view>
+                            <view class="img-smallBox imgLayout imgLayout{{val.layout}}" wx:else>
+                                <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{val}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                            </view>
+                        </view>
+                        <view class="layout{{item.layout}}" wx:else></view>
+                    </block>
+                </view>
+            </view>
+            <div class="hot-topic">
+                <block wx:if="{{val.status!=3}}">
+                    <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/answerDetail?id={{val.id}}" wx:if="{{userInfo.id==val.user_id}}">我要追问</view>
+                    <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/answerDetail?id={{val.id}}" wx:else>我要回答</view>
+                </block>
+                <view class="hot-topic-left fz-10 blue-color">
+                    <navigator catchtap="toUrl" class="buyHouse" data-wpytourl-a="{{tag.url}}" wx:for="{{val.tags}}" wx:for-item="tag" wx:key="key">{{tag.text}}</navigator>
+                </view>
+            </div>
+            <view class="small-level-color right-btn" style="display: flex;justify-content: space-between;width: 100%">
+                <text class="fz-10">{{val.time}}</text>
+                <view class="fz-10">
+                    <text class="view-num" style="margin-right: 15rpx">{{val.page_views}}浏览</text>
+                    <navigator class="answer-num" hoverClass="none" style="display: inline-block;" url="/subPackages/question/pages/answerDetail?id={{val.id}}">{{item.comment_num}}回答</navigator>
+                </view>
+            </view>
+        </view>
+    </navigator>
+    <navigator class="create-question iconfont icon-shenfen1 white-color blue-bg" url="/subPackages/question/pages/askQuestion?project_id={{project_id}}"></navigator>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

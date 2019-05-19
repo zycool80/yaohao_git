@@ -1,0 +1,51 @@
+<view class="page">
+    <view class="main">
+        <view class="top white-bg">
+            <navigator class="left" hoverClass="none" url="/subPackages/salesMan/pages/redme">
+                <text class="iconfont icon-xinxi1 fz-14"></text>
+                <view class="span">审核上传说明</view>
+            </navigator>
+            <navigator class="right" hoverClass="none" url="/subPackages/salesMan/pages/submitAudit">
+                <text class="iconfont icon-shijian fz-14"></text>
+                <view class="span">历史上传</view>
+            </navigator>
+        </view>
+        <view class="model" wx:for="{{postAuditsArr}}" wx:key="key">
+            <view class="title fz-12 small-level-color">
+                <view class="span">提交审核({{index+1}})</view>
+                <view bindtap="delAuditsHandle" class="delete" data-wpydelauditshandle-a="{{index}}" wx:if="{{postAuditsArr.length>1}}">删除</view>
+            </view>
+            <view class="content white-bg">
+                <view class="li">
+                    <view class="left p">选择类型</view>
+                    <view class="right">
+                        <picker bindchange="bindPickerChange" data-index="{{index}}" range="{{imgTypeArr}}" rangeKey="name" value="{{item.imgTypeIndex}}">
+                            <view class="picker span">{{imgTypeArr[item.imgTypeIndex].name}}</view>
+                        </picker>
+                        <text class="iconfont icon-you"></text>
+                    </view>
+                </view>
+            </view>
+            <view class="imgContent">
+                <view bindtap="uploadImgHandle" class="content" data-wpyuploadimghandle-a="{{index}}">
+                    <view class="jia" wx:if="{{!item.image}}">+</view>
+                    <image class="img" src="{{item.image}}" wx:else></image>
+                </view>
+                <view class="p" wx:if="{{!item.image}}">上传图片</view>
+                <view class="p">
+                    <view bindtap="deletePicHandle" class="iconfont icon-delete weui-icon-delete" data-wpydeletepichandle-a="{{index}}" wx:if="{{item.image}}"></view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="addAuditsHandle" class="more white-bg" wx:if="{{postAuditsArr.length<10}}">
+            <text class="iconfont icon-zengjia fz-15"></text>
+            <view class="p">上传更多</view>
+        </view>
+    </view>
+    <view bindtap="submitHandle" class="button">立即提交</view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

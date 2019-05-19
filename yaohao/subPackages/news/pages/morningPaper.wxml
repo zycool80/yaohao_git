@@ -1,0 +1,60 @@
+<view class="page">
+    <view class="content">
+        <view class="mp_header">
+            <image class="bg" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190112/5c398fe84eac1.png"></image>
+            <view class="calendar">
+                <image class="mouthimg" src="http://imgcdn.huanjutang.com/assets/img/20190112/5c398302c0aef.png"></image>
+                <view class="calendartext">
+                    <text class="mouthnum fz-15 font-bold">{{month}}</text>
+                    <text class="mouth fz-10">月</text>
+                </view>
+            </view>
+            <view class="left">
+                <view class="fz-13">成都摇号助手</view>
+                <view class="line"></view>
+                <view class="fz-11">{{time.year}}年{{time.month}}月{{time.day}}日</view>
+            </view>
+            <view class="right">{{weather.temperature}}°C{{weather.weather}}</view>
+        </view>
+        <view class="mp_prompt fz-15">
+                    {{prompt}}
+                </view>
+        <view class="mp_building">
+            <view class="title fz-16 font-bold">今日可登记楼盘</view>
+            <view class="nodata fz-13" wx:if="{{resData.length==0}}">今日无可登记楼盘</view>
+            <block wx:else>
+                <view class="detail clearfix" wx:for="{{resData}}" wx:for-item="area" wx:key="index">
+                    <text class="font-bold area">{{index}}:</text>
+                    <navigator class="area_b clearfix" hoverClass="none" url="/pages/lotteryDetail?id={{item.id}}&project_id={{item.project_id}}" wx:for="{{area}}" wx:for-index="i" wx:key="key">
+                        <text class="bulidtext">{{item.name}}</text>
+                        <text class="time fz-13">({{item.time}})</text>
+                    </navigator>
+                </view>
+            </block>
+        </view>
+        <view class="mp_building">
+            <view class="title fz-16 font-bold">今日摇号楼盘</view>
+            <view class="nodata fz-13" wx:if="{{lotteries.length==0}}">今日无可摇号楼盘</view>
+            <block wx:else>
+                <view class="detail clearfix" wx:for="{{lotteries}}" wx:for-item="area" wx:key="index">
+                    <text class="font-bold area">{{index}}:</text>
+                    <navigator class="area_b clearfix" hoverClass="none" url="/pages/lotteryDetail?id={{item.id}}&project_id={{item.project_id}}" wx:for="{{area}}" wx:for-index="i" wx:key="key">
+                        <text class="bulidtext">{{item.name}}</text>
+                        <text class="time fz-13">({{item.time}})</text>
+                    </navigator>
+                </view>
+            </block>
+        </view>
+        <view class="code" wx:if="{{morning_qr_code}}">
+            <image bindtap="preview" data-wpypreview-a="{{morning_qr_code}}" mode="widthFix" src="{{morning_qr_code}}"></image>
+            <view class="right-text fz-12">
+                <text>{{morning_text}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

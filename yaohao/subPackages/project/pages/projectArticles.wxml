@@ -1,0 +1,38 @@
+<view class="page">
+    <view class="project-detail">
+        <view class="project-detail-toggle">
+            <view bindtap="changeProjectToggle" class="toggle-list {{projectToggle==1?'active':''}}" data-wpychangeprojecttoggle-a="1">楼盘文章</view>
+            <view bindtap="changeProjectToggle" class="toggle-list {{projectToggle==2?'active':''}}" data-wpychangeprojecttoggle-a="2">楼盘公众号</view>
+        </view>
+        <view class="project-detail-cont">
+            <block wx:if="{{items.length<1}}">
+                <view class="not-statement-content white-bg">
+                    <view class="fz-13 height-level-color" style="color:#666 !important;">该楼盘暂无文章</view>
+                </view>
+                <view class="white-bg">
+                    <view bindtap="toUrl" class="fz-13" style="display:block;line-height:70rpx;box-sizing:border-box;margin:0 auto;width:300rpx;color:#3772cc;border: 1px solid #3772cc;border-radius:70rpx;text-align:center;">去楼市文章看看</view>
+                </view>
+            </block>
+            <block wx:else>
+                <navigator class="project-detail-list" style="{{index>=items.length-1?'margin-bottom:0':''}}" url="{{article.url}}" wx:for="{{items}}" wx:for-item="article" wx:key="key">
+                    <view class="project-detail-list-right">
+                        <image src="{{article.img}}"></image>
+                    </view>
+                    <view class="project-detail-list-left">
+                        <view class="title fz-14 black1a-color">{{article.title}}</view>
+                        <view class="desc">
+                            <image class="avatar" src="{{article.avatar_url||defaultAvatar}}"></image>
+                            <view class="fz-12 small-level-color">{{article.user_name}}</view>
+                            <view class="fz-12 small-level-color time">{{article.time}}</view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

@@ -1,0 +1,71 @@
+<view class="page">
+    <view class="page__bd haveSearchBar" style="overflow:hidden">
+        <view class="search-bar" style="top:0;background-color:#2c8cf0;">
+            <view bindtap="doSearch" class="search-btn fz-14 white-color">确定</view>
+            <view class="search-bar-form">
+                <view class="weui-icon-search iconfont icon-sousuo"></view>
+                <view bindtap="clearInput" class="weui-icon-clear iconfont icon-delete" wx:if="{{inputVal.length>0}}"></view>
+                <textarea bindconfirm="doSearch" bindinput="inputTyping" class="ui-input search-bar-input {{platform?'platform':''}}" fixed="true" placeholder="{{inputPlace}}" placeholderClass="search-bar-placeholder gray-color" value="{{inputVal}}"></textarea>
+            </view>
+        </view>
+        <view class="new-lottery-box">
+            <view class="new-lottery-title">
+                <view class="blue-bg white-color">{{title}}</view>
+                <view bindtap="chooseArea">
+                    <view class="{{!switchNum?'area_list_change':'area_list_change_active'}}">区域筛选<text class="iconfont icon-xialajiantou" style="margin-left:6px;font-size:16rpx;"></text>
+                    </view>
+                </view>
+            </view>
+            <view class="not_id_card" wx:if="{{lotteries.length<1}}">
+                <image mode="aspectFit" src="/images/icons/not_id_card.png" style="height:140rpx;display:block;margin:0 auto;"></image>
+                <text class="small-level-color" style="margin-top:30px;font-size:14px">小主人~还没有楼盘信息</text>
+            </view>
+            <view class="new-lottery-listbox" wx:else>
+                <LotteryItem itemsData="{{lotteries}}"></LotteryItem>
+            </view>
+        </view>
+    </view>
+    <view>
+        <view>
+            <view class="weui-loadmore flex_layout_c_style" hidden="{{more}}">
+                <view class="weui-loadmore__tips gray-color">我也是有底线的哦~ (๑•́ ₃ •̀๑)</view>
+            </view>
+            <view class="weui-loadmore flex_layout_c_style" hidden="{{!more}}">
+                <view class="loading-runing">
+                    <view class="loading-icon">
+                        <text class="iconfont icon-jiazai"></text>
+                    </view>
+                    <view class="left-font">
+                        <text>加载中</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<block wx:if="{{switchNum}}">
+    <view class="fliterView" style="top:50px;margin-top:85rpx;">
+        <view class="project-select-content">
+            <view class="project-select_area">
+                <view class="select-right-cont gray-f7-bg no-left-cont">
+                    <block wx:for="{{areasDatas}}" wx:key="key">
+                        <view class="select-item_title black1a-color font-bold fz-14">{{item.title}}</view>
+                        <view class="select-item_group">
+                            <view bindtap="clickAreaHandle" class="select-item_btn fz-13 {{area.is_toggle?'active':''}}" data-wpyclickareahandle-a="{{index}}" data-wpyclickareahandle-b="{{areaIndex}}" wx:for="{{item.data}}" wx:for-index="areaIndex" wx:for-item="area" wx:key="key">{{area.key}}</view>
+                        </view>
+                    </block>
+                </view>
+                <view class="select-bottom">
+                    <view bindtap="resetHandle" class="select-btn white-style float_left fz-14 font-bold">重置</view>
+                    <view bindtap="submitHandle" class="select-btn float_right fz-14 font-bold">确定</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="closeFliterView" catchtouchmove="stopMove" class="model-bg"></view>
+</block>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

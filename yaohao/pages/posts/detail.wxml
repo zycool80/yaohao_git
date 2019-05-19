@@ -1,0 +1,111 @@
+<view class="page" style="background-color:rgb(229,229,229);overflow:hidden;">
+    <view class="posts_detail" wx:for="{{detail}}" wx:key="key">
+        <view class="post-item-header">
+            <view class="header-icon">
+                <navigator url="/pages/salesMan/detail?id={{item.sales_man_id}}&project_id={{item.project_id}}">
+                    <image class="avatar no-preview" src="{{item.avatar_url||defaultAvatar}}"></image>
+                </navigator>
+            </view>
+            <view class="header-content clearfix">
+                <view class="weui-media-box__title">
+                    <navigator class="weui-cell_link" hoverClass="none" style="margin-top:10rpx;" url="/pages/salesMan/detail?id={{item.sales_man_id}}&project_id={{item.project_id}}">
+                        <text class="fz-13 font-bold red-color">{{item.user_name}}</text>
+                    </navigator>
+                </view>
+                <navigator hoverClass="none" url="/pages/lotteryDetail?project_id={{item.project_id}}">
+                    <view style="color: #555;font-size: 14px;">
+                        <text class="blue-color fz-12">{{item.project_name}}</text>
+                    </view>
+                </navigator>
+            </view>
+            <view bindtap="follow" class="{{item.attention==1?'header-content-yiguanzhu':'header-content-guanzhu'}} fz-12">{{item.attention==1?'已关注':'+关注'}}</view>
+        </view>
+        <view class="post-item-body">
+            <view>
+                <text class="text-content fz-13">{{item.content}}</text>
+            </view>
+        </view>
+        <view>
+            <view class="weui-flex flex-item-wrap" wx:for="{{item.images}}" wx:for-item="images" wx:key="key">
+                <view class="weui-flex__item post-image-wrap" wx:for="{{item.layout}}" wx:for-item="i" wx:key="key">
+                    <view class="layout{{item.layout}}">
+                        <block wx:if="{{item.layout==1}}">
+                            <block wx:if="{{item.video_url}}">
+                                <view bindtap="viewVideo" class="img-box imgLayout imgLayout{{item.layout}}" style="height:100%;overflow:hidden;position:relative;" wx:if="{{imageView}}">
+                                    <image lazyLoad="{{true}}" mode="widthFix" src="{{item.video_url}}?vframe/jpg/offset/1/w/400/h/400 " style="width: 100%"></image>
+                                    <view class="iconfont icon-bofangda white-color font-bold" style="position:absolute;z-index:2;width:100rpx;height:100rpx;margin:auto;top:0;left:0;bottom:0;right:0;text-align:center;font-size:80rpx;"></view>
+                                </view>
+                                <video autoplay bindended="closeVideoView" bindpause="closeVideoView" class="img-box imgLayout imgLayout{{item.layout}}" src="{{item.video_url}}" style="overflow:hidden;height: 236rpx;width: 100%" wx:else></video>
+                            </block>
+                            <view class="img-box imgLayout imgLayout{{item.layout}}" style="overflow:hidden;height:100%" wx:else>
+                                <image bindtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" lazyLoad="{{true}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim" wx:if="{{images[i]}}"></image>
+                                <image bindtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" lazyLoad="{{true}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim" wx:else></image>
+                            </view>
+                        </block>
+                        <image alt="" bindtap="preview" class="imgLayout imgLayout{{item.layout}}" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/300/h/300/q/75|imageslim" style="" wx:else></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="posts-detail-bottom fz-12 small-level-color" style="padding:10rpx 0;">
+            <text style="position:absolute;bottom:0;line-height:1;height:34rpx;left:120rpx;">{{item.time}}</text>
+            <view class="comment" hoverClass="none" style="display:inline-block;" url="/pages/posts/detail?id={{item.id}}&status_type=1">
+                <text class="iconfont fz-14 icon-xiaoxi1" style="vertical-align:middle;"></text>
+                <text class="text"> {{item.comment_num}}</text>
+            </view>
+            <view bindtap="like" class="like" data-wpylike-a="{{item}}" data-wpylike-b="{{key}}" style="display:inline-block">
+                <text class="iconfont fz-14 {{item.numstatus==1?'icon-dianzanxuanzhong':'icon-dianzan1'}}" style="vertical-align:middle;"></text>
+                <text class="text"> {{item.like_num}}</text>
+            </view>
+            <view class="see" style="display:inline-block">
+                <text class="iconfont icon-chakan1 fz-14"></text>
+                <text class="text"> {{item.page_views||0}}</text>
+            </view>
+            <button class="share" openType="share" style="display:inline-block">
+                <text bindtap="share" class="iconfont icon-fenxiang2 fz-16 small-level-color" data-wpyshare-a="{{item}}"></text>
+            </button>
+        </view>
+    </view>
+    <view class="comment_box">
+        <view class="comment_title" style="line-height:40px;font-size:16px;font-weight:bold;color:#333;border-bottom:1px solid #dedede;">最新评论</view>
+        <view class="comment_list" wx:for="{{commentList}}" wx:for-item="group">
+            <view class="comment_list_item">
+                <view class="comment_list_avatar">
+                    <image mode="aspectFill" src="{{group.avatar_url||defaultAvatar}}"></image>
+                </view>
+                <view class="comment_list_right">
+                    <view class="comment_list_user height-level-color fz-14">{{group.name}}</view>
+                    <view bindlongtap="delComment" bindtouchend="touchEnd" bindtouchstart="touchStart" class="comment_list_cont small-level-color fz-14" data-wpydelcomment-a="{{group.user_id}}" data-wpydelcomment-b="{{group.id}}">{{group.content}}</view>
+                    <view class="comment_list_time fz-12 gray-9-color">
+                        <text>{{group.comment_at}}</text>
+                        <view>
+                            <view bindlongtap="delComment" bindtap="setComPid" bindtouchend="touchEnd" bindtouchstart="touchStart" class="iconfont icon-xiaoxi fz-14" data-wpydelcomment-a="{{group.user_id}}" data-wpydelcomment-b="{{group.id}}" data-wpysetcompid-a="{{group.id}}" data-wpysetcompid-b="{{group.name}}"></view>
+                        </view>
+                    </view>
+                    <view class="comment_list_child" wx:for="{{group['parent']}}" wx:for-item="comment">
+                        <text bindlongtap="delComment" bindtap="setComPid" bindtouchend="touchEnd" bindtouchstart="touchStart" class="comment_list_user fz-12 small-level-color" data-wpydelcomment-a="{{comment.user_id}}" data-wpydelcomment-b="{{comment.id}}" data-wpysetcompid-a="{{comment.id}}" data-wpysetcompid-b="{{comment.name}}">{{comment.name}} <text class="blue-color fz-12">回复</text> {{comment.to_name}}:{{comment.content}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="background-color:#fff;padding-bottom:110rpx;float:left;width:100%;">
+        <view class="flex_layout_c" hidden="{{more}}" style="width: 100%;margin: 20rpx 0">
+            <view class="weui-loadmore__tips gray-color">我到底咯</view>
+        </view>
+    </view>
+    <view class="comment_in" style="bottom:{{bottom}}px">
+        <form>
+            <button bindtap="formSubmit" class="submit-btn" formType="button">提交</button>
+            <input adjustPosition="{{false}}" bindblur="bindContblur" bindfocus="bindContfocus" bindinput="bindContChange" class="fz-16 small-level-color" maxlength="200" name="comment_cont" placeholder="{{comment_in_msg}}" placeholderClass="search-input-place" style="width:auto" value="{{comment_cont}}"></input>
+        </form>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>
+<view style="overflow:hidden;position:absolute;top:-200%;left:0;width:100%" wx:if="{{detail[0]&&detail[0].video_url}}">
+    <video bindended="videoPlayStop" bindfullscreenchange="fullscreenchange" bindpause="videoPlayStop" bindplay="palyNowVideo" id="myvideo" poster="{{detail[0].video_url}}?vframe/jpg/offset/1" showFullscreenBtn="true" src="{{detail[0].video_url}}" style="width:100%;"></video>
+</view>

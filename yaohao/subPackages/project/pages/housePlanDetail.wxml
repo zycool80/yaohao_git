@@ -1,0 +1,92 @@
+<view class="page">
+    <view class="housePlan">
+        <view class="top-swiper">
+            <image bindtap="preview" class="gray-bg swiper-img" data-wpypreview-a="{{houseType.image}}" lazyLoad="{{true}}" mode="aspectFill" src="{{houseType.image}}"></image>
+        </view>
+        <view class="projectDetail-bg">
+            <view class="top-title">
+                <text class="fz-15 font-bold" style="color: #021028">{{houseType.name}}</text>
+                <text class="fz-10 title-status white-color" wx:if="{{houseType.sales_status}}">{{houseType.sales_status}}</text>
+            </view>
+            <view class="houseType">
+                <view class="line">
+                    <view class="fz-14 red-color">{{houseType.num_bed_room?houseType.num_bed_room:'0'}}室{{houseType.num_living_room?houseType.num_living_room:'0'}}厅{{houseType.num_rest_room?houseType.num_rest_room:''}}卫</view>
+                    <view class="fz-11 gray-9-color">户型</view>
+                </view>
+                <view class="line notFirst" wx:if="{{houseType.outer_square}}">
+                    <view class="fz-14 red-color">{{houseType.outer_square}}㎡</view>
+                    <view class="fz-11 gray-9-color">面积</view>
+                </view>
+                <view class="line notFirst" wx:else>
+                    <view class="fz-14 red-color">暂无</view>
+                    <view class="fz-11 gray-9-color">面积</view>
+                </view>
+                <view class="line no-border notFirst" wx:if="{{houseType.price_total>0}}">
+                    <view class="fz-14 red-color">约{{houseType.price_total}}万/套</view>
+                    <view class="fz-11 gray-9-color">估价</view>
+                </view>
+                <view class="line no-border notFirst" wx:else>
+                    <view class="fz-14 red-color">暂无</view>
+                    <view class="fz-11 gray-9-color">估价</view>
+                </view>
+            </view>
+        </view>
+        <view class="projectDetail-bg">
+            <view class="projecDetail-mainInfo">
+                <view class="black1a-color fz-15 small-title">户型信息</view>
+                <view class="projecDetail-mainInfo-content fz-13">
+                    <view class="qrCode" wx:if="{{qrcode}}">
+                        <image bindtap="preview" class="qrcode-img" data-wpypreview-a="{{qrcode}}" mode="aspectFill" src="{{qrcode}}"></image>
+                    </view>
+                    <view class="projecDetail-mainInfo-line" wx:if="{{houseType.orientation}}">
+                        <view class="fz-13 gray-9-color left-key">朝向:</view>
+                        <view class="weui-form-preview__value fz-13 black1a-color">{{houseType.orientation}}</view>
+                    </view>
+                    <view class="projecDetail-mainInfo-line" wx:if="{{houseType.feature}}">
+                        <view class="fz-13 gray-9-color left-key">户型特色:</view>
+                        <view class="weui-form-preview__value fz-13 black1a-color">{{houseType.feature}}</view>
+                    </view>
+                    <view class="projecDetail-mainInfo-line" wx:if="{{houseType.sales_status}}">
+                        <view class="fz-13 gray-9-color left-key">销售状态:</view>
+                        <view class="weui-form-preview__value fz-13 black1a-color">{{houseType.sales_status}}</view>
+                    </view>
+                </view>
+                <view class="code"></view>
+            </view>
+        </view>
+        <view class="projectDetail-bg" wx:if="{{houseType.comment}}">
+            <view class="projecDetail-mainInfo">
+                <view class="black1a-color fz-15 small-title">户型分析</view>
+                <view class="projecDetail-mainInfo-content fz-14" style="padding-right: 30rpx">{{houseType.comment}}</view>
+            </view>
+        </view>
+        <view class="projectDetail-bg" wx:if="{{sameTypes.length>0}}">
+            <view class="projecDetail-mainInfo">
+                <view class="black1a-color fz-15 small-title">本楼盘其他户型</view>
+                <scroll-view scrollX class="projecDetail-mainInfo-content fz-14">
+                    <view class="swiper-box" style="width: {{scrollWidth}}rpx">
+                        <view bindtap="switchHouseType" class="cont-line" data-wpyswitchhousetype-a="{{item.id}}" hoverClass="none" wx:for="{{sameTypes}}" wx:key="key">
+                            <image mode="aspectFill" src="{{item.image}}"></image>
+                            <view class="fz-14 black1a-color square">{{item.name||'待定'}} </view>
+                            <view class="fz-13 small-level-color" style="padding-bottom: 16rpx">{{item.num_bed_room||'0'}}室{{item.num_living_room||'0'}}厅{{item.num_rest_room||''}}卫 {{item.outer_square||''}}{{item.outer_square>0?'㎡':''}}</view>
+                            <view class="fz-10 housePlanStyle">
+                                <text class="style" wx:if="{{item.sales_status}}">{{item.sales_status}}</text>
+                                <text class="style" wx:for="{{item.tags}}" wx:for-item="val" wx:key="key">{{val}}</text>
+                            </view>
+                            <view class="price red-color" wx:if="{{item.price_total>0}}">约{{item.price_total}}万/套</view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+        <view class="bottom-btn" style="{{officialPhone?' display: flex;justify-content: space-between;':''}}">
+            <navigator class="button btn2 fz-15 white-color" style="{{officialPhone?'width:330rpx;':'width:100%;'}}" url="/pages/salesMan/index?id={{houseType.project_id}}&title={{houseType.name}}&andrees=detail&project_img={{houseType.image}}">联系置业顾问</navigator>
+            <view bindtap="phoneCall" class="button btn1 fz-15 white-color" data-wpyphonecall-a="{{officialPhone}}" style="{{officialPhone?'width:330rpx;':''}}" wx:if="{{officialPhone}}">电话咨询</view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

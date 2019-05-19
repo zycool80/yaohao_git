@@ -1,0 +1,250 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f9fafc;
+    height: 100%;
+}
+
+.popup {
+    height: 100%;
+    overflow: hidden;
+}
+
+.top-cont {
+    background: linear-gradient(to bottom,#1e81dd,#4ab9ec);
+    padding: 100rpx 30rpx 155rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.top-cont .left-cont {
+    padding-left: 30rpx;
+}
+
+.top-cont .left-cont .myPoints {
+    padding-bottom: 25rpx;
+}
+
+.top-cont .left-cont .totalPoints {
+    font-size: 82rpx;
+    padding-bottom: 20rpx;
+}
+
+.top-cont .left-cont .getPoints {
+    padding-bottom: 74rpx;
+}
+
+.top-cont .right-cont {
+    position: absolute;
+    right: 0;
+    top: 176rpx;
+    line-height: 60rpx;
+    padding: 0 26rpx;
+    background: #2184de;
+    border-top-left-radius: 30rpx;
+    border-bottom-left-radius: 30rpx;
+}
+
+.top-cont .switch {
+    display: box;
+    background: #3997e6;
+    border-top-left-radius: 12rpx;
+    border-top-right-radius: 12rpx;
+    position: absolute;
+    bottom: 0;
+    left: 30rpx;
+    right: 30rpx;
+}
+
+.top-cont .switch .toggle {
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    padding: 44rpx 0;
+    width: 346rpx;
+    padding-left: 44rpx;
+    box-sizing: border-box;
+}
+
+.top-cont .switch .toggle .title {
+    padding-bottom: 26rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.top-cont .switch .toggle .small-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.top-cont .switch .active {
+    border-top-right-radius: 12rpx;
+    border-top-left-radius: 12rpx;
+    background: #fff;
+}
+
+.top-cont .switch .active .title {
+    color: #11324e!important;
+}
+
+.top-cont .switch .active .small-title {
+    color: #32495f!important;
+}
+
+.middle-cont {
+    margin: 0 30rpx;
+    background: #fff;
+    border-bottom-right-radius: 12rpx;
+    border-bottom-left-radius: 12rpx;
+    box-shadow: 0 1rpx 3rpx 0 rgba(0,0,0,0.1);
+}
+
+.project {
+    padding: 0 30rpx 0;
+}
+
+.project .line {
+    padding: 37rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.project .line .left {
+    float: left;
+    width: 210rpx;
+    height: 142rpx;
+    border-radius: 4rpx;
+}
+
+.project .line .right {
+    margin-left: 230rpx;
+}
+
+.project .line .right .title {
+    padding-bottom: 18rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.project .line .right .middle {
+    padding-bottom: 18rpx;
+    line-height: 1;
+}
+
+.project .line .right .bottom {
+    float: left;
+    line-height: 50rpx;
+    padding: 0 28rpx;
+    border-radius: 25rpx;
+    background: #f07379;
+    display: inline-block;
+}
+
+.project .no-border {
+    border: none;
+}
+
+.gray-8 {
+    color: #888!important;
+}
+
+.gray-8d {
+    color: #8d8d8d!important;
+}
+
+.red-color {
+    color: #ff454e!important;
+}
+
+.bottom-cont {
+    margin: 28rpx 30rpx 40rpx;
+    padding: 60rpx 45rpx;
+    background: #fff;
+    box-shadow: 0 1rpx 3rpx 0 rgba(0,0,0,0.1);
+    border-radius: 12rpx;
+}
+
+.bottom-cont .title {
+    margin-bottom: 52rpx;
+    border-left: 6rpx solid #314055;
+    padding-left: 18rpx;
+}
+
+.bottom-cont .view-logs {
+    display: box;
+}
+
+.bottom-cont .view-logs .line {
+    box-flex: 1;
+    text-align: center;
+    padding-bottom: 39rpx;
+}
+
+.bottom-cont .view-logs .line .back-color {
+    background: #fcfcfc;
+    border: 1rpx solid #e6e6e6;
+    border-radius: 80rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 80rpx;
+    text-align: center;
+    margin-bottom: 16rpx;
+    display: inline-block;
+}
+
+.model {
+    position: fixed;
+    background: #fff;
+    border-radius: 8rpx;
+    width: 640rpx;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.model-tip {
+    padding: 30rpx 0;
+    text-align: center;
+}
+
+.model-text1 {
+    padding-bottom: 50rpx;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15rpx 0;
+}
+
+.model-btn {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1rpx solid #e6e6e6;
+    height: 90rpx;
+}
+
+.model-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    z-index: 999;
+}
+
+.comment-box {
+    height: 600rpx;
+    padding: 0 50rpx;
+    box-sizing: border-box;
+}
+
+.model-btn button {
+    color: #16a5af;
+}

@@ -1,0 +1,142 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.project-detail {
+    width: 100%;
+    overflow: hidden;
+}
+
+.project-detail .project-detail-toggle {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 30rpx 0;
+    overflow: hidden;
+}
+
+.project-detail .project-detail-toggle .toggle-list {
+    line-height: 60rpx;
+    box-sizing: border-box;
+    width: 170rpx;
+    overflow: hidden;
+    color: #666;
+    border: 1px solid #999;
+    text-align: center;
+    font-size: 26rpx;
+}
+
+.project-detail .project-detail-toggle .toggle-list.active {
+    border-color: #3772cc;
+    background-color: #f2f6fd;
+    color: #3772cc;
+}
+
+.project-detail .project-detail-toggle .toggle-list:first-child.active {
+    border-left: 1px solid #3772cc;
+    border-right: 1px solid #3772cc;
+}
+
+.project-detail .project-detail-toggle .toggle-list:last-child.active {
+    border-left: 1px solid #3772cc;
+    border-right: 1px solid #3772cc;
+}
+
+.project-detail .project-detail-toggle .toggle-list:first-child {
+    border-radius: 60rpx 0 0 60rpx;
+    border-right-color: transparent;
+}
+
+.project-detail .project-detail-toggle .toggle-list:last-child {
+    border-radius: 0 60rpx 60rpx 0;
+    border-left-color: transparent;
+}
+
+.project-detail .project-detail-cont {
+    width: 100%;
+    background-color: #f7f7f7;
+    overflow: hidden;
+}
+
+.project-detail .project-detail-cont .project-detail-list {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30rpx;
+    overflow: hidden;
+    margin-bottom: 10rpx;
+    background-color: #fff;
+}
+
+.project-detail .project-detail-list .project-detail-list-left {
+    margin-right: 240rpx;
+}
+
+.project-detail .project-detail-list .project-detail-list-left .title {
+    height: 90rpx;
+    line-height: 45rpx;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+}
+
+.project-detail .project-detail-list .project-detail-list-left .desc {
+    margin-top: 20rpx;
+    line-height: 40rpx;
+}
+
+.project-detail .project-detail-list .project-detail-list-left .desc .avatar {
+    float: left;
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 100%;
+    margin-right: 20rpx;
+    overflow: hidden;
+}
+
+.project-detail .project-detail-list .project-detail-list-left .desc .small-level-color {
+    float: left;
+}
+
+.project-detail .project-detail-list .project-detail-list-left .desc .time {
+    float: right;
+}
+
+.project-detail .project-detail-list .project-detail-list-right {
+    float: right;
+    width: 200rpx;
+    height: 140rpx;
+    border-radius: 6rpx;
+    overflow: hidden;
+}
+
+.project-detail .project-detail-list .project-detail-list-right image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.project-detail .project-detail-list-more {
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.not-statement-content {
+    text-align: center;
+    width: 100%;
+    padding: 340rpx 0 340rpx;
+    overflow: hidden;
+}
+
+.not-statement-content .height-level-color {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20rpx;
+    clear: both;
+}
+
+.not-statement-content .small-level-color {
+    display: inline-block;
+    padding: 15rpx 30rpx;
+    border: 1px solid #666;
+    border-radius: 8rpx;
+    overflow: hidden;
+}

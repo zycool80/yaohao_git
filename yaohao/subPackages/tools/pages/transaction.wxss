@@ -1,0 +1,44 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.contactUs {
+    margin: 290rpx 55rpx;
+    position: relative;
+}
+
+.contactUs-line1,.contactUs-line2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactUs navigator,.contact {
+    height: 300rpx;
+    border-radius: 40rpx;
+    margin-bottom: 40rpx;
+    width: 300rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contactUs .icon {
+    display: block;
+    width: 66rpx;
+    height: 66rpx;
+    margin-bottom: 28rpx;
+}
+
+.company text {
+    display: block;
+}
+
+.company-email {
+    position: absolute;
+    right: 10rpx;
+    top: 160rpx;
+    width: 300rpx;
+}
+
+.company-email>text {
+    display: block;
+}

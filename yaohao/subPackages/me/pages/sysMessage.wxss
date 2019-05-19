@@ -1,0 +1,130 @@
+@import "manageUsers.wxss";
+
+page {
+    background-color: #f4f6f9;
+}
+
+.answer-cont {
+    padding: 40rpx 30rpx 0;
+}
+
+.answer-cont .time {
+    line-height: 40rpx;
+    border-radius: 2rpx;
+    background: #f0f0f0;
+    margin: 0 auto 30rpx;
+    max-width: 240rpx;
+    text-align: center;
+}
+
+.answer-cont .main-cont {
+    margin-bottom: 40rpx;
+}
+
+.answer-cont .main-cont .left-avatar {
+    background: transparent;
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 70rpx;
+    float: left;
+}
+
+.answer-cont .main-cont .left-avatar image {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.answer-cont .postCard {
+    margin-bottom: 30rpx;
+    margin-left: 90rpx;
+    width: 510rpx;
+    background: #fff;
+    box-shadow: 0 0 3rpx 0 #dbdbdb;
+}
+
+.answer-cont .postCard .post-img {
+    width: 100%;
+}
+
+.answer-cont .postCard .descript {
+    margin-bottom: 30rpx;
+    padding: 0 16rpx;
+    line-height: 1.8;
+}
+
+.answer-cont .postCard .autor {
+    padding: 0 16rpx 24rpx;
+    overflow: hidden;
+}
+
+.answer-cont .postCard .autor .name {
+    float: left;
+    line-height: 1;
+}
+
+.answer-cont .postCard .autor .name image {
+    width: 26rpx;
+    height: 26rpx;
+    border-radius: 26rpx;
+    margin-right: 10rpx;
+}
+
+.answer-cont .postCard .autor .post_time {
+    float: right;
+}
+
+.answer-cont .postCard .project_name {
+    padding: 30rpx 16rpx 38rpx;
+}
+
+.answer-cont .postCard .project_info {
+    padding: 0 16rpx 40rpx;
+}
+
+.answer-cont .postCard .lookFor {
+    color: #16a5af;
+    border-top: 1rpx solid #e6e6e6;
+    margin: 0 16rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.answer-cont .postCard .lookFor .right {
+    float: right;
+}
+
+.answer-cont .postCard .lookFor .left {
+    float: left;
+}
+
+.answer-cont .postCard .title {
+    padding: 30rpx 16rpx;
+}
+
+.answer-cont .postCard .cont {
+    padding: 10rpx 16rpx 30rpx;
+    overflow: hidden;
+}
+
+.answer-cont .postCard .cont .left {
+    float: left;
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 10rpx;
+}
+
+.answer-cont .postCard .cont .right {
+    margin-left: 144rpx;
+}
+
+.moreMessage {
+    text-align: center;
+    padding: 0 0 30rpx;
+    color: #7099d6;
+}
+
+.nothing {
+    padding: 50rpx;
+    text-align: center;
+}

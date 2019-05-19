@@ -1,0 +1,399 @@
+<view class="page">
+    <view class="propertyData">
+        <view class="propertyData-top">
+            <view bindtap="changeTab" class="top-box" data-wpychangetab-a="1">
+                <view class="top-btn {{toggle==1?'active':''}}">
+                    <text class="iconfont  icon-fangchan fz-24"></text>
+                </view>
+                <view class="top-btn-text fz-13 white-color">房产预售</view>
+            </view>
+            <view bindtap="changeTab" class="top-box" data-wpychangetab-a="2">
+                <view class="top-btn {{toggle==2?'active':''}}">
+                    <text class="iconfont icon-fangzizhong fz-24"></text>
+                </view>
+                <view class="top-btn-text fz-13 white-color">交易数据</view>
+            </view>
+            <view bindtap="changeTab" class="top-box" data-wpychangetab-a="3">
+                <view class="top-btn {{toggle==3?'active':''}}">
+                    <text class="iconfont icon-fangzizhong2 fz-24"></text>
+                </view>
+                <view class="top-btn-text fz-13 white-color">二手房</view>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{toggle==1}}">
+        <view class="echarts-time">
+            <view class="echarts-time-tab">
+                <picker bindchange="chooseDate" class="echarts_time-data" fields="month" mode="date">
+                    <text class="black-color fz-14 font-bold">成都房产预售数据</text>
+                    <text class="font-bold black-color fz-14">{{simulation2}}</text>
+                    <text class="iconfont icon-xialajiantou fz-12 gray-color" style="margin-left:6px;"></text>
+                </picker>
+                <view class="echarts_time-share">
+                    <button openType="share">
+                        <text class="fz-14 black1a-color tab-text font-bold">分享</text>
+                        <text class="fz-18 black1a-color iconfont font-bold icon-fenxiang9"></text>
+                    </button>
+                </view>
+            </view>
+        </view>
+        <view class="block-gray"></view>
+        <view class="echarts_data-type">
+            <view class="data_type-top font-bold">摇号数据</view>
+            <view class="data_type-content">
+                <block wx:for="{{lotterydata}}" wx:key="key">
+                    <view class="count-row fz-13" wx:if="{{index==0}}">
+                        <view class="count_row-column add-icon {{'circle-'+index+'-bg'}}">{{item[0]}}</view>
+                        <view class="count_row-column font-bold">{{item[1]}}</view>
+                        <view class="count_row-column font-bold">{{item[2]}}</view>
+                    </view>
+                    <view class="count-row fz-13" wx:if="{{index!=0}}">
+                        <view class="count_row-column add-icon {{'circle-'+index+'-bg'}}">{{item[0]}}</view>
+                        <view class="count_row-column font-bold  color-2">{{item[1]}}</view>
+                        <view class="count_row-column font-bold  color-3">{{item[2]}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="block-gray"></view>
+        <view class="echarts">
+            <view class="echarts-top font-bold fz-14">区域报名人数</view>
+            <view class="echarts-form" wx:if="{{dataSource.length>0}}">
+                <view class="pie-container" hidden="{{hideCanvas}}">
+                    <canvas bindtap="$Pie$onTapCanvas" canvasId="myCanvasPie" class="my-canvas"></canvas>
+                </view>
+                <view class="content">
+                    <view class="echarts-form-right">
+                        <view class="fz-14 font-bold">{{$Pie$touchItem.name}}</view>
+                        <view class="form_right-tip1 fz-14 black1a-color" wx:for="{{$Pie$tipVal}}" wx:for-index="$Pie$index" wx:for-item="$Pie$item" wx:key="$Pie$key">{{$Pie$item[0]}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="black1a-color fz-14" style="text-align: center;padding: 50rpx 0;" wx:else>暂无数据</view>
+        </view>
+        <view class="block-gray"></view>
+        <view class="echarts-list">
+            <view class="echarts-list-content">
+                <view class="echarts-list-content-top">
+                    <view class="fz-16 black-color font-bold" style="border-left:8rpx solid #377dcf;padding-left:20rpx">摇号时间轴</view>
+                    <picker bindchange="getArea" class="tab" range="{{areaList}}" rangeKey="{{'name'}}" value="{{areaIndex}}">
+                        <text class="echarts-area fz-14 height-level-color font-bold">{{areaList[areaIndex].name}}</text>
+                        <text class="iconfont icon-xialajiantou fz-12" style="margin-left:6px;color: #666"></text>
+                    </picker>
+                </view>
+                <view class="echarts-list-content-middle">
+                    <view class="weui-cell-third">
+                        <view class="page__title fz-13">{{simulation2}}
+                               </view>
+                        <block wx:if="{{axis&&axis.length>1}}">
+                            <view class="weui-cell-list" wx:for="{{axis}}" wx:key="*this">
+                                <view class="weui-cell-circle"></view>
+                                <view class="weui-cell-line">
+                                    <view class="weui-cell-time fz-13 white-color">{{item.id}}号</view>
+                                    <navigator hoverClass="none" url="{{timeAxis.url}}" wx:for="{{item.data}}" wx:for-item="timeAxis" wx:key="key">
+                                        <view class="weui-cell-bottom">
+                                            <view class="weui-cell-name fz-13 font-bold">{{timeAxis.name}}</view>
+                                            <view class="weui-cell-event fz-13" style="padding-bottom:20rpx;" wx:if="{{timeAxis.buyer_num!='0'&&timeAxis.buyer_num!='-'&&timeAxis.buyer_num!=''}}">摇号人数：{{timeAxis.buyer_num}}</view>
+                                        </view>
+                                    </navigator>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="black1a-color fz-14" style="text-align: center;padding: 50rpx 0;" wx:else>暂无数据</view>
+                    </view>
+                </view>
+                <view class="echarts-list-content-bottom small-level-color fz-12">本数据由成都摇号助手官方提供</view>
+            </view>
+        </view>
+    </block>
+    <view class="transactionData" wx:if="{{toggle==2}}">
+        <button class="propertyData-share2" openType="share">
+            <text class="iconfont icon-fenxiang9 white-color fz-20"></text>
+        </button>
+        <view class="fz-16 propertyData-share-top">
+            <image mode="widthFix" src="/images/left-line.png"></image>
+            <view class="fz-16 font-bold">商品房成交量</view>
+            <image mode="widthFix" src="/images/right-line.png"></image>
+        </view>
+        <view class="transactionData-product">
+            <view class="transactionData-title font-bold fz-15">
+                        今日商品房成交量
+                    </view>
+            <view class="transactionData-content">
+                <view class="transactionData-content-line">
+                    <text class="fz-14 small-level-color">区域</text>
+                    <text class="fz-14 small-level-color">{{new_data[0].area}}</text>
+                    <text class="fz-14 small-level-color">{{new_data[1].area}}</text>
+                    <text class="fz-14 small-level-color">{{new_data[2].area}}</text>
+                </view>
+                <view class="transactionData-content-line">
+                    <text class="fz-14 small-level-color">总面积</text>
+                    <text class="fz-14 black-color">{{new_data[0].totalSquare}}</text>
+                    <text class="fz-14 black-color">{{new_data[1].totalSquare}}</text>
+                    <text class="fz-14 black-color">{{new_data[2].totalSquare}}</text>
+                </view>
+                <view class="transactionData-content-line">
+                    <text class="fz-14 small-level-color">住宅面积</text>
+                    <text class="fz-14 black-color">{{new_data[0].houseSquare}}</text>
+                    <text class="fz-14 black-color">{{new_data[1].houseSquare}}</text>
+                    <text class="fz-14 black-color">{{new_data[2].houseSquare}}</text>
+                </view>
+                <view class="transactionData-content-line">
+                    <text class="fz-14 small-level-color">住宅套数</text>
+                    <text class="fz-14 green-color font-bold">{{new_data[0].houseNum}}</text>
+                    <text class="fz-14 green-color font-bold">{{new_data[1].houseNum}}</text>
+                    <text class="fz-14 green-color font-bold">{{new_data[2].houseNum}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="transactionData-product1">
+            <view class="price_echarts-title fz-15 font-bold">商品房成交量走势</view>
+            <view class="price_echarts-form" style="width:100%;overflow:hidden">
+                <canvas bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" canvasId="ec-Canvas" class="ec-Canvas" hidden="{{hideCanvas}}"></canvas>
+            </view>
+        </view>
+        <view class="block-gray"></view>
+        <view class="fz-16 propertyData-share-top" style="padding-top:30rpx">
+            <image mode="widthFix" src="/images/left-line.png"></image>
+            <view class="fz-16 font-bold">二手房成交量</view>
+            <image mode="widthFix" src="/images/right-line.png"></image>
+        </view>
+        <view class="transactionData-product">
+            <view class="transactionData-title font-bold fz-15">今日二手房成交量</view>
+            <view class="transactionData-content">
+                <view class="transactionData-content-line">
+                    <text class="fz-14 small-level-color">区域</text>
+                    <text class="fz-14 small-level-color">{{ershou_data[0].area}}</text>
+                    <text class="fz-14 small-level-color">{{ershou_data[1].area}}</text>
+                    <text class="fz-14 small-level-color">{{ershou_data[2].area}}</text>
+                </view>
+                <view class="transactionData-content-line">
+                    <text class="fz-14 small-level-color">总面积</text>
+                    <text class="fz-14 black-color">{{ershou_data[0].totalSquare}}</text>
+                    <text class="fz-14 black-color">{{ershou_data[1].totalSquare}}</text>
+                    <text class="fz-14 black-color">{{ershou_data[2].totalSquare}}</text>
+                </view>
+                <view class="transactionData-content-line">
+                    <text class="fz-14 small-level-color">住宅面积</text>
+                    <text class="fz-14 black-color">{{ershou_data[0].houseSquare}}</text>
+                    <text class="fz-14 black-color">{{ershou_data[1].houseSquare}}</text>
+                    <text class="fz-14 black-color">{{ershou_data[2].houseSquare}}</text>
+                </view>
+                <view class="transactionData-content-line">
+                    <text class="fz-14 small-level-color">住宅套数</text>
+                    <text class="fz-14 orange-color font-bold">{{ershou_data[0].houseNum}}</text>
+                    <text class="fz-14 orange-color font-bold">{{ershou_data[1].houseNum}}</text>
+                    <text class="fz-14 orange-color font-bold">{{ershou_data[2].houseNum}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="transactionData-product1">
+            <view class="price_echarts-title fz-15 font-bold">二手房成交量走势</view>
+            <view class="price_echarts-form" style="width:100%;overflow:hidden">
+                <canvas bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" canvasId="ec-Canvas2" class="ec-Canvas2"></canvas>
+            </view>
+        </view>
+        <view class="bottom">
+            <view class="updata-time small-level-color fz-12">更新时间： {{day}}</view>
+            <view class="dataArea small-level-color fz-12">数据来源于城乡房管局，如数据有误或其他疑义，请联系客服及时纠正。</view>
+            <view class="bottom-content">
+                <text class="fz-12 black-color bottom-content-center">中心城区：</text>
+                <text class="fz-12 black-color">包含五城区及高新区、天府新区、双流区、龙泉驿区、温江区、郫都区、新都区、青白江区。</text>
+            </view>
+            <view class="bottom-content">
+                <text class="fz-12 black-color bottom-content-center">郊区新城：</text>
+                <text class="fz-12 black-color">包含简阳市、都江堰市、崇州市、彭州市、邛崃市、新津县、金堂县、大邑县、蒲江县。</text>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{toggle==3}}">
+        <view class="switch-tab">
+            <view bindtap="changeBar" class="{{istoggle==1?'switch-tab-line blue-color':'gray-9-color'}}" data-wpychangebar-a="1">
+                <text class="fz-14 font-bold{{istoggle==1?' black-color':'gray-9-color'}}">价格走势</text>
+            </view>
+            <view bindtap="changeBar" class="{{istoggle==2?'switch-tab-line blue-color':'gray-9-color'}}" data-wpychangebar-a="2">
+                <text class="fz-14 font-bold{{istoggle==2?' black-color':'gray-9-color'}}">降涨排行</text>
+            </view>
+        </view>
+        <block wx:if="{{istoggle==1}}">
+            <view class="price-room-top">
+                <button class="propertyData-share2" openType="share">
+                    <text class="iconfont icon-fenxiang9 white-color fz-20"></text>
+                </button>
+                <view class="price-room-content" style="width:100%;overflow:hidden">
+                    <view class="price-room-tip1 fz-15 font-bold">{{averageList.month}}月参考均价</view>
+                    <view class="price-room-tip2">
+                        <text class="blue-color font-bold">{{averageList.reference}}</text>
+                        <text class="fz-15">元/平</text>
+                    </view>
+                    <view class="price-room-tip3 fz-12 small-level-color">在售房源{{averageList.sale}}套</view>
+                    <view class="price-room-tip4 fz-12 small-level-color">最近90天内成交房源{{averageList.deal}}套</view>
+                </view>
+            </view>
+            <view class="block-gray"></view>
+            <view class="price-echarts">
+                <view class="price_echarts-title fz-15 font-bold">二手房价格走势</view>
+                <view class="price_echarts-form" style="width:100%;overflow:hidden">
+                    <canvas bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" canvasId="ec-Canvas3" class="ec-Canvas3" hidden="{{hideCanvas}}"></canvas>
+                    <view class="fz-10 small-level-color">数据来源：数据来自{{priceChannel}}</view>
+                    <view class="fz-10 small-level-color">更新时间：{{simulation2}}</view>
+                </view>
+                <navigator hoverClass="none" style="border-top:1px solid #e2e2e2" url="/subPackages/lottery/pages/houseAreaList">
+                    <view class="price-echarts-router" style="overflow: hidden;padding-top:30rpx">
+                        <text class="fz-15 blue-color">查看区域均价</text>
+                        <text class="icon-xiayibu iconfont fz-15 gray-9-color" style="float:right"></text>
+                    </view>
+                </navigator>
+            </view>
+            <view class="block-gray"></view>
+            <view class="price-echarts">
+                <view class="price_echarts-title fz-15 font-bold">二手房供需走势</view>
+                <view class="price_echarts-form" style="width:100%;overflow:hidden">
+                    <canvas bindtouchend="touchEnd" bindtouchmove="touchMove" bindtouchstart="touchStart" canvasId="ec-Canvas4" class="ec-Canvas4"></canvas>
+                    <view class="fz-10 small-level-color">数据来源：数据来自{{ertshouChannel}}</view>
+                    <view class="fz-10 small-level-color">更新时间：{{simulation2}}</view>
+                </view>
+            </view>
+            <view class="price_room-btnbg"></view>
+            <view class="price_room-btn">
+                <navigator class="price-btn" hoverClass="none" url="/subPackages/lottery/pages/houseValuation">
+                    <view class="white-color blue-bg fz-15" style="width:100%;height:100%">查看我的房子估价</view>
+                </navigator>
+            </view>
+        </block>
+        <view class="echarts-price-risefall" wx:else>
+            <view class="propertyData-share">
+                <button openType="share">
+                    <view class="iconfont icon-fenxiang9 white-color fz-20"></view>
+                </button>
+            </view>
+            <view class="echarts-price-tab">
+                <picker bindchange="tabIndex" class="rank-reduction" range="{{preciate}}" rangeKey="{{'name'}}">
+                    <text class="black-color fz-13">{{preciate[preciateIndex].name}}</text>
+                    <text class="iconfont icon-xialajiantou fz-12 gray-color" style="margin-left:6px;"></text>
+                </picker>
+                <picker bindchange="tabListIndex" class="rank-reduction" range="{{depreciateList}}" rangeKey="{{'name'}}">
+                    <text class="black-color fz-13">{{depreciateList[preciateListIndex].name}}</text>
+                    <text class="iconfont icon-xialajiantou fz-12 gray-color" style="margin-left:6px;"></text>
+                </picker>
+            </view>
+            <block wx:for="{{rankRiseFailData}}" wx:key="key">
+                <view bindtap="save_detail" class="price-risefall-meg" data-wpysave_detail-a="{{item}}" wx:if="{{index+1==1}}">
+                    <view class="meg-left font-bold fz-14">
+                        <image class="bg" src="/images/NO1.png"></image>
+                    </view>
+                    <view class="meg-right">
+                        <view class="price-meg-tip1">
+                            <text class="fz-14 font-bold">{{item.params.title}}</text>
+                        </view>
+                        <view class="price-meg-tip2 fz-12">{{item.params.communityName}}/{{item.house_huxing}}/{{item.acreage}}m²/{{item.house_toward}}</view>
+                        <view class="price-meg-tip3 fz-12">
+                            <text class="orange-color left">今日挂牌价:{{item.total_price}}万 {{item.price}}元/平</text>
+                            <text class="right" wx:if="{{item.fluStatus==0}}">
+                                <text class="fz-12 green-color font-bold iconfont icon-jiantou"></text>{{preciateListIndex==0?item.fluctuation:item.up_fluctuation}}
+                                        </text>
+                            <text class="right" wx:if="{{item.fluStatus==1}}">
+                                <text class="fz-12 iconsUp orange-color font-bold iconfont icon-top"></text>{{preciateListIndex==0?item.fluctuation:item.up_fluctuation}}
+                                        </text>
+                            <text class="right" wx:if="{{item.fluStatus==2}}">
+                                <text class="fz-12"></text>—
+                                        </text>
+                        </view>
+                        <view class="price-meg-tip4 fz-12">
+                            <text wx:if="{{preciateListIndex==0}}">昨日</text>
+                            <text wx:if="{{preciateListIndex==1}}">上月</text>
+                            <text wx:if="{{preciateListIndex==2}}">成交</text>挂牌价:{{item.yesterday.total_price}}万 {{item.yesterday.price}}元/平</view>
+                    </view>
+                </view>
+                <view bindtap="save_detail" class="price-risefall-meg" data-wpysave_detail-a="{{item}}" wx:if="{{index+1==2}}">
+                    <view class="meg-left font-bold fz-14">
+                        <image class="bg" src="/images/NO2.png"></image>
+                    </view>
+                    <view class="meg-right">
+                        <view class="price-meg-tip1">
+                            <text class="fz-14 font-bold">{{item.params.title}}</text>
+                        </view>
+                        <view class="price-meg-tip2 fz-12">{{item.house_huxing}}/{{item.acreage}}m²/{{item.house_toward}}</view>
+                        <view class="price-meg-tip3 fz-12">
+                            <text class="orange-color left">今日挂牌价:{{item.total_price}}万 {{item.price}}元/平</text>
+                            <text class="right" wx:if="{{item.fluStatus==0}}">
+                                <text class="fz-12 green-color font-bold iconfont icon-jiantou"></text>{{preciateListIndex==0?item.fluctuation:item.up_fluctuation}}
+                                        </text>
+                            <text class="right" wx:if="{{item.fluStatus==1}}">
+                                <text class="fz-12 iconsUp orange-color font-bold iconfont icon-top"></text>{{preciateListIndex==0?item.fluctuation:item.up_fluctuation}}
+                                        </text>
+                            <text class="right" wx:if="{{item.fluStatus==2}}">
+                                <text class="fz-12"></text>—
+                                        </text>
+                        </view>
+                        <view class="price-meg-tip4 fz-12">
+                            <text wx:if="{{preciateListIndex==0}}">昨日</text>
+                            <text wx:if="{{preciateListIndex==1}}">上月</text>
+                            <text wx:if="{{preciateListIndex==2}}">成交</text>挂牌价:{{item.yesterday.total_price}}万 {{item.yesterday.price}}元/平</view>
+                    </view>
+                </view>
+                <view bindtap="save_detail" class="price-risefall-meg" data-wpysave_detail-a="{{item}}" wx:if="{{index+1==3}}">
+                    <view class="meg-left font-bold fz-14">
+                        <image class="bg" src="/images/NO3.png"></image>
+                    </view>
+                    <view class="meg-right">
+                        <view class="price-meg-tip1">
+                            <text class="fz-14 font-bold">{{item.params.title}}</text>
+                        </view>
+                        <view class="price-meg-tip2 fz-12">{{item.house_huxing}}/{{item.acreage}}m²/{{item.house_toward}}</view>
+                        <view class="price-meg-tip3 fz-12">
+                            <text class="orange-color left">今日挂牌价:{{item.total_price}}万 {{item.price}}元/平</text>
+                            <text class="right" wx:if="{{item.fluStatus==0}}">
+                                <text class="fz-12 green-color font-bold iconfont icon-jiantou"></text>{{preciateListIndex==0?item.fluctuation:item.up_fluctuation}}
+                                        </text>
+                            <text class="right" wx:if="{{item.fluStatus==1}}">
+                                <text class="fz-12 iconsUp orange-color font-bold iconfont icon-top"></text>{{preciateListIndex==0?item.fluctuation:item.up_fluctuation}}
+                                        </text>
+                            <text class="right" wx:if="{{item.fluStatus==2}}">
+                                <text class="fz-12"></text>—
+                                        </text>
+                        </view>
+                        <view class="price-meg-tip4 fz-12">
+                            <text wx:if="{{preciateListIndex==0}}">昨日</text>
+                            <text wx:if="{{preciateListIndex==1}}">上月</text>
+                            <text wx:if="{{preciateListIndex==2}}">成交</text>挂牌价:{{item.yesterday.total_price}}万 {{item.yesterday.price}}元/平</view>
+                    </view>
+                </view>
+                <view bindtap="save_detail" class="price-risefall-meg" data-wpysave_detail-a="{{item}}" wx:if="{{index+1>3}}">
+                    <view class="meg-left font-bold fz-14">
+                        <text class="fz-14 font-bold">{{index+1}}</text>
+                    </view>
+                    <view class="meg-right">
+                        <view class="price-meg-tip1">
+                            <text class="fz-14 font-bold">{{item.params.title}}</text>
+                        </view>
+                        <view class="price-meg-tip2 fz-12">{{item.house_huxing}}/{{item.acreage}}m²/{{item.house_toward}}</view>
+                        <view class="price-meg-tip3 fz-12">
+                            <text class="orange-color left">今日挂牌价:{{item.total_price}}万 {{item.price}}元/平</text>
+                            <text class="right" wx:if="{{item.fluStatus==0}}">
+                                <text class="fz-12 green-color font-bold iconfont icon-jiantou"></text>{{preciateListIndex==0?item.fluctuation:item.up_fluctuation}}
+                                        </text>
+                            <text class="right" wx:if="{{item.fluStatus==1}}">
+                                <text class="fz-12 iconsUp orange-color font-bold iconfont icon-top"></text>{{preciateListIndex==0?item.fluctuation:item.up_fluctuation}}
+                                        </text>
+                            <text class="right" wx:if="{{item.fluStatus==2}}">
+                                <text class="fz-12"></text>—
+                                        </text>
+                        </view>
+                        <view class="price-meg-tip4 fz-12">
+                            <text wx:if="{{preciateListIndex==0}}">昨日</text>
+                            <text wx:if="{{preciateListIndex==1}}">上月</text>
+                            <text wx:if="{{preciateListIndex==2}}">成交</text>挂牌价:{{item.yesterday.total_price}}万 {{item.yesterday.price}}元/平                                  </view>
+                    </view>
+                </view>
+                <view class="block-gray"></view>
+            </block>
+            <view class="block-gray"></view>
+        </view>
+    </block>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

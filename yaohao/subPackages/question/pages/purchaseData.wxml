@@ -1,0 +1,197 @@
+<view class="page">
+    <view class="data_header">
+        <view class="head-top">
+            <view class="head-top-title">
+                <text class="fz-20" style="color: #FFFFFF;font-weight: bold;width: 500rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{hosingData.name}}</text>
+            </view>
+            <button openType="share" style="color: #fff;margin-top: 26rpx;background-color:#3772cc;line-height: 40rpx;'">
+                <text class="fz-15" style="margin-right: 10rpx;">分享</text>
+                <text class="iconfont icon-fenxiang9 fz-18"></text>
+            </button>
+        </view>
+        <view style="padding: 0 50rpx 30rpx 50rpx">
+            <text class="fz-12" style="color: #FFFFFF;">{{hosingData.project_location}}</text>
+        </view>
+    </view>
+    <view style="padding-bottom:100rpx;">
+        <view class="purchase_opt_content">
+            <view class="opt_head">
+                <view class="opt_label layout_type">
+                    <text class="fz-15">预售</text>
+                </view>
+                <text class="opt_time fz-15">时间：{{hosingData.time_line[0].value?hosingData.time_line[0].value:'待定'}}</text>
+            </view>
+            <view class="opt_list">
+                <block wx:if="{{hosingData.sign_rule.url}}">
+                    <view bindtap="toRules" class="opt_item layout_type" data-wpytorules-a="{{hosingData.sign_rule.url}}" wx:if="{{hosingData.sign_rule.type==2}}">
+                        <view>
+                            <text class="iconfont icon-xinxizhong" style="margin-right: 14rpx;background: linear-gradient(to top, #48d9b0, #67ebe9);-webkit-background-clip: text;color: transparent;"></text>
+                            <text class="fz-15 font-bold">报名规则</text>
+                        </view>
+                        <text class="fz-10 font_style" style="margin-top: 10rpx;">报名时的注意事项</text>
+                    </view>
+                    <navigator class="opt_item layout_type" hoverClass="none" url="{{hosingData.sign_rule.url}}" wx:if="{{hosingData.sign_rule.type==1}}">
+                        <view>
+                            <text class="iconfont icon-xinxizhong" style="margin-right: 14rpx;background: linear-gradient(to top, #48d9b0, #67ebe9);-webkit-background-clip: text;color: transparent;"></text>
+                            <text class="fz-15 font-bold">报名规则</text>
+                        </view>
+                        <text class="fz-10 font_style" style="margin-top: 10rpx;">报名时的注意事项</text>
+                    </navigator>
+                </block>
+                <block wx:if="{{hosingData.decoration_prices.url}}">
+                    <view bindtap="toRules" class="opt_item layout_type" data-wpytorules-a="{{hosingData.decoration_prices.url}}" wx:if="{{hosingData.decoration_prices.type==2}}">
+                        <view>
+                            <text class="iconfont icon-shuazizhong" style="margin-right: 14rpx;background: linear-gradient(to top, #64a3ef, #7bdaee);-webkit-background-clip: text;color: transparent;"></text>
+                            <text class="fz-15 font-bold">装修价格</text>
+                        </view>
+                        <text class="fz-10" style="margin-top: 10rpx;">该楼盘的装修价格</text>
+                    </view>
+                    <navigator class="opt_item layout_type" hoverClass="none" url="{{hosingData.decoration_prices.url}}" wx:elif="{{hosingData.decoration_prices.type==1}}">
+                        <view>
+                            <text class="iconfont icon-shuazizhong" style="margin-right: 14rpx;background: linear-gradient(to top, #64a3ef, #7bdaee);-webkit-background-clip: text;color: transparent;"></text>
+                            <text class="fz-15 font-bold">装修价格</text>
+                        </view>
+                        <text class="fz-10" style="margin-top: 10rpx;">该楼盘的装修价格</text>
+                    </navigator>
+                </block>
+                <block wx:if="{{hosingData.lottery_room_table.result}}">
+                    <view bindtap="preview" class="opt_item layout_type" data-wpypreview-a="{{hosingData.lottery_room_table.result}}" wx:if="{{hosingData.lottery_room_table.type==1}}">
+                        <view>
+                            <text class="iconfont icon-fangchan" style="margin-right: 14rpx;background: linear-gradient(to top, #ef8fab, #f3b8e9);-webkit-background-clip: text;color: transparent;4"></text>
+                            <text class="fz-15 font-bold">房源表</text>
+                        </view>
+                        <text class="fz-10" style="margin-top: 10rpx;">该楼盘房源表</text>
+                    </view>
+                    <view bindtap="imagePre" class="opt_item layout_type" data-wpyimagepre-a="{{hosingData.lottery_room_table.result}}" wx:else>
+                        <view>
+                            <text class="iconfont icon-fangchan" style="margin-right: 14rpx;background: linear-gradient(to top, #ef8fab, #f3b8e9);-webkit-background-clip: text;color: transparent;4"></text>
+                            <text class="fz-15 font-bold">房源表</text>
+                        </view>
+                        <text class="fz-10" style="margin-top: 10rpx;">该楼盘房源表</text>
+                    </view>
+                </block>
+                <navigator class="opt_item layout_type" hoverClass="none" url="/pages/webview2?redirect=https%3A%2F%2Fweb.huanjutang.com%2Flottery%2FbuyHouseCheckNew%3Ftitle%3D%E6%9C%80%E5%AE%8C%E5%96%84%E7%9A%845.15%E5%90%8E%E8%B4%AD%E6%88%BF%E8%B5%84%E6%A0%BC%E6%9F%A5%E8%AF%A2%E5%96%94~">
+                    <view>
+                        <text class="iconfont icon-fangzizhong2" style="margin-right: 14rpx;background: linear-gradient(to top, #eca465, #f0ca9d);-webkit-background-clip: text;color: transparent;"></text>
+                        <text class="fz-15 font-bold">购房资格</text>
+                    </view>
+                    <text class="fz-10" style="margin-top: 10rpx;">购房资格查询</text>
+                </navigator>
+            </view>
+        </view>
+        <view class="purchase_opt_content">
+            <view class="opt_head">
+                <view class="opt_label layout_type">
+                    <text class="fz-15">登记</text>
+                </view>
+                <text class="opt_time fz-15">时间：{{hosingData.time_line[1].value?hosingData.time_line[1].value:'待定'}}</text>
+            </view>
+            <view class="opt_list">
+                <navigator class="opt_item layout_type" hoverClass="none" url="{{hosingData.sign_guide}}" wx:if="{{hosingData.sign_guide}}">
+                    <view>
+                        <text class="iconfont icon-zhiyinzhong" style="margin-right: 14rpx;background: linear-gradient(to top, #41d5a3, #67ebe9);-webkit-background-clip: text;color: transparent;"></text>
+                        <text class="fz-15 font-bold">登记指引</text>
+                    </view>
+                    <text class="fz-10" style="margin-top: 10rpx;">登记时的步骤说明</text>
+                </navigator>
+                <navigator class="opt_item layout_type" hoverClass="none" url="/subPackages/question/pages/commonProblems?lottery_id={{lottery_id}}">
+                    <view>
+                        <text class="iconfont icon-wendazhong" style="margin-right: 14rpx;background: linear-gradient(to top, #67a8ef, #7bdaee);-webkit-background-clip: text;color: transparent;"></text>
+                        <text class="fz-15 font-bold">常见问题</text>
+                    </view>
+                    <text class="fz-10" style="margin-top: 10rpx;">在购房中遇到的各种典型问题</text>
+                </navigator>
+            </view>
+        </view>
+        <view class="purchase_opt_content">
+            <view class="opt_head">
+                <view class="opt_label layout_type">
+                    <text class="fz-15">核验</text>
+                </view>
+                <text class="opt_time fz-15">时间：{{hosingData.time_line[2].value?hosingData.time_line[2].value:'待定'}}</text>
+            </view>
+            <view class="opt_list">
+                <view bindtap="preview" class="opt_item layout_type" data-wpypreview-a="{{hosingData.verification_material.result}}" wx:if="{{hosingData.verification_material.type==1}}">
+                    <view>
+                        <text class="iconfont icon-shuben1" style="margin-right: 14rpx;background: linear-gradient(to top, #3fd49f, #67ebe9);-webkit-background-clip: text;color: transparent;"></text>
+                        <text class="fz-15 font-bold">核验资料</text>
+                    </view>
+                    <text class="fz-10" style="margin-top: 10rpx;">核验时提交资料的清单</text>
+                </view>
+                <navigator class="opt_item layout_type" hoverClass="none" url="/subPackages/lottery/pages/commonProblems">
+                    <view>
+                        <text class="iconfont icon-remenzhong" style="margin-right: 14rpx;background: linear-gradient(to top, #64a1ef, #7bdaee);-webkit-background-clip: text;color: transparent;"></text>
+                        <text class="fz-15 font-bold">资料模版</text>
+                    </view>
+                    <text class="fz-10" style="margin-top: 10rpx;">提交所需资料的模版下载</text>
+                </navigator>
+            </view>
+        </view>
+        <view class="purchase_opt_content">
+            <view class="opt_head">
+                <view class="opt_label layout_type">
+                    <text class="fz-15">公示</text>
+                </view>
+                <text class="opt_time fz-15">时间：{{hosingData.time_line[3].value?hosingData.time_line[3].value:'待定'}}</text>
+            </view>
+            <view class="opt_list">
+                <navigator class="opt_item layout_type" hoverClass="none" url="{{hosingData.buyer_result.page}}" wx:if="{{hosingData.buyer_result.is_result==1}}">
+                    <view>
+                        <text class="iconfont icon-fangchan" style="margin-right: 14rpx;background: linear-gradient(to top, #3fd49f, #67ebe9);-webkit-background-clip: text;color: transparent;"></text>
+                        <text class="fz-15 font-bold">复核名单</text>
+                    </view>
+                    <text class="fz-10" style="margin-top: 10rpx;">公示的复核名单查看</text>
+                </navigator>
+                <view style="padding: 20rpx 60rpx 40rpx 60rpx;" wx:else>
+                    <text style="color: #666666">暂无复核结果</text>
+                </view>
+            </view>
+        </view>
+        <view class="purchase_opt_content">
+            <view class="opt_head">
+                <view class="opt_label layout_type">
+                    <text class="fz-15">摇号</text>
+                </view>
+                <text class="opt_time fz-15">时间：{{hosingData.time_line[4].value?hosingData.time_line[4].value:'待定'}}</text>
+            </view>
+            <view class="opt_list">
+                <navigator class="opt_item layout_type" hoverClass="none" url="{{hosingData.lottery_result.page}}" wx:if="{{hosingData.lottery_result.is_result==1}}">
+                    <view>
+                        <text class="iconfont icon-yaohaozhong" style="margin-right: 14rpx;background: linear-gradient(to top, #3fd49f, #67ebe9);-webkit-background-clip: text;color: transparent;"></text>
+                        <text class="fz-15 font-bold">摇号结果</text>
+                    </view>
+                    <text class="fz-10" style="margin-top: 10rpx;">查看您的摇号结果</text>
+                </navigator>
+                <view style="padding: 20rpx 60rpx 40rpx 60rpx;" wx:else>
+                    <text style="color: #666666">暂无摇号结果</text>
+                </view>
+            </view>
+        </view>
+        <view class="purchase_opt_content">
+            <view class="opt_head">
+                <view class="opt_label layout_type">
+                    <text class="fz-15">选房</text>
+                </view>
+                <text class="opt_time fz-15" wx:if="{{hosingData.time_line[5].value}}">时间：{{hosingData.time_line[5].value+'-'+hosingData.time_line[6].value}}</text>
+                <text class="opt_time fz-15" wx:else>时间：待定</text>
+            </view>
+            <view class="opt_list">
+                <navigator class="opt_item layout_type" hoverClass="none" url="{{hosingData.pick_room_result.page}}" wx:if="{{hosingData.pick_room_result.is_result==1}}">
+                    <view>
+                        <text class="iconfont icon-fangzizhong" style="margin-right: 14rpx;background: linear-gradient(to top, #3fd49f, #67ebe9);-webkit-background-clip: text;color: transparent;"></text>
+                        <text class="fz-15 font-bold">选房结果</text>
+                    </view>
+                    <text class="fz-10" style="margin-top: 10rpx;">查看您的选房结果</text>
+                </navigator>
+                <view style="padding: 20rpx 60rpx 40rpx 60rpx;" wx:else>
+                    <text style="color: #666666">暂无选房结果</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

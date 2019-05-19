@@ -1,0 +1,65 @@
+@import "manageUsers.wxss";
+
+page {
+    background-color: #f2f2f2;
+}
+
+.weui-cell {
+    font-size: 28rpx;
+}
+
+.weui-cells__title {
+    color: #666666;
+    padding: 24rpx;
+    padding-left: 0;
+    font-size: 26rpx;
+    margin-left: 30rpx;
+}
+
+.weui-cell_select1 {
+    display: flex;
+    align-items: center;
+}
+
+.weui-cell_select {
+    display: flex;
+    align-items: center;
+}
+
+.weui-cells_after-title {
+    background-color: #fff;
+    padding-left: 30rpx;
+}
+
+.input_stall {
+    display: flex;
+    align-items: center;
+    width: 580rpx;
+    height: 100rpx;
+    margin-left: 46rpx;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.do_style {
+    width: 106rpx;
+    margin: 20rpx 0;
+}
+
+.weui-btn {
+    background: linear-gradient(to right,#4677e7,#3753cc)!important;
+    height: 78rpx;
+    border-radius: 78rpx;
+}
+
+.weui-label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weui-input {
+    width: 100%;
+}
+
+.bd0 {
+    border-bottom: 0 none!important;
+}

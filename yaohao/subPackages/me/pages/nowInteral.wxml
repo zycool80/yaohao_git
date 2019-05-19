@@ -1,0 +1,54 @@
+<view class="points">
+    <view class="point-title">
+        <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20181225/5c21d7c83a5aa.png"></image>
+        <view class="mes">
+            <view class="fz-25 white-color" style="margin-top: 35rpx">{{num}}</view>
+            <view class="fz-12 white-color">当前积分</view>
+        </view>
+    </view>
+    <view class="points-content">
+        <view class="title fz-13">
+            <text style="font-weight: 600;">历史明细</text>
+            <picker bindchange="getDate" class="right" fields="month" mode="date">
+                <text class="fz-13">{{date}}</text>
+                <text class="iconfont icon-xialajiantou fz-10 gray-9-color" style="margin-left:10rpx"></text>
+            </picker>
+        </view>
+        <block wx:if="{{listData.length>0&&loading}}">
+            <view class="info white-bg" style="{{item.is_hide?'margin-bottom: 24rpx;':''}}" wx:for="{{listData}}" wx:key="key">
+                <view bindtap="hideToggle" class="fz-13 tip" data-wpyhidetoggle-a="{{index}}">
+                    <view class="left">{{item.time}}</view>
+                    <view class="right gr-color" wx:if="{{item.number>=0}}">
+                                +{{item.number}}<view class="{{item.is_hide?'rotate':''}}" style="display: inline-block;margin-left: 10rpx">
+                            <text class="iconfont iconfont icon-xialajiantou fz-10"></text>
+                        </view>
+                    </view>
+                    <view class="right gr-color" wx:if="{{item.number<0}}">
+                                {{item.number}}<view class="{{item.is_hide?'rotate':''}}" style="display: inline-block;margin-left: 10rpx">
+                            <text class="iconfont iconfont icon-xialajiantou fz-10"></text>
+                        </view>
+                    </view>
+                </view>
+                <view class="content" wx:if="{{item.is_hide}}">
+                    <view class="points-col white-bg" wx:for="{{item.data}}" wx:for-item="detail" wx:key="key">
+                        <view class="cicle left">
+                            <image lazyLoad="{{true}}" mode="widthFix" src="{{icon[detail.type]}}"></image>
+                        </view>
+                        <view class="left fz-12 line" style="margin-left: 20rpx;max-width: 480rpx;">{{detail.reason}}</view>
+                        <view class="right fz-12 line" wx:if="{{detail.num>=0}}">+{{detail.num}}</view>
+                        <view class="right fz-12 line" wx:if="{{detail.num<0}}">{{detail.num}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="noData" wx:if="{{listData.length<=0&&loading}}">
+            <image mode="aspectFill" src="http://imgcdn.huanjutang.com/assets/img/20181226/5c23167e65de1.png"></image>
+            <view class="fz-13 small-level-color">还没有记录，小主加油</view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,50 @@
+.article-style {
+    padding: 28rpx 30rpx;
+    background: #fff;
+    overflow: hidden;
+}
+
+.article-style .right-img {
+    width: 240rpx;
+    height: 160rpx;
+    border-radius: 4rpx;
+    float: right;
+}
+
+.article-style .left-cont {
+    margin-right: 272rpx;
+}
+
+.article-style .left-cont .article-detail {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 60rpx;
+    height: 120rpx;
+    position: relative;
+    top: -12rpx;
+}
+
+.article-style .left-cont .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-style .left-cont .bottom .left-name {
+    overflow: hidden;
+}
+
+.article-style .left-cont .bottom .left-name .avatar {
+    float: left;
+    width: 36rpx;
+    height: 36rpx;
+    border-radius: 36rpx;
+    margin-right: 10rpx;
+}
+
+.article-style .left-cont .bottom .left-name .name {
+    line-height: 36rpx;
+    float: left;
+}

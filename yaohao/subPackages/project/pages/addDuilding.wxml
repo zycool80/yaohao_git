@@ -1,0 +1,50 @@
+<view>
+    <view style="width:100%;background-color: #ffffff;">
+        <view class="building-style">
+            <view style="margin-left:30rpx;">
+                <text>楼盘名</text>
+                <text style="color:#d13c01">*</text>
+            </view>
+            <view class="input-style">
+                <input bindinput="buildingName" placeholder="楼盘" value="{{project_name}}"></input>
+            </view>
+        </view>
+        <view class="building-style">
+            <view style="margin-left:30rpx">
+                <text>区域</text>
+            </view>
+            <view class="input-style">
+                <picker bindchange="areaListChange" range="{{areaList}}" rangeKey="name" value="{{areaIndex}}">
+                    <view class="area_list_change">{{areaList[areaIndex].name}}<text class="iconfont icon-xialajiantou fz-12" style="float:right;font-size:12px;margin-right:20px;"></text>
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="building-style">
+            <view style="margin-left:30rpx">
+                <text>联系方式</text>
+            </view>
+            <view class="input-style">
+                <input bindinput="phone" placeholder="楼盘录入成功，我们会第一时间通知你" value="{{tel}}"></input>
+            </view>
+        </view>
+        <view class="building-style" style="height:150rpx;align-items:flex-start;">
+            <view style="margin-left:30rpx">
+                <text>备注</text>
+            </view>
+            <view class="input-style1">
+                <textarea bindinput="other" placeholder="备注" value="{{remarks}}"></textarea>
+            </view>
+        </view>
+    </view>
+    <view style="display: flex;justify-content: center;align-items: center;">
+        <view bindtap="addDuiding" class="add-building">
+            <text style="color:white;font-size:28rpx">确定</text>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

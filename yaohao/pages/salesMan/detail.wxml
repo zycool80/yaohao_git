@@ -1,0 +1,218 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="salesMan">
+            <navigator class="salesMan-content" hoverClass="none" url="/subPackages/me/pages/businessCard?id={{item.id}}">
+                <view class="avatar">
+                    <image class="init__def_avatar" lazyLoad="{{true}}" mode="aspectFill" src="{{item.avatar_url&&item.avatar_url!='null'?item.avatar_url:''}}"></image>
+                </view>
+                <view class="salesMan-content-center">
+                    <view class="name">
+                        <text class="fz-15 black1a-color font-bold {{item.name?'':'init__def_block'}}" style="float:left">{{item.name}}</text>
+                    </view>
+                    <view class="ttl1" style="margin-top:25rpx" wx:if="{{item.is_broker==2}}">
+                        <view class="medal">
+                            <image mode="widthFix" src="{{img[item.grade]}}"></image>
+                        </view>
+                        <text class="fz-12 small-level-color">{{sort[item.grade]}}</text>
+                    </view>
+                    <view class="ttl1" style="margin-top:25rpx" wx:elif="{{item.is_broker==1}}">
+                        <text class="fz-12 small-level-color">经纪人</text>
+                    </view>
+                    <view class="ttl1" style="margin-top:25rpx" wx:else>
+                        <text class="fz-12 small-level-color init__def_block"></text>
+                    </view>
+                </view>
+                <view class="salesMan-content-right" wx:if="{{item.evaluate_user_num}}">
+                    <view class="top fz-20 font-bold">{{item.evaluate_num}}分</view>
+                    <view class="fz-12 small-level-color">共{{item.evaluate_user_num}}人评价</view>
+                </view>
+            </navigator>
+            <view class="introduce fz-13 small-level-color">个人简介：{{item.individual_resume}}</view>
+            <view class="grayBlock"></view>
+            <view class="salesMan-content-data">
+                <view class="salesMan-data-flex">
+                    <view style="border-right:1px solid #e2e2e2">
+                        <view class="fz-15 font-bold">{{item.recommend_index||0}}</view>
+                        <view class="fz-11 gray-9-color font-bold">积分</view>
+                    </view>
+                    <view style="border-right:1px solid #e2e2e2">
+                        <view class="fz-15 font-bold">{{item.consulting_num||0}}</view>
+                        <view class="fz-11 gray-9-color font-bold">咨询量</view>
+                    </view>
+                    <view>
+                        <view class="fz-15 font-bold">{{item.page_views||0}}</view>
+                        <view class="fz-11 gray-9-color font-bold">浏览量</view>
+                    </view>
+                </view>
+                <view class="salesMan-content-tools">
+                    <button bindtap="likeSalesMan" class="tool1 white-bg">
+                        <text class="iconfont icon-dianzan fz-24 {{item.is_like==1?'pink-color':'small-level-color'}} "></text>
+                        <text class="fz-10 gray-9-color" style="margin-right:20rpx;margin-left:7rpx">{{item.like_count||0}}</text>
+                        <text class="fz-13 gray-9-color">赞美也是一种认可</text>
+                    </button>
+                    <button class="tool2 white-bg" openType="share">
+                        <text class="iconfont icon-fenxiang2 fz-24 small-level-color" style="margin-right: 20rpx"></text>
+                        <text class="fz-13 gray-9-color">多点分享、多点爱</text>
+                    </button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{item.projects.length==1&&item.projects[0].id||item.projects.length>1}}">
+        <view class="gray-block1"></view>
+        <view class="join-lottery">
+            <view class="fz-15 black1a-color font-bold" style="margin-bottom:30rpx">入驻的全部楼盘</view>
+            <scroll-view scrollX class="scroll-view">
+                <view style="width:{{projectsScrollWidth}}px;overflow:hidden;" wx:if="{{item.projects}}">
+                    <navigator hoverClass="none" url="/pages/lotteryDetail?project_id={{project.id}}" wx:if="{{project.id}}" wx:for="{{item.projects}}" wx:for-item="project" wx:key="key">
+                        <view class="scroll-view-images">
+                            <view class="scroll-view-image">
+                                <image class="gray-bg" lazyLoad="{{true}}" src="{{project.cover}}"></image>
+                            </view>
+                            <view class="scroll-view-title fz-13 font-bold black1a-color">{{project.name}}</view>
+                            <view class="scroll-view-tag">
+                                <text class="tagl fz-10" wx:for="{{project.tags}}" wx:for-item="tag" wx:key="key">{{tag}}</text>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view wx:else>
+                    <view class="scroll-view-images">
+                        <view class="scroll-view-image init__def_block"></view>
+                        <view class="scroll-view-title fz-13 font-bold black1a-color init__def_block" style="width:160rpx;height:26rpx;display:block"></view>
+                        <view class="scroll-view-tag">
+                            <text class="tagl fz-10" style="width:100rpx;display:inline-block;height:24rpx"></text>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </block>
+    <view class="gray-block1"></view>
+    <view class="my-share">
+        <view class="tabBar">
+            <view bindtap="switchTabBar" class="tabBar-list {{switchType==1?'active':''}}" data-wpyswitchtabbar-a="1">
+                <text class="bottom fz-14">分享</text>
+            </view>
+            <view bindtap="switchTabBar" class="tabBar-list {{switchType==2?'active':''}}" data-wpyswitchtabbar-a="2">
+                <text class="bottom fz-14">回答</text>
+            </view>
+        </view>
+        <block wx:if="{{list.length>0}}">
+            <block wx:if="{{switchType==1}}">
+                <view class="my-share-list gray-block" wx:for="{{list}}" wx:for-index="key" wx:for-item="share" wx:key="key">
+                    <view class="post-item-header">
+                        <view class="header-icon">
+                            <image class="avatar no-preview" lazyLoad="{{true}}" src="{{item.avatar_url||'/images/default_sales_man_avatar.png'}}"></image>
+                        </view>
+                        <view class="header-content">
+                            <view class="weui-media-box__title" style="float: left;line-height:1;">
+                                <text class="fz-13 black-color font-bold">{{share.name}}</text>
+                                <navigator hoverClass="none" url="{{share.project_url}}">
+                                    <text class="fz-12" style="color:#16a5af; padding-top:20rpx">{{share.project_name}}</text>
+                                </navigator>
+                            </view>
+                            <view class="attention">
+                                <text bindtap="editPostsHandle" class="fz-24 other font-bold" data-wpyeditpostshandle-a="{{key}}">...</text>
+                            </view>
+                        </view>
+                    </view>
+                    <navigator class="share-article height-level-color" hoverClass="none" url="/pages/posts/detail?id={{share.id}}">
+                        <view>
+                            <text class="height-level-color fz-13">{{share.content}}</text>
+                        </view>
+                    </navigator>
+                    <view class="preview-list">
+                        <view class="preview-list-item" wx:for="{{share.images}}" wx:for-item="images" wx:key="key">
+                            <view bindtap="viewVideo" class="img-box imgLayout imgLayout{{share.layout}}" data-wpyviewvideo-a="{{share.video_url}}" style="height:100%;overflow:hidden;position:relative;" wx:if="{{share.video_url}}">
+                                <image lazyLoad="{{true}}" mode="widthFix" src="{{share.video_url}}?vframe/jpg/offset/1/w/400/h/200"></image>
+                                <view class="iconfont icon-bofangda white-color font-bold" style="position:absolute;z-index:0;width:100rpx;height:100rpx;margin:auto;top:0;left:0;bottom:0;right:0;text-align:center;font-size:80rpx;"></view>
+                            </view>
+                            <block wx:else>
+                                <view class="weui-flex__item post-image-wrap" wx:for="{{share.layout}}" wx:for-item="i" wx:key="key">
+                                    <image bindtap="preview" class="imgLayout gray-bg imgLayout{{share.layout}}" data-preview="{{images}}" data-wpypreview-a="{{share}}" lazyLoad="{{true}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/200/q/75|imageslim" style="height:280rpx" wx:if="{{share.layout==1}}"></image>
+                                    <image bindtap="preview" class="imgLayout gray-bg imgLayout{{share.layout}}" data-preview="{{images[i]}}" data-wpypreview-a="{{share}}" lazyLoad="{{true}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim" style="height:80px;" wx:else></image>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="time-comment-like small-level-color">
+                        <view class="fz-12 time">{{share.created_at}}</view>
+                        <view bindtap="likePosts" class="fz-12 like" data-wpylikeposts-a="{{key}}">
+                            <text class="fz-14 small-level-color iconfont {{share.is_like==1?'icon-dianzanxuanzhong':'icon-dianzan'}}"></text>
+                            <text>{{share.like_num}}</text>
+                        </view>
+                        <navigator class="fz-12 comment" url="/pages/posts/detail?id={{share.id}}">
+                            <text class="fz-14 small-level-color iconfont icon-xiaoxi"></text>
+                            <text>{{share.comment_num}}</text>
+                        </navigator>
+                        <view class="fz-12 liulan1">
+                            <text class="fz-14 small-level-color iconfont icon-chakan1"></text>
+                            <text>{{share.page_views}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <navigator hoverClass="none" url="/subPackages/question/pages/questionDetail?id={{qitem.question_id}}" wx:for="{{list}}" wx:for-item="qitem" wx:key="key">
+                    <view class="questionList">
+                        <view class="question-cont">
+                            <view class="con-txt fz-14 black1a-color font-bold">{{qitem.question_content}}</view>
+                        </view>
+                        <view class="answer-cont">
+                            <view class="con-txt fz-13 black1a-color">{{qitem.content}}</view>
+                            <view class="content">
+                                <view class="tags-list">
+                                    <text class="tag fz-10 blue-color" wx:for="{{qitem.tags}}" wx:for-item="tag" wx:key="key">{{tag.text}}</text>
+                                </view>
+                                <view class="year fz-10 small-level-color">{{qitem.time}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+        </block>
+        <view class="nothing" hidden="{{loading}}" wx:else>
+            <text class="fz-14 small-level-color">{{switchType==1?'暂无楼盘分享！':'暂无问题回答！'}}</text>
+        </view>
+        <view class="flex_layout_c" hidden="{{!loading||!more}}" style="width: 100%;margin-top: 30rpx;margin-bottom: 30rpx">
+            <view class="loading-runing">
+                <view class="loading-icon">
+                    <text class="iconfont icon-jiazai"></text>
+                </view>
+                <view class="left-font">
+                    <text>加载中</text>
+                </view>
+            </view>
+        </view>
+        <view class="flex_layout_c" hidden="{{more||list.length<1}}" style="width:100%;margin:30rpx 0">
+            <view class="weui-loadmore__tips gray-color">我也是有底线的哦~ (๑•́ ₃ •̀๑)</view>
+        </view>
+    </view>
+    <view class="footer">
+        <view bindtap="follow" class="xin">
+            <text class="iconfont fz-22 {{item.attention==1?'icon-yiguanzhu pink-color':'icon-guanzhu1'}}"></text>
+            <view class="fz-10">{{item.attention==1?'已关注':'关注TA '}}</view>
+        </view>
+        <button bindtap="phoneCall" class="white-color fz-14" data-wpyphonecall-a="{{item.id}}" style="background: #16a5af;">拨打电话</button>
+        <button bindtap="toIMPage" class="white-color fz-14">立即咨询</button>
+    </view>
+    <view class="model" hidden="{{!showModel||item.attention!=1}}" wx:if="{{serviceQrCode}}">
+        <view class="image-box">
+            <image mode="aspectFill" src="{{serviceQrCode}}"></image>
+        </view>
+        <view class="fz-14 black1a-color cont-txt">
+            <text class="txt" style="padding-bottom: 25rpx">扫码关注服务号</text>
+            <text class="txt">更快更及时接收消息通知</text>
+        </view>
+        <view class="model-btn">
+            <view bindtap="saveCode" class="savecode blue-color fz-14">保存</view>
+        </view>
+    </view>
+    <view bindtap="cancelModel" class="model-bg" hidden="{{!showModel||item.attention!=1}}" wx:if="{{serviceQrCode}}"></view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

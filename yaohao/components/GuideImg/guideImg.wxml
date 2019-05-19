@@ -1,0 +1,8 @@
+<view catchtap="hideGuide" catchtouchmove="stopMove" class="guide-form" style="top:{{top}}px" wx:if="{{items.length>0}}" wx:for="{{items}}" wx:key="itemKey">
+    <view catchtap="hideGuide" class="closeAll fz-15" wx:if="{{items.length>1}}">跳过</view>
+    <image catchtap="next" mode="widthFix" src="{{items[nowIndex]}}"></image>
+    <view catchtap="next" class="nextStep fz-12 black1a-color">
+        <image src="http://imgcdn.qi.la/assets/img/20190107/5c330687b345c.png" style="width: 300rpx;height: 100rpx" wx:if="{{items.length!=nowIndex+1}}"></image>
+        <image src="https://imgcdn.qi.la/assets/img/20190107/5c3306a4bae74.png" style="width: 300rpx;height: 100rpx" wx:if="{{items.length==nowIndex+1}}"></image>
+    </view>
+</view>

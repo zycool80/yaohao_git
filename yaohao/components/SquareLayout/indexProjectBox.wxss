@@ -1,0 +1,94 @@
+.project_box_list {
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    -webkit-justify-content: space-between;
+    padding: 20rpx 30rpx;
+    overflow: hidden;
+}
+
+.project_box_list_line {
+    width: 336rpx;
+    box-shadow: 0 0 6rpx 0 rgba(0,0,0,.2);
+    margin-bottom: 20rpx;
+    border-top-left-radius: 6rpx;
+    border-top-right-radius: 6rpx;
+    overflow: hidden;
+}
+
+.project_box_list_line .image-box {
+    width: 100%;
+    height: 220rpx;
+    border-top-left-radius: 6rpx;
+    border-top-right-radius: 6rpx;
+    position: relative;
+}
+
+.project_box_list_line .image-box .openDate {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30rpx;
+    line-height: 30rpx;
+    padding: 0 12rpx;
+    border-top-right-radius: 10rpx;
+    background: #ec584b;
+}
+
+.project_box_list_line .image-box .img {
+    position: absolute
+    width: 100%;
+    height: 220rpx;
+    border-top-left-radius: 6rpx;
+    border-top-right-radius: 6rpx;
+}
+
+.project_box_list_line .image-box .offer {
+    width: 50rpx;
+    height: 50rpx;
+    background: #e04739;
+    border-radius: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    position: absolute;
+    top: 6rpx;
+    font-size: 18rpx;
+    left: 8rpx;
+    color: #fff;
+}
+
+.project_box_list_line .title {
+    box-sizing: border-box;
+    padding: 24rpx 15rpx 16rpx;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.project_box_list_line .area {
+    box-sizing: border-box;
+    padding: 0 15rpx 12rpx;
+    line-height: 1;
+}
+
+.project_box_list_line .area .area_txt {
+    padding-right: 22rpx;
+}
+
+.project_box_list_line .price {
+    box-sizing: border-box;
+    line-height: 1;
+    padding: 0 15rpx 15rpx;
+}
+
+.project_box_list_line .price .tags {
+    height: 36rpx;
+    line-height: 36rpx;
+    padding: 0 12rpx;
+    display: inline-block;
+    background: #e0edff;
+    color: #2774e6;
+    margin-right: 18rpx;
+}

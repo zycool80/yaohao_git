@@ -1,0 +1,112 @@
+<view class="page">
+    <view class="askQuestion">
+        <view class="askQuestion-top">
+            <view class="left-title">
+                <text class="fz-13 black1a-color">
+                    <text>问答类型</text>
+                    <text class="orange-color" style="position:relative;top:-10rpx;color: red">*</text>
+                </text>
+            </view>
+            <view class="right-title">
+                <view bindtap="showQuestionType" class="top">
+                    <view class="chooseType">
+                        <view class="chooseType-text" wx:for="{{typeList}}" wx:for-index="delIndex" wx:for-item="delItem" wx:key="key">
+                            <text catchtap="deleteType" class="chooseType-btn blue-color fz-13" data-wpydeletetype-a="{{delIndex}}">{{delItem}}</text>
+                        </view>
+                    </view>
+                    <view class="iconfont icon-xiayibu top-right gray9-color"></view>
+                </view>
+            </view>
+        </view>
+        <view class="askQuestion-middle">
+            <view class="left-title-middle">
+                <text class="fz-13 black1a-color" style="line-height:1">提问内容</text>
+            </view>
+            <view class="right-title-middle" style="position:relative;z-index:1;margin-left: 30rpx;margin-top: -60rpx">
+                <textarea adjustPosition="{{false}}" bindinput="getTextNum" class="gray9-color fz-13" hidden="{{content_disable}}" maxlength="300" placeholder="提问的内容（最多300字）" placeholderClass="lineHeight1  fz-13 place-hold" style="width:100%;" value="{{content}}"></textarea>
+            </view>
+            <view class="upload-file">
+                <view bindtap="uploadFile" class="pic" wx:if="{{imageList.length!=6}}">
+                    <text style="position:absolute;line-height:1;bottom:-40rpx;font-size: 22rpx;color: #ccc;margin-left: 8rpx">图片 {{imageList.length}}/6</text>
+                </view>
+                <view class="pic" wx:for="{{imageList}}" wx:key="key">
+                    <image bindtap="preview" data-preview="{{item}}" data-wpypreview-a="{{item}}" mode="aspectFill" src="{{item}}" style="width:100%;height:100%;"></image>
+                    <view bindtap="deletePic" class="black6-color" data-wpydeletepic-a="{{index}}" style="position:absolute;line-height:1;bottom:-40rpx; left:0">删除</view>
+                </view>
+            </view>
+        </view>
+        <view class="doudou">
+            <image src="/images/luckyBean.png" style="margin-top: 28rpx;width: 140rpx;height: 140rpx;border-radius: 50%"></image>
+            <text class="fz-14 font-bold" style="margin-top:24rpx" wx:if="{{beans>4}}">本次提问将消耗幸运豆 5</text>
+            <text class="fz-14 font-bold" style="margin-top:24rpx" wx:if="{{beans<5}}">幸运豆不足 5</text>
+            <view class="fz-13" style="width:80%;display: flex;margin-top: 20rpx;justify-content: space-around">
+                <text>幸运豆剩余 {{beans}}</text>
+                <navigator style="margin-bottom: 20rpx;display: flex" url="/subPackages/me/pages/signIn">
+                    <text class="blue-color">赚取更多幸运豆</text>
+                    <view class="iconfont icon-shoudong fz-14 blue-color" style="margin-left: 8rpx;transform:rotate(90deg) "></view>
+                </navigator>
+            </view>
+        </view>
+        <view class="footer" wx:if="{{beans>4}}">
+            <button bindtap="upForm" class="upForm">提问</button>
+        </view>
+        <view class="footer" wx:if="{{beans<5}}">
+            <button class="upFor">提问</button>
+        </view>
+        <view style="display: flex;flex-direction: column;padding:24rpx;font-size: 22rpx">
+            <text style="color: #929292">说明:</text>
+            <text style="color: #929292">如果您的问题在2个工作日内未被回答，幸运豆将退回您的账户</text>
+        </view>
+    </view>
+    <view class="model-box" hidden="{{!showReviewModel}}">
+        <view class="choose-content">
+            <view class="choose-btn">
+                <view bindtap="clearReviewModel" class="fz-16 black6-color font-bold">重置</view>
+                <view bindtap="cancelReviewModel" class="fz-16 black-color font-bold">确定</view>
+            </view>
+            <view class="choose-line" wx:for="{{items}}" wx:for-index="parentIndex" wx:key="key">
+                <view class="choose-line-title">
+                    <text class="fz-12 black-color font-bold">{{item.text}}</text>
+                </view>
+                <view class="choose-checkbox-cont">
+                    <block wx:for="{{item.item}}" wx:for-index="childIndex" wx:for-item="child" wx:key="key">
+                        <view bindtap="choose" class="choose-checkbox" data-wpychoose-a="0" data-wpychoose-b="{{parentIndex}}" data-wpychoose-c="{{childIndex}}" wx:if="{{!child.disable}}">
+                            <text class="checkbox {{child.checked?'checked':''}}"></text>
+                            <text class="fz-12">{{child.value}}</text>
+                        </view>
+                        <view class="choose-checkbox" wx:else>
+                            <text class="checkbox disable {{child.checked?'checked':''}}"></text>
+                            <text class="fz-12">{{child.value}}</text>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <view class="bottom-btn">
+                <view class="choose-line bottom-btn-group" wx:for="{{smallItems}}" wx:for-index="parentIndex" wx:key="key">
+                    <view class="choose-line-title">
+                        <text class="fz-12 black-color font-bold">{{item.text}}</text>
+                    </view>
+                    <view class="choose-checkbox-cont">
+                        <block wx:for="{{item.item}}" wx:for-index="childIndex" wx:for-item="child" wx:key="key">
+                            <view bindtap="choose" class="choose-checkbox bottom-checkbox" data-wpychoose-a="1" data-wpychoose-b="{{parentIndex}}" data-wpychoose-c="{{childIndex}}" wx:if="{{!child.disable}}">
+                                <text class="checkbox {{child.checked?'checked':''}}"></text>
+                                <text class="fz-12">{{child.value}}</text>
+                            </view>
+                            <view class="choose-checkbox bottom-checkbox" wx:else>
+                                <text class="checkbox disable {{child.checked?'checked':''}}"></text>
+                                <text class="fz-12">{{child.value}}</text>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+            <view class="bottom-tip fz-12 gray9-color">备注：最多可以选择三项</view>
+        </view>
+    </view>
+    <view bindtap="cancelReviewModel" class="model-bg" hidden="{{!showReviewModel}}"></view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

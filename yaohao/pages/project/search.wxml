@@ -1,0 +1,94 @@
+<view class="page">
+    <view class="page__bd haveSearchBar">
+        <view>
+            <form bindsubmit="doSearch" class="search-bar" reportSubmit="true">
+                <button class="search-btn fz-14 white-color" formType="submit">确定</button>
+                <view class="search-bar-form">
+                    <view bindtap="doSearch" class="weui-icon-search iconfont icon-sousuo"></view>
+                    <view bindtap="clearInput" class="weui-icon-clear iconfont icon-delete" wx:if="{{inputVal.length>0}}"></view>
+                    <input bindconfirm="doSearch" bindinput="inputTyping" class="ui-input search-bar-input" focus="{{inputPlace}}" placeholder="{{inputPlace}}" placeholderClass="search-input-place" type="text" value="{{inputVal}}"></input>
+                </view>
+            </form>
+            <block wx:if="{{!showContent}}">
+                <view class="hot-history history">
+                    <view class="head-color">
+                        <text class="fz-style">热门搜索</text>
+                    </view>
+                    <view class="list">
+                        <view bindtap="setInputVal" class="tags" data-wpysetinputval-a="{{item.name}}" wx:for="{{hotSearchs}}" wx:key="key">{{item.name}}</view>
+                    </view>
+                </view>
+                <view class="line"></view>
+                <view class="search-history history">
+                    <view class="head">
+                        <view class="title-text">
+                            <text class="fz-new-color">近期搜索</text>
+                        </view>
+                        <view></view>
+                        <view bindtap="clearHistory" class="small-level-color float-right">
+                            <text class="iconfont icon-shanchu fz-16"></text>
+                        </view>
+                    </view>
+                    <view class="list">
+                        <view bindtap="setInputVal" class="tags small-level-color" data-wpysetinputval-a="{{item}}" wx:for="{{historySearch}}" wx:key="key">{{item}}</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="project-cont" style="margin-top: 10rpx;width: 100%">
+            <block wx:if="{{projectsItems.length>0}}">
+                <navigator class="item_content" hoverClass="weui-cell_active" url="{{$ProjectItem$item.url}}" wx:for="{{$ProjectItem$items}}" wx:for-index="$ProjectItem$index" wx:for-item="$ProjectItem$item" wx:key="$ProjectItem$key">
+                    <view class="hot_house_img">
+                        <image class="lottery-img gray-bg" lazyLoad="{{$ProjectItem$true}}" mode="aspectFill" src="{{$ProjectItem$item.cover}}"></image>
+                        <view class="gray-shadow"></view>
+                        <view class="lottery-img-bottom white-color fz-10" wx:if="{{$ProjectItem$item.list_tag}}">{{$ProjectItem$item.list_tag}}</view>
+                        <view class="view white-color">
+                            <text class="fz-15 iconfont icon-chakanzhong"></text>
+                            <text class="fz-11" style="margin-left:5rpx">{{$ProjectItem$item.page_views}}</text>
+                        </view>
+                    </view>
+                    <view class="content_right">
+                        <view class="weui-media-box__title" style="line-height:44rpx">
+                            <view class="right fz-14 red-color" wx:if="{{$ProjectItem$item.avg_price&&$ProjectItem$item.avg_price!='0'}}">¥{{$ProjectItem$item.avg_price}}</view>
+                            <view class="left fz-14 black1a-color font-bold title_name">{{$ProjectItem$item.name}}</view>
+                        </view>
+                        <view class="left fz-12 black1a-color" style="padding: 12rpx 0 6rpx;line-height: 1" wx:if="{{$ProjectItem$item.alias}}">别名：{{$ProjectItem$item.alias}}</view>
+                        <view class="tags">
+                            <text class="tag fz-10" wx:for="{{$ProjectItem$item.tags}}" wx:for-index="$ProjectItem$index" wx:for-item="$ProjectItem$tag" wx:key="$ProjectItem$key">{{$ProjectItem$tag}}</text>
+                            <text class="tag1 fz-12 black1a-color">{{$ProjectItem$item.area}}</text>
+                        </view>
+                        <view class="list_bottom small-level-color">
+                            <view class="attention">
+                                <view class="comment_follow" style="margin-left:30rpx">
+                                    <view class="follow">
+                                        <text class="iconfont icon-xiaoxi5 fz-14"></text>
+                                        <text class="fz-12"> {{$ProjectItem$item.comment_num}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="area fz-12">
+                                <text class="fz-11 sign-text" style="margin-right: 10rpx" wx:for="{{$ProjectItem$item.time}}" wx:for-index="$ProjectItem$index" wx:for-item="$ProjectItem$val" wx:key="$ProjectItem$key">{{$ProjectItem$val}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+            <block wx:if="{{projectsItems.length<1&&loading&&showContent}}">
+                <view class="building_nofind">
+                    <text>该楼盘暂时未上架</text>
+                    <text>点击收录新楼盘</text>
+                </view>
+                <view class="addBuilding-style">
+                    <navigator class="addBuilding" hoverClass="none" openType="redirect" url="/subPackages/project/pages/addDuilding">
+                        <text style="color:#598dd2">去添加楼盘</text>
+                    </navigator>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

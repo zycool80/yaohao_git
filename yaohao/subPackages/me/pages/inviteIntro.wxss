@@ -1,0 +1,55 @@
+@import "manageUsers.wxss";
+
+.text-danger {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 400;
+    color: #d13c0e;
+    margin: 20px 0;
+}
+
+.text-success {
+    font-size: 18px;
+    color: #188038;
+}
+
+.h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.h4 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.p {
+    font-size: 14px;
+    color: #333;
+}
+
+image {
+    display: block;
+    margin: 5px auto;
+    width: 100%;
+}
+
+navigator {
+    background-color: #3772cc;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    position: relative;
+    display: block;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    margin: 1.17647059em 15px 0.3em;
+}

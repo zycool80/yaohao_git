@@ -1,0 +1,8 @@
+<view class="play-video-view" wx:if="{{sourceUrl}}">
+    <video autoplay="{{true}}" id="myvideo" showFullscreenBtn="true" src="{{sourceUrl}}" style="width:100%;"></video>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

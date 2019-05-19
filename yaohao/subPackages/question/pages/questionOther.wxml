@@ -1,0 +1,77 @@
+<view class="page">
+    <view class="question-type-select">
+        <view bindtap="toggle" class="select-list fz-11 {{status==''?'active':''}}" data-wpytoggle-a="" data-wpytoggle-b="全部" data-wpytoggle-c="{{question_count}}">全部({{question_count}})</view>
+        <view bindtap="toggle" class="select-list fz-11 {{status==2?'active':''}}" data-wpytoggle-a="2" data-wpytoggle-b="已回答" data-wpytoggle-c="{{answer_count}}">已回答({{answer_count}})</view>
+        <view bindtap="toggle" class="select-list fz-11 {{status==1?'active':''}}" data-wpytoggle-a="1" data-wpytoggle-b="未回答" data-wpytoggle-c="{{notAnswer_count}}">未回答({{notAnswer_count}})</view>
+        <view bindtap="toggle" class="select-list fz-11 {{status==3?'active':''}}" data-wpytoggle-a="3" data-wpytoggle-b="已解决" data-wpytoggle-c="{{adopt_count}}">已解决({{adopt_count}})</view>
+    </view>
+    <view class="question-head">
+        <view class="fz-14 font-bold">{{title_text}}</view>
+        <picker bindchange="pickerSort" class="area_list_change right" range="{{sortList}}" rangeKey="name" value="{{SortIndex}}">
+            <view class="small-level-color fz-13">{{sortList[sortIndex].name}}<text class="iconfont gray-color icon-xialajiantou" style="font-size:22rpx;margin-left:6px;"></text>
+            </view>
+        </picker>
+    </view>
+    <view class="question-container">
+        <block wx:if="{{items.length>0}}">
+            <navigator class="question-list white-bg" hoverClass="none" url="/subPackages/question/pages/questionDetail?id={{item.id}}" wx:for="{{items}}" wx:key="key">
+                <view class="top-question">
+                    <view class="tips blue-bg fz-12">问</view>
+                    <view class="title-top">
+                        <view catchtap="toUrl" class="title-top-left" data-wpytourl-a="/subPackages/question/pages/userQuestion?user_id={{item.user_id}}">
+                            <view class="avatar">
+                                <image src="{{item.user_avatar_url||avatar_url}}"></image>
+                            </view>
+                            <view class="user-info fz-13 black-1a font-bold" style="line-height: 60rpx">{{item.user_name}}</view>
+                        </view>
+                        <view class="attention">
+                            <text catchtap="delBox" class="fz-24 other font-bold" data-wpydelbox-a="{{index}}">...</text>
+                        </view>
+                    </view>
+                    <text class="question-desc fz-13 black1a-color" style="display: inline-block">{{item.content}}</text>
+                    <view class="nine-img-view" style="overflow:hidden">
+                        <view class="weui-flex" style="overflow:hidden" wx:for="{{item.img}}" wx:for-item="images" wx:key="key">
+                            <block wx:for="{{item.layout}}" wx:for-item="i" wx:key="key">
+                                <view class="layout{{item.layout}}" wx:if="{{images[i]}}">
+                                    <view class="img-box imgLayout imgLayout{{item.layout}}" style="overflow:hidden" wx:if="{{item.layout==1}}">
+                                        <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                    </view>
+                                    <view class="img-smallBox imgLayout imgLayout{{item.layout}}" wx:else>
+                                        <image catchtap="preview" data-preview="{{images[i]}}" data-wpypreview-a="{{item}}" mode="widthFix" src="{{images[i]}}?imageView2/1/w/400/h/400/q/75|imageslim"></image>
+                                    </view>
+                                </view>
+                                <view class="layout{{item.layout}}" wx:else></view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="sign-line">
+                        <view class="sign-text">
+                            <view catchtap="toUrl" class="fz-10 blue-color sign-text-bg" data-wpytourl-a="{{val.url}}" wx:for="{{item.tags}}" wx:for-item="val" wx:key="key">{{val.text}}</view>
+                        </view>
+                        <block wx:if="{{item.status!=3}}">
+                            <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/questionCloselyDetail?id={{item.id}}" wx:if="{{userInfo.id==item.user_id&&!item.to_question_closely}}">我要追问</view>
+                            <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/answerDetail?id={{item.id}}" wx:else>我要回答</view>
+                        </block>
+                    </view>
+                    <view class="question-user-info gray-9-color">
+                        <view class="left fz-12">{{item.time}}</view>
+                        <view class="right fz-12">
+                            <text class="view-num">{{item.page_views}}浏览</text>
+                            <text class="answer-num">{{item.comment_num}}回答</text>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </block>
+        <view class="nothing" wx:else>
+            <view class="nothing-text fz-14 small-level-color">暂无内容</view>
+            <navigator class="getToQuestion fz-14 blue-color" hoverClass="none" openType="switchTab" url="/pages/consult/index?changeType=2">前去问答区看看</navigator>
+        </view>
+    </view>
+</view>
+<navigator class="create-question iconfont icon-shenfen1 white-color blue-bg" url="/subPackages/question/pages/askQuestion"></navigator>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

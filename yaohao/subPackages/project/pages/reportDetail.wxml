@@ -1,0 +1,19 @@
+<view class="reportDetail">
+    <textarea bindinput="inputNum" class="gray-9-color fz-12" cols="30" id="" maxlength="300" name="" placeholder="举报详细说明" rows="10" value="{{inputVal}}"></textarea>
+    <view class="fz-12 small-level-color textNum">{{num}}/300</view>
+    <view class="upload-file">
+        <view bindtap="uploadFile" class="pic" wx:if="{{imageList.length<6}}">
+            <text class="small-level-color fz-10" style="position:absolute;line-height:1;bottom:-40rpx;">上传图片(6张)</text>
+        </view>
+        <view class="pic" wx:for="{{imageList}}" wx:key="key">
+            <image bindtap="preview" data-preview="{{item}}" data-wpypreview-a="{{item}}" mode="aspectFill" src="{{item}}" style="width:100%;height:100%;"></image>
+            <view bindtap="deletePic" class="small-level-color" data-wpydeletepic-a="{{index}}" style="position:absolute;line-height:1;bottom:-40rpx; left:0">点击删除图片</view>
+        </view>
+    </view>
+</view>
+<view bindtap="upForm" class="upForm fz-14 white-color">提交</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

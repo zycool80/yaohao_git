@@ -1,0 +1,72 @@
+<view class="pointsDetail">
+    <view bindtap="toRule" class="rule tools white-color fz-12">
+        <view>规则说明</view>
+    </view>
+    <view catchtap="toUrl" class="record tools white-color fz-12">
+        <view>明细记录</view>
+    </view>
+    <swiper autoplay="{{false}}" bindchange="onSlideChangeEnd" current="{{swiperIndex}}" indicatorActiveColor="#fff" indicatorDots="true" interval="4000">
+        <swiper-item class="switchTab">
+            <navigator class="cicle" hoverClass="none" url="/subPackages/me/pages/vitalityIntegral?num={{activeData.recommend_index}}">
+                <view class="center-cicle" wx:if="{{activeData.recommend_index}}">
+                    <view class="white-color" style="font-size: 60rpx;margin-top:100rpx;font-weight: 700">{{activeData.recommend_index}}</view>
+                    <view class="white-color fz-12" style="margin-top:10rpx"> 活跃度</view>
+                </view>
+            </navigator>
+            <view class="rank">
+                <view class="white-color fz-12" wx:if="{{activeData.upRise}}">
+                    <text>较昨日</text>
+                    <text class="iconfont fz-11 {{activeData.upRise==2?'icon-jiantou':'icon-top'}}"></text>
+                    <text>{{upNum}}</text>
+                    <text style="margin-left:45rpx">我的排名：</text>
+                    <text>{{activeData.my_ranking}}</text>
+                </view>
+                <view class="white-color fz-16 up" style="margin-top:16rpx">{{activeData.description}}</view>
+            </view>
+        </swiper-item>
+        <swiper-item class="switchTab">
+            <navigator class="cicle" hoverClass="none" url="/subPackages/me/pages/nowInteral?num={{pointData.points}}">
+                <view class="center-cicle" wx:if="{{pointData.points}}">
+                    <view class="white-color" style="font-size: 60rpx;margin-top:100rpx;font-weight:700"> {{pointData.points}}</view>
+                    <view class="white-color fz-12" style="margin-top:10rpx"> 总积分</view>
+                </view>
+            </navigator>
+            <view class="rank">
+                <view class="white-color fz-12" wx:if="{{pointData.today_points==0||pointData.today_points}}">
+                    <text wx:if="{{pointData.today_points>=0}}">今日+{{pointData.today_points}}</text>
+                    <text wx:if="{{pointData.today_points<0}}">今日{{pointData.today_points}}</text>
+                </view>
+                <view class="white-color fz-16 up" style="margin-top:16rpx">{{pointData.description}}</view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="pointsMeg white-bg">
+        <view class="title">
+            <view class="up fz-16">增长建议</view>
+            <view class="tip fz-11 small-level-color">{{asiData.proposal}}</view>
+        </view>
+        <view class="shareMsg" wx:for="{{asiData.data}}" wx:key="key">
+            <view class="left">
+                <view class="up fz-14">{{item.title}}</view>
+                <view class="tip fz-12">
+                    <text>{{item.description}}</text>
+                    <text class="blue-color">{{item.num}}</text>
+                </view>
+            </view>
+            <navigator class="right fz-12" hoverClass="none" url="{{item.url}}">立即查看</navigator>
+        </view>
+    </view>
+    <view bindtap="changeTab" class="check fz-14 white-bg" style="color:#66aff3">
+        <text class="iconfont icon-shuaxin"></text>
+        <text style="margin-left: 10rpx">换一批</text>
+    </view>
+</view>
+<view class="guide-bg" wx:if="{{guideImg.length>0}}">
+    <image catchtap="hideGuide" mode="widthFix" src="{{guideImg}}"></image>
+    <view catchtap="hideGuide" class="btn white-bg fz-14 font-bold">知道了</view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

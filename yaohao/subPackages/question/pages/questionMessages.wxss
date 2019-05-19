@@ -1,0 +1,223 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background-color: #f7f7f7;
+}
+
+.page__hd {
+    padding: 0;
+    margin-bottom: 30rpx;
+    overflow: hidden;
+}
+
+.project {
+    font-size: 24rpx;
+}
+
+.desc {
+    position: relative;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    border-left: 6rpx solid #e6e6e6;
+    margin: 20rpx 0;
+}
+
+.pinglun {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.messages.w-cell {
+    display: block;
+    overflow: hidden;
+    background-color: #fff;
+    padding-left: 26rpx;
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 30rpx;
+}
+
+.nickname-and-desc {
+    overflow: hidden;
+    background-color: #fff;
+    border-bottom: 1rpx solid #e6e6e6;
+}
+
+.avatar {
+    float: left;
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 25rpx;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.avatar image {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.answer {
+    position: absolute;
+    right: 25rpx;
+    bottom: 8rpx;
+}
+
+.commont-answer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 222;
+    background: #fff;
+    height: 105rpx;
+}
+
+.commont-answer input {
+    width: 75%;
+    min-height: 45rpx;
+    border: 1px solid #ddd;
+    border-radius: 8rpx;
+    background: rgba(255,255,255,0.8);
+    display: inline-block;
+    margin: 15rpx;
+    padding: 15rpx;
+    height: 45rpx;
+    line-height: 1.4;
+}
+
+.comment-input-place {
+    line-height: 1.4;
+}
+
+.commont-answer button {
+    padding: 0 15rpx;
+    width: 125rpx;
+    line-height: 105rpx;
+    float: right;
+    font-size: 28rpx;
+    text-align: left;
+    background: transparent;
+    top: 0;
+}
+
+.commont-hide {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(0,0,0,0.1);
+    top: 0;
+}
+
+.nickname-content {
+    margin-right: 140rpx;
+    line-height: 30rpx;
+    height: 30rpx;
+    text-overflow: ellipsis;
+}
+
+.nickname-time {
+    float: right;
+    line-height: 30rpx;
+}
+
+.messages-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25rpx 30rpx;
+}
+
+.down-jiantou {
+    color: #ccc;
+    padding-left: 10rpx;
+    font-size: 14rpx!important;
+}
+
+.share {
+    background: transparent;
+}
+
+.messages-title-right {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.messages-date {
+    padding: 20rpx 30rpx;
+    background: #f7f7f7;
+}
+
+.footer {
+    padding: 85rpx 30rpx 55rpx;
+    background: #f7f7f7;
+    text-align: center;
+}
+
+.advisory-content-right .project-name {
+    background: #f1f1f1;
+    margin-left: 20rpx;
+    padding: 7rpx 15rpx;
+    display: inline-block;
+    border-radius: 8rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 180rpx;
+    overflow: hidden;
+}
+
+.advisory-content-right .name {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 180rpx;
+    overflow: hidden;
+    margin-right: 14rpx;
+}
+
+.bottom-date {
+    text-align: left;
+    padding: 0 0 20rpx;
+}
+
+.nothing {
+    text-align: center;
+}
+
+.getToQuestion {
+    padding: 20rpx 55rpx;
+    line-height: 1;
+    border-radius: 50rpx;
+    border: 1rpx solid #3772cc;
+    display: inline-block;
+}
+
+.nothing-text {
+    line-height: 800rpx;
+}
+
+.nothing-text,.getToQuestion {
+    text-align: center;
+}
+
+.messages-title-right,.messages-title-right .share {
+    line-height: 1;
+}
+
+.messages-title-right .share {
+    border-radius: 0;
+}
+
+.cont {
+    padding-right: 26rpx;
+}

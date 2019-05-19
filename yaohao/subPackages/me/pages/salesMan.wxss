@@ -1,0 +1,358 @@
+@import "manageUsers.wxss";
+
+page {
+    background-color: #f7f7f7;
+}
+
+.upload-file .pic {
+    width: 130rpx;
+    height: 130rpx;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #f2f2f2 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAABGElEQVR4nO3dMW6DQBBA0SXyjWjj08elOZNTOHaJi1fsRvqvgXL0BVQ7Yns8HmM1x3G8bn/+rtd93ydNc+4ye4APvmcP8MnX7AH+uwKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi7X6/z57hzOsE/DZ1ihM9gegynqsEq5+GX28X4+nWE2i2yxjjOnuKE8t/A7fFN5XeAVfdVOoVRgVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUSr/83hNhY+oT/GGL9RexcF8q7/WAAAAABJRU5ErkJggg==) center / 16px no-repeat;
+}
+
+.submit-btn {
+    background: linear-gradient(to right,#4677e7,#3753cc);
+    border: none;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 40rpx;
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+    margin: 54rpx 30rpx 20rpx;
+}
+
+.model {
+    position: fixed;
+    background: #fff;
+    border-radius: 8rpx;
+    width: 450rpx;
+    padding: 20rpx 50rpx 0;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.model-tip {
+    padding: 30rpx 0;
+}
+
+.model-text1 {
+    padding-bottom: 15rpx;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15rpx 0;
+}
+
+.model-btn {
+    padding: 15rpx 0;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1rpx solid #f7f7f7;
+}
+
+.model-btn button {
+    background: transparent;
+}
+
+.model-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    top: 0;
+    z-index: 999;
+}
+
+.general_style {
+    height: 86rpx;
+    float: left;
+    overflow: hidden;
+}
+
+.general_style>text {
+    float: left;
+}
+
+.general_style>.small-level-color {
+    width: 126rpx;
+    line-height: 86rpx;
+    text-align: justify;
+    float: left;
+}
+
+.general_style>.small-level-color:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+
+.hou_plan_item {
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.hou_plan_area {
+    margin-left: 200rpx;
+    height: 124rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hou_plan_area textarea {
+    height: 90rpx;
+    width: 100%;
+    line-height: 35rpx!important;
+}
+
+.hou_plan_live {
+    border-bottom: 1px solid #e6e6e6;
+    margin-left: 200rpx;
+    height: 86rpx;
+    line-height: 86rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hou_plan_live .picker {
+    width: 145rpx;
+    float: right;
+    display: inline-block;
+}
+
+.hou_plan_live input {
+    margin-top: 20rpx;
+    font-size: 28rpx;
+}
+
+.asterisk_style {
+    color: red;
+    line-height: 86rpx;
+}
+
+.layout_display {
+    background-color: #f7f7f7;
+    overflow: hidden;
+}
+
+.layout_display .up-header {
+    margin: 0 30rpx;
+}
+
+.layout_display .upload-content {
+    display: flex;
+    justify-items: center;
+    background-color: #fff;
+}
+
+.layout_display .w-cell_style {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 244rpx;
+}
+
+.code_style {
+    font-size: 26rpx;
+}
+
+input {
+    width: 100%;
+}
+
+.modalDialog {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 9;
+    display: block;
+}
+
+.modalDialog_item {
+    width: 520rpx;
+    border-radius: 10rpx;
+    background-color: white;
+    overflow: hidden;
+}
+
+.modalDialog_item1 {
+    padding: 50rpx 45rpx 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalDialog_item2 {
+    width: 100%;
+    height: 80rpx;
+    border-top: 1px solid #e6e6e6;
+    font-size: 26rpx;
+}
+
+.modalDialog_style {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modalDialog_style2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.code_lianxi {
+    margin-top: 0;
+    margin-left: 14rpx;
+    margin-bottom: 36rpx;
+}
+
+.info .info-rule {
+    overflow: hidden;
+    line-height: 80rpx;
+    height: 80rpx;
+    padding: 0 26rpx;
+    box-sizing: border-box;
+}
+
+.info .info-rule view {
+    float: left;
+}
+
+.info .info-rule navigator {
+    float: right;
+    color: #5d7fc3;
+}
+
+.tips {
+    margin: 24rpx 0 50rpx;
+    overflow: hidden;
+    padding: 0 30rpx;
+}
+
+.tips .tips-right {
+    line-height: 40rpx;
+}
+
+.lottery-msg .up-header {
+    overflow: hidden;
+    margin: 0 30rpx;
+}
+
+.font-bold-normal {
+    color: #cccccc;
+}
+
+.identifyCode {
+    padding: 0 20rpx;
+    float: left;
+    height: 45rpx;
+    margin-top: 20rpx;
+    line-height: 45rpx;
+    box-sizing: border-box;
+    display: inline-block;
+    border-left: 2px solid #e6e6e6;
+}
+
+.gr-color {
+    color: #16a5af;
+}
+
+.building-bounced {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10001;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.buiding-choose {
+    z-index: 10002;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.search {
+    overflow: hidden;
+    padding: 20rpx 25rpx;
+    box-sizing: border-box;
+}
+
+.search .search-left {
+    float: left;
+    padding: 0 25rpx;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    border-radius: 40rpx;
+    overflow: hidden;
+    height: 83rpx;
+    line-height: 83rpx;
+    position: relative;
+}
+
+.search .search-left .icon-sousuo {
+    position: absolute;
+    left: 25rpx;
+}
+
+.search .search-left .search-bar-input {
+    width: 560rpx;
+    height: 83rpx;
+    line-height: 83rpx;
+    box-sizing: border-box;
+    padding-left: 55rpx;
+}
+
+.search .search-btn {
+    float: right;
+    height: 83rpx;
+    line-height: 83rpx;
+}
+
+.search-col {
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    border-top: 1px solid #e6e6e6;
+}
+
+.weui-icon-search {
+    float: right;
+    width: 56rpx;
+    height: 86rpx;
+    line-height: 86rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #ccc;
+    padding: 0;
+}
+
+page {
+    height: 90%;
+}
+
+.popup {
+    height: 100%;
+    overflow: hidden;
+}

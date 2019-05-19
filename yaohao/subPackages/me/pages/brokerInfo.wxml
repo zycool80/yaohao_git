@@ -1,0 +1,202 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="salesMan">
+            <navigator class="blue-bg" hoverClass="none" style="height: 190rpx" url="/pages/salesMan/detail?id={{salesMan_id}}&is_broker={{salesManInfo.is_broker}}">
+                <view class="salesMan-content">
+                    <view class="avatar">
+                        <image src="{{salesManInfo.avatar_url!=null&&salesManInfo.avatar_url?salesManInfo.avatar_url:defaultAvatar}}"></image>
+                    </view>
+                    <view class="salesMan-content-center">
+                        <view class="name">
+                            <text class="fz-15 white-color font-bold" style="float:left">{{salesManInfo.name}}</text>
+                            <view catchtap="toUrl" class="fz-11 personInfo  white-color">个人资料</view>
+                            <view catchtap="inviteEnter" class="fz-11 white-color invite">邀请入驻</view>
+                        </view>
+                        <view class="ttl1" style="margin-top: 10rpx;margin-left: 30rpx">
+                            <text class="fz-12 white-color">经纪人 [{{salesManInfo.corporation}}]{{salesManInfo.shop}}</text>
+                        </view>
+                    </view>
+                    <view class="salesMan-content-right">
+                        <text class="iconfont icon-xiayibu fz-15 white-color"></text>
+                    </view>
+                </view>
+            </navigator>
+            <block wx:if="{{project_id}}">
+                <view class="achieve">
+                    <view class="swiper-box" style="overflow:hidden;" wx:if="{{salesManBanners.length>0}}">
+                        <swiper autoplay duration="1000" interval="5000" style="overflow:hidden;height:172rpx;padding:5rpx 0 10rpx">
+                            <swiper-item style="overflow:hidden;" wx:for="{{salesManBanners}}" wx:key="key">
+                                <navigator class="white-bg" style="height:172rpx;margin: auto 25rpx;" url="{{item.url}}" wx:if="{{item.url}}">
+                                    <image mode="aspectFix" src="{{item.image}}" style="width: 100%;height:172rpx;"></image>
+                                </navigator>
+                                <view catchtap="inviteEnter" class="white-bg" style="height:172rpx;margin: auto 25rpx;" wx:if="{{!item.url}}">
+                                    <image mode="aspectFix" src="{{item.image}}" style="width: 100%;height:172rpx"></image>
+                                </view>
+                            </swiper-item>
+                        </swiper>
+                    </view>
+                    <view class="fz-15 black1a-color title font-bold">
+                          我的成就
+                      </view>
+                    <view class="table-cell">
+                        <view class="cell-row small-level-color">当前积分</view>
+                        <view class="cell-row font-bold">{{salesManInfo.recommend_index}}</view>
+                        <view class="cell-row small-level-color">今日+{{salesManInfo.sum_point}}</view>
+                    </view>
+                    <view class="table-cell">
+                        <view class="cell-row small-level-color">总排名</view>
+                        <view class="cell-row font-bold">{{salesManInfo.app_ranking}}</view>
+                        <view class="cell-row small-level-color">
+                            <view style="line-height:1;margin-bottom:10rpx">离上一位还差{{salesManInfo.app_point_front}}积分</view>
+                            <view style="line-height:1">下一位还差{{salesManInfo.app_point_back}}积分赶超您</view>
+                        </view>
+                    </view>
+                    <view class="table-cell">
+                        <view class="cell-row small-level-color">浏览量</view>
+                        <view class="cell-row font-bold">{{salesManInfo.page_views}}</view>
+                        <view class="cell-row small-level-color">今日+{{salesManInfo.toDayPageView}}</view>
+                    </view>
+                    <view class="table-cell">
+                        <view class="cell-row small-level-color">点赞数</view>
+                        <view class="cell-row font-bold">{{salesManInfo.like_num}}</view>
+                        <view class="cell-row small-level-color">今日+{{salesManInfo.toDayLike}}</view>
+                    </view>
+                    <view class="table-cell">
+                        <view class="cell-row small-level-color">咨询量</view>
+                        <view class="cell-row font-bold">{{salesManInfo.consulting}}</view>
+                        <view class="cell-row small-level-color">今日+{{salesManInfo.toDayConsulting}}</view>
+                    </view>
+                    <view class="table-cell">
+                        <view class="cell-row small-level-color">关注量</view>
+                        <view class="cell-row font-bold">{{salesManInfo.attention_num}}</view>
+                        <view class="cell-row small-level-color">今日+{{salesManInfo.toDayAttention}}</view>
+                    </view>
+                </view>
+                <view class="salesMan-content-data">
+                    <view class="salesMan-content-tools">
+                        <navigator class="tool1" hoverClass="none" url="{{salesManInfo.about_ranking.url}}">
+                            <text class="iconfont icon-wentiquestions1 fz-15" style="margin-right:20rpx;margin-left:7rpx"></text>
+                            <text class="fz-15">{{salesManInfo.about_ranking.name}}</text>
+                        </navigator>
+                        <navigator class="tool2" hoverClass="none" url="/subPackages/me/pages/pointsDetail?id={{salesMan_id}}">
+                            <text class="iconfont icon-pingjia fz-15" style="margin-right: 20rpx"></text>
+                            <text class="fz-15">积分明细</text>
+                        </navigator>
+                        <navigator class="tool3" hoverClass="none" url="/subPackages/me/pages/phoneLog">
+                            <text class="iconfont icon-iconfontdianhua fz-15" style="margin-right: 20rpx"></text>
+                            <text class="fz-15">通话记录</text>
+                        </navigator>
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="achieve" style="padding: 200rpx 90rpx 100rpx">
+                    <image mode="widthFit" src="http://imgcdn.huanjutang.com/assets/img/20181114/5beb7edf75730.png"></image>
+                </view>
+                <view style="display: flex;justify-content: space-between;position: fixed;bottom: 20rpx;width: 100%;z-index: 222;">
+                    <navigator class="fz-15 white-color" hoverClass="none" style="background: #16a5af;display: inline-block;margin: 0 auto;height: 80rpx;line-height: 80rpx;border-radius: 8rpx;width: 40%;text-align: center" url="/subPackages/lottery/pages/claimProject">认领楼盘</navigator>
+                    <navigator class="fz-15 white-color" hoverClass="none" style="background: #16a5af;display: inline-block;margin: 0 auto;height: 80rpx;line-height: 80rpx;border-radius: 8rpx;width: 40%;text-align: center" url="/subPackages/salesMan/pages/enteringSalesMan">申请入驻</navigator>
+                </view>
+            </block>
+        </view>
+    </view>
+    <block wx:if="{{project_id}}">
+        <view class="gray-block1"></view>
+        <view class="join-lottery">
+            <view class="salesMans-content-title">
+                <text class="fz-15 black1a-color font-bold">我认领的楼盘</text>
+                <navigator class="fz-14 small-level-color right" hoverClass="none" url="/subPackages/me/pages/saleManStatus">查看详情</navigator>
+            </view>
+            <scroll-view scrollX class="scroll-view">
+                <view class="scroll-view-col" style="width:{{salesManListWidth}}rpx">
+                    <block wx:for="{{salesManInfo.project_results}}" wx:for-item="project" wx:key="key">
+                        <view class="scroll-view-images type2" style="background:#e6e6e6" wx:if="{{project.is_putaway==1}}">
+                            <navigator hoverClass="none" url="{{project.url}}">
+                                <view class="fz-12 gray-9-color tip-title">
+                                    <text wx:if="{{project.name!='null'&&project.name}}">{{project.name}}</text>
+                                </view>
+                                <view class="fz-16 gray-9-color  tip-num" style="margin: 40rpx 0">已下架</view>
+                                <view catchtap="goToUrl" class="opare-btn fz-11" data-wpygotourl-a="/subPackages/me/pages/applyShelves?sales_man_id={{project.sales_man_id}}&title={{project.name}}">
+                                    <view class="fz-12 btn">申请上架</view>
+                                </view>
+                            </navigator>
+                        </view>
+                        <block wx:else>
+                            <block wx:if="{{project.status==1}}">
+                                <navigator class="scroll-view-images type1" hoverClass="none" url="{{project.url}}" wx:if="{{project.name}}">
+                                    <view class="fz-12 white-color tip-title">{{project.name}}</view>
+                                    <view class="fz-10 white-color">当前楼盘我的排名</view>
+                                    <view class="fz-24 white-color font-bold tip-num">{{project.ranking}}</view>
+                                    <view catchtap="changeProject" class="opare-btn fz-11" data-wpychangeproject-a="{{project.id}}">申请更换楼盘</view>
+                                </navigator>
+                            </block>
+                            <view class="scroll-view-images type2" wx:else>
+                                <view>
+                                    <view class="fz-12 white-color tip-title">
+                                        <text wx:if="{{project.name!='null'&&project.name}}">{{project.name}}</text>
+                                    </view>
+                                    <view class="fz-16 white-color  tip-num" style="margin: 40rpx 0">{{project.ranking}}</view>
+                                    <view catchtap="goToUrl" class="opare-btn fz-11" data-wpygotourl-a="/subPackages/me/pages/saleManStatus">
+                                        <view class="fz-12 btn">查看审核进度</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                    </block>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="gray-block1"></view>
+        <view class="saleMans-content-bottom">
+            <view class="">
+                <view class="salesMans-content-title">
+                    <text class="black-color fz-18 font-bold">入驻优势</text>
+                    <navigator class="fz-14 small-level-color right" hoverClass="none" url="{{salesManInfo.invite_intro.url}}">查看详情</navigator>
+                </view>
+                <view class="salesMans-content-text">
+                    <text class="fz-12 height-level-color" wx:if="{{content}}" wx:for="{{content}}" wx:key="key">{{item}}</text>
+                    <view class="fz-12 height-level-color">也可以立即咨询官方在线客服
+                           <button openType="contact" sessionFrom="{{weapp}}">在线咨询</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="footer">
+            <navigator class="fz-15 white-color" hoverClass="none" style="background: #16a5af" url="/subPackages/lottery/pages/claimProject">认领楼盘</navigator>
+            <navigator class="fz-14 white-color blue-bg" hoverClass="none" url="/subPackages/salesMan/pages/enteringSalesMan">我要入驻</navigator>
+        </view>
+    </block>
+    <view class="share-bottom" hidden="{{!isShare}}">
+        <view class="shareBtn">
+            <button bindtap="cancel" class="shareBtn-bar" openType="share">
+                <view class="Btn-bg btn1">
+                    <text class="iconfont icon-weixin2 white-color fz-24"></text>
+                </view>
+                <view class="Btn-text small-level-color fz-15">发给朋友</view>
+            </button>
+            <view bindtap="shareTo" class="shareBtn-bar">
+                <view class="Btn-bg btn2">
+                    <text class="iconfont icon-pengyouquan white-color fz-24"></text>
+                </view>
+                <view class="Btn-text small-level-color fz-15">生成专属邀请码</view>
+            </view>
+        </view>
+        <view bindtap="cancel" class="fz-15 height-level-color cancel">取消</view>
+    </view>
+    <view bindtap="cancel" class="btn-bg" hidden="{{!isShare}}"></view>
+    <view bindtap="closeCanvas" catchtouchmove="stopMove" class="bg" wx:if="{{drawCanvas}}">
+        <view>
+            <view class="create-canvas-box" style="width: {{canvasWidth}}px; height: {{canvasHeight}}px;">
+                <canvas canvasId="myCanvas" class="white-bg" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;overflow:hidden"></canvas>
+            </view>
+            <view class="share-btn-group">
+                <button catchtap="saveShareImage" class="canvas-btn white-color">保存图片</button>
+            </view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

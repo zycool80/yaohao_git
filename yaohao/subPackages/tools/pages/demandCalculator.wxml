@@ -1,0 +1,41 @@
+<view class="page white-bg">
+    <view class="ifProperty" wx:if="{{page==item.page}}" wx:for="{{questions}}" wx:key="key">
+        <view class="line"></view>
+        <view class="property-title">{{item.title}}</view>
+        <view bindtap="nextQuestionHandle" class="chooseBtn {{answer.isChecked?'active':'normal'}}" data-wpynextquestionhandle-a="{{index}}" data-wpynextquestionhandle-b="{{i}}" data-wpynextquestionhandle-c="{{answer.done}}" wx:for="{{item.answers}}" wx:for-index="i" wx:for-item="answer" wx:key="key">{{answer.text}}</view>
+        <view bindtap="backQuestionHandle" class="pre" data-wpybackquestionhandle-a="{{item.page}}">
+            <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190110/5c36b1605bc13.png"></image>返回上一步
+                </view>
+        <view bindtap="submitHandle" class="chooseBtn submitBtn fz-16" wx:if="{{isComputed}}">提交</view>
+    </view>
+    <view class="property-result" wx:if="{{page==6}}">
+        <view class="top">
+            <view class="preview-share fz-14">
+                <button openType="share">
+                    <text class="iconfont icon-fenxiang9 white-color fz-20"></text>
+                </button>
+            </view>
+            <image class="bg" mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20190108/5c345d914d0c5.png"></image>
+            <view class="result-msg">
+                <image class="user_avatar" src="{{userInfo.avatarUrl||avatarDefault}}"></image>
+                <view class="msg white-color fz-18" wx:if="{{!qualified}}">很抱歉，您没有刚需资格</view>
+                <view class="msg white-color fz-18" wx:if="{{qualified}}">您拥有刚需资格</view>
+                <view bindtap="retestHandle" class="tryAgain">再试一次</view>
+            </view>
+        </view>
+        <view class="content">
+            <view class="title fz-16">您选择的答案</view>
+            <text class="small-level-color fz-13 question" wx:for="{{show}}">
+                    {{index}} 答:{{item}}
+                </text>
+            <view class="focus">
+                <image bindtap="previewImageHandle" data-src="{{code}}" mode="widthFix" src="{{code}}"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

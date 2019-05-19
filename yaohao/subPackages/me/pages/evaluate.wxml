@@ -1,0 +1,40 @@
+<view class="settings-top" style="margin-top:10px">
+    <navigator class="top-info" hoverClass="none" url="/pages/salesMan/detail?id={{sales_man_id}}">
+        <image src="{{userinfo.avatar_url||'/images/default_sales_man_avatar.png'}}"></image>
+        <view class="center-info">
+            <view class="sales-man">
+                <text class="name fz-15 black1a-color font-bold">{{userinfo.name}}</text>
+                <text class="sign-text fz-10" style="color:{{userinfo.grade==1?'#8c7374':userinfo.grade==2?'#8d92a3':'c86601'}}">{{userinfo.is_broker==1?'经纪人':'置业顾问'}}</text>
+            </view>
+        </view>
+        <view class="right-info">
+            <text catchtap="call" class="iconfont icon-dianhua2 fz-16" wx:if="{{userinfo.phone}}"></text>
+            <view catchtap="toUrl" class="iconfont icon-lianxi fz-16"></view>
+        </view>
+    </navigator>
+    <view class="evaluate">
+        <view class="evaluateTitle fz-15 font-bold">— 评价本次服务 —</view>
+        <view class="start">
+            <view class="start-lists">
+                <text bindtap="setServiceIndex" class="start-list iconfont fz-24 {{servicesIndex>=1?'orange-color icon-xingxingzhong':'gray-9-color icon-xingxing'}}" data-wpysetserviceindex-a="1"></text>
+                <text bindtap="setServiceIndex" class="start-list iconfont fz-24 {{servicesIndex>=2?'orange-color icon-xingxingzhong':'gray-9-color icon-xingxing'}}" data-wpysetserviceindex-a="2"></text>
+                <text bindtap="setServiceIndex" class="start-list iconfont fz-24 {{servicesIndex>=3?'orange-color icon-xingxingzhong':'gray-9-color icon-xingxing'}}" data-wpysetserviceindex-a="3"></text>
+                <text bindtap="setServiceIndex" class="start-list iconfont fz-24 {{servicesIndex>=4?'orange-color icon-xingxingzhong':'gray-9-color icon-xingxing'}}" data-wpysetserviceindex-a="4"></text>
+                <text bindtap="setServiceIndex" class="start-list iconfont fz-24 {{servicesIndex>=5?'orange-color icon-xingxingzhong':'gray-9-color icon-xingxing'}}" data-wpysetserviceindex-a="5"></text>
+            </view>
+            <view class="fz-15 start-score" style="color:{{item.color}}" wx:if="{{index==servicesIndex}}" wx:for="{{tags}}" wx:key="key">{{item.hint}}</view>
+        </view>
+        <view class="tips">
+            <view bindtap="selectTips" class="tip  {{tip.isCheck?'tipOrange':servicesIndex>=1?'tipBlack':'tipGray'}} fz-13" data-wpyselecttips-a="{{index}}" wx:for="{{tags[servicesIndex].value}}" wx:for-item="tip" wx:key="key">{{tip.value}}</view>
+        </view>
+        <view class="text-area">
+            <textarea bindinput="inputValue" class="fz-13" maxlength="120" placeholder="其他想说的（120字）" placeholderStyle="text-align: center;" type="text" value="{{content}}"></textarea>
+        </view>
+        <view bindtap="submit" class="btn fz-15 white-color">提交评论</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

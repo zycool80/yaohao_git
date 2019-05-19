@@ -1,0 +1,24 @@
+<view class="page">
+    <view class="hou_plan_item" style="margin-top: 20rpx">
+        <view class="hou_plan_live">
+            <input bindinput="inputValue" data-wpyinputvalue-a="phone" placeholder="请输入手机号" placeholderClass="gray-9-color" style="display: inline-block;float: left;width:500rpx" value="{{inputData.phone}}"></input>
+            <view class="identifyCode small-level-color" wx:if="{{second!=0}}">{{changeInput}}</view>
+            <view catchtap="getVerify" class="identifyCode" wx:if="{{second==0}}">获取验证码</view>
+        </view>
+    </view>
+    <view class="hou_plan_item">
+        <view class="hou_plan_live">
+            <input bindinput="inputValue" data-wpyinputvalue-a="verify_code" placeholder="请输入验证码" placeholderClass="gray-9-color" value="{{inputData.verify_code}}"></input>
+        </view>
+    </view>
+    <view class="bottom-msg">
+        <text class="fz-13 gray-9-color">手机无法收到验证码？</text>
+        <button openType="contact" sessionFrom="{{weapp}}">咨询客服</button>
+    </view>
+    <view bindtap="submit" class="submit-btn fz-15 white-color">提交</view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,226 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+@import "../__wuBaseWxss__/2.wxss";
+
+.question-container {
+    padding: 0;
+    overflow: hidden;
+}
+
+.question-container .question-list {
+    padding: 0 30rpx;
+}
+
+.question-container .question-list .bottom-answer {
+    padding: 20rpx 0;
+}
+
+.question-container .question-list .bottom-answer .answer-user-info .avatar {
+    top: 0;
+}
+
+.avatar,.avatar image {
+    width: 63rpx;
+    height: 63rpx;
+    border-radius: 63rpx;
+}
+
+.question-container .question-list .bottom-answer .answer-user-info .user-info {
+    margin-left: 90rpx;
+}
+
+.question-container .question-list .top-question .question-desc,.question-container .question-list .bottom-answer .answer-desc,.question-container .question-list .top-question .question-user-info {
+    padding: 0 0 0 90rpx;
+}
+
+.question-container .question-list .time-and-like {
+    margin-left: 90rpx;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+page {
+    background-color: #f7f7f7;
+}
+
+.black-1a {
+    color: #1a1a1a;
+}
+
+.my-user-info {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    padding: 30rpx 20rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.my-user-info .left {
+    margin-right: 240rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.my-user-info .left .avatar {
+    float: left;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-right: 30rpx;
+}
+
+.my-user-info .left .avatar image {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.my-user-info .left .userinfo {
+    margin-top: 5rpx;
+}
+
+.my-user-info .right {
+    float: right;
+    width: 260rpx;
+    margin-top: 5rpx;
+    text-align: right;
+}
+
+.my-user-info .right .btn {
+    display: inline-block;
+    line-height: 46rpx;
+    width: 90rpx;
+    text-align: center;
+    height: 46rpx;
+    border-radius: 40rpx;
+    overflow: hidden;
+}
+
+.my-nav-topic {
+    position: relative;
+    top: 150rpx;
+    z-index: 3;
+    width: 100%;
+    border-radius: 30rpx 30rpx 0 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.my-nav-topic .nav-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 140rpx;
+    overflow: hidden;
+    border-bottom: 1rpx solid #e6e6e6;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.my-nav-topic .topic-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.my-nav-topic .topic-container .scroll-topic-view {
+    width: 100%;
+    line-height: 30rpx;
+    overflow: hidden;
+}
+
+.my-nav-topic .topic-container .title {
+    padding: 30rpx 0 0 30rpx;
+    line-height: 1;
+}
+
+.my-nav-topic .topic-container .scroll-topic-view .scroll-topic-list {
+    float: left;
+    line-height: 1;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.my-nav-topic .topic-container .scroll-topic-view .blue-color {
+    color: #16a5af!important;
+}
+
+.question-container .question-list .tags-page_views {
+    width: 100%;
+    line-height: 1;
+    padding: 20rpx 0 0 90rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question-container .question-list .tags-page_views .tags {
+    float: left;
+    overflow: hidden;
+}
+
+.question-container .question-list .tags-page_views .tags .tag {
+    float: left;
+    line-height: 36rpx;
+    height: 36rpx;
+    padding: 0 18rpx;
+    background-color: #e2ecfb;
+    color: #3772cc;
+    border-radius: 8rpx;
+    margin: 0 12rpx 0 0;
+    overflow: hidden;
+    border: none;
+}
+
+.question-container .question-list .tags-page_views .page_views {
+    line-height: 30rpx;
+    float: right;
+}
+
+.orange-color {
+    color: #f7776a;
+}
+
+.sale_man {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.other {
+    padding-left: 25rpx;
+    color: #b3b3b3;
+    position: relative;
+    top: -15rpx;
+}
+
+.title-top {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    line-height: 1;
+    align-items: center;
+}
+
+.wantAnswer {
+    color: #16A5AF;
+    background: #EAF9FA;
+    height: 44rpx;
+    line-height: 44rpx;
+    padding: 0 16rpx;
+    border-radius: 44rpx;
+    float: right;
+}

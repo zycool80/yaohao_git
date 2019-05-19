@@ -1,0 +1,305 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f9fafc;
+}
+
+.top-cont {
+    background: linear-gradient(to bottom,#1e81dd,#4ab9ec);
+    padding: 73rpx 30rpx 265rpx;
+    overflow: hidden;
+    text-align: center;
+}
+
+.top-cont .time {
+    padding-bottom: 23rpx;
+}
+
+.top-cont .title {
+    padding-bottom: 34rpx;
+}
+
+.total-cont {
+    position: relative;
+    top: -230rpx;
+}
+
+.middle-cont {
+    margin: 0 30rpx;
+    background: #fff;
+    border-radius: 12rpx;
+    box-shadow: 0 1rpx 3rpx 0 rgba(0,0,0,0.1);
+    padding: 58rpx 0;
+    text-align: center;
+}
+
+.middle-cont .fail-text {
+    padding-bottom: 34rpx;
+}
+
+.middle-cont .end-time {
+    padding-bottom: 38rpx;
+}
+
+.middle-cont .explain {
+    padding-bottom: 32rpx;
+}
+
+.middle-cont .momment-time {
+    padding-bottom: 26rpx;
+}
+
+.middle-cont .avatar_bg {
+    background: #f9fafc;
+    padding: 34rpx 0;
+    margin: 0 58rpx;
+}
+
+.middle-cont .avatar_bg .avatar-line {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 14rpx;
+}
+
+.middle-cont .avatar_bg .avatar-line .avatar {
+    margin-bottom: 12rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+    display: inline-block;
+}
+
+.middle-cont .avatar_bg .avatar-line .line {
+    width: 80rpx;
+    height: 1rpx;
+    display: inline-block;
+    content: '';
+    border-bottom: 1rpx solid #e2e2e2;
+    padding-top: 40rpx;
+}
+
+.middle-cont .avatar_bg .last_time {
+    padding-top: 38rpx;
+}
+
+.middle-inp {
+    margin: 0 30rpx;
+    padding: 40rpx 60rpx 50rpx;
+    background: #fff;
+    border-radius: 12rpx;
+    box-shadow: 0 1rpx 3rpx 0 rgba(0,0,0,0.1);
+}
+
+.middle-inp .top-title {
+    overflow: hidden;
+}
+
+.middle-inp .top-title .left {
+    float: left;
+}
+
+.middle-inp .top-title .right {
+    float: right;
+}
+
+.middle-inp .inp {
+    font-size: 82rpx;
+    padding: 20px 0;
+    border-bottom: 1rpx solid #e2e2e2;
+    height: 82rpx;
+    line-height: 82rpx;
+}
+
+.middle-inp .my_points {
+    padding-top: 35rpx;
+    overflow: hidden;
+}
+
+.middle-inp .my_points .left {
+    float: left;
+}
+
+.middle-inp .my_points .right {
+    float: right;
+}
+
+.middle-inp .btn_toPrice {
+    margin-top: 50rpx;
+    line-height: 93rpx;
+    background: #268be0;
+    border-radius: 47rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.gray-8 {
+    color: #888!important;
+}
+
+.gray-8d {
+    color: #8d8d8d!important;
+}
+
+.red-color {
+    color: #ff454e!important;
+}
+
+.bottom-cont {
+    padding: 50rpx 30rpx 0;
+    background: #fff;
+    box-shadow: 0 1rpx 3rpx 0 rgba(0,0,0,0.1);
+    border-radius: 12rpx;
+    margin: 30rpx;
+}
+
+.bottom-cont .title {
+    margin-bottom: 20rpx;
+}
+
+.bottom-cont .log_cont .log_line {
+    overflow: hidden;
+    border-bottom: 1rpx solid #e2e2e2;
+    line-height: 110rpx;
+    height: 110rpx;
+}
+
+.bottom-cont .log_cont .log_line .name {
+    width: 33%;
+    float: left;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    height: 100%;
+}
+
+.bottom-cont .log_cont .log_line .name .avatar {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 70rpx;
+    display: inline-block;
+    position: absolute;
+    margin-right: 100%;
+    top: 17rpx;
+    left: 0;
+}
+
+.bottom-cont .log_cont .log_line .name .avatar image {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.bottom-cont .log_cont .log_line .name .avatar .sign_text {
+    line-height: 26rpx;
+    border-radius: 13rpx;
+    position: absolute;
+    bottom: -7rpx;
+    left: 1rpx;
+    display: inline-block;
+    background: #fd9404;
+    width: 64rpx;
+    text-align: center;
+}
+
+.bottom-cont .log_cont .log_line .name .user_name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 91rpx;
+}
+
+.bottom-cont .log_cont .log_line .time {
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+
+.bottom-cont .log_cont .log_line .price {
+    width: 33%;
+    float: left;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bottom-cont .log_cont .no-border {
+    border: none;
+}
+
+.model {
+    position: fixed;
+    background: #fff;
+    border-radius: 8rpx;
+    width: 640rpx;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.model-tip {
+    padding: 30rpx 0;
+    text-align: center;
+}
+
+.model-text1 {
+    padding-bottom: 50rpx;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15rpx 0;
+}
+
+.model-btn {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1rpx solid #e6e6e6;
+    height: 90rpx;
+}
+
+.model-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    z-index: 999;
+}
+
+.comment-box {
+    height: 600rpx;
+    padding: 0 50rpx;
+    box-sizing: border-box;
+}
+
+.model-btn button {
+    color: #16a5af;
+}
+
+page {
+    background: #f9fafc;
+    height: 100%;
+}
+
+.popup {
+    height: 100%;
+    overflow: hidden;
+}
+
+.getCoins {
+    color: #1e81dd;
+    margin-left: 15rpx;
+    text-decoration: underline;
+}

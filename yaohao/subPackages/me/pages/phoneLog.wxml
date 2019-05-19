@@ -1,0 +1,31 @@
+<view class="page">
+    <view class="phoneLog-top">
+        <image mode="aspectFill" src="http://imgcdn.huanjutang.com/assets/img/20181207/5c0a2cf2d86b0.png"></image>
+        <view class="phoneLog-top-cont fz-25 white-color">{{total}}</view>
+        <view class="fz-10 white-color log">通话量</view>
+        <view class="fz-11 blue-color today-log">今日通话量：{{today}}</view>
+    </view>
+    <picker bindchange="getDate" class="picker-view" end="{{nowTime}}" fields="month" mode="date" start="2015-09-01" value="{{date}}">
+        <view class="picker font-bold">{{year}}年{{month}}月 <text class="iconfont gray-color icon-xialajiantou" style="font-size:22rpx;margin-left:6px;"></text>
+        </view>
+    </picker>
+    <block wx:if="{{phoneLogList.length>0}}">
+        <view bindtap="callPhone" class="log-cont-line" data-wpycallphone-a="{{item.peer_no}}" wx:for="{{phoneLogList}}" wx:key="key">
+            <view class="{{item.call_type==0?'icon-dadianhua':'icon-iconfontdianhua'}} iconfont fz-22 line-icon small-level-color" wx:if="{{item.release_dir!=2}}"></view>
+            <view class="line-time fz-10 height-level-color">{{item.call_time}}</view>
+            <view class="line-cont">
+                <text class="fz-14 {{item.release_dir==2?'red-color':'black1a-color'}} font-bold" style="padding-bottom: 12rpx">{{item.peer_no}}</text>
+                <text class="fz-11 height-level-color">{{item.user_name}}</text>
+            </view>
+        </view>
+    </block>
+    <view class="phoneLog-bg" wx:else>
+        <image mode="widthFix" src="http://imgcdn.huanjutang.com/assets/img/20181210/5c0dc259d61a0.png"></image>
+        <navigator class="homeBack fz-14 white-color" openType="switchTab" url="/pages/index">返回首页</navigator>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

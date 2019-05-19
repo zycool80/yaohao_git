@@ -1,0 +1,233 @@
+<view class="page">
+    <block wx:if="{{changetype}}">
+        <view class="exchange-item" wx:if="{{nowApply}}">
+            <view style="padding-top: 40rpx;margin-left: 58rpx;">
+                <text class="fz-15 font-bold">{{items[0].project_name}} </text>
+            </view>
+            <view class="progress-list">
+                <view class="progress-item">
+                    <view class="item-are icon-style">
+                        <text class="iconfont icon-gougou" style="font-size: 24rpx;color: #FFFFFF"></text>
+                    </view>
+                </view>
+                <view class="xian"></view>
+                <view class="progress-item">
+                    <view class="item-are icon-style">
+                        <view style="width: 10rpx;height: 10rpx;border-radius: 50%;background-color: #f7f7f7"></view>
+                    </view>
+                </view>
+                <view class="xian2"></view>
+                <view class="progress-item">
+                    <view class="item-are2 icon-style" style="position: relative">
+                        <view style="width: 14rpx;height: 14rpx;border-radius: 50%;background-color: #e6e6e6"></view>
+                        <view style="width: 34rpx;height: 4rpx;position: absolute;top: 50%;left:0;margin-top: -2rpx;background-color: #e6e6e6"></view>
+                    </view>
+                </view>
+                <view class="xian2"></view>
+                <view class="progress-item">
+                    <view class="item-are2 icon-style" style="position: relative">
+                        <view style="width: 14rpx;height: 14rpx;border-radius: 50%;background-color: #e6e6e6"></view>
+                        <view style="width: 16rpx;height: 4rpx;position: absolute;top: 50%;left:0;margin-top: -2rpx;background-color: #e6e6e6"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="progress-list-bottom">
+                <view class="fz-11 bot-item" style="color: #16a5af">
+                    <text>已提交</text>
+                </view>
+                <view class="fz-11 bot-item" style="color: #16a5af">
+                    <text>待审核</text>
+                </view>
+                <view class="fz-11 bot-item" style="color: #666666">
+                    <text>审核通过</text>
+                </view>
+                <view class="fz-11 bot-item" style="color: #666666">
+                    <text>入驻成功</text>
+                </view>
+            </view>
+        </view>
+        <view class="exchange-item" wx:else>
+            <view style="padding-top: 40rpx;margin-left: 58rpx;">
+                <text class="fz-15 font-bold">{{item.commutation_data.commutation_project}} </text>
+                <text style="color: #666666;font-size: 24rpx;margin-left: 10rpx"> (更换后)</text>
+            </view>
+            <view class="progress-list">
+                <view class="progress-item">
+                    <view class="item-are icon-style">
+                        <text class="iconfont icon-gougou" style="font-size: 24rpx;color: #FFFFFF"></text>
+                    </view>
+                </view>
+                <view class="xian"></view>
+                <view class="progress-item">
+                    <view class="item-are icon-style">
+                        <view style="width: 10rpx;height: 10rpx;border-radius: 50%;background-color: #f7f7f7"></view>
+                    </view>
+                </view>
+                <view class="xian2"></view>
+                <view class="progress-item">
+                    <view class="item-are2 icon-style" style="position: relative">
+                        <view style="width: 14rpx;height: 14rpx;border-radius: 50%;background-color: #e6e6e6"></view>
+                        <view style="width: 34rpx;height: 4rpx;position: absolute;top: 50%;left:0;margin-top: -2rpx;background-color: #e6e6e6"></view>
+                    </view>
+                </view>
+                <view class="xian2"></view>
+                <view class="progress-item">
+                    <view class="item-are2 icon-style" style="position: relative">
+                        <view style="width: 14rpx;height: 14rpx;border-radius: 50%;background-color: #e6e6e6"></view>
+                        <view style="width: 16rpx;height: 4rpx;position: absolute;top: 50%;left:0;margin-top: -2rpx;background-color: #e6e6e6"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="progress-list-bottom">
+                <view class="fz-11 bot-item" style="color: #16a5af">
+                    <text>已提交</text>
+                </view>
+                <view class="fz-11 bot-item" style="color: #16a5af">
+                    <text>待审核</text>
+                </view>
+                <view class="fz-11 bot-item" style="color: #666666">
+                    <text>审核通过</text>
+                </view>
+                <view class="fz-11 bot-item" style="color: #666666">
+                    <text>入驻成功</text>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view class="saleman-status-container" wx:else>
+        <view class="saleman-status-list-cont" wx:if="{{item.project_id>0}}" wx:for="{{items}}" wx:key="key">
+            <view class="saleman-status-list white-bg" style="margin-bottom: {{item.is_checked==1?'':'30rpx'}}">
+                <block wx:if="{{item.is_putaway==1}}">
+                    <navigator class="title height-level-color fz-15 font-bold" url="/pages/lotteryDetail?id=&project_id={{item.project_id}}" wx:if="{{item.project_id>0}}">
+                        <text>{{item.project_name}}</text>
+                        <text catchtap="deleteAuditing" class="iconfont icon-shanchu gray-9-color fz-14" data-wpydeleteauditing-a="{{item.id}}" style="float:right;display:inline-block;width:40rpx;text-align:center"></text>
+                    </navigator>
+                    <view class="title height-level-color fz-15 font-bold" wx:else>
+                        <text>{{item.project_name}}</text>
+                        <text catchtap="deleteAuditing" class="iconfont icon-shanchu gray-9-color fz-14" data-wpydeleteauditing-a="{{item.id}}" style="float:right;display:inline-block;width:40rpx;text-align:center"></text>
+                    </view>
+                    <view class="saleman-status-speed">
+                        <view class="status-speed gray-color">
+                            <view class="status-speed-icon ok"></view>
+                            <view class="status-speed-line"></view>
+                            <view class="status-speed-text fz-12">已提交</view>
+                        </view>
+                        <view class="status-speed gray-color">
+                            <view class="status-speed-icon ok"></view>
+                            <view class="status-speed-line"></view>
+                            <view class="status-speed-text fz-12">待审核</view>
+                        </view>
+                        <view class="status-speed gray-color">
+                            <view class="status-speed-icon ok"></view>
+                            <view class="status-speed-line"></view>
+                            <view class="status-speed-text fz-12">审核通过</view>
+                        </view>
+                        <view class="status-speed gray-color">
+                            <view class="status-speed-icon ok"></view>
+                            <view class="status-speed-line"></view>
+                            <view class="status-speed-text fz-12">入驻成功</view>
+                        </view>
+                    </view>
+                    <text class="saleman-status-message black1a-color fz-13" wx:if="{{item.is_checked==1&&item.is_putaway!=1}}">恭喜小主人成功入驻成都摇号助手！
+入驻时间：{{item.time}}</text>
+                    <block wx:if="{{item.is_putaway==1}}">
+                        <view bindtap="toggle" class="right-cont fz-11" data-wpytoggle-a="1" style="color: #f7776a;" wx:if="{{down_toggle}}">查看下架原因</view>
+                        <view bindtap="toggle" class="right-cont fz-11" data-wpytoggle-a="1" style="color: #f7776a;" wx:if="{{!down_toggle}}">点击收起</view>
+                        <text class="saleman-status-message gray-color fz-11 gray9-color">小主，期待与您再次相遇！
+下架时间：{{item.time}}</text>
+                        <view class="reason-cont black1a-color fz-11" wx:if="{{!down_toggle}}">{{item.down_reason}}</view>
+                    </block>
+                    <block wx:if="{{item.is_checked==2}}">
+                        <view bindtap="toggle" class="right-cont fz-11" data-wpytoggle-a="2" style="color: #f7776a;" wx:if="{{status_toggle}}">查看未通过原因</view>
+                        <view bindtap="toggle" class="right-cont fz-11" data-wpytoggle-a="2" style="color: #f7776a;" wx:if="{{!status_toggle}}">点击收起</view>
+                        <text class="saleman-status-message black1a-color fz-11">审核未成功？怎么可能！我要查看原因！</text>
+                        <view class="reason-cont black1a-color fz-11" wx:if="{{!status_toggle}}">{{item.reason}}</view>
+                        <view class="tips fz-10 black1a-color">温馨提示：工牌必须保证信息真实，一经我司核实，工牌信息存在有误或者冒用工牌等，我司将立即清除该职业顾问在小程序上的入驻！感谢小主的配合！</view>
+                    </block>
+                </block>
+                <block wx:else>
+                    <navigator class="title height-level-color fz-15 font-bold" url="/pages/lotteryDetail?id=&project_id={{item.project_id}}" wx:if="{{item.project_id>0}}">
+                        <text>{{item.project_name}}</text>
+                    </navigator>
+                    <view class="title height-level-color fz-15 font-bold" wx:else>
+                        <text>{{item.project_name}}</text>
+                    </view>
+                    <view class="saleman-status-speed">
+                        <view class="status-speed blue-color">
+                            <view class="status-speed-icon ok"></view>
+                            <view class="status-speed-line"></view>
+                            <view class="status-speed-text fz-12">已提交</view>
+                        </view>
+                        <view class="status-speed {{item.is_checked>=0?'blue-color':'gray-color'}}">
+                            <view class="status-speed-icon speed" wx:if="{{item.is_checked=='0'}}"></view>
+                            <view class="status-speed-icon ok" wx:else></view>
+                            <view class="status-speed-line"></view>
+                            <view class="status-speed-text fz-12">待审核</view>
+                        </view>
+                        <block wx:if="{{item.is_checked>=1}}">
+                            <view class="status-speed {{item.is_checked>=1?item.is_checked==1?'blue-color':'yellow-color':'gray-color'}}">
+                                <view class="status-speed-icon ok" wx:if="{{item.is_checked==1}}"></view>
+                                <view class="status-speed-icon error iconfont icon-guanbi" wx:else></view>
+                                <view class="status-speed-line"></view>
+                                <view class="status-speed-text fz-12">{{item.is_checked>=1?item.is_checked==1?'审核通过':'审核未通过':'审核通过'}}</view>
+                            </view>
+                            <view class="status-speed gray-color" wx:if="{{item.is_checked==2}}">
+                                <view class="status-speed-icon no"></view>
+                                <view class="status-speed-line"></view>
+                                <view class="status-speed-text fz-12">入驻成功</view>
+                            </view>
+                            <view class="status-speed blue-color" wx:else>
+                                <view class="status-speed-icon ok"></view>
+                                <view class="status-speed-line"></view>
+                                <view class="status-speed-text fz-12">入驻成功</view>
+                            </view>
+                        </block>
+                        <block wx:else>
+                            <view class="status-speed gray-color">
+                                <view class="status-speed-icon no"></view>
+                                <view class="status-speed-line"></view>
+                                <view class="status-speed-text fz-12">审核通过</view>
+                            </view>
+                            <view class="status-speed gray-color">
+                                <view class="status-speed-icon no"></view>
+                                <view class="status-speed-line"></view>
+                                <view class="status-speed-text fz-12">入驻成功</view>
+                            </view>
+                        </block>
+                    </view>
+                    <text class="saleman-status-message black1a-color fz-13" wx:if="{{item.is_checked==1&&item.is_putaway!=1}}">恭喜小主人成功入驻成都摇号助手！
+入驻时间：{{item.time}}</text>
+                    <block wx:if="{{item.is_putaway==1}}">
+                        <view bindtap="toggle" class="right-cont fz-11" data-wpytoggle-a="1" style="color: #f7776a;" wx:if="{{down_toggle}}">查看下架原因</view>
+                        <view bindtap="toggle" class="right-cont fz-11" data-wpytoggle-a="1" style="color: #f7776a;" wx:if="{{!down_toggle}}">点击收起</view>
+                        <text class="saleman-status-message gray-color fz-11 gray9-color">小主，期待与您再次相遇！
+下架时间：{{item.time}}</text>
+                        <view class="reason-cont black1a-color fz-11" wx:if="{{!down_toggle}}">{{item.down_reason}}</view>
+                    </block>
+                    <block wx:if="{{item.is_checked==2}}">
+                        <view bindtap="toggle" class="right-cont fz-11" data-wpytoggle-a="2" style="color: #f7776a;" wx:if="{{status_toggle}}">查看未通过原因</view>
+                        <view bindtap="toggle" class="right-cont fz-11" data-wpytoggle-a="2" style="color: #f7776a;" wx:if="{{!status_toggle}}">点击收起</view>
+                        <text class="saleman-status-message black1a-color fz-11">审核未成功？怎么可能！我要查看原因！</text>
+                        <view class="reason-cont black1a-color fz-11" wx:if="{{!status_toggle}}">{{item.reason}}</view>
+                        <view class="tips fz-10 black1a-color">温馨提示：工牌必须保证信息真实，一经我司核实，工牌信息存在有误或者冒用工牌等，我司将立即清除该职业顾问在小程序上的入驻！感谢小主的配合！</view>
+                    </block>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="saleman-status-footer">
+        <view class="saleman-status-footer-top fz-12 height-level-color">
+            <view>{{footerText}}</view>
+            <button class="chart-service fz-11" openType="contact" sessionFrom="{{weapp}}">在线咨询</button>
+        </view>
+        <image mode="widthFix" src="{{wechat_qrcode}}" style="width:300rpx;display:block;margin:30rpx auto;"></image>
+        <view style="text-align:center;overflow:hidden">
+            <view bindtap="saveQrCode" class="save-qrcode fz-13 height-level-color">保存二维码</view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

@@ -1,0 +1,32 @@
+<view class="page">
+    <view class="main" style="padding-bottom:150rpx" wx:if="{{modluDatas.length>0}}">
+        <view class="modlu" wx:for="{{modluDatas}}" wx:key="key">
+            <view class="content">
+                <view class="ul">
+                    <view class="li">
+                        <view class="left p">{{item.type.name}}</view>
+                        <view class="right p {{item.status==1?'':'feil'}}" wx:if="{{item.is_checked==1}}">{{item.status_text}}</view>
+                        <view class="right p" wx:else>{{item.is_checked_text}}</view>
+                    </view>
+                    <view class="time">
+                        <view class="p">{{item.created_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="main" wx:else>
+        <view class="not_id_card">
+            <image mode="aspectFit" src="/images/icons/not_id_card.png" style="height:140rpx;display:block;margin:0 auto;"></image>
+            <text class="small-level-color" style="margin-top:30px;font-size:14px">暂无审核记录</text>
+        </view>
+    </view>
+    <view class="wrap">
+        <navigator class="button" hoverClass="none" url="/subPackages/salesMan/pages/submissionOfInformation">继续上传</navigator>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

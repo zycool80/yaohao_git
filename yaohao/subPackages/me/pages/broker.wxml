@@ -1,0 +1,209 @@
+<view class="modalDialog" wx:if="{{type==1&&is_broker==1}}">
+    <view bindtap="changType" style="width: 100%;height: 100%;display: flex;justify-content: center;align-items: center">
+        <view class="modalDialog_item">
+            <view class="modalDialog_item1">
+                <text class="fz-14 font-bold black1a-color">小主已入驻楼盘，想要再次申请入驻?</text>
+                <text class="fz-12 black1a-color" style="margin-top: 34rpx">申请入驻多个楼盘，可在本页<text class="font-bold">【入驻须知】</text>中查看详情</text>
+            </view>
+            <view class="modalDialog_item2 modalDialog_style" style="margin-top: 26rpx">
+                <view catchtap="changType" class="modalDialog_style2">
+                    <text class="fz-13 small-level-color font-bold">知道了</text>
+                </view>
+                <view catchtap="toUrl" class="modalDialog_style2" data-wpytourl-a="{{invite_url}}">
+                    <text class="fz-13 black1a-color font-bold">查看入驻须知</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="page" style="background-color:#f7f7f7;">
+    <view style="background-color:#f7f7f7;overflow: hidden">
+        <view class="info" wx:if="{{step}}">
+            <view class="info-rule">
+                <view class="fz-14 font-bold">基本信息</view>
+                <navigator class="rule fz-13" hoverClass="none" url="{{invite_url}}">#入驻优势与须知#</navigator>
+            </view>
+            <view class="hou_plan_item">
+                <view class="general_style">
+                    <view class="fz-14 small-level-color">姓名</view>
+                    <text class="asterisk_style">*</text>
+                </view>
+                <view class="hou_plan_live">
+                    <input bindinput="inputValue" data-wpyinputvalue-a="name" placeholder="请输入姓名" placeholderClass="font-bold-normal" value="{{inputData.name}}"></input>
+                </view>
+            </view>
+            <view class="hou_plan_item">
+                <view class="general_style">
+                    <text class="fz-14 small-level-color">微信号</text>
+                    <text class="asterisk_style">*</text>
+                </view>
+                <view class="hou_plan_live">
+                    <input bindinput="inputValue" data-wpyinputvalue-a="wechat" placeholder="请输入微信号" placeholderClass="font-bold-normal" value="{{inputData.wechat}}"></input>
+                </view>
+            </view>
+            <view class="hou_plan_item">
+                <view class="general_style">
+                    <text class="fz-14 small-level-color">推荐人</text>
+                </view>
+                <view class="hou_plan_live">
+                    <input bindinput="inputValue" data-wpyinputvalue-a="inviter_name" placeholder="推荐人的姓名(可以为TA加分)" placeholderClass="font-bold-normal" value="{{inputData.inviter_name}}"></input>
+                </view>
+            </view>
+            <view class="hou_plan_item">
+                <view class="general_style">
+                    <view class="fz-14 small-level-color">所属公司</view>
+                    <text class="asterisk_style">*</text>
+                </view>
+                <view class="hou_plan_live">
+                    <input bindinput="inputValue" data-wpyinputvalue-a="company_name" placeholder="您所在公司的全称" placeholderClass="font-bold-normal" value="{{inputData.company_name}}"></input>
+                </view>
+            </view>
+            <view class="hou_plan_item">
+                <view class="general_style">
+                    <view class="fz-14 small-level-color">所在门店</view>
+                    <text class="asterisk_style">*</text>
+                </view>
+                <view class="hou_plan_live">
+                    <input bindinput="inputValue" data-wpyinputvalue-a="store_name" placeholder="您所在线下门店的名字" placeholderClass="font-bold-normal" value="{{inputData.store_name}}"></input>
+                </view>
+            </view>
+            <view class="hou_plan_item" style="border-bottom: 1px solid #e6e6e6">
+                <view class="general_style">
+                    <view class="fz-14 small-level-color">个人简介</view>
+                    <text class="asterisk_style">*</text>
+                </view>
+                <view class="hou_plan_area">
+                    <textarea bindinput="inputValue" data-wpyinputvalue-a="content" placeholder="输入个人简介可以提升用户对你的关注！" placeholderClass="font-bold-normal" style="margin-top:{{textAreaStyle}}rpx" value="{{inputData.content}}" wx:if="{{!(type==1&&isSalesMan==1)&&!showType&&!(showModel&&sales_man_id!=0)}}"></textarea>
+                </view>
+            </view>
+            <view class="lottery-msg">
+                <view class="up-header">
+                    <text class="fz-14 font-bold">楼盘信息</text>
+                    <text class="asterisk_style"></text>
+                </view>
+                <view class="hou_plan_item">
+                    <view class="general_style">
+                        <view class="fz-14 small-level-color">楼盘名称</view>
+                    </view>
+                    <view class="hou_plan_live" style="border:none!important;">
+                        <view bindtap="chooseLottery" style="max-width:250rpx; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;display: inline-block;font-size: 28rpx" wx:if="{{selectLottery=='请选择已有的楼盘'}}">{{selectLottery}}</view>
+                        <view style="max-width:250rpx; white-space: nowrap;text-overflow: ellipsis;overflow: hidden;display: inline-block;font-size: 28rpx" wx:if="{{selectLottery!='请选择已有的楼盘'}}">{{selectLottery}}</view>
+                        <view bindtap="chooseLottery" class="picker">
+                            <text class="fz-13 gr-color">选择楼盘</text>
+                            <text class="iconfont gr-color icon-xialajiantou" style="margin-left: 10rpx;font-size: 16rpx"></text>
+                        </view>
+                        <view bindtap="clearInput" class="iconfont icon-delete weui-icon-search" wx:if="{{selectLottery!='请选择已有的楼盘'}}"></view>
+                    </view>
+                </view>
+                <view class="hou_plan_item" wx:if="{{showLot}}">
+                    <view class="general_style">
+                        <view class="fz-14 small-level-color">或新楼盘</view>
+                    </view>
+                    <view class="hou_plan_live" style="border-bottom:none!important;border-top:1px solid #e6e6e6;">
+                        <input adjustPosition="{{false}}" bindblur="bindblur" bindfocus="bindfocus" bindinput="newInputLot" placeholder="请输入新楼盘的全名" placeholderClass="font-bold-normal" value="{{newProjectName}}"></input>
+                    </view>
+                </view>
+            </view>
+            <view class="layout_display">
+                <view class="up-header">
+                    <text class="fz-14 font-bold">上传微信二维码和名片/工牌</text>
+                    <text class="asterisk_style">*</text>
+                    <text class="fz-12 small-level-color"> (图片大小不超过2M)</text>
+                </view>
+                <view class="upload-content">
+                    <view class="w-cell_style">
+                        <view class="upload-file">
+                            <view bindtap="uploadFile" class="pic" data-wpyuploadfile-a="1" wx:if="{{!inputData.wechat_qrcode}}"></view>
+                            <view class="pic" wx:else>
+                                <image bindtap="preview" data-preview="{{inputData.wechat_qrcode}}" mode="aspectFill" src="{{inputData.wechat_qrcode}}" style="width:100%;height:100%;"></image>
+                            </view>
+                        </view>
+                        <text class="small-level-color fz-13" style="margin-top: 20rpx;" wx:if="{{!inputData.wechat_qrcode}}">微信二维码</text>
+                        <text bindtap="delImg" class="fz-14 gray-color iconfont icon-delete" data-wpydelimg-a="1" style="margin-top: 20rpx;" wx:else></text>
+                    </view>
+                    <view class="w-cell_style">
+                        <view class="upload-file">
+                            <view bindtap="uploadFile" class="pic" data-wpyuploadfile-a="2" wx:if="{{!inputData.card}}"></view>
+                            <view class="pic" wx:else>
+                                <image bindtap="preview" data-preview="{{inputData.card}}" mode="aspectFill" src="{{inputData.card}}" style="width:100%;height:100%;"></image>
+                            </view>
+                        </view>
+                        <text class="small-level-color fz-13" style="margin-top: 20rpx;" wx:if="{{!inputData.card}}">名牌或工牌</text>
+                        <text bindtap="delImg" class="fz-14 iconfont icon-delete gray-color" data-wpydelimg-a="2" style="margin-top: 20rpx;" wx:else></text>
+                    </view>
+                </view>
+            </view>
+            <form bindsubmit="getFormID" reportSubmit="true">
+                <button bindtap="next" class="submit-btn fz-15 white-color" formType="submit">下一步</button>
+            </form>
+            <view style="padding: 20rpx 30rpx;margin-top: 20rpx;box-sizing: border-box">
+                <view class="fz-11 small-level-color">注：为了避免他人冒充经纪人，我们需要验证您的名片或者工牌！谢谢您的配合。</view>
+                <text class="fz-11 small-level-color">如果无法上传图片，请到成都摇号助手公众号里面的（菜单=>更多=>置业顾问入驻）报名！</text>
+                <text bindtap="getQrcode" class="fz-13" style="color:#5d7fc3">点我获取公众号二维码</text>
+            </view>
+        </view>
+        <block wx:if="{{!step}}">
+            <view class="info-rule fz-14 font-bold" style="padding:20rpx 30rpx;box-sizing: border-box">获取验证码</view>
+            <view class="hou_plan_item">
+                <view class="general_style">
+                    <text class="fz-14 small-level-color">手机号</text>
+                    <text class="asterisk_style">*</text>
+                </view>
+                <view class="hou_plan_live">
+                    <input bindinput="inputValue" data-wpyinputvalue-a="phone" placeholder="请输入手机号" placeholderClass="font-bold-normal" style="display: inline-block;float: left;width:290rpx" value="{{inputData.phone}}"></input>
+                    <view class="identifyCode fz-14 small-level-color" wx:if="{{second!=0}}">{{changeInput}}</view>
+                    <view catchtap="getVerify" class="identifyCode fz-14 gr-color" wx:if="{{second==0}}">获取验证码</view>
+                </view>
+            </view>
+            <view class="hou_plan_item">
+                <view class="general_style">
+                    <text class="fz-14 small-level-color">验证码</text>
+                    <text class="asterisk_style">*</text>
+                </view>
+                <view class="hou_plan_live">
+                    <input bindinput="inputValue" data-wpyinputvalue-a="code" placeholder="请输入验证码" placeholderClass="font-bold-normal" value="{{inputData.code}}"></input>
+                </view>
+            </view>
+            <view catchtap="pre" style="margin:22rpx;color:#16a5af;display: inline-block">
+                <text class="iconfont icon-fanhui"></text> 返回上一步</view>
+            <form bindsubmit="getFormID" reportSubmit="true">
+                <button bindtap="submit" class="submit-btn fz-15 white-color" formType="submit">提交</button>
+            </form>
+            <view class="tips">
+                <view class="tips-right">
+                    <view class="fz-11 small-level-color">注：电子名片需要加客服微信进行核实。</view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="model" wx:if="{{showModel&&sales_man_id!=0}}">
+        <view class="fz-12 black-color model-text1">已经是该楼盘置业顾问了，还是发不了分享堂？</view>
+        <view class="fz-12 black-color model-text1">小主可以去联系客服解决问题咯~</view>
+        <view class="model-btn">
+            <button bindtap="cancelModel" class="small-level-color fz-12">不了</button>
+            <button class="black-color fz-12" openType="contact" sessionFrom="{{weapp}}" style="line-height:66rpx">联系客服</button>
+        </view>
+    </view>
+    <view catchtap="cancelModel" class="model-bg" wx:if="{{showModel&&sales_man_id!=0}}"></view>
+    <block wx:if="{{showType}}">
+        <view catchtap="closeModel" catchtouchmove="stopMove" class="building-bounced"></view>
+        <view class="buiding-choose white-bg">
+            <view class="search">
+                <view class="search-left small-level-color">
+                    <view bindtap="doSearch" class="iconfont icon-sousuo"></view>
+                    <input bindinput="inputTyping" class="search-bar-input" placeholder="输入楼盘名字搜索" placeholderClass="search-input-place" type="text" value="{{searchValue}}"></input>
+                </view>
+                <view catchtap="searchSure" class="search-btn fz-14">确定</view>
+            </view>
+            <view bindtap="showNewLot" class="search-col fz-13 gr-color">未找到楼盘去填写楼盘名</view>
+            <scroll-view scrollY bindscrolltolower="scroll" style="height:500rpx;">
+                <view catchtap="setLotname" class="search-col fz-13" data-wpysetlotname-a="{{item.name}}" wx:if="{{item.name}}" wx:for="{{lotData}}" wx:key="key">{{item.name}}</view>
+            </scroll-view>
+        </view>
+    </block>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

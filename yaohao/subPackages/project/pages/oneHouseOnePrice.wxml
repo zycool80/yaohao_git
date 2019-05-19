@@ -1,0 +1,149 @@
+<view class="page">
+    <view class="house-price-header layout-flex">
+        <view class="header-title">
+            <text class="fz-18 font-bold">{{title}}-房源价格</text>
+        </view>
+        <button class="share-btn layout-center" openType="share">
+            <text class="iconfont icon-fenxiang fz-14" style="margin-right:6rpx;"></text>
+            <text>分享</text>
+        </button>
+    </view>
+    <view class="house-price-container">
+        <view class="container-top">
+            <view class="container-top-content layout-flex">
+                <picker bindchange="submitBuilding" bindcolumnchange="getBuilding" class="filter {{params.building||params.unit?'active':''}}" mode="multiSelector" range="{{buildList}}" style="text-align: left" value="{{buildPickerArr}}">
+                    <text>楼栋</text>
+                    <text class="iconfont icon-xialajiantou" style="font-size: 16rpx;margin-left: 10rpx"></text>
+                </picker>
+                <block wx:if="{{decorationList.length>1}}">
+                    <view bindtap="showFilter" class="filter {{params.decoration?'active':''}}" data-wpyshowfilter-a="0" style="text-align: left">
+                        <text>装修类型</text>
+                        <text class="iconfont icon-xialajiantou" style="font-size: 16rpx;margin-left: 10rpx"></text>
+                    </view>
+                    <view bindtap="showFilter" class="filter {{params.price||params.style?'active':''}}" data-wpyshowfilter-a="1" style="text-align: right">
+                        <text>装修价格</text>
+                        <text class="iconfont icon-xialajiantou" style="font-size: 16rpx;margin-left: 10rpx"></text>
+                        <view class="triangle" wx:if="{{priceTipContent}}"></view>
+                    </view>
+                </block>
+                <view bindtap="showFilter" class="filter {{params.total_price_order_by||params.univalence_order_by||params.square_order_by?'active':''}}" data-wpyshowfilter-a="2" style="text-align: right">
+                    <text>排序</text>
+                    <text class="iconfont icon-xialajiantou" style="font-size: 16rpx;margin-left: 10rpx"></text>
+                </view>
+            </view>
+            <view class="price-tip-content fz-12 white-color" wx:if="{{decorationList.length>1&&priceTipContent}}">
+                <text>{{priceTipContent}}</text>
+                <text bindtap="closeHandle" class="close-handle fz-22">×</text>
+            </view>
+        </view>
+        <view class="house-price-list" wx:if="{{houseList.length>0&&!loading}}">
+            <view class="house-price-item" wx:for="{{houseList}}" wx:key="key">
+                <view style="padding: 26rpx 30rpx;position: relative;">
+                    <view class="item-header">
+                        <view class="item-header-left" style="position: relative;">
+                            <text class="fz-14 font-bold">{{item.name}}</text>
+                            <view class="building-mark layout-center {{item.usage_type=='住宅'?'back-color':'back-color3'}}" wx:if="{{item.usage_type}}">
+                                <text class="fz-10">{{item.usage_type}}</text>
+                            </view>
+                            <view class="building-mark layout-center back-color2" wx:if="{{item.decoration_type}}">
+                                <text class="fz-10">{{item.decoration_type}}</text>
+                            </view>
+                            <text bindtap="showHardcover" class="iconfont icon-wentiquestions1 fz-13" style="margin-left: 10rpx;color: #666565" wx:if="{{item.decoration_type=='精装'}}"></text>
+                        </view>
+                        <view class="item-header-right" wx:if="{{item.price&&item.price>0}}">
+                            <text class="fz-14 font-bold" style="color: #f7462a">{{item.price}}万</text>
+                        </view>
+                        <view class="item-header-right" wx:else>
+                            <text class="fz-14 font-bold" style="color: #f7462a">待定</text>
+                        </view>
+                    </view>
+                    <view style="display: flex;margin-top: 20rpx">
+                        <view class="building-type" wx:if="{{item.house_type}}">
+                            <text class="fz-11">{{item.house_type}}</text>
+                        </view>
+                        <view class="building-type" wx:if="{{item.total_square&&item.total_square>0}}">
+                            <text class="fz-11">{{item.total_square}}㎡</text>
+                        </view>
+                        <view class="building-type" wx:if="{{item.decoration_type=='精装'&&price}}">
+                            <text class="fz-11">装修:{{price}}元/㎡</text>
+                        </view>
+                        <view class="building-type" wx:elif="{{item.decoration_price!=0}}">
+                            <text class="fz-11">装修:{{item.decoration_price}}元/㎡</text>
+                        </view>
+                    </view>
+                    <view style="margin-top: 20rpx;overflow: hidden">
+                        <view style="display: inline-block;border-right: 1px solid #e2e2e2;height: 24rpx;line-height: 20rpx;padding-right: 20rpx">
+                            <text class="fz-11" style="color:#666666 ">清水单价</text>
+                            <block wx:if="{{item.rough_unit_price&&item.rough_unit_price>0}}">
+                                <text class="fz-14" style="color: #f7462a;margin-left: 10rpx">{{item.rough_unit_price}}</text>
+                                <text class="fz-10" style="color: #f7462a;">/㎡</text>
+                            </block>
+                            <text class="fz-14" style="color: #f7462a;margin-left: 10rpx" wx:else>待定</text>
+                        </view>
+                        <view style="margin-left: 20rpx;display: inline-block;border-right: 1px solid #e2e2e2;height: 24rpx;line-height: 20rpx;padding-right: 20rpx" wx:if="{{item.price_three!='0'}}">
+                            <text class="fz-11" style="color:#666666 ">首付3成</text>
+                            <text class="fz-14" style="margin-left: 10rpx">{{item.price_three}}</text>
+                            <text class="fz-10">万</text>
+                        </view>
+                        <view style="margin-left: 20rpx;display: inline-block;height: 24rpx;line-height: 20rpx;" wx:if="{{item.price_three!='0'}}">
+                            <text class="fz-11" style="color:#666666 ">首付6成</text>
+                            <text class="fz-14" style="margin-left: 10rpx">{{item.price_six}}</text>
+                            <text class="fz-10">万</text>
+                        </view>
+                        <navigator class="mortgage-in" hoverClass="none" style="float: right" url="/subPackages/tools/pages/houseLoan?totalPrice={{item.price}}&loan=1">
+                            <text class="fz-12" style="margin-left: 18rpx">算房贷</text>
+                            <text class="iconfont icon-xiayibu"></text>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+            <view class="layout-center" style="padding: 20rpx" wx:if="{{!more}}">
+                <text style="font-size: 28rpx;color: #999999">我也是有底线的哦~ (๑•́ ₃ •̀๑)</text>
+            </view>
+            <view class="loading-runing" wx:else>
+                <view class="loading-icon">
+                    <text class="iconfont icon-jiazai"></text>
+                </view>
+                <view class="left-font">
+                    <text>加载中</text>
+                </view>
+            </view>
+        </view>
+        <block wx:else>
+            <view class="full-screen" wx:if="{{loading}}">
+                <view id="spinner" style="margin-top:-200rpx"></view>
+            </view>
+            <view style="text-align: center;padding: 30rpx 0;font-size: 30rpx;color: #999999;background-color: #FFFFFF" wx:else>
+                <text>该楼盘暂无一房一价</text>
+            </view>
+        </block>
+    </view>
+    <view catchtouchmove="stopMove" class="building-bounced" hidden="{{!showFilterView}}">
+        <view bindtap="closeFilter" class="grey-background"></view>
+        <view class="buiding-choose" style="transform: translateY({{beginAnimate?showPosition:hidePosition}})">
+            <block wx:if="{{filterIndex==0}}">
+                <view bindtap="houseTypeFilter" class="choose-item" data-wpyhousetypefilter-a="{{index}}" wx:for="{{houseTypeList}}" wx:key="key">
+                    <text class="fz-14 choose-item-left {{index==houseTypeIndex?'choose-item-color':''}}">{{item.value}}</text>
+                    <text class="iconfont icon-gougou fz-15 choose-item-right choose-item-color" wx:if="{{index==houseTypeIndex}}"></text>
+                </view>
+            </block>
+            <block wx:if="{{filterIndex==1}}">
+                <view bindtap="priceFilter" class="choose-item" data-wpypricefilter-a="{{index}}" wx:for="{{decorationList}}" wx:key="key">
+                    <text class="fz-14 choose-item-left {{index==decorationIndex?'choose-item-color':''}}" style="width: 630rpx">{{item.style}} {{item.price}}</text>
+                    <text class="iconfont icon-gougou fz-15 choose-item-right choose-item-color" wx:if="{{index==decorationIndex}}"></text>
+                </view>
+            </block>
+            <block wx:if="{{filterIndex==2}}">
+                <view bindtap="sortFilter" class="choose-item" data-wpysortfilter-a="{{index}}" wx:for="{{sortList}}" wx:key="key">
+                    <text class="fz-14 choose-item-left {{index==sortIndex?'choose-item-color':''}}">{{item.value}}</text>
+                    <text class="iconfont icon-gougou fz-15 choose-item-right choose-item-color" wx:if="{{index==sortIndex}}"></text>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

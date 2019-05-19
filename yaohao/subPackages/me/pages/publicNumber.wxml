@@ -1,0 +1,15 @@
+<view class="page">
+    <image class="background" mode="widthFix" src="https://imgcdn.huanjutang.com/assert/img/15541850203705622.jpg"></image>
+    <view bind:tap="preview" class="qrcode">
+        <image mode="widthFix" src="{{groupInfo.wechat_code}}"></image>
+    </view>
+    <view class="add-card">
+        <view class="text fz-20 font-bold">关注<text class="blue-color">成都摇号助手</text>公众号</view>
+        <view bind:tap="saveCode" class="btn fz-14">【点击保存二维码图片】</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

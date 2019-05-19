@@ -1,0 +1,24 @@
+<view class="page">
+    <view class="salesManTip">
+        <view class="saleMansHead">
+            <image mode="widthFix" src="/images/results-bg.png"></image>
+            <view class="iconfont z23 icon-yixuan true-image"></view>
+            <view class="white-color z23 fz-16">提交成功，请等待后台审核</view>
+        </view>
+        <view class="saleMansContent">
+            <view class="fz-13">您可以添加我们的的官方客服微信为好友，帮你极速审核，第一时间了解最新加分规则和方法。 </view>
+            <view class="salesManInfo">
+                <image mode="widthFix" src="{{img}}"></image>
+            </view>
+            <view class="salesManBtn">
+                <button bindtap="saveImg" class="fz-14 height-level-color">保存图片</button>
+                <navigator class="fz-14 height-level-color" hoverClass="none" openType="switchTab" url="/pages/index">返回首页</navigator>
+            </view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

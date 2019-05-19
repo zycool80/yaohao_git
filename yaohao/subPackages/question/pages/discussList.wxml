@@ -1,0 +1,18 @@
+<view class="page">
+    <view class="discuss-list-container">
+        <navigator class="discuss-list-list white-color style{{index%4}}" hoverClass="none" url="/subPackages/comment/pages/discuss?id={{item.id}}" wx:for="{{items}}" wx:key="key">
+            <view class="shadow-bg"></view>
+            <image class="symbol" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAbBAMAAADv6ZCpAAAALVBMVEX///8AAAD///////////////////////////////////////////////////9MkrcHAAAAD3RSTlOAAEAgCGAyaBB4WFBIGHBLJ2LkAAAAlElEQVQY093KTQ3CQBRF4QMk/IXNbYemCSkBBxAUsGILDiAY6AIDdVAcIAEcVAISkALzZsYEZ/Xul4d+uati5cVD/ujHXdQ9JNcRIf/g4UCCFR5cnWCBwRwYpgfu6Ayjrd8VMN3jWrj5ba8vkcGkMdjAVGIJM1lPGEu8YRCghZNEl6AiwDFBESG0ljKsv4Kd1UhluL5ZGhv2TaTFlAAAAABJRU5ErkJggg=="></image>
+            <image class="bg" mode="widthFix" src="{{item.img}}"></image>
+            <view class="title fz-15 font-bold">{{item.title}}</view>
+            <view class="bottom">
+                <text class="fz-11">{{item.discussion_count}}人参与<text class="font-bold"> · </text>{{item.views_count}}人围观</text>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

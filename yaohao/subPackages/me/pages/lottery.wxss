@@ -1,0 +1,189 @@
+@import "manageUsers.wxss";
+
+.tab-bar {
+    position: relative;
+    overflow: hidden;
+}
+
+.tabname {
+    width: 50%;
+    float: left;
+    padding: 12px 15px;
+    line-height: 28px;
+    box-sizing: border-box;
+    background-color: #fff;
+    text-align: center;
+    border-bottom: 4rpx solid #f7f7f7;
+    color: #999;
+}
+
+.tab-bar .tabname.active {
+    position: relative;
+    color: #333;
+}
+
+.tab-bar .tabname.active:before {
+    position: absolute;
+    width: 60rpx;
+    height: 4rpx;
+    content: "";
+    bottom: -1rpx;
+    left: 43%;
+    background-color: #3772cc;
+}
+
+.item {
+    position: relative;
+}
+
+.item .btn-del {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background: #fd4346;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    align-items: center;
+    transform: translate(64px,0);
+}
+
+.label {
+    float: left;
+    width: 150rpx;
+    text-align: right;
+    color: #333;
+    padding-left: 60rpx;
+    height: 50rpx;
+    text-align-last: justify;
+}
+
+.value {
+    line-height: 50rpx;
+    padding-left: 60rpx;
+    font-size: 26rpx;
+    color: #000;
+    display: inline-block;
+}
+
+.arrow-icon {
+    float: right;
+    padding-right: 15px;
+}
+
+.goto-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.row-delete1 {
+    position: absolute;
+    right: 35rpx;
+    top: 85rpx;
+    z-index: 22;
+}
+
+.row-delete2 {
+    position: absolute;
+    right: 35rpx;
+    top: 227rpx;
+    z-index: 22;
+}
+
+.row-delete {
+    position: absolute;
+    right: 35rpx;
+    top: 0rpx;
+    z-index: 22;
+}
+
+.row {
+    line-height: 72rpx;
+    vertical-align: middle;
+    padding-right: 38rpx;
+}
+
+.row view {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.line-left {
+    height: 120rpx;
+    width: 1rpx;
+    border-left: 10rpx solid #f7b55e;
+    position: absolute;
+    left: 0;
+    top: 150rpx;
+}
+
+.line-left1 {
+    height: 95rpx;
+    width: 1rpx;
+    border-left: 8rpx solid #4da9ea;
+    position: absolute;
+    left: -40rpx;
+    top: 30rpx;
+}
+
+.green {
+    color: green;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.red {
+    color: #ff6600;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.gray {
+    color: gray;
+}
+
+.sync_data {
+    width: 35%;
+    height: 45px;
+    text-align: right;
+    line-height: 45px;
+    float: right;
+    margin-right: 15px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer image {
+    display: inline-block;
+}
+
+.footer text {
+    display: block;
+}
+
+.weui-cell:before {
+    display: none;
+    padding: 0;
+}
+
+.weui-cell:after {
+    padding: 0;
+}
+
+.weui-panel__bd .last-border {
+    border-bottom: 1rpx solid #e6e6e6;
+}
+
+.weui-cell {
+    line-height: 80rpx;
+    text-align: center;
+    padding-top: 30rpx;
+    overflow: hidden;
+}

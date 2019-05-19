@@ -1,0 +1,57 @@
+<view class="page">
+    <view class="photos">
+        <scroll-view scrollX class="scroll-view">
+            <view class="tabBar">
+                <view bindtap="switchTabBar" class="tabBar-list fz-14 {{type==2?'active':''}}" data-wpyswitchtabbar-a="2">实景图 ({{shijing_count}})
+                        <view class="active-line"></view>
+                </view>
+                <view bindtap="switchTabBar" class="tabBar-list {{type==3?'active':''}}" data-wpyswitchtabbar-a="3">
+                    <view>
+                        <text class="bottom fz-14">周边图 <text class="fz-13">({{zhoubian_count}})</text>
+                        </text>
+                    </view>
+                    <view class="active-line"></view>
+                </view>
+                <view bindtap="switchTabBar" class="tabBar-list {{type==4?'active':''}}" data-wpyswitchtabbar-a="4">
+                    <view>
+                        <text class="bottom fz-14">样板间 <text class="fz-13">({{yangban_count}})</text>
+                        </text>
+                    </view>
+                    <view class="active-line"></view>
+                </view>
+                <view bindtap="switchTabBar" class="tabBar-list {{type==5?'active':''}}" data-wpyswitchtabbar-a="5">
+                    <view>
+                        <text class="bottom fz-14">效果图 <text class="fz-13">({{xiaoguo_count}})</text>
+                        </text>
+                    </view>
+                    <view class="active-line"></view>
+                </view>
+                <view bindtap="switchTabBar" class="tabBar-list {{type==6?'active':''}}" data-wpyswitchtabbar-a="6">
+                    <view>
+                        <text class="bottom fz-14">鸟瞰图 <text class="fz-13">({{liaokan_count}})</text>
+                        </text>
+                    </view>
+                    <view class="active-line"></view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="photos-content">
+            <view bindtap="uploadProjectImg" class="photos-upfile-line" wx:if="{{is_sales_man!=2}}">
+                <text class="photos-upfile fz-13 small-level-color">置业顾问上传图片</text>
+            </view>
+            <view class="nothing-container fz-14 height-level-color" style="width:100%;padding:60rpx 0;text-align:center" wx:if="{{items.length<1}}">
+                <text>暂无内容</text>
+            </view>
+            <view class="photos-list" wx:else>
+                <view class="img-border" wx:for="{{items}}" wx:key="key">
+                    <image bindtap="preview" data-wpypreview-a="{{index}}" mode="aspectFill" src="{{item.image}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

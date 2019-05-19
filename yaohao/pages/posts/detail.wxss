@@ -1,0 +1,270 @@
+@import "../../__wuBaseWxss__/0.wxss";
+
+.weui-flex {
+    display: flex;
+}
+
+.weui-flex__item {
+    flex: 1;
+}
+
+.imgLayout {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 6px;
+    background: #f6ecda;
+    height: 95%;
+}
+
+.layout2,.layout3 {
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.post-image-wrap {
+    padding-right: 6px;
+}
+
+.post-image-wrap:last-child {
+    padding-right: 0;
+    width: 100%;
+}
+
+.flex-item-wrap {
+    max-width: 500px;
+    margin: 0 120rpx;
+}
+
+.header-icon {
+    width: 100rpx;
+    margin-right: 20rpx;
+    float: left;
+}
+
+.header-content {
+}
+
+.avatar {
+    display: block;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    height: 1%;
+}
+
+.label {
+    color: #fff;
+    padding: 0 6px;
+    margin-left: 5px;
+    font-weight: normal;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+.text-content {
+    font-size: 28rpx;
+    color: #333;
+    line-height: 50rpx;
+    overflow: hidden;
+    margin-bottom: 20rpx;
+}
+
+.post-item-header {
+    margin-bottom: 10px;
+}
+
+.posts_detail {
+    position: relative;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 10px 10px;
+}
+
+.comment_in {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 110rpx;
+    box-sizing: border-box;
+    padding: 20rpx 15rpx;
+    background-color: #fff;
+    box-shadow: 0 -4px 14px 1px rgba(0,0,0,0.1);
+}
+
+.submit-btn {
+    line-height: 70rpx;
+    height: 71rpx;
+    box-sizing: content-box;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #3772cc;
+    z-index: 2;
+    float: right;
+    width: 110rpx;
+    border-radius: 0 4px 4px 0;
+}
+
+.comment_in form {
+    width: 100%;
+    height: 100%;
+}
+
+.comment_in form input {
+    height: 100%;
+    background-color: #fff;
+    line-height: 70rpx;
+    padding-left: 30rpx;
+    z-index: 0;
+    margin-right: 110rpx;
+    box-sizing: border-box;
+    border: 1px solid #3772cc;
+    border-radius: 4px 0 0 4px;
+}
+
+.comment_box {
+    background-color: #fff;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.comment_box .comment_list {
+    padding-top: 20rpx;
+}
+
+.comment_box .comment_list,.comment_box .comment_list_child {
+    line-height: 1.4;
+    overflow: hidden;
+}
+
+.comment_box .comment_list_cont {
+    font-weight: normal;
+}
+
+.comment_box .comment_list_time {
+    color: #999;
+    padding: 15rpx 0;
+}
+
+.comment_box .comment_list_child {
+    box-sizing: border-box;
+    background: #f2f2f2;
+    padding: 15rpx;
+}
+
+.comment_box .comment_list_item {
+    width: 100%;
+    overflow: hidden;
+}
+
+.comment_box .comment_list_item .comment_list_avatar {
+    float: left;
+    width: 60px;
+    display: flex;
+    overflow: hidden;
+}
+
+.comment_box .comment_list_item .comment_list_avatar image {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+}
+
+.comment_box .comment_list_item .comment_list_right {
+    margin-left: 60px;
+    padding: 10rpx 20rpx 10rpx 0;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.comment_box .comment_list_item .comment_list_user {
+    margin-bottom: 10rpx;
+}
+
+.comment_list_time>view {
+    display: inline-block;
+    float: right;
+}
+
+.comment_list_time>view>view {
+    display: inline-block;
+}
+
+.posts-detail-bottom {
+    padding: 30rpx 0 10rpx;
+    margin-top: 20rpx;
+    position: relative;
+    height: 35rpx;
+}
+
+.posts-detail-bottom .comment,.posts-detail-bottom .like,.posts-detail-bottom .see,.posts-detail-bottom .share {
+    display: flex;
+    height: 34rpx;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    line-height: 1;
+}
+
+.posts-detail-bottom .comment .text,.posts-detail-bottom .like .text,.posts-detail-bottom .see .text,.posts-detail-bottom .share .text {
+    line-height: 1;
+}
+
+.posts-detail-bottom .comment .iconfont,.posts-detail-bottom .like .iconfont,.posts-detail-bottom .see .iconfont,.posts-detail-bottom .share .iconfont {
+    display: inline-block;
+    line-height: 1;
+}
+
+.posts-detail-bottom .share {
+    line-height: 1;
+    background-color: transparent;
+    right: 0;
+}
+
+.posts-detail-bottom .see {
+    right: 8%;
+}
+
+.posts-detail-bottom .like {
+    right: 28%;
+}
+
+.posts-detail-bottom .comment {
+    right: 48%;
+}
+
+.post-item-body {
+    margin-bottom: 10rpx;
+    margin-left: 120rpx;
+}
+
+.header-content-guanzhu {
+    padding: 5rpx 25rpx;
+    border-radius: 30rpx;
+    border: 1rpx solid #3772cc;
+    position: absolute;
+    right: 20rpx;
+    top: 65rpx;
+    color: #3772cc;
+}
+
+.header-content-yiguanzhu {
+    padding: 10rpx 25rpx;
+    border-radius: 30rpx;
+    background: #f7f7f7;
+    position: absolute;
+    right: 20rpx;
+    top: 65rpx;
+    color: #ccc;
+}

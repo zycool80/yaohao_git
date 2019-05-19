@@ -1,0 +1,48 @@
+<view class="page">
+    <view class="top white-bg" wx:if="{{banner.length>0}}">
+        <swiper autoplay="true" duration="300" indicatorActiveColor="#ddd" indicatorDots="{{false}}" interval="4000" style="height:300rpx;">
+            <swiper-item style="position: relative;" wx:for="{{banner}}" wx:key="key">
+                <navigator hoverClass="weui-cell_active" url="{{item.url}}">
+                    <image lzeLoad="{{true}}" mode="widthFill" src="{{item.image}}"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="comment_box" wx:if="{{articles.length>0}}">
+        <navigator class="article-style" hoverClass="none" url="{{article.url}}" wx:for="{{articles}}" wx:for-index="i" wx:for-item="article" wx:key="key">
+            <image class="right-img" mode="aspectFill" src="{{article.img}}"></image>
+            <view class="left-cont">
+                <view class="article-detail fz-15 font-bold black1a-color">{{article.title}}</view>
+                <view class="bottom">
+                    <view class="left-name">
+                        <image class="avatar" lazyLoad="{{$articleStyle$true}}" mode="aspectFill" src="{{article.source.avatar_url||$articleStyle$defaultAvatar}}"></image>
+                        <text class="name fz-10 gray-9-color">{{article.source.name}}</text>
+                    </view>
+                    <view class="time fz-10 gray-9-color">{{article.time}}</view>
+                </view>
+            </view>
+        </navigator>
+        <view class="bottom_tip" hidden="{{more}}">
+            <view class="bottom_line before"></view>
+            <view class="bottom_tip_text fz-10 gray-9-color">我的底线在这里~</view>
+            <view class="bottom_line after"></view>
+        </view>
+    </view>
+    <view class="loading-runing" wx:if="{{more}}">
+        <view class="loading-icon">
+            <text class="iconfont icon-jiazai"></text>
+        </view>
+        <view class="left-font">
+            <text>加载中</text>
+        </view>
+    </view>
+    <view class="black_page" wx:if="{{articles.length<=0&&loading}}">
+        <image mode="widthFix" src="/images/myLottery.png"></image>
+        <view class="gray-9-color black_page_text fz-13" style="margin-top: 20rpx">暂无数据</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

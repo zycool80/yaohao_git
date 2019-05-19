@@ -1,0 +1,63 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.phoneSend {
+    padding: 0 30rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.phoneSend .title {
+    font-size: 60rpx;
+    margin: 146rpx 0 100rpx 0;
+}
+
+.phoneSend .bc {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e2e2e2;
+    overflow: hidden;
+    line-height: 1;
+}
+
+.phoneSend input {
+    height: 84rpx;
+}
+
+.phoneSend input.search-bar-input {
+    padding-right: 160rpx;
+    display: inline-block;
+    width: 70%;
+    text-align: left;
+}
+
+.phoneSend .second {
+    text-align: right;
+    width: 30%;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.phoneSend .btn {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 6rpx;
+    margin-top: 86rpx;
+}
+
+.phoneSend .blue {
+    background-color: #3772cc;
+    color: #fff;
+}
+
+.phoneSend .gray {
+    background-color: #e6e6e6;
+    color: #999;
+}

@@ -1,0 +1,59 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.reportDetail {
+    margin: 50rpx 30rpx;
+    background: #fff;
+}
+
+.reportDetail textarea {
+    padding: 27rpx 22rpx;
+}
+
+.upForm {
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 8rpx;
+    background: #3772cc;
+    margin: 30rpx;
+    text-align: center;
+}
+
+.upload-file {
+    clear: both;
+    margin-top: 20rpx;
+    overflow: hidden;
+    padding: 0 20rpx;
+}
+
+.upload-file>view {
+    float: left;
+    margin-right: 5rpx;
+}
+
+.upload-file .pic {
+    width: 140rpx;
+    height: 140rpx;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 60rpx;
+    background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAABGElEQVR4nO3dMW6DQBBA0SXyjWjj08elOZNTOHaJi1fsRvqvgXL0BVQ7Yns8HmM1x3G8bn/+rtd93ydNc+4ye4APvmcP8MnX7AH+uwKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKiAqICogKi7X6/z57hzOsE/DZ1ihM9gegynqsEq5+GX28X4+nWE2i2yxjjOnuKE8t/A7fFN5XeAVfdVOoVRgVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUQFRAVEBUSr/83hNhY+oT/GGL9RexcF8q7/WAAAAABJRU5ErkJggg==) center / 50px no-repeat;
+}
+
+.upload-file .small-level-color {
+    display: inline-block;
+    width: 140rpx;
+    text-align: center;
+    font-size: 20rpx;
+    margin-top: 4px;
+}
+
+.textNum {
+    padding: 20rpx 22rpx;
+    text-align: right;
+}

@@ -1,0 +1,64 @@
+<view class="page">
+    <view class="tab-bar">
+        <view bindtap="toggleTab" class="tabname {{nowTab==1?'active black-color fz-14 font-bold':'small-level-color fz-12'}}" data-wpytoggletab-a="1">我的提问</view>
+        <view bindtap="toggleTab" class="tabname {{nowTab==2?'active black-color fz-14 font-bold':'small-level-color fz-12'}}" data-wpytoggletab-a="2">我的收藏</view>
+    </view>
+    <view>
+        <view class="list-content" wx:if="{{items}}">
+            <view class="typeLise">
+                <text bindtap="switchType" class="fz-11 typeTab  {{type==0?'blue-color active':'small-level-color'}}" data-wpyswitchtype-a="0">全部({{question_count}})</text>
+                <text bindtap="switchType" class="fz-11 typeTab  {{type==1?'blue-color active':'small-level-color'}}" data-wpyswitchtype-a="1">未回答({{not_answer_count}})</text>
+                <text bindtap="switchType" class="fz-11 typeTab  {{type==2?'blue-color active':'small-level-color'}}" data-wpyswitchtype-a="2">已回答({{answer_count}})</text>
+                <text bindtap="switchType" class="fz-11 typeTab  {{type==3?'blue-color active':'small-level-color'}}" data-wpyswitchtype-a="3">已解决({{adopt_count}})</text>
+            </view>
+            <block wx:for="{{items}}" wx:for-index="parentIndex" wx:key="key">
+                <view class="myDiscuss-date">
+                    <text class="black-color font-bold fz-12">{{item.time}}</text>
+                </view>
+                <navigator class="myDiscuss-content white-bg" hoverClass="none" url="/subPackages/question/pages/questionDetail?id={{val.id}}" wx:for="{{item.data}}" wx:for-index="childIndex" wx:for-item="val" wx:key="key">
+                    <view class="left-content">
+                        <view class="img">
+                            <image src="{{val.user_avatar_url||avatar_url}}"></image>
+                        </view>
+                    </view>
+                    <view class="right-content">
+                        <view class="right-top">
+                            <view class="name fz-13 font-bold black-color">{{val.user_name}}</view>
+                            <view catchtap="delBox" class="fz-24 other font-bold" data-wpydelbox-a="{{childIndex}}">...</view>
+                        </view>
+                        <view class="content">
+                            <text class="fz-13 height-level-color">{{val.content}}</text>
+                        </view>
+                        <div class="hot-topic">
+                            <view class="hot-topic-left fz-10 blue-color">
+                                <navigator class="buyHouse" wx:for="{{val.tags}}" wx:for-item="tag" wx:key="key">{{tag.text}}</navigator>
+                            </view>
+                            <block wx:if="{{val.status!=3}}">
+                                <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/questionCloselyDetail?id={{val.id}}" wx:if="{{userInfo.id==val.user_id&&!item.to_question_closely}}">我要追问</view>
+                                <view catchtap="toUrl" class="wantAnswer fz-11" data-wpytourl-a="/subPackages/question/pages/answerDetail?id={{val.id}}" wx:else>我要回答</view>
+                            </block>
+                        </div>
+                        <view class="small-level-color right-btn" style="display: flex;justify-content: space-between;width: 100%">
+                            <text class="fz-12 gray-9-color">{{val.time}}</text>
+                            <view class="fz-12">
+                                <text class="view-num gray-9-color" style="margin-right: 15rpx">{{val.page_views}}浏览</text>
+                                <navigator class="answer-num fz-12 gray-9-color" hoverClass="none" style="display: inline-block;" url="/subPackages/question/pages/answerDetail?id={{val.id}}">{{val.comment_num}}回答</navigator>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+        <block wx:else>
+            <view class="nothing" wx:if="{{!loading}}">
+                <view class="nothing-text fz-13 gray-9-color">小主人暂时未发起任何提问</view>
+                <view bindtap="toTab" class="getToQuestion fz-14 blue-color">前去问答区看看</view>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

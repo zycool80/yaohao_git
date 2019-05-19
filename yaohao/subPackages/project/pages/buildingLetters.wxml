@@ -1,0 +1,32 @@
+<view class="page">
+    <block wx:if="{{getBuildingLetters.data.length}}">
+        <view class="letters-cantainer" wx:for="{{getBuildingLetters.data}}" wx:key="key">
+            <view class="letters-times">
+                <text class="fz-12">{{item.created_at}}</text>
+            </view>
+            <view class="letters-content">
+                <view style="padding-top: 10rpx;margin-left: 20rpx">
+                    <text class="fz-14 font-bold">{{item.title}}</text>
+                </view>
+                <view style="margin-top: 10rpx;margin-left: 20rpx">
+                    <text class="fz-13">{{item.content}}</text>
+                </view>
+                <navigator class="look-details" hoverClass="none" url="{{item.url}}">
+                    <text class="fz-13 font-bold" style="margin-left: 20rpx">查看详情</text>
+                    <text class="iconfont icon-xiayibu fz-13" style="margin-right: 20rpx;color: #999999"></text>
+                </navigator>
+            </view>
+        </view>
+        <view style="text-align: center;padding: 30rpx;font-size: 30rpx;color: #999999;" wx:if="{{!more}}">
+            <text>没有更多了</text>
+        </view>
+    </block>
+    <view style="text-align: center;padding: 30rpx;font-size: 30rpx;color: #999999;" wx:else>
+        <text>暂时没有楼盘快报</text>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

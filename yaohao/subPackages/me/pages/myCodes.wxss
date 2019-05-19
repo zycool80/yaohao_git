@@ -1,0 +1,90 @@
+@import "manageUsers.wxss";
+
+.item {
+    position: relative;
+}
+
+.item .btn-del {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background: #fd4346;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    align-items: center;
+    transform: translate(64px,0);
+}
+
+.label {
+    float: left;
+    width: 200rpx;
+    text-align: right;
+    background: #E5E5E5;
+    color: #333;
+    padding-right: 20rpx;
+    height: 50rpx;
+}
+
+.value {
+    color: #333;
+    line-height: 50rpx;
+    padding-left: 20rpx;
+    margin-left: 220rpx;
+    display: block;
+    background: #EEEEEE;
+}
+
+.arrow-icon {
+    float: right;
+    padding-right: 15px;
+}
+
+.goto-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.row {
+    line-height: 50rpx;
+    background: #E5E5E5;
+    vertical-align: middle;
+}
+
+.green {
+    color: green;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.red {
+    color: #ff6600;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.gray {
+    color: gray;
+}
+
+.sync_data {
+    float: right;
+}
+
+.lottery_name {
+    background: #f5f5f5;
+}
+
+.title1 {
+    margin-top: 0;
+    padding-top: .77em;
+}
+
+.name_picker {
+    width: 100px;
+    display: inline-block;
+}

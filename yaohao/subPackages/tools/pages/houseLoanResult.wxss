@@ -1,0 +1,81 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f9fafc;
+}
+
+.top_switch_bar {
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1rpx 8rpx 0 rgba(0,0,0,0.1);
+    margin-bottom: 10rpx;
+    position: relative;
+}
+
+.top_switch_bar .bar {
+    height: 120rpx;
+    line-height: 120rpx;
+    float: left;
+    width: 33%;
+    text-align: center;
+}
+
+.top_switch_bar .bar.active {
+    color: #1e81dd;
+    border-bottom: 4rpx solid #1f82dd;
+}
+
+.top_switch_bar .share-btn {
+    height: 55rpx;
+    line-height: 55rpx;
+    padding: 0 40rpx;
+    border-top-left-radius: 28rpx;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 28rpx;
+    border-bottom-right-radius: 0;
+    background: #f4f4f4;
+    color: #8e8e8e;
+    text-align: right;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 35rpx;
+}
+
+.totalMoney {
+    padding: 40rpx 30rpx;
+    background: #fff;
+    border-bottom: 1rpx solid #e2e2e2;
+    margin-bottom: 20rpx;
+}
+
+.totalMoney .total-num {
+    color: #ff454e;
+    padding-bottom: 23rpx;
+}
+
+.total-cont {
+    background: #fff;
+    border-bottom: 1rpx solid #e2e2e2;
+    border-top: 1rpx solid #e2e2e2;
+    padding: 0 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.total-cont .cont-line {
+    border-bottom: 1rpx solid #e2e2e2;
+    height: 110rpx;
+    line-height: 110rpx;
+}
+
+.total-cont .cont-line .left {
+    float: left;
+}
+
+.total-cont .cont-line .right {
+    float: right;
+}
+
+.total-cont .no-border {
+    border: none;
+}

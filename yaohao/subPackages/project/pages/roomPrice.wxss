@@ -1,0 +1,63 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.roomPrice-title {
+    background: #fff;
+    padding: 30rpx;
+    margin-bottom: 15rpx;
+}
+
+.roomPrice-title .share {
+    float: right;
+    width: 150rpx;
+    background: transparent;
+    line-height: 1;
+    text-align: right;
+    border-radius: 0;
+}
+
+.roomPrice-title .share .icon-fenxiang1 {
+    margin-left: 10rpx;
+}
+
+.roomPrice-title .title {
+    margin-right: 170rpx;
+}
+
+.roomPrice-cont .cont-line {
+    background: #fff;
+    padding: 25rpx 30rpx;
+    margin-bottom: 15rpx;
+    overflow: hidden;
+}
+
+.roomPrice-cont .cont-line .icon-fangzi {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    display: inline-block;
+    float: left;
+    line-height: 100rpx;
+    text-align: center;
+    background: #e0f8fa;
+    color: #16a5af!important;
+}
+
+.roomPrice-cont .cont-line .name {
+    margin-left: 30rpx;
+    display: inline-block;
+}
+
+.roomPrice-cont .cont-line .name .sale {
+    margin-left: 40rpx;
+}
+
+.roomPrice-cont .cont-line .more {
+    display: inline-block;
+    float: right;
+    height: 90rpx;
+    line-height: 90rpx;
+}

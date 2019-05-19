@@ -1,0 +1,33 @@
+<view class="romePrice">
+    <view class="roomPrice-title">
+        <button class="share" openType="share">
+            <text class="fz-14 black1a-color">分享</text>
+            <text class="iconfont icon-fenxiang9 black1a-color fz-16"></text>
+        </button>
+        <navigator class="title fz-14 black1a-color font-bold" hoverClass="none" url="/pages/lotteryDetail?id={{lottery_id}}&project_id={{project_id}}">{{title}}</navigator>
+    </view>
+    <view class="roomPrice-cont">
+        <block wx:if="{{buildings.length>0}}">
+            <navigator class="cont-line" url="/subPackages/project/pages/buildingsNum?buildingNum={{item.building}}&id={{item.id}}&title={{title}}" wx:for="{{buildings}}" wx:key="key">
+                <view class="iconfont icon-fangzi fz-24"></view>
+                <view class="name">
+                    <view class="houseNum fz-20 font-bold">{{item.building}}</view>
+                    <view class="toalNum">
+                        <text class="fz-12 black1a-color">可售套数：{{item.sale}}</text>
+                        <text class="sale fz-12 black1a-color">已售套数：{{item.no_sale}}</text>
+                    </view>
+                </view>
+                <view class="more blue-color">
+                    <text class="fz-13">更多详情</text>
+                    <text class="iconfont icon-xiayibu fz-12"></text>
+                </view>
+            </navigator>
+        </block>
+        <view class="fz-13 black1a-color" style="text-align: center;padding:150rpx 30rpx" wx:else>暂无数据</view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

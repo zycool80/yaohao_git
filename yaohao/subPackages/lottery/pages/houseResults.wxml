@@ -1,0 +1,55 @@
+<view class="page">
+    <view class="results">
+        <image src="/images/results-bg.png"></image>
+        <view class="results-box">
+            <view class="results-img">
+                <view class="image-box">
+                    <image backgroundSize="cover" src="{{userInfo?userInfo.avatarUrl:'/images/user-unlogin.png'}}" wx:if="userInfo.avatarUrl"></image>
+                </view>
+            </view>
+            <view class="fz-14 small-level-color name" wx:if="{{userInfo.nickName&&userInfo.nickName!=='null'}}">{{userInfo.nickName}}</view>
+            <view wx:else>
+                <button bindgetuserinfo="getUserInfo" class="fz-15" lang="zh_CN" openType="getUserInfo" size="mini">点击这里获取昵称</button>
+            </view>
+            <view class="results-address">
+                <view wx:if="{{item}}">
+                    <view class="fz-24 height-level-color" style="line-height:30px;height:180rpx;">
+                        <text class="fz-24 height-level-color" style="display: inline-block;font-weight:600">
+                               {{item.choose_result}}
+                           </text>
+                    </view>
+                </view>
+                <view wx:else>
+                    <view class="fz-18 height-level-color" style="line-height:30px;height:180rpx;">暂时未查到小主人的选房结果</view>
+                </view>
+                <navigator class="fz-15 blue-color" style="padding:30rpx 15rpx;word-wrap:breack-word;" url="/pages/lotteryDetail?id={{item.lottery_id}}&project_id={{item.project_id}}">{{item.lottery_name}}</navigator>
+                <view style="display: flex;padding-top:20rpx;">
+                    <view class="fz-20 font-weight:400" style="width: 33%">{{item.total_room_num}}</view>
+                    <view class="fz-20 font-weight:400" style="width: 33%">{{item.room_num}}</view>
+                    <view class="fz-20 font-weight:400" style="width: 33%">{{item.code}}</view>
+                </view>
+                <view class="" style="display: flex;padding:5px 0;">
+                    <view class="fz-13 gray-9-color font-weight:500" style="width: 33%">总套数</view>
+                    <view class="fz-13 gray-9-color font-weight:500" style="width: 33%">{{typeTexts[item.type]}}套数</view>
+                    <view class="fz-13 gray-9-color font-weight:500" style="width: 33%">摇号编码</view>
+                </view>
+                <view class="line-icrcle"></view>
+                <view class="results-code">
+                    <image bindtap="showCode" class="results-code-img" mode="widthFix" src="http://imgcdn.huanjutang.com/yhzs_qrcode.jpg"></image>
+                    <view class="small-level-color fz-12 results-code-view" style="text-align:center">别拦我~我也要扫码查</view>
+                </view>
+            </view>
+        </view>
+        <view class="footer">
+            <view class="share">
+                <button class="iconfont icon-fenxiang1 white-color fz-20" openType="share"></button>
+            </view>
+            <view class="small-level-color fz-12">这次我决定不在沉默</view>
+        </view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

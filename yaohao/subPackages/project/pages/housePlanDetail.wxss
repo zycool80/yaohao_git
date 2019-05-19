@@ -1,0 +1,197 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.housePlan {
+    padding-bottom: 130rpx;
+}
+
+.top-swiper {
+    height: 400rpx;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    background: #fff;
+}
+
+.top-swiper .swiper-img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.top-swiper swiper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 400rpx;
+    z-index: 1;
+}
+
+.top-swiper .preview-pic_count {
+    position: absolute;
+    bottom: 30rpx;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    z-index: 99;
+    max-width: 300rpx;
+}
+
+.projectDetail-bg {
+    background: #fff;
+    box-shadow: 0 1px 1px #e6e6e6;
+}
+
+.projectDetail-bg .top-title {
+    padding: 30rpx 30rpx 20rpx;
+    height: 40rpx;
+}
+
+.projectDetail-bg .top-title .title-status {
+    background: #5f95ff;
+    height: 36rpx;
+    border-radius: 5rpx;
+    line-height: 36rpx;
+    padding: 0 16rpx;
+    margin-left: 18rpx;
+    display: inline-block;
+}
+
+.projectDetail-bg .houseType {
+    padding: 0 30rpx 48rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.projectDetail-bg .houseType .line {
+    float: left;
+    width: 33%;
+    border-right: 1rpx solid #e2e2e2;
+}
+
+.projectDetail-bg .houseType .notFirst {
+    text-align: center;
+}
+
+.projectDetail-bg .houseType .no-border {
+    border: none;
+}
+
+.projectDetail-bg .projecDetail-mainInfo {
+    margin: 20rpx 0 20rpx 30rpx;
+    position: relative;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .small-title {
+    padding: 30rpx 0;
+    font-weight: bold;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content {
+    padding: 34rpx 0 30rpx 0;
+    position: relative;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .qrCode {
+    position: absolute;
+    right: 30rpx;
+    top: 20rpx;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .qrCode .qrcode-img {
+    width: 130rpx;
+    height: 140rpx;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .qrCode .qrText {
+    margin: 0 auto;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .projecDetail-mainInfo-line {
+    padding-bottom: 30rpx;
+    overflow: hidden;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .projecDetail-mainInfo-line .left-key {
+    float: left;
+    width: 160rpx;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .projecDetail-mainInfo-line .right-value {
+    margin-left: 160rpx;
+    overflow: hidden;
+    word-break: normal;
+    word-wrap: break-word;
+    color: #666;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .swiper-box {
+    display: flex;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .swiper-box .cont-line {
+    width: 280rpx;
+    padding-right: 40rpx;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .swiper-box .cont-line image {
+    width: 100%;
+    height: 210rpx;
+    margin-bottom: 20rpx;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .swiper-box .cont-line .square {
+    padding-bottom: 14rpx;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .swiper-box .cont-line .housePlanStyle {
+    padding-bottom: 14rpx;
+}
+
+.projectDetail-bg .projecDetail-mainInfo .projecDetail-mainInfo-content .swiper-box .cont-line .housePlanStyle .style {
+    height: 32rpx;
+    line-height: 32rpx;
+    padding: 0 10rpx;
+    color: #6d7999;
+    margin-right: 8rpx;
+    border-radius: 4rpx;
+    display: inline-block;
+    background: #f2f5f6;
+}
+
+.bottom-btn {
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    padding: 17rpx 30rpx;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 1px 1px #e6e6e6;
+}
+
+.bottom-btn .button {
+    height: 90rpx;
+    line-height: 90rpx;
+    border-radius: 5rpx;
+    text-align: center;
+}
+
+.bottom-btn .btn1 {
+    background: #1e81dd;
+}
+
+.bottom-btn .btn2 {
+    background: #37c0cc;
+}
+
+.red-color {
+    color: #ff454e!important;
+}

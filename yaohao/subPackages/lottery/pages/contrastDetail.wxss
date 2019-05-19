@@ -1,0 +1,147 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+page {
+    background-color: #f7f7f7;
+}
+
+.header {
+    padding: 30rpx 30rpx 0 30rpx;
+    background-color: #ffffff;
+}
+
+.head_position {
+    width: 100%;
+    padding: 30rpx;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    background-color: #FFFFFF;
+}
+
+.picture_show {
+    overflow: hidden;
+    padding: 20rpx 10rpx 0 10rpx;
+    margin-top: 72rpx;
+}
+
+.picture_show_left {
+    float: left;
+    padding-bottom: 30rpx;
+    background-color: #FFFFFF;
+}
+
+.picture_show_left image {
+    width: 300rpx;
+    height: 200rpx;
+}
+
+.picture_show_right {
+    float: right;
+    padding-bottom: 30rpx;
+    background-color: #FFFFFF;
+}
+
+.picture_show_right image {
+    width: 300rpx;
+    height: 200rpx;
+}
+
+.compare_container {
+    background-color: #FFFFFF;
+    margin-top: 20rpx;
+    padding: 30rpx 30rpx 10rpx 30rpx;
+    position: relative;
+}
+
+.compare_container .compare_title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.compare_container .compare_title image {
+    width: 100%;
+    height: 10rpx;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -7rpx;
+}
+
+.compare_details {
+    overflow: hidden;
+    margin: 20rpx 0;
+}
+
+.compare_details_item {
+    float: left;
+    margin-right: 40rpx;
+    width: 244rpx;
+    overflow: hidden;
+}
+
+.compare_details_item2 {
+    display: flex;
+    justify-content: center;
+    width: 100rpx;
+    float: left;
+    margin-right: 30rpx;
+    margin-left: 12rpx;
+}
+
+.compare_details_item3 {
+    width: 244rpx;
+    margin-left: 20rpx;
+    float: left;
+}
+
+.left_details {
+    float: right;
+}
+
+.right_details {
+    float: left;
+}
+
+.compare_container_bottom {
+    margin-top: 20rpx;
+    position: relative;
+}
+
+.share_content {
+    position: absolute;
+    left: 50%;
+    bottom: -110rpx;
+    margin-left: -50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20rpx;
+}
+
+.share_btn {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    background-color: #f7776a;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.code_build {
+    position: absolute;
+    right: 30rpx;
+    bottom: 30rpx;
+    text-align: center;
+}
+
+.code_build image {
+    width: 110rpx;
+    height: 110rpx;
+}

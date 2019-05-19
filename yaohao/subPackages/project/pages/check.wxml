@@ -1,0 +1,39 @@
+<view class="page">
+    <view class="checkTitle">
+        <view class="titleLeft fz-13">核验资料</view>
+        <view class="titleRight">
+            <button openType="share">
+                <image src="/images/check-share.png"></image>
+            </button>
+        </view>
+    </view>
+    <view class="PictureMsg">
+        <view class="PictureTitle">
+            <view class="txtLine linel">
+                <image mode="widthFix" src="/images/checkTitleLeft.png"></image>
+            </view>
+            <view class="txt">{{name}}</view>
+            <view class="txtLine liner">
+                <image mode="widthFix" src="/images/checkTitleRight.png"></image>
+            </view>
+        </view>
+        <view bindtap="toRules" class="fz-13" data-wpytorules-a="{{contents.url}}" style="display:block;line-height:70rpx;box-sizing:border-box;margin:0 auto;width:250rpx;color:#3772cc;border: 1px solid #3772cc;border-radius:70rpx;text-align:center;" wx:if="{{contents.type==2}}">点击查看</view>
+        <navigator class="fz-13" hoverClass="none" style="display:block;line-height:70rpx;box-sizing:border-box;margin:0 auto;width:250rpx;color:#3772cc;border: 1px solid #3772cc;border-radius:70rpx;text-align:center;" url="{{contents.url}}" wx:if="{{contents.type==3}}">点击查看</navigator>
+        <block wx:if="{{contents.type==4}}">
+            <view class="sendPicture" wx:if="{{contents.url}}">
+                <image bindtap="previewImg" mode="widthFix" src="{{contents.url}}" style="width:100%"></image>
+            </view>
+            <view class="fz-13 small-level-color direct" wx:else>
+                <text style="display: inline-block">暂无登记指引</text>
+            </view>
+        </block>
+    </view>
+    <view bindtap="savePicture" class="checkBtn" wx:if="{{contents.type==4&&contents.url}}">
+        <view class="savePicture" hoverClass="none">保存图片</view>
+    </view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

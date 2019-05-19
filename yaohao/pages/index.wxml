@@ -1,0 +1,495 @@
+
+	<!--头部-->
+	<view class="nav-wrap">
+		<view bindtap="onTapNavigate" class="morning-paper" data-wpyontapnavigate-a="/subPackages/news/pages/morningPaper" data-wpyontapnavigate-b="早报">
+			<view class="iconfont icon-zaobao  white-color fz-22" style="line-height: 1"/>
+			<view class="fz-10 white-color">早报</view>
+		</view>
+		<button class="header-share" openType="share">
+			<view class="iconfont icon-fenxiang9  white-color fz-20" style="line-height: 1"/>
+			<view class="fz-10 white-color">分享</view>
+		</button>
+		<navigator class="search-bar-form white-bg" hoverClass="none" url="/pages/project/search?type=0">
+			<view class="weui-icon-search iconfont icon-sousuo gray-color"/>
+			<text class="ui-input search-bar-input gray-color">{{inputPlace}}</text>
+		</navigator>
+	</view>
+
+	<!--banner-->
+	<view class="page">
+		<view class="init__banner-block">
+			<view  wx:if="{{ !banners }}" class="init__banner-block"/>
+			<swiper  wx:if="{{ banners && banners.length }}" autoplay="true" circular="{{true}}" duration="300" indicatorActiveColor="#ffffff" indicatorColor="rgba(255,255,255,.4)" indicatorDots="true" interval="4000" style="height:300rpx;">
+				<swiper-item style="position: relative;" wx:for="{{ banners }}" wx:key="key">
+					<view class="white-color advert">广告</view>
+					<form bindsubmit="onSubmitSwiper" reportSubmit="true" data-wpyonsubmitswiper-a="{{item.url}}">
+						<button formType="submit" style="border-radius:0">
+							<image class="slide-image gray-bg" lazyLoad="{{ true }}" mode="widthFix" src="{{ item.image }}"/>
+						</button>
+					</form>
+				</swiper-item>
+			</swiper>
+		</view>
+	</view>
+
+	<!--统计-->
+	<view class="white-bg nav-grids">
+		<form bindsubmit="getFormId" class="lotterys-info-cont {{ top ? '' : 'init__grids' }}" reportSubmit="true">
+			<button bindtap="onTapNavigate" class="lottery-info" formType="submit" data-wpyontapnavigate-a="/pages/index2?type=&title=最新开盘">
+				<view class="lottery-item"><view class="lottery-inner lottery-1"/></view>
+				<view class="title fz-15 font-bold white-color">{{ top.zxkp }}</view>
+				<view class="text fz-12 height-level-color">{{ top ? '最新开盘' : '' }}</view>
+			</button>
+			<button bindtap="onTapNavigate" class="lottery-info" formType="submit" data-wpyontapnavigate-a="/pages/index2?type=&title=正在登记">
+        <view class="lottery-item"><view class="lottery-inner lottery-2"/></view>
+				<view class="title fz-15 font-bold white-color">{{ top.zzdj }}</view>
+        <view class="text fz-12 height-level-color">{{ top ? '正在登记' : '' }}</view>
+			</button>
+			<button bindtap="onTapNavigate" class="lottery-info" formType="submit" data-wpyontapnavigate-a="/pages/index2?type=&title=即将摇号">
+        <view class="lottery-item"><view class="lottery-inner lottery-3"/></view>
+				<view class="title fz-15 font-bold white-color">{{ top.jjyh }}</view>
+        <view class="text fz-12 height-level-color">{{ top ? '即将摇号' : '' }}</view>
+			</button>
+			<button bindtap="onTapNavigate" class="lottery-info" formType="submit" data-wpyontapnavigate-a="/subPackages/project/pages/payProject?title=即将预售&type=">
+        <view class="lottery-item"><view class="lottery-inner lottery-4"/></view>
+				<view class="title fz-15 font-bold white-color">{{ top.jjys }}</view>
+        <view class="text fz-12 height-level-color">{{ top ? '即将预售' : '' }}</view>
+			</button>
+			<button bindtap="onTapNavigate" class="lottery-info" formType="submit" data-wpyontapnavigate-a="/subPackages/lottery/pages/noNeedLottery">
+        <view class="lottery-item"><view class="lottery-inner lottery-5"/></view>
+				<view class="title fz-15 font-bold white-color">{{ top.yhsy }}</view>
+        <view class="text fz-12 height-level-color">{{ top ? '摇号剩余' : '' }}</view>
+			</button>
+		</form>
+
+		<view class="grids-content {{ grids.length ? '' : 'init__grids-content' }}">
+			<form bindsubmit="getFormId" reportSubmit="true"  wx:for="{{grids}}" wx:for-item="grid" wx:key="key">
+				<button bindtap="gridsJumpHandle" class="grid-list" formType="submit" data-wpygridsjumphandle-a="{{grid.url}}" data-wpygridsjumphandle-b="{{grid.name}}" data-wpygridsjumphandle-c="{{grid.is_home||''}}">
+					<image class="icon" mode="aspectFit" src="{{ grid.icon_class }}"/>
+					<view class="fz-12 height-level-color">{{ grid.name }}</view>
+				</button>
+			</form>
+		</view>
+
+		<!--头条-->
+		<view class="notice-content">
+			<view class="notice">
+				<view class="fz-12 black-color notice-left">
+					<image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAAeCAMAAABDs11AAAAAaVBMVEUAAAAaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhoaGhr0xywaGhr0xyz0xyz0xyz0xyz0xyz0xyz0xyz0xyz0xyz0xyz0xyz0xyz0xyz0xyz0xyz0xywaGhr0xyxUUiE+AAAAIXRSTlMAv0CA758Qj2BQIM8w33DurweS0JBWML6viR8P9+B9dyCF4ONZAAABxElEQVQ4y4WViZLCIBBEh5sAIVFX93Av/P+PXBLQ4UjcV2VVUHqc7gkJdMiBGSggYTTwL4fjNB0PAGBDoIC4gOsnvNwi7wC02S7i2pINlISCaZFPAL6Rk7CH3ZKzRq7DLnSjedt61WJmPYsnthGdauQyds/FABXGW5QX9M2rEKkqOGbDikvr6+vr2/m6I6eCh6KCU2PICEh83xZOPx8orxiwQrzouvm6ZabjB8q7CsioHBScX05JfzocNuVGzwHhQkuo+T2/TbfPCzZfx5zBFuauAlwuvXenLLZMQXrB9yv08vtm4s0SwRiqHKJeelIyVkfE6dKriboySYVnYhsHhmIvy3HCWayjc8/UAowN+xAASSuGZbvOCwCYwxMYNHi+eAWEP/vzJnma7mdFDZQMhMyPqaSNhLB2aiaFyEn86LLoEkIjz7EjUmU/crWr6scVreUwrkNHNE92DIC0lTGHjzWU6yo4msYz5hGLdeFwoVu55HHD3fScTPvqEZMDkGkUKMfL9DsLK6rykr7K+1gvN9kSRdMlA88BYEiKB5SDSIFSNF3h1s1GP6bg0yktX14i3RQeNpCCzBQcYzrnQSJCYn0lPPwBIDlVzKb89IEAAAAASUVORK5CYII="/>
+				</view>
+				<swiper  wx:if="{{ listData.length && listData }}" autoplay="true" circular="true" class="notice-right" style="width: {{ maxWidth }}" vertical="true">
+					<swiper-item catchtouchmove="stopMoveHandle" wx:for="{{ listData }}" wx:key="key">
+						<view bindtap="goToUrlHandle" class="black1a-color fz-13" data-wpygotourlhandle-a="{{item.url}}" data-wpygotourlhandle-b="{{item.type}}">{{ item.title }}</view>
+					</swiper-item>
+				</swiper>
+			</view>
+		</view>
+	</view>
+
+	<!--热门推荐-->
+  <view class="project-hot-new">
+    <view class="select-title white-bg">
+      <text class="fz-14">热门推荐</text>
+      <navigator hoverClass="none" url="/subPackages/project/pages/payProject?type=1&title=热门楼盘">
+        <text class="fz-13 gray-9-color">查看更多</text>
+        <text class="iconfont icon-xiayibu gray-color fz-11"/>
+      </navigator>
+    </view>
+
+	<view class="project-tab-cont white-bg">
+		<block  wx:if="{{ $HomeProjectItem$itemsData }}">
+			<navigator wx:for="{{ $HomeProjectItem$itemsData }}" wx:key="itemKey" url="{{ item.url }}" class="list" data-index="{{ index }}" hoverClass="none" hoverStayTime="{{ 100 }}">
+				<view class="imageContent">
+					<view class="view white-color">
+						<text class="fz-15 iconfont icon-chakanzhong"/>
+						<text class="fz-11" style="margin-left:5rpx">{{ item.showCount }}</text>
+					</view>
+					<view class="gray-shadow"/>
+					<image class="img gray-bg" lazyLoad="{{ $HomeProjectItem$true }}" mode="aspectFill" src="{{ item.cover }}"/>
+				</view>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold">{{ item.title }}</view>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label" wx:if="{{ item.characteristic.length }}">{{ item.characteristic[0] }}</view>
+						<view class="label" wx:else>{{ item.address }}</view>
+						<view class="comment">
+							<text class="fz-14 iconfont icon-xiaoxi5 gray-9-color"/>
+							<text class="fz-10 gray-9-color">{{ item.commentCount }}</text>
+						</view>
+					</view>
+				</view>
+			</navigator>
+		</block>
+		<block  wx:else>
+			<view class="list {{ $HomeProjectItem$itemsData.length ? '' : 'init__project' }}">
+				<view class="imageContent"/>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold"/>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label"/>
+					</view>
+				</view>
+			</view>
+			<view class="list {{ $HomeProjectItem$itemsData.length ? '' : 'init__project' }}">
+				<view class="imageContent"/>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold"/>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label"/>
+					</view>
+				</view>
+			</view>
+			<view class="list {{ $HomeProjectItem$itemsData.length ? '' : 'init__project' }}">
+				<view class="imageContent"/>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold"/>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label"/>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+
+  </view>
+
+	<!--即将预售-->
+	<view class="project-hot-new">
+		<view class="select-title white-bg">
+			<text class="fz-14">预售推荐</text>
+			<navigator hoverClass="none" url="/subPackages/project/pages/payProject?type=5&title=即将预售">
+				<text class="fz-13 gray-9-color">查看更多</text>
+				<text class="iconfont icon-xiayibu gray-color fz-11"/>
+			</navigator>
+		</view>
+
+	<view class="project-tab-cont white-bg">
+		<block  wx:if="{{ $HomeProjectItem1$itemsData }}">
+			<navigator wx:for="{{ $HomeProjectItem1$itemsData }}" wx:key="itemKey" url="{{ item.url }}" class="list" data-index="{{ index }}" hoverClass="none" hoverStayTime="{{ 100 }}">
+				<view class="imageContent">
+					<view class="view white-color">
+						<text class="fz-15 iconfont icon-chakanzhong"/>
+						<text class="fz-11" style="margin-left:5rpx">{{ item.showCount }}</text>
+					</view>
+					<view class="gray-shadow"/>
+					<image class="img gray-bg" lazyLoad="{{ $HomeProjectItem1$true }}" mode="aspectFill" src="{{ item.cover }}"/>
+				</view>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold">{{ item.title }}</view>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label" wx:if="{{ item.characteristic.length }}">{{ item.characteristic[0] }}</view>
+						<view class="label" wx:else>{{ item.address }}</view>
+						<view class="comment">
+							<text class="fz-14 iconfont icon-xiaoxi5 gray-9-color"/>
+							<text class="fz-10 gray-9-color">{{ item.commentCount }}</text>
+						</view>
+					</view>
+				</view>
+			</navigator>
+		</block>
+		<block  wx:else>
+			<view class="list {{ $HomeProjectItem1$itemsData.length ? '' : 'init__project' }}">
+				<view class="imageContent"/>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold"/>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label"/>
+					</view>
+				</view>
+			</view>
+			<view class="list {{ $HomeProjectItem1$itemsData.length ? '' : 'init__project' }}">
+				<view class="imageContent"/>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold"/>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label"/>
+					</view>
+				</view>
+			</view>
+			<view class="list {{ $HomeProjectItem1$itemsData.length ? '' : 'init__project' }}">
+				<view class="imageContent"/>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold"/>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label"/>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+
+	</view>
+
+	<!--优质楼盘-->
+	<view class="project-hot-new" style="margin-bottom:0">
+		<view class="select-title white-bg">
+			<text class="fz-14">优质推荐</text>
+			<navigator hoverClass="none" url="/subPackages/project/pages/payProject?type=2&title=优质楼盘">
+				<text class="fz-13 gray-9-color">查看更多</text>
+				<text class="iconfont icon-xiayibu fz-11 gray-color"/>
+			</navigator>
+		</view>
+
+	<view class="project-tab-cont white-bg">
+		<block  wx:if="{{ $HomeProjectItem2$itemsData }}">
+			<navigator wx:for="{{ $HomeProjectItem2$itemsData }}" wx:key="itemKey" url="{{ item.url }}" class="list" data-index="{{ index }}" hoverClass="none" hoverStayTime="{{ 100 }}">
+				<view class="imageContent">
+					<view class="view white-color">
+						<text class="fz-15 iconfont icon-chakanzhong"/>
+						<text class="fz-11" style="margin-left:5rpx">{{ item.showCount }}</text>
+					</view>
+					<view class="gray-shadow"/>
+					<image class="img gray-bg" lazyLoad="{{ $HomeProjectItem2$true }}" mode="aspectFill" src="{{ item.cover }}"/>
+				</view>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold">{{ item.title }}</view>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label" wx:if="{{ item.characteristic.length }}">{{ item.characteristic[0] }}</view>
+						<view class="label" wx:else>{{ item.address }}</view>
+						<view class="comment">
+							<text class="fz-14 iconfont icon-xiaoxi5 gray-9-color"/>
+							<text class="fz-10 gray-9-color">{{ item.commentCount }}</text>
+						</view>
+					</view>
+				</view>
+			</navigator>
+		</block>
+		<block  wx:else>
+			<view class="list {{ $HomeProjectItem2$itemsData.length ? '' : 'init__project' }}">
+				<view class="imageContent"/>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold"/>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label"/>
+					</view>
+				</view>
+			</view>
+			<view class="list {{ $HomeProjectItem2$itemsData.length ? '' : 'init__project' }}">
+				<view class="imageContent"/>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold"/>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label"/>
+					</view>
+				</view>
+			</view>
+			<view class="list {{ $HomeProjectItem2$itemsData.length ? '' : 'init__project' }}">
+				<view class="imageContent"/>
+				<view class="text">
+					<view class="fz-13 name black1a-color font-bold"/>
+					<view class="fz-10 black1a-color" style="margin:10rpx 0 20rpx 0;overflow:hidden">
+						<view class="label"/>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+
+	</view>
+
+	<!--广告-->
+	<view class="white-bg"  wx:if="{{ recommendBanners.length }}">
+		<swiper autoplay="true" class="white-bg" duration="300" interval="4000" style="height:100rpx">
+			<swiper-item style="position: relative" wx:for="{{ recommendBanners }}" wx:key="key">
+				<view class="white-color advert">广告</view>
+				<navigator bindtap="swiperAdClickHandle" class="img-back" data-wpyswiperadclickhandle-a="{{item}}" data-wpyswiperadclickhandle-b="{{index}}" style="width:100%;height:100%" url="{{item.url}}">
+					<image class="img-back" lazyLoad="{{true}}" src="{{item.image}}"/>
+				</navigator>
+			</swiper-item>
+		</swiper>
+	</view>
+
+	<!--优秀置业顾问推荐-->
+	<view class="sales_man white-bg block-bottom-bg"  wx:if="{{ salesMan.length }}">
+		<navigator class="select-title" hoverClass="none" style="padding-left:0" url="{{recommend_rule}}" wx:if="{{recommend_rule&&is_sales_man_id>0}}">
+			<text class="fz-14">优秀置业顾问推荐</text>
+			<text class="iconfont icon-wenhao fz-15 small-level-color" style="margin-left: 20rpx;position: absolute;left: 260rpx"/>
+		</navigator>
+		<view class="select-title" style="padding-left:0" wx:else>
+			<text class="fz-14">优秀置业顾问推荐</text>
+		</view>
+		<view class="sales_man_cont">
+			<navigator bindtap="salesmanClickHandle" class="sales_man_list pale-blue-bg" data-wpysalesmanclickhandle-a="left" data-wpysalesmanclickhandle-b="{{sales_man_data[0]}}" hoverClass="none" url="/pages/salesMan/detail?id={{sales_man_data[0].sales_man_id}}&andrees=indexleft" wx:if="{{sales_man_data[0]}}">
+				<view class="avatar">
+					<image class="gray-bg" lazyLoad="{{true}}" mode="aspectFill" src="{{sales_man_data[0].sales_man_avatar}}"/>
+				</view>
+				<view class="info">
+					<view class="name">
+						<text class="black3-color fz-14 font-bold">{{sales_man_data[0].sales_man_name}}</text>
+						<text class="fz-10 gold-color" style="margin-left: 10rpx">{{sales_man_data[0].area}}</text>
+					</view>
+					<view class="fz-11 gold-color">{{sales_man_data[0].project_name}}</view>
+				</view>
+			</navigator>
+			<navigator bindtap="salesmanClickHandle" class="sales_man_list pale-blue-bg" data-wpysalesmanclickhandle-a="right" data-wpysalesmanclickhandle-b="{{sales_man_data[1]}}" hoverClass="none" url="/pages/salesMan/detail?id={{sales_man_data[1].sales_man_id}}&andrees=indexright" wx:if="{{sales_man_data[1]}}">
+				<view class="avatar">
+					<image class="gray-bg" lazyLoad="{{true}}" mode="aspectFill" src="{{sales_man_data[1].sales_man_avatar}}"/>
+				</view>
+				<view class="info">
+					<view class="name">
+						<text class="black3-color fz-14 font-bold">{{sales_man_data[1].sales_man_name}}</text>
+						<text class="fz-10 gold-color" style="margin-left: 10rpx">{{sales_man_data[1].area}}</text>
+					</view>
+					<view class="fz-11 gold-color">{{sales_man_data[1].project_name}}</view>
+				</view>
+			</navigator>
+		</view>
+	</view>
+
+	<!--最新开盘-->
+	<block  wx:if="{{newBanner.length}}">
+		<view class="new-lottery-box white-bg">
+			<view class="select-title" style="padding-bottom:0">
+				<text class="fz-14">最新开盘</text>
+				<veiw bindtap="jumpUrlHandle" data-wpyjumpurlhandle-a="/pages/index2?type=10&title=最新开盘" data-wpyjumpurlhandle-b="最新开盘_more">
+					<text class="fz-13 gray-9-color">查看更多</text>
+					<text class="iconfont icon-xiayibu fz-11 gray-color"/>
+				</veiw>
+			</view>
+			<view class="new-lottery-listbox">
+
+	<view class="lottery_item_box"  wx:if="{{ $LotteryItem$items.length }}" wx:for="{{ $LotteryItem$items }}" wx:key="key">
+		<navigator class="weui-media-box" data-item="{{item}}" hoverClass="none" hoverStayTime="{{100}}" url="{{item.url}}">
+			<view class="hot_house_img">
+				<view class="gray-shadow"/>
+				<image class="lottery-img gray-bg" lazyLoad="true" mode="aspectFill" src="{{item.cover}}"/>
+				<view class="lottery-img-bottom white-color fz-10" wx:if="{{item.list_tag}}">{{item.list_tag}}</view>
+				<view class="view white-color">
+					<text class="fz-15 iconfont icon-chakanzhong"/>
+					<text class="fz-11" style="margin-left:5rpx">{{item.page_views}}</text>
+				</view>
+			</view>
+			<view class="weui-media-box__bd">
+				<view class="weui-media-box__title" style="line-height:44rpx">
+					<view class="right red-color fz-14" wx:if="{{!!item.avg_price&&item.avg_price!='0'}}">¥{{item.avg_price}}</view>
+					<view class="right red-color fz-14" style="margin-right:20rpx" wx:if="{{!item.avg_price||item.avg_price=='0'}}">待定</view>
+					<view class="title_name left fz-14 font-bold">{{item.name}}</view>
+				</view>
+				<view class="tags" style="margin:14rpx 0">
+					<text class="tag fz-10" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="key">{{tag}}</text>
+					<view class="fz-12 black1a-color" style="float:right;line-height:36rpx">{{item.area}}</view>
+				</view>
+				<view class="list_bottom small-level-color fz-12" style="margin-top: 10rpx">
+					<view style="float: left">{{item.result_publish_time}}</view>
+					<view catchtap="$LotteryItem$toUrlHandle" class="lottery_item_comment gray-9-color" data-item="{{item}}">
+						<text class="iconfont icon-xiaoxi5 fz-14"/>
+						<text class="fz-12"> {{item.comment_num}}</text>
+					</view>
+				</view>
+			</view>
+		</navigator>
+	</view>
+
+			</view>
+		</view>
+		<view class="index-gray-block"/>
+	</block>
+
+	<!--最新摇号-->
+	<view class="new-lottery-box white-bg">
+		<view class="select-title" style="padding-bottom:0">
+			<text class="fz-14">最新摇号</text>
+			<view bindtap="jumpUrlHandle" data-wpyjumpurlhandle-a="/pages/index2?type=4&title=最新摇号" data-wpyjumpurlhandle-b="最新摇号_more">
+				<text class="fz-13 gray-9-color">查看更多</text>
+				<text class="iconfont icon-xiayibu fz-11 gray-color"/>
+			</view>
+		</view>
+		<view class="new-lottery-listbox">
+			<block  wx:if="{{lotteries.length}}" wx:for="{{lotteries}}" wx:key="itemKey">
+				<view class="lottery_item_box" style="border-bottom: 2rpx solid #f2f2f2;margin:0 30rpx" wx:if="{{index<3}}">
+					<navigator bindtap="sendAnalysisHandle" class="weui-media-box" data-item="{{item}}" hoverClass="none" hoverStayTime="{{100}}" style="border-bottom: none!important;margin:0!important;" url="{{item.url}}">
+						<view class="hot_house_img">
+							<view class="gray-shadow"/>
+							<image class="lottery-img gray-bg" lazyLoad="{{true}}" mode="aspectFill" src="{{item.cover}}"/>
+							<view class="lottery-img-bottom white-color fz-10" wx:if="{{item.list_tag}}">{{item.list_tag}}</view>
+							<view class="view white-color">
+								<text class="fz-15 iconfont icon-chakanzhong"/>
+								<text class="fz-11" style="margin-left:5rpx">{{item.page_views}}</text>
+							</view>
+						</view>
+						<view class="weui-media-box__bd">
+							<view class="weui-media-box__title" style="line-height:44rpx">
+								<view class="right red-color fz-14" wx:if="{{!!item.avg_price&&item.avg_price!='0'}}">¥{{item.avg_price}}</view>
+								<view class="right red-color fz-14" style="margin-right:20rpx" wx:if="{{!item.avg_price||item.avg_price=='0'}}">待定</view>
+								<view class="title_name left fz-14 font-bold">{{item.name}}</view>
+							</view>
+							<view class="tags" style="margin:14rpx 0">
+								<text class="tag fz-10" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="key">{{tag}}</text>
+								<view class="fz-12 black1a-color" style="float:right;line-height:36rpx">{{item.area}}</view>
+							</view>
+							<view class="list_bottom small-level-color fz-12" style="margin-top: 10rpx;overflow:hidden;">
+								<view style="float: left">{{item.result_publish_time}}</view>
+								<view catchtap="toUrlHandle" class="gray-9-color" data-wpytourlhandle-a="{{item.project_id}}" data-wpytourlhandle-b="{{item.name}}" data-wpytourlhandle-c="{{item.id}}" style="float: right">
+									<text class="iconfont icon-xiaoxi5 fz-14"/>
+									<text class="fz-12"> {{item.comment_num}}</text>
+								</view>
+							</view>
+						</view>
+					</navigator>
+					<view class="bottom fz-10">
+						<view class="left add-circle">
+							<text>总套数:</text>
+							<text>{{item.total_room_num}}</text>
+						</view>
+						<view class="center">
+							<text>摇中率:</text>
+							<text>{{item.gangxu_rate_name}}{{item.gangxu_rate}}</text>
+							<text style="margin-left: 24rpx">{{item.normal_rate_name}}{{item.normal_rate}}</text>
+						</view>
+						<view class="right">
+							<text>建面:{{item.huxing}}</text>
+						</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+
+	<view class="new-lottery-box white-bg">
+		<view class="select-title" style="padding-bottom:10rpx">
+			<text class="fz-14">热门文章</text>
+			<view bindtap="gridsJumpHandle" data-wpygridsjumphandle-a="/pages/consult/index?changeType=1" data-wpygridsjumphandle-b="热门文章" data-wpygridsjumphandle-c="1">
+				<text class="fz-13 gray-9-color">查看更多</text>
+				<text class="iconfont icon-xiayibu fz-11 gray-color"/>
+			</view>
+		</view>
+		<view class="lottery-article"  wx:for="{{articleRecommendData}}" wx:key="key">
+			<view bindtap="jumpUrlHandle" class="lottery-article-list" data-wpyjumpurlhandle-a="{{item.url}}" data-wpyjumpurlhandle-b="热门文章" data-wpyjumpurlhandle-c="{{index}}" hoverClass="none" url="{{item.url}}">
+				<view class="lottery-article-list-right">
+					<image src="{{item.img}}"/>
+				</view>
+				<view class="lottery-article-list-left">
+					<view class="title fz-14 black1a-color font-bold">{{item.title}}</view>
+					<view class="desc">
+						<image class="avatar" src="{{item.avatar_url||defaultAvatar}}"/>
+						<text class="fz-12 gray-9-color">{{item.user_name}}</text>
+						<text class="fz-12 gray-9-color time">{{item.time}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="hot-lottery-register white-bg"  wx:if="{{featureImgs.length>0}}">
+		<navigator hoverClass="none" url="{{featureImgs[0].url}}">
+			<image class="register-image" lazyLoad="{{true}}" mode="widthFix" src="{{featureImgs[0].img}}"/>
+		</navigator>
+	</view>
+	<view class="gray-9-color fz-10 white-bg" style="text-align: center;padding:20rpx 0 50rpx;">———  没有更多了~  ———</view>
+	<view bindtap="closeHideHandle" class="advertise-hide"  wx:if="{{isShow}}">
+		<view class="adertise-box">
+			<view class="guanbi-border">
+				<view class="iconfont icon-guanbi fz-16 white-color"/>
+			</view>
+			<view catchtap="goToUrlHandle" class="advertise" data-wpygotourlhandle-a="{{advertisingBanner.url}}" data-wpygotourlhandle-b="{{advertisingBanner.is_home}}" data-wpygotourlhandle-c="{{advertisingBanner.id}}" style="position:relative;">
+				<view class="white-color" style="font-size: 18rpx;line-height: 1;background: rgba(0,0,0,.1);padding: 4rpx 8rpx;position: absolute;right: 20rpx;top:15rpx;z-index: 222;border-radius: 4rpx">广告</view>
+				<image class="gray-bg" lazyLoad="true" mode="widthFix" src="{{advertisingBanner.image}}"/>
+			</view>
+		</view>
+	</view>
+
+	<view catchtouchmove="stopMove" class="guide"  wx:if="{{guideImg.length>0}}">
+		<image catchtap="closeDirectHandle" class="backImg gray-bg" lazyLoad="true" mode="widthFix" src="{{item}}" style="z-index:{{100-index}};" wx:if="{{index>=guideImgIndex}}" wx:for="{{guideImg}}" wx:key="key"/>
+		<view catchtap="closeDirectHandle" class="nextStep fz-12 black1a-color">
+			<image src="https://imgcdn.huanjutang.com/assets/img/20190107/5c3306a4bae74.png" style="width: 300rpx;height: 100rpx"/>
+		</view>
+	</view>

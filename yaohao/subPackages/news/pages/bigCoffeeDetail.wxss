@@ -1,0 +1,118 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+@import "../__wuBaseWxss__/1.wxss";
+
+page {
+    background-color: #f7f7f7;
+}
+
+.point-title {
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    background: #fff;
+    padding-bottom: 130rpx;
+    margin-bottom: 20rpx;
+}
+
+.point-title .back_bg {
+    width: 100%;
+    position: relative;
+    top: -2rpx;
+}
+
+.point-title .avatar {
+    width: 244rpx;
+    height: 244rpx;
+    border-radius: 244rpx;
+    border: 1rpx solid #fff;
+    position: absolute;
+    top: 80rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.point-title .bigCoffeeCont {
+    position: relative;
+    width: 610rpx;
+    top: 134rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 50rpx;
+    text-align: center;
+}
+
+.point-title .bigCoffeeCont .name {
+    padding-bottom: 22rpx;
+}
+
+.point-title .bigCoffeeCont .small-name {
+    padding-bottom: 30rpx;
+}
+
+.point-title .bigCoffeeCont .description {
+    padding-bottom: 50rpx;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.point-title .bigCoffeeCont .share {
+    height: 68rpx;
+    padding: 0 60rpx;
+    border-radius: 35rpx;
+    line-height: 68rpx;
+    display: inline-block;
+    background: linear-gradient(to right,#f79d76,#e35d56);
+}
+
+.article-list .title {
+    background: #fff;
+    color: #de534b;
+    height: 88rpx;
+    line-height: 88rpx;
+    padding: 0 30rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+    position: relative;
+}
+
+.article-list .title:after {
+    content: '';
+    height: 6rpx;
+    width: 60rpx;
+    background: #de534b;
+    position: absolute;
+    left: 60rpx;
+    bottom: -2rpx;
+}
+
+.article-list .article-line {
+    margin-bottom: 10rpx;
+}
+
+.bottom_tip {
+    height: 118rpx;
+    line-height: 118rpx;
+    text-align: center;
+    padding-bottom: 20rpx;
+}
+
+.bottom_tip view {
+    display: inline-block;
+}
+
+.bottom_tip .bottom_line {
+    width: 60rpx;
+    height: 1rpx;
+    content: '';
+    background: #cccccc;
+    position: relative;
+    top: -4rpx;
+}
+
+.bottom_tip .before {
+    left: -40rpx;
+}
+
+.bottom_tip .after {
+    right: -40rpx;
+}

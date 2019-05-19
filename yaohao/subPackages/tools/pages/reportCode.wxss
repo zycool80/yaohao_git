@@ -1,0 +1,21 @@
+@import "../__wuBaseWxss__/0.wxss";
+
+.public {
+    text-align: center;
+}
+
+.public>image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.public>button {
+    line-height: 78rpx;
+    background: #3772cc;
+    border-radius: 50rpx;
+    display: block;
+    width: 690rpx;
+    height: 78rpx;
+    margin: 0 auto;
+}

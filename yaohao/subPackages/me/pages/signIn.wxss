@@ -1,0 +1,510 @@
+@import "manageUsers.wxss";
+
+page {
+    background: #f7f7f7;
+}
+
+.back-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    display: inline-block;
+    height: 365rpx;
+    background: #fff;
+}
+
+.sign-head {
+    display: flex;
+    height: 365rpx;
+    padding: 0 30rpx;
+}
+
+.sign-head-detail {
+    width: 33%;
+    line-height: 200rpx;
+}
+
+.sign-head-img {
+    width: 33%;
+    text-align: center;
+}
+
+.sign-head-img text {
+    display: inline-block;
+    line-height: 1;
+    border-radius: 30rpx;
+    background-color: #e9b446;
+    padding: 15rpx 20rpx;
+}
+
+.sign-head-tittle {
+    margin: 7px;
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 150rpx;
+    display: block;
+    text-align: center;
+    position: relative;
+    left: 30rpx;
+}
+
+.sign-head-Instructions {
+    width: 33%;
+    line-height: 200rpx;
+    position: relative;
+}
+
+.sign-head-Instructions navigator {
+    position: absolute;
+    right: 0;
+    top: -55rpx;
+}
+
+.sign-tip {
+    text-align: center;
+}
+
+.sign-btn {
+    text-align: center;
+    padding: 55rpx 0;
+    background: #fff;
+}
+
+.sign-btn button {
+    width: 290rpx;
+    border-radius: 90rpx;
+    margin: 0 auto;
+    height: 90rpx;
+    line-height: 90rpx;
+}
+
+.sign-more {
+    display: block;
+    position: relative;
+    padding: 0 30rpx;
+    height: 114rpx;
+    line-height: 114rpx;
+}
+
+.sign-more image {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    right: 20rpx;
+}
+
+.sign-more text:nth-child(1) {
+    font-weight: 600;
+}
+
+.sign-more text:nth-child(2) {
+    position: absolute;
+    right: 30rpx;
+}
+
+.sign-share,.sign-appreciation {
+    background: #fff;
+    padding: 30rpx 20rpx;
+    overflow: hidden;
+    margin: 0 30rpx 20rpx;
+}
+
+.sign-appreciation {
+    display: block;
+    position: relative;
+    border-bottom: 15rpx solid #eee;
+    padding: 30rpx;
+}
+
+.sign-text {
+    padding: 10rpx;
+}
+
+.sign-list {
+    display: flex;
+    padding: 30rpx;
+}
+
+.sign-list view {
+    width: 30%;
+    margin: 20rpx;
+    text-align: center;
+}
+
+.sign-list view image {
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.sign-list view text {
+    margin: 19px 0 0 10rpx;
+    display: inline-block;
+}
+
+.sign-list view button {
+    line-height: 45rpx;
+    margin: 15rpx auto;
+    width: 60px;
+    border-radius: 45rpx;
+    height: 45rpx;
+}
+
+.sign-benefit {
+    text-align: center;
+    padding: 40px;
+}
+
+.sign-benefit image {
+    width: 260rpx;
+    height: 260rpx;
+}
+
+.sign-benefit text {
+    display: block;
+}
+
+.gray-bg {
+    background: #ddd;
+}
+
+.yellow-bg {
+    background: #e9b446;
+}
+
+.task-hide {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+
+.task-content {
+    width: 85%;
+    z-index: 5;
+    border-radius: 20rpx;
+    position: relative;
+    background: #fff;
+}
+
+.task-detail {
+    text-align: center;
+}
+
+.task-detail view {
+    padding-top: 80rpx;
+    line-height: 1;
+}
+
+.task-detail button {
+    padding: 20rpx 80rpx;
+    line-height: 1;
+    background: #3772cc;
+    border-radius: 30rpx;
+    display: inline-block;
+    margin-top: 80rpx;
+    margin-bottom: 30rpx;
+}
+
+.orange {
+    color: #f7b55e!important;
+}
+
+.signBg {
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.signBox {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 620rpx;
+    z-index: 22;
+    text-align: center;
+}
+
+.signTop {
+    background: #16a5af;
+    padding: 30rpx 20rpx;
+    border-radius: 8rpx;
+    margin-bottom: 15rpx;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.signTop-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100rpx;
+    margin-right: 15rpx;
+}
+
+.signTop-avatar image {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.signTop-middle {
+    padding-right: 30rpx;
+    text-align: left;
+}
+
+.signTop-middle>text {
+    line-height: 45rpx;
+    display: block;
+}
+
+.signTop-last {
+    padding: 0 25rpx;
+    border-left: 1rpx solid #88e5eb;
+    text-align: left;
+}
+
+.signTop-last>text {
+    line-height: 45rpx;
+    display: block;
+}
+
+.signTop>view {
+    float: left;
+}
+
+.signCont {
+    background: #fff;
+    border-radius: 8rpx;
+    padding: 0 80rpx;
+    text-align: center;
+}
+
+.rotate {
+    transform: rotate(-180deg);
+    display: inline-block;
+    position: relative;
+    top: 8rpx;
+}
+
+.signCont-title {
+    padding: 70rpx 0 20rpx;
+}
+
+.signCont-img {
+    padding: 50rpx 0;
+    width: 240rpx;
+    height: 240rpx;
+    border-radius: 240rpx;
+    display: inline-block;
+}
+
+.signCont-img image {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.signCont .today {
+    padding-bottom: 44rpx;
+    text-align: left;
+}
+
+.signCont .more {
+    padding-bottom: 38rpx;
+    text-align: left;
+}
+
+.signCont-btn {
+    background: #fff;
+}
+
+.signCont-btn>view {
+    height: 90rpx;
+    line-height: 90rpx;
+    width: 50%;
+    text-align: center;
+    border-top: 1rpx solid #e6e6e6;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.shareNav {
+    padding: 0 36rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border: 1rpx solid #3772cc;
+    border-radius: 50rpx;
+}
+
+.comment {
+    border-right: 1rpx solid #e6e6e6;
+}
+
+.green {
+    color: #16a5af!important;
+}
+
+.closeBtn {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    margin-top: 78rpx;
+    display: inline-block;
+    border: 1rpx solid #fff;
+}
+
+.sign-share-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progressBar {
+    width: 460rpx;
+    border-radius: 15rpx;
+    height: 10rpx;
+    background: #f8f1e3;
+    position: relative;
+}
+
+.addPoint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30rpx 0;
+}
+
+.progressBar-text {
+    text-align: right;
+}
+
+.share-cont>text {
+    display: block;
+}
+
+.progress-len {
+    position: absolute;
+    border-radius: 15rpx;
+    height: 10rpx;
+    background: #efbd25;
+}
+
+.modalDialog {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 111111119;
+    display: block;
+}
+
+.modalDialog_style {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modalDialog_style2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalDialog_content {
+    width: 600rpx;
+    height: 910rpx;
+    margin: auto;
+    margin-top: 90rpx;
+}
+
+.title_img {
+    width: 168rpx;
+    height: 16rpx;
+}
+
+.modalDialog_xiaoxi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 670rpx;
+    background-color: white;
+    border-radius: 10rpx;
+    margin-top: 50rpx;
+}
+
+.modalDialog_xiaoxi_title {
+    font-size: 34rpx;
+    margin-top: 50rpx;
+}
+
+.modalDialog_xiaoxi_cishu {
+    font-size: 30rpx;
+    color: white;
+}
+
+.modalDialog_xiaoxi_cishu1 {
+    font-size: 30rpx;
+    color: black;
+}
+
+.modalDialog_xiaoxi_content {
+    background-color: #cccccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260rpx;
+    height: 70rpx;
+    border-radius: 70rpx;
+    margin-top: 70rpx;
+}
+
+.modalDialog_xiaoxi_content1 {
+    background-color: #f8cc8e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260rpx;
+    height: 70rpx;
+    border-radius: 70rpx;
+    margin-top: 70rpx;
+}
+
+.prompt_xinxi {
+    font-size: 30rpx;
+    color: white;
+    margin: 0 22rpx;
+}
+
+.lucky_draw {
+    width: 100%;
+}
+
+.lucky_draw_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30rpx;
+}
+
+.lucky_draw_share {
+    display: flex;
+    align-items: center;
+}

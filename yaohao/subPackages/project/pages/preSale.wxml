@@ -1,0 +1,24 @@
+<view id="page">
+    <image src="http://imgcdn.huanjutang.com/assets/img/20181128/5bfdf40a82d6f.png"></image>
+    <view id="booking_potion">
+        <view style="display: flex;align-items: center;justify-content: center;width: 100%;height: 100%;flex-direction: column;">
+            <view bindtap="toRules" class="booking_potion_btn" data-wpytorules-a="{{item_one.url}}" url="{{item_one.url}}">
+                <text class="booking_title">报名规则</text>
+                <text class="fz-12">购房时的购房登记规则及注意事项</text>
+            </view>
+            <navigator class="booking_potion_btn" url="{{item_two.url}}" wx:if="{{item_two.url}}">
+                <text class="booking_title">装修价格</text>
+                <text class="fz-12">该楼盘的装修价格详情</text>
+            </navigator>
+            <view bindtap="preview" class="booking_potion_btn" data-wpypreview-a="{{item_three.url}}" wx:if="{{item_three.url}}">
+                <text class="booking_title">房源表</text>
+                <text class="fz-12">该楼盘的房源详情</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

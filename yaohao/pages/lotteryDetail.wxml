@@ -1,0 +1,653 @@
+<view class="page">
+    <view class="tip-bg {{!showTip?'show':''}}">
+        <view class="tip-bar">
+            <text class="iconfont icon-yaohao fz-16 tip-lottery"></text>
+            <text class="fz-12 tip-text">点击【添加到我的小程序】使用更方便哦！</text>
+            <text bindtap="closeTip" class="iconfont icon-guanbi fz-14 tip-close" style="padding-top:8px"></text>
+        </view>
+    </view>
+    <view class="weui-form-preview" style="margin-top:{{searchTopPadding}}px">
+        <view class="topBar fz-13 active" hidden="{{!navbarItemsShow}}">
+            <view bindtap="clickMenuHandle" class="topBarItem {{item.ischecked?'active':''}}" data-wpyclickmenuhandle-a="{{item.id}}" data-wpyclickmenuhandle-b="{{index}}" wx:for="{{navbarItems}}" wx:key="key">{{item.title}}</view>
+        </view>
+        <view class="top-swiper" id="top-swiper">
+            <swiper autoplay="{{false}}" bindchange="onSlideChangeEnd" bindtap="toPhotosHandle" current="{{swiperIndex}}" wx:if="{{swiperList.cover}}">
+                <swiper-item catchtap="playVideoHandle" wx:if="{{baseDetail.video_url}}">
+                    <image class="gray-bg video-pre" lazyLoad="{{true}}" mode="aspectFill" src="{{swiperList.cover}}"></image>
+                    <view class="iconfont icon-bofangda white-color font-bold video-img"></view>
+                </swiper-item>
+                <swiper-item wx:for="{{swiperList.photos}}" wx:for-item="img" wx:key="key">
+                    <image class="gray-bg swiper-img" data-index="{{index}}" lazyLoad="{{true}}" mode="aspectFill" src="{{img.image}}"></image>
+                </swiper-item>
+                <swiper-item wx:if="{{swiperList.photos.length>0}}">
+                    <image class="gray-bg swiper-img" lazyLoad="{{true}}" mode="aspectFill" src="http://imgcdn.huanjutang.com/assets/img/20181102/5bdbfb084ac4a."></image>
+                </swiper-item>
+            </swiper>
+            <view class="preview-view fz-12 white-color">{{baseDetail.page_views}} 浏览</view>
+            <view class="preview-pk fz-14 white-color" style="background: {{baseDetail.pk.bg&&baseDetail.pk.bg!='0,0,0,0.3'?baseDetail.pk.bg:'rgba(0,0,0,0.3)'}}">
+                <navigator bindtap="changePkColor" hoverClass="none" url="{{baseDetail.pk.url}}">PK</navigator>
+            </view>
+            <view class="preview-col-content">
+                <view bindtap="videoActive" class=" preview-col fz-10 small-level-color {{baseDetail.video_url&&swiperIndex==0?'preview-active':''}}" wx:if="{{baseDetail.video_url}}">
+                    <text class="iconfont icon-bofangda  fz-10" style="margin-right:5rpx"></text>视频
+                    </view>
+                <view bindtap="photoActive" class=" preview-col fz-10 small-level-color {{baseDetail.video_url&&swiperIndex!=0||!baseDetail.video_url?'preview-active':''}}">图片</view>
+            </view>
+            <view bindtap="toPhotosHandle" class="preview-pic_count  fz-12 white-color" wx:if="{{baseDetail.video_url&&swiperList.photos.length>0}}">{{swiperIndex+1}}/{{swiperList.photos.length+2}}</view>
+            <view bindtap="toPhotosHandle" class="preview-pic_count  fz-12 white-color" wx:if="{{!baseDetail.video_url&&swiperList.photos.length>0}}">{{swiperIndex+1}}/{{swiperList.photos.length+1}}</view>
+        </view>
+        <view class="preview_header" id="house">
+            <view class="share">
+                <button catchtap="toggleShareHandle" data-toggle="open">
+                    <text class="iconfont icon-fenxiang9 fz-14"></text>
+                    <text class="fz-12 text">分享</text>
+                </button>
+            </view>
+            <view class="left">
+                <view class="top">
+                    <view class="title" style="overflow: hidden; width: 586rpx;">
+                        <view class="height-level-color fz-18 title-style font-bold" style="margin:0 10rpx 10rpx 0;line-height: 1.1;float:left;">{{baseDetail.name}}</view>
+                        <view class="lo-tags fz-14" style="margin-right:10rpx;line-height: 1.1;float:left">
+                            <block wx:for="{{baseDetail.status_text}}" wx:for-item="tag" wx:key="key">
+                                <navigator class="lo-tag white-color fz-10" hoverClass="none" url="{{tag.url}}" wx:if="{{tag.url}}">{{tag.name}}</navigator>
+                                <view class="lo-tag white-color fz-10" hoverClass="none" wx:else>{{tag.name?tag.name:tag}}</view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+                <view class="bottom clearfix">
+                    <view bindtap="toProjectHandle" class="alia-overflow">
+                        <text class="fz-13 gray-9-color alia-name">楼盘地址</text>
+                        <view class="alia-left fz-13 black1a-color">
+                            <text class="alia-left-address">{{baseDetail.area}}-{{baseDetail.project_location||''}}</text>
+                            <text class="iconfont icon-weizhi1 blue-color-ext fz-13"></text>
+                        </view>
+                    </view>
+                    <view class="alia-overflow" wx:if="{{baseDetail.alias}}">
+                        <text class="alia-name fz-12 gray-9-color">别名</text>
+                        <text class="alia-left fz-12 gray-9-color">{{baseDetail.alias}}</text>
+                    </view>
+                    <view class="top-color fz-13 price" style="width: 348rpx;">
+                        <view class="alia-overflow house-price">
+                            <block wx:if="{{priceList.length>0}}">
+                                <text class="alia-left alia-price" wx:for="{{priceList}}" wx:for-item="val" wx:key="key">
+                                    <text class="gray-9-color fz-12" wx:if="{{val.value}}">{{val.key}}</text>
+                                    <text class="font-bold fz-14 prize-color"> {{val.value?val.value:'待定'}}</text>
+                                </text>
+                            </block>
+                            <view class="alia-left alia-price" wx:else>
+                                <text class="font-bold fz-14 prize-color top-color" style="line-height: 1;">{{baseDetail.avg_price?baseDetail.avg_price+'元/㎡':'待定'}}</text>
+                                <text class="top-color fz-12 gray-9-color" wx:if="{{baseDetail.price_type}}">({{baseDetail.price_type}})</text>
+                            </view>
+                            <view class="fz-11 gray-9-color">参考单价</view>
+                        </view>
+                    </view>
+                    <view class="total-price">
+                        <view class="alia-right alia-price">
+                            <block wx:if="{{baseDetail.total_price}}">
+                                <text class="font-bold fz-15 alia-right prize-color">{{baseDetail.total_price}}/套</text>
+                                <text class="fz-12 gray-9-color">(起)</text>
+                            </block>
+                            <text class="font-bold fz-14 alia-right prize-color" wx:else>暂无</text>
+                        </view>
+                        <view class="fz-11 gray-9-color">参考总价</view>
+                    </view>
+                </view>
+            </view>
+            <view class="choose">
+                <navigator bindtap="btnEventTrack" class="choose-item" data-wpybtneventtrack-a="{{'楼盘一房一价'}}" url="/subPackages/project/pages/oneHouseOnePrice?lottery_id={{id}}&name={{baseDetail.name}}">
+                    <text class="iconfont icon-huxingtu fz-13"></text>
+                    <text class="fz-13">一房一价</text>
+                </navigator>
+                <navigator bindtap="btnEventTrack" class="choose-item" data-wpybtneventtrack-a="{{'楼盘资格查询'}}" url="/pages/webview2?redirect=https%3A%2F%2Fweb.huanjutang.com%2Flottery%2FbuyHouseStartPage%3Ftitle%3D%E5%BF%AB%E7%9C%8B%E7%9C%8B%E6%82%A8%E6%98%AF%E5%90%A6%E5%85%B7%E6%9C%89%E5%88%9A%E9%9C%80%E8%B5%84%E6%A0%BC%EF%BC%9F">
+                    <text class="iconfont icon-sousuo fz-13"></text>
+                    <text class="fz-13">资格查询</text>
+                </navigator>
+                <view bindtap="btnEventTrack" class="choose-item gray-color" data-wpybtneventtrack-a="{{'楼盘摇号提醒'}}" wx:if="{{baseDetail.type==1}}">
+                    <text class="iconfont icon-yaohao fz-13 gray-color"></text>
+                    <text class="fz-13 gray-color">摇号提醒</text>
+                </view>
+                <view bindtap="lotteryRemindHandle" class="choose-item" wx:else>
+                    <text class="iconfont icon-yaohao fz-13"></text>
+                    <text class="fz-13">{{baseDetail.remind==1?'取消提醒':'摇号提醒'}}</text>
+                </view>
+            </view>
+            <view class="introduce">
+                <view class="item fz-13">
+                    <view class="title gray-9-color">容积率:</view>
+                    <text class="num black1a-color">{{baseDetail.rongji_ratio||'暂无'}}</text>
+                </view>
+                <view class="item fz-13">
+                    <view class="title gray-9-color">绿化率:</view>
+                    <text class="num black1a-color">{{baseDetail.lvhua_ratio||'暂无'}}</text>
+                </view>
+                <view class="item fz-13">
+                    <view class="title gray-9-color">总户数:</view>
+                    <text class="num black1a-color">{{baseDetail.total_rooms||'暂无'}}</text>
+                </view>
+                <view class="item fz-13">
+                    <view class="title gray-9-color">车位数:</view>
+                    <text class="num black1a-color carnum">{{baseDetail.car_rooms||'暂无'}}</text>
+                </view>
+                <view class="item fz-13">
+                    <view class="title gray-9-color">物业类型:</view>
+                    <text class="black1a-color wuye">{{baseDetail.wuye_type||'暂无'}}</text>
+                </view>
+                <view class="item fz-13">
+                    <view class="title gray-9-color">环线:</view>
+                    <text class="black1a-color">{{baseDetail.loop_line||'暂无'}}</text>
+                </view>
+            </view>
+            <navigator bindtap="estateDetailsHandle" class="common-button blue-color-ext fz-13" hoverClass="none" style="margin-top:10rpx" url="/subPackages/project/pages/projectDetail?lottery_id={{id}}&project_id={{project_id}}">查看更多</navigator>
+        </view>
+        <navigator class="flex_layout_c" style="background-color:#fff;width: 100%;position: relative;overflow: hidden;display: block;box-sizing: border-box;padding:0 10rpx 0 15rpx;margin-bottom: 20rpx;box-shadow: 0 1px 1px #f0f1f3;" url="{{activityList.top_activity.url}}" wx:if="{{activityList.top_activity&&activityList.top_activity.img.length>0}}">
+            <view style="margin-top: 10rpx;">
+                <image mode="widthFix" src="{{activityList.top_activity.img[0]}}" style="width: 100%"></image>
+            </view>
+            <view class="gogogo">
+                <image src="{{activityList.top_activity.img[1]}}" style="width: 100rpx;height: 100rpx"></image>
+            </view>
+        </navigator>
+        <view class="not-lottery has-icon-list" wx:if="{{not_lottery_total>0&&not_lottery_total}}">
+            <view class="head border">
+                <view>
+                    <text class="fz-15 font-bold">总剩余套数：{{not_lottery_total}}套</text>
+                    <text catchtap="lotteryRule" class="iconfont icon-wentiquestions1 fz-14 height-level-color" style="margin-left: 10rpx"></text>
+                    <text class="oneHand fz-11" wx:if="{{baseDetail.not_lottery_type==1}}">一手信息</text>
+                </view>
+                <view class="fz-12 gray-9-color" style="margin-top: 20rpx;line-height: 35rpx" wx:if="{{baseDetail.not_lottery_type==1}}">说明：直接对接开发商获取剩余套数信息，最大化保证信息时效性。小主若想要了解更多信息，可前去<text bindtap="contactSalesHandle" style="border-bottom: 1px solid #5a6ca0;color:#5a6ca0">咨询置业顾问</text>。</view>
+            </view>
+            <view class="not-lottery-cont" wx:if="{{baseDetail.not_lottery_type==0}}">
+                <navigator class="not-lottery-list" hoverClass="none" url="{{not_lottery_item.url}}" wx:for="{{baseDetail.not_lottery}}" wx:for-item="not_lottery_item" wx:key="not_lottery_key">
+                    <view class="left">
+                        <view class="title fz-14 height-level-color">{{not_lottery_item.name}}</view>
+                        <view class="num fz-12 gray-9-color">预售证号：{{not_lottery_item.pre_order_id}}</view>
+                    </view>
+                    <view class="right">
+                        <view class="price fz-13">{{not_lottery_item.price?not_lottery_item.price+'/m²':''}}</view>
+                        <view class="house fz-11">
+                            <text class="house-number">剩余{{not_lottery_item.surplus_count||0}}套</text>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="pur-common-coupon" wx:if="{{projectCoupon.coupon.image}}">
+            <image lazeLoad="{{true}}" mode="widthFix" src="https://imgcdn.huanjutang.com/assert/img/15524467147676382.jpg"></image>
+            <view class="fz-24 coupon-left-money white-color">{{projectCoupon.coupon.name}}</view>
+            <view class="fz-12 coupon-left-bottom white-color">使用时间：{{projectCoupon.started_at}}-{{projectCoupon.ended_at}}</view>
+            <view bindtap="toggleCoupon" class="coupon-right fz-12">立即领取</view>
+        </view>
+        <view class="new-box gray-block has-icon-list house-type" id="housetype">
+            <view class="head border">
+                <view style="float:left">
+                    <text class="fz-15 font-bold">户型图</text>
+                </view>
+                <navigator class="gray-9-color" hoverClass="none" style="float:right;margin-top:4px;" url="/subPackages/project/pages/oldHousePlan?lottery_id={{id}}&project_id={{project_id}}&project_name={{baseDetail.name}}&is_this={{baseDetail.is_this}}">
+                    <text class="fz-12">更多</text>
+                    <text class="iconfont icon-xiayibu fz-10"></text>
+                </navigator>
+            </view>
+            <view class="small-level-color white-bg fz-13" style="padding:10rpx 0 20rpx 0;text-align:center" wx:if="{{houseList.length<=0}}">
+                <block wx:if="{{baseDetail.type==1}}">暂无户型图</block>
+                <view wx:else>本次摇号暂无户型图，去看看<navigator class="blue-color" hoverClass="none" style="text-decoration:underline;display:inline" url="/subPackages/project/pages/oldHousePlan?lottery_id={{id}}&project_id={{project_id}}&project_name={{baseDetail.name}}&is_this={{baseDetail.is_this}}">去楼盘其他户型图看看</navigator>
+                </view>
+            </view>
+            <scroll-view scrollX="{{true}}">
+                <view class="statement-container">
+                    <block wx:for="{{houseList}}" wx:key="key">
+                        <view bindtap="toHouseTypeHandle" class="house-item" data-wpytohousetypehandle-a="{{item.id}}" wx:if="{{isComplete!=1}}">
+                            <image mode="aspectFill" src="{{item.image}}"></image>
+                            <view class="title">{{item.num_bed_room}}室{{item.num_living_room}}厅{{item.num_rest_room}}卫 {{item.outer_square}}{{item.outer_square>0?'㎡':''}}</view>
+                            <view class="info fz-10">
+                                <text wx:if="{{item.sales_status==1}}">在售</text>
+                                <text wx:if="{{item.sales_status==2}}">待售</text>
+                                <text wx:if="{{item.sales_status==3}}">售罄</text>
+                                <text wx:if="{{item.tags.length>0}}" wx:for="{{item.tags}}" wx:for-item="tagsItem" wx:key="key">{{tagsItem}}</text>
+                            </view>
+                            <view class="price fz-12" wx:if="{{item.price_total>0}}">约{{item.price_total}}万/套</view>
+                        </view>
+                        <view bindtap="openPreviewImg" class="house-item" data-wpyopenpreviewimg-a="{{index}}" wx:else>
+                            <image mode="aspectFill" src="{{item.image}}"></image>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="new-box gray-block has-icon-list surrounding" wx:if="{{baseDetail.map}}">
+            <view class="head border">
+                <view style="float:left">
+                    <text class="fz-15 font-bold">周边配套</text>
+                </view>
+                <navigator class="gray-9-color" hoverClass="none" style="float:right;margin-top:4px;" url="/subPackages/project/pages/peripheral?project_id={{project_id}}&axis={{baseDetail.x_axis}},{{baseDetail.y_axis}}&project_name={{baseDetail.project_location}}">
+                    <text class="fz-12">更多</text>
+                    <text class="iconfont icon-xiayibu fz-10"></text>
+                </navigator>
+            </view>
+            <view class="statement-container">
+                <navigator class="map" hoverClass="none" url="/subPackages/project/pages/peripheralMap?axis={{baseDetail.x_axis}},{{baseDetail.y_axis}}&project_name={{baseDetail.project_location}}&project_id={{project_id}}&type=1">
+                    <image mode="widthFix" src="{{baseDetail.map}}"></image>
+                </navigator>
+                <view class="icon">
+                    <navigator class="icon-item" hoverClass="none" url="/subPackages/project/pages/peripheralMap?axis={{baseDetail.x_axis}},{{baseDetail.y_axis}}&project_name={{baseDetail.project_location}}&project_id={{project_id}}&type=1">
+                        <text class="iconfont icon-ditie fz-18"></text>
+                        <text class="fz-10">地铁</text>
+                    </navigator>
+                    <navigator class="icon-item" hoverClass="none" url="/subPackages/project/pages/peripheralMap?axis={{baseDetail.x_axis}},{{baseDetail.y_axis}}&project_name={{baseDetail.project_location}}&project_id={{project_id}}&type=2">
+                        <text class="iconfont icon-gongjiao fz-18"></text>
+                        <text class="fz-10">公交</text>
+                    </navigator>
+                    <navigator class="icon-item" hoverClass="none" url="/subPackages/project/pages/peripheralMap?axis={{baseDetail.x_axis}},{{baseDetail.y_axis}}&project_name={{baseDetail.project_location}}&project_id={{project_id}}&type=3">
+                        <text class="iconfont icon-xuexiao fz-18"></text>
+                        <text class="fz-10">学校</text>
+                    </navigator>
+                    <navigator class="icon-item" hoverClass="none" url="/subPackages/project/pages/peripheralMap?axis={{baseDetail.x_axis}},{{baseDetail.y_axis}}&project_name={{baseDetail.project_location}}&project_id={{project_id}}&type=4">
+                        <text class="iconfont icon-yiyuan fz-18"></text>
+                        <text class="fz-10">医院</text>
+                    </navigator>
+                    <navigator class="icon-item" hoverClass="none" url="/subPackages/project/pages/peripheralMap?axis={{baseDetail.x_axis}},{{baseDetail.y_axis}}&project_name={{baseDetail.project_location}}&project_id={{project_id}}&type=5">
+                        <text class="iconfont icon-yinhang fz-18"></text>
+                        <text class="fz-10">银行</text>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view class="has-icon-list white-bg gray-block salesman-info" wx:if="{{salesmanList.length>0}}">
+            <navigator bindtap="moreSalesMan" class="head lottery-header" hoverClass="none" url="/pages/salesMan/index?id={{project_id}}&title={{baseDetail.name}}&andrees=detail">
+                <view style="float:left">
+                    <text class="fz-15 font-bold" style="font-size: 32rpx;margin-right: 14rpx">优秀置业顾问</text>
+                    <text catchtap="navigateToHandle" class="iconfont icon-wentiquestions1 fz-14 height-level-color" data-wpynavigatetohandle-a="{{baseDetail.recommend_rule}}" style="margin-left: 10rpx"></text>
+                </view>
+                <view style="float:right;color:#8f8f8f">
+                    <text class="fz-12">更多</text>
+                    <text class="iconfont icon-xiayibu fz-10"></text>
+                </view>
+            </navigator>
+            <view class="bottom">
+                <navigator url="/pages/salesMan/detail?id={{item.sales_man_id}}&project_id={{project_id}}&andrees=detail&title={{baseDetail.name}}&project_img={{swiperImage.cover}}" wx:for="{{salesmanList}}" wx:key="key">
+                    <view class="btLeft">
+                        <image lazyLoad="{{true}}" src="{{item.sales_man_avatar}}" style="border-radius: 50%;width: 100%;height: 100%"></image>
+                    </view>
+                    <view style="margin-left: 16rpx">
+                        <view class="fz-13 font-bold" style="color:#59441e">{{item.sales_man_name}}</view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="count-icons" wx:if="{{lotteryInfo.length>0}}">
+            <view class="new-box gray-block has-icon-list house-type" id="lottery">
+                <view class="head border">
+                    <view style="float:left">
+                        <text class="fz-15 font-bold">摇号信息</text>
+                    </view>
+                </view>
+                <view class="lottery">
+                    <view class="lottery-count fz-13 height-level-color" style="overflow:hidden">
+                        <view class="scroll-view">
+                            <view class="tabBar fz-12" style="width:100%">
+                                <view class="lottery-count-row tab{{index+1}}" wx:for="{{lotteryInfo}}" wx:key="key">
+                                    <view class="lottery-count-row-column column{{index}}" wx:for="{{item}}" wx:for-item="val" wx:key="key">{{val}}
+                                                    <navigator hoverClass="none" style="display:inline-block" url="/subPackages/project/pages/calculation" wx:if="{{val=='摇中概率'}}">
+                                            <text class="iconfont icon-xinxi fz-11"></text>
+                                        </navigator>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="time-scroll-btn-list" wx:if="{{sourceList.rooms}}">
+            <block wx:for="{{sourceList}}" wx:for-item="row" wx:key="key">
+                <block wx:if="{{row.type==1}}">
+                    <view bindtap="shake" class="btn-list-col" data-wpyshake-a="{{row.text}}" wx:if="{{!row.url}}">
+                        <image mode="aspectFit" src="{{row.icon}}"></image>
+                        <view class=" fz-11"> {{row.text}}</view>
+                    </view>
+                    <navigator bindtap="buryHandle" class="btn-list-col" data-wpyburyhandle-a="{{row.text}}" hoverClass="none" url="{{row.url}}" wx:else>
+                        <image mode="aspectFit" src="{{row.icon}}"></image>
+                        <view class="fz-11 "> {{row.text}}</view>
+                    </navigator>
+                </block>
+                <view bindtap="toRulesHandle" class="btn-list-col" data-wpytoruleshandle-a="{{row.url}}" data-wpytoruleshandle-b="{{row.text}}" wx:if="{{row.type==2||row.type==3}}">
+                    <image mode="aspectFit" src="{{row.icon}}"></image>
+                    <view class=" fz-11"> {{row.text}}</view>
+                </view>
+            </block>
+        </view>
+        <view class="time-scroll white-bg gray-block" style="position: relative;" wx:if="{{timeLineList.length>0}}">
+            <view class="time-scroll-container">
+                <view class="time-scroll-list {{index%2===0?'':'odd'}} fz-13 {{time.type==1?'time-blue-color':''}}" wx:for="{{timeLineList}}" wx:for-item="time" wx:key="key">
+                    <view class="time-scroll-list-text" wx:if="{{time.type==1&&time.status==1}}">
+                        <view class="top" hoverClass="none" style="color:{{time.type==1&&time.status==1?'#2495e7':''}}">{{time.value}}</view>
+                        <view class="bottom fz-12" hoverClass="none">
+                            <text style="display:inline-block; color:#2495e7;">{{time.name}}</text>
+                        </view>
+                    </view>
+                    <view class="time-scroll-list-text" hoverClass="none" wx:else>
+                        <view class="top  small-level-color">{{time.value}}</view>
+                        <view class="bottom small-level-color fz-12">
+                            <text style="color:#666;display:inline-block;">{{time.name}}</text>
+                        </view>
+                    </view>
+                    <view class="time-scroll-list-line tab{{index}}"></view>
+                    <view class="time-scroll-list-point" style="padding: 4rpx" wx:if="{{time.type==1&&time.status==1}}">
+                        <text class=" fz-12 time-scroll-list-check" style="width: 100%;height: 100%;border-radius: 100%;background: #2495e7;display: inline-block;padding: 4rpx;box-sizing: border-box"></text>
+                    </view>
+                    <view class="time-scroll-list-point" wx:else>
+                        <text class="iconfont icon-gougou fz-12 time-scroll-list-check" wx:if="{{time.type==1&&time.status==0}}"></text>
+                    </view>
+                </view>
+            </view>
+            <navigator bindtap="lookBuyHouseData" class="common-button blue-color-ext fz-13" hoverClass="none" style="margin-top:10rpx" url="{{baseDetail.materials.url}}">查看购房资料</navigator>
+        </view>
+        <view class="new-box gray-block has-icon-list" wx:if="{{dynamics.list.length>0}}">
+            <view bindtap="toStatementHandle" class="head border">
+                <view style="float:left">
+                    <text class="fz-15 font-bold">楼盘动态({{dynamics.count}})</text>
+                </view>
+                <view class="gray-9-color" style="float:right;margin-top:4px;">
+                    <text class="fz-12">更多</text>
+                    <text class="iconfont icon-xiayibu fz-10"></text>
+                </view>
+            </view>
+            <view class="statement-container">
+                <navigator class="container-col" hoverClass="none" url="/subPackages/news/pages/statement?lottery_id={{id}}&project_id={{project_id}}&title={{baseDetail.name}}&dynamic_id={{dynamic.id}}" wx:for="{{dynamics.list}}" wx:for-item="dynamic" wx:key="key">
+                    <view class="statement-body">
+                        <view class="statement-header">
+                            <text class="statement-time fz-12">{{dynamic.time}}</text>
+                            <view class="statement-author fz-12">
+                                <image mode="aspectFit" src="{{dynamic.sales_man_avatar_url}}"></image>
+                                <text>{{dynamic.sales_man_name}}</text>
+                            </view>
+                        </view>
+                        <view class="statement-title fz-14 black1a-color font-bold">{{dynamic.title}}</view>
+                        <view class="statement-content fz-12" style="color:#4b4b4b">{{dynamic.content}}</view>
+                    </view>
+                    <view class="circle"></view>
+                </navigator>
+            </view>
+        </view>
+        <view class="history-lottery has-icon-list" wx:if="{{historyLottery.length>0}}">
+            <view class="head lottery-header">
+                <view style="float:left">
+                    <text class="detail-select-list fz-15 font-bold">历史摇号({{historyLottery.length}})</text>
+                </view>
+                <navigator bindtap="yaohao" class="head border" hoverClass="none" url="/subPackages/me/pages/bindCode?id={{id}}&name={{baseDetail.name}}" wx:if="{{baseDetail.lottery_id}}">
+                    <view style="float:right;margin-top:4px;color:#5a6ca0">
+                        <text class="iconfont icon-combinedshapecopy2 fz-10"></text>
+                        <text class="fz-13" style="margin-left: 10rpx">添加我的摇号</text>
+                    </view>
+                </navigator>
+            </view>
+            <view class="small-level-color white-bg fz-13" style="padding:10rpx 0 50rpx 0;text-align:center" wx:if="{{historyLottery.length<=0}}">暂无历史摇号</view>
+            <block wx:else>
+                <block wx:if="{{historyLotteryShow}}">
+                    <navigator bindtap="historyYao" class="history-lottery-container fz-12" hoverClass="none" url="/pages/lotteryDetail?id={{item.id}}&project_id={{project_id}}" wx:for="{{historyLottery}}" wx:key="key">
+                        <view class="top">
+                            <text class="prize-color fz-13" style="float:right">{{item.avg_price}} </text>
+                            <text class="fz-13" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;width:500rpx;display:inline-block;">{{item.name}}</text>
+                        </view>
+                        <view class="center gray-9-color">摇号时间：{{item.time}}</view>
+                        <view class="bottom">
+                            <view class="left add-circle">
+                                <text>总套数：</text>
+                                <text>{{item.total_room_num}}</text>
+                            </view>
+                            <view class="right">
+                                <text>摇中率：</text>
+                                <text wx:for="{{item.rate}}" wx:for-item="rate" wx:key="key">{{rate.name}}{{rate.value}}</text>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view bindtap="historyYaoShowHandle" class="more">
+                        <text class="up"></text>
+                    </view>
+                </block>
+                <block wx:else>
+                    <navigator bindtap="historyYao" class="history-lottery-container fz-12" hoverClass="none" url="/pages/lotteryDetail?id={{historyLottery[0].id}}&project_id={{project_id}}">
+                        <view class="top">
+                            <text class="prize-color fz-13" style="float:right">{{historyLottery[0].avg_price}} </text>
+                            <text class="fz-13" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;width:500rpx;display:inline-block;">{{historyLottery[0].name}}</text>
+                        </view>
+                        <view class="center gray-9-color">摇号时间：{{historyLottery[0].time}}</view>
+                        <view class="bottom">
+                            <view class="left add-circle">
+                                <text>总套数：</text>
+                                <text>{{historyLottery[0].total_room_num}}</text>
+                            </view>
+                            <view class="right">
+                                <text>摇中率：</text>
+                                <text wx:for="{{historyLottery[0].rate}}" wx:for-item="rate" wx:key="key">{{rate.name}}{{rate.value}}</text>
+                            </view>
+                        </view>
+                    </navigator>
+                    <view bindtap="historyYaoShowHandle" class="more" wx:if="{{historyLottery.length>1}}">
+                        <text class="iconfont icon-xialajiantouxianxing fz-18"></text>
+                    </view>
+                </block>
+            </block>
+        </view>
+        <swiper autoplay="true" class="swiper-box" duration="300" interval="4000" wx:if="{{groupImgList.length>0}}">
+            <swiper-item bindtap="discussionGroups" data-wpydiscussiongroups-a="{{item.url}}" data-wpydiscussiongroups-b="{{item.type}}" data-wpydiscussiongroups-c="{{item.app_id}}" style="height: 140rpx;margin: auto;background-color: white;width:100%" wx:for="{{groupImgList}}" wx:key="key">
+                <image mode="aspectFill" src="{{item.img}}" style="width: 100%;height: 100%"></image>
+            </swiper-item>
+        </swiper>
+        <view class="detail-select gray-block white-bg">
+            <navigator bindtap="userComments" class="head lottery-header" hoverClass="none" url="/subPackages/comment/pages/project_comment?project_id={{project_id}}&project_name={{baseDetail.name}}&lottery_id={{id}}">
+                <view style="float:left">
+                    <text class="detail-select-list fz-15 font-bold">用户评论({{comments.count}})</text>
+                </view>
+                <view style="float:right;color:#8f8f8f" wx:if="{{comments.list.length>0}}">
+                    <text class="fz-12">更多</text>
+                    <text class="iconfont icon-xiayibu fz-10"></text>
+                </view>
+            </navigator>
+            <view class="comment_box has-icon-list" id="comment" style="padding:30rpx 30rpx 40rpx 30rpx;box-sizing: border-box">
+                <view class="small-level-color white-bg fz-13" style="padding:10rpx 0 20rpx 0;text-align:center" wx:if="{{comments.list.length<=0}}">暂无评论</view>
+                <block wx:else>
+                    <navigator class="comment_list_item" hoverClass="none" url="/subPackages/comment/pages/project_comment?project_id={{project_id}}&project_name={{baseDetail.name}}&lottery_id={{id}}" wx:for="{{comments.list}}" wx:key="key">
+                        <view class="comment_list_avatar">
+                            <image mode="aspectFill" src="{{item.avatar_url||'/images/default_sales_man_avatar.png'}}"></image>
+                        </view>
+                        <view class="comment_list_right">
+                            <view class="comment_list_user height-level-color">
+                                <text class="fz-13 font-bold">{{item.name}}</text>
+                            </view>
+                            <view class="comment_list_time fz-12 small-level-color">{{item.content}}</view>
+                        </view>
+                    </navigator>
+                </block>
+                <navigator class="common-button blue-color-ext fz-13" hoverClass="none" style="margin-top: 20rpx;" url="/subPackages/tools/pages/commentInp?id=0&lottery_id={{id}}&project_id={{project_id}}&title={{baseDetail.name}}">
+                    <text class="icon-combinedshapecopy2 fz-14 iconfont"></text>我要评论</navigator>
+            </view>
+        </view>
+        <view class="detail-select gray-block white-bg" wx:if="{{articles.list.length>0}}">
+            <navigator class="head lottery-header" hoverClass="none" url="/subPackages/project/pages/projectArticles?project_id={{project_id}}&project_name={{baseDetail.name}}">
+                <view style="float:left">
+                    <text class="detail-select-list fz-15 font-bold">文章点评({{articles.count}})</text>
+                </view>
+                <view style="float:right;color:#8f8f8f">
+                    <text class="fz-12">更多</text>
+                    <text class="iconfont icon-xiayibu fz-10"></text>
+                </view>
+            </navigator>
+            <view class="project-detail">
+                <view class="project-detail-cont">
+                    <navigator class="project-detail-list" hoverClass="none" url="{{article.url}}" wx:for="{{articles.list}}" wx:for-item="article" wx:key="key">
+                        <view class="project-detail-list-right">
+                            <image src="{{article.img}}"></image>
+                        </view>
+                        <view class="project-detail-list-left">
+                            <view class="title fz-14 black1a-color">{{article.title}}</view>
+                            <view class="desc">
+                                <image class="avatar" src="{{article.avatar_url||defaultAvatar}}"></image>
+                                <view class="fz-12" style="float: left">{{article.user_name}}</view>
+                                <view class="fz-12" style="float: right">{{article.time}}</view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view class="youLike" id="recommend" wx:if="{{youLikeList.length>0}}">
+            <view class="fz-15 header font-bold">猜你喜欢</view>
+            <navigator bindtap="guessYouLike" class="hot_house_list" hoverClass="none" url="{{item.url}}" wx:for="{{youLikeList}}" wx:key="key">
+                <view class="hot_house_img">
+                    <image lazyLoad="{{true}}" mode="aspectFill" src="{{item.cover}}"></image>
+                    <view class="look">
+                        <text class="iconfont icon-chakanzhong fz-10"></text>
+                        <text class="fz-10">{{item.page_views}}</text>
+                    </view>
+                </view>
+                <view class="hot_house_info">
+                    <view class="info-first">
+                        <view class="price prize-color font-bold right" wx:if="{{item.avg_price&&item.avg_price!='0'}}">{{item.avg_price}}元/㎡</view>
+                        <view class="price prize-color font-bold right" wx:else>价格：暂无</view>
+                        <view class="black1a-color fz-14 font-bold left">{{item.name}}</view>
+                    </view>
+                    <view class="info-second mar">
+                        <view class="area black1a-color fz-12 right">{{item.area}}</view>
+                        <view class="house_info-tags">
+                            <view class="house_info-tag fz-10" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="key">{{tag}}</view>
+                        </view>
+                    </view>
+                    <view class="info-third">
+                        <view class="comment small-level-color right" style="line-height: 1">
+                            <text class="iconfont icon-xiaoxi5 fz-11"></text>
+                            <text class="fz-10" style="padding-left: 6rpx;">{{item.comment_num}}</text>
+                        </view>
+                        <view class="time small-level-color fz-11">{{item.time[0]}}</view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <navigator class="errorCorrection" hoverClass="none" url="/subPackages/lottery/pages/errorCorrection?id={{project_id}}">
+            <text class="iconfont icon-xinxi1 fz-13 small-level-color" style="padding-right: 10rpx"></text>
+            <text class="fz-12 small-level-color" style="margin-right:10rpx">房源有问题？</text>
+            <text class="fz-12 blue-color">点我信息纠错</text>
+        </navigator>
+    </view>
+</view>
+<view wx:if="{{activityList.bottom_activity&&activityList.bottom_activity.img.length>0}}">
+    <navigator class="beautiful_buiding" hoverClass="none" url="{{activityList.bottom_activity.url}}">
+        <image src="{{activityList.bottom_activity.img[0]}}" style="width: 234rpx;height: 160rpx"></image>
+    </navigator>
+</view>
+<view bindtap="guideHideHandle" class="guides-container" wx:if="{{guideShow&&guideImageData.length>0}}">
+    <image mode="widthFix" src="{{guideImageData[0]}}" style="width: 100%;"></image>
+    <image src="http://imgcdn.huanjutang.com/assets/img/20190107/5c3306a4bae74.png" style="width: 300rpx;height: 100rpx;z-index: 102;position: relative;bottom: 270rpx;left: 50%;margin-left: -150rpx"></image>
+</view>
+<view class="footer-link">
+    <view bindtap="followHandle" class="icon">
+        <text class="iconfont {{btnStatus.attention==1?'icon-yiguanzhu prize-color fz-18':'icon-xin fz-20'}}"></text>
+        <text class="fz-10 {{btnStatus.attention==1?'prize-color':''}}">{{btnStatus.attention==1?'已关注':'关注 '}}</text>
+    </view>
+    <view class="button-group">
+        <button bindtap="contactSalesHandle" class="fz-15 active" style="{{btnStatus.result_url.type==1?'width:98%;margin:0;margin-right:30rpx;':''}}">联系置业顾问</button>
+        <navigator class="fz-14 active" style="margin-right: 30rpx;border-radius: 10rpx" url="{{btnStatus.result_url.url}}" wx:if="{{btnStatus.result_url&&btnStatus.result_url.type==2}}">查询摇号结果</navigator>
+        <navigator class="fz-14 active" style="margin-right: 30rpx;border-radius: 10rpx" url="{{btnStatus.result_url.url}}" wx:if="{{btnStatus.result_url&&btnStatus.result_url.type==3}}">查询复核名单</navigator>
+        <view bindtap="phoneCallHandle" class="fz-14 active call-phone" data-wpyphonecallhandle-a="{{btnStatus.result_url.url}}" style="margin-right: 30rpx;border-radius: 10rpx" wx:if="{{btnStatus.result_url&&btnStatus.result_url.type==4}}">电话咨询</view>
+    </view>
+</view>
+<view class="share-bottom" hidden="{{!shareShow}}">
+    <view class="shareBtn">
+        <button bindtap="toggleShareHandle" class="shareBtn-bar" data-toggle="close" openType="share">
+            <view class="Btn-bg btn1">
+                <text class="iconfont icon-weixin2 white-color fz-24"></text>
+            </view>
+            <view class="Btn-text small-level-color fz-15">发给朋友</view>
+        </button>
+        <view bindtap="createPosterHandle" class="shareBtn-bar">
+            <view class="Btn-bg btn2">
+                <text class="iconfont icon-pengyouquan white-color fz-24"></text>
+            </view>
+            <view class="Btn-text small-level-color fz-15">生成楼盘海报</view>
+        </view>
+    </view>
+    <view bindtap="toggleShareHandle" class="fz-15 height-level-color cancel" data-toggle="close">取消</view>
+</view>
+<view bindtap="toggleShareHandle" catchtouchmove="stopMoveHandle" class="btn-bg" data-toggle="close" hidden="{{!shareShow}}"></view>
+<view bindtap="closeCanvasHandle" catchtouchmove="stopMoveHandle" class="bg" style="top:20px" wx:if="{{drawCanvas}}">
+    <view>
+        <view class="create-canvas-box" style="width: {{canvasWidth}}px; height: {{canvasHeight}}px;">
+            <view class="{{canvasIndex==0?'showCanvas':'hideCanvas'}}" style="height:{{canvasHeight}}px;width:{{canvasWidth}}px;overflow: hidden;">
+                <canvas canvasId="myCanvas1" class="white-bg" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;overflow:hidden"></canvas>
+            </view>
+            <view class="{{canvasIndex==1?'showCanvas':'hideCanvas'}}" style="height:{{canvasHeight}}px;width:{{canvasWidth}}px;overflow: hidden;">
+                <canvas canvasId="myCanvas2" class="white-bg" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;overflow:hidden"></canvas>
+            </view>
+            <view class="{{canvasIndex==2?'showCanvas':'hideCanvas'}}" style="height:{{canvasHeight}}px;width:{{canvasWidth}}px;overflow: hidden;">
+                <canvas canvasId="myCanvas3" class="white-bg " style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;overflow:hidden;"></canvas>
+            </view>
+            <view class="{{canvasIndex==3?'showCanvas':'hideCanvas'}}" style="height:{{canvasHeight}}px;width:{{canvasWidth}}px;overflow: hidden;">
+                <canvas canvasId="myCanvas4" class="white-bg " style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;overflow:hidden;"></canvas>
+            </view>
+            <view class="{{canvasIndex==4?'showCanvas':'hideCanvas'}}" style="height:{{canvasHeight}}px;width:{{canvasWidth}}px;overflow: hidden;">
+                <canvas canvasId="myCanvas5" class="white-bg " style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;overflow:hidden;"></canvas>
+            </view>
+        </view>
+        <view class="share-btn-group">
+            <button catchtap="switchCanvasHandle" class="blue-bg white-color canvas-btn">换一张</button>
+            <button catchtap="saveShareImageHandle" class="canvas-btn blue-bg white-color">保存图片</button>
+        </view>
+    </view>
+</view>
+<view class="model" id="test" wx:if="{{serviceQrCode&&followModelShow&&btnStatus.attention==1}}">
+    <view class="image-box">
+        <image mode="aspectFill" src="{{serviceQrCode}}"></image>
+    </view>
+    <view class="fz-14 black1a-color cont-txt">
+        <text class="txt" style="padding-bottom: 25rpx">扫码关注服务号</text>
+        <text class="txt">更快更及时接收消息通知</text>
+    </view>
+    <view class="model-btn">
+        <view bindtap="saveQrcodeHandle" class="savecode blue-color fz-14">保存</view>
+    </view>
+</view>
+<view bindtap="hideFollowModelHandle" class="model-bg" wx:if="{{serviceQrCode&&followModelShow&&btnStatus.attention==1}}"></view>
+<view catchtap="hideCoupon" catchtouchmove="stopMove" class="application-from" wx:if="{{showType}}"></view>
+<view class="application-from-content" wx:if="{{showType}}">
+    <view style="padding: 70rpx 30rpx 20rpx 30rpx">
+        <text class="fz-20 font-bold">填写优惠报名表</text>
+    </view>
+    <view class="user-input">
+        <view>
+            <view class="layout-3 input-item">
+                <text class="iconfont icon-guwen8" style="color: #e04739;margin-right: 10rpx"></text>
+                <text class="fz-13" style="margin-right: 20rpx">姓名:</text>
+                <input bindinput="aplNameChange" class="fz-13" placeholder="请填写您的姓名" value="{{aplName}}"></input>
+            </view>
+            <view class="layout-3 input-item" style="padding-top: 20rpx">
+                <text class="iconfont icon-dianhua2" style="color: #e04739;margin-right: 10rpx"></text>
+                <text class="fz-13" style="margin-right: 20rpx">电话:</text>
+                <input bindinput="aplPhoneChange" class="fz-13" placeholder="请填写您的联系电话" type="number" value="{{aplPhone}}"></input>
+            </view>
+        </view>
+    </view>
+    <view class="prompt">
+        <text class="fz-11">注：请填写真实信息，以方便你兑换核实优惠。</text>
+    </view>
+    <view bindtap="getDiscount" class="get-preferential-btn layout-1">
+        <text class="fz-15">提交</text>
+    </view>
+    <navigator class="join-rules" hoverClass="none" url="{{couponsRules}}">
+        <text class="fz-13 gray-9-color">参与规则</text>
+    </navigator>
+</view>
+<view catchtouchmove="true" class="common-model" wx:if="{{answer_show}}">
+    <view class="model-tip black1a-color fz-16 font-bold">规则</view>
+    <scroll-view scrollY class="comment-box">
+        <view class="fz-13 height-level-color model-text1" style="line-height: 40rpx">【规则】： 剩余房源套数来源于房协，定时更新，但因房产行业特殊性及信息对接时效性，可能会出现展示信息与实际信息有时间差的情况。小主若想要了解具体信息，可前去<text bindtap="contactSalesHandle" style="color:#16a5af;border-bottom: 1rpx solid #16a5af">咨询置业顾问</text>喔~</view>
+    </scroll-view>
+    <view bindtap="cancelRulesShow" class="common-model-btn">
+        <button class="fz-16 white-bg">我知道了</button>
+    </view>
+</view>
+<view bindtap="cancelRulesShow" class="common-model-bg" wx:if="{{answer_show}}"></view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

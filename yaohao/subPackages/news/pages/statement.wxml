@@ -1,0 +1,97 @@
+<view class="page {{comment_show?'popup':''}}">
+    <view class="statement">
+        <view class="statement-all-top">
+            <view bindtap="change" class="p {{type==''?'active':''}}" data-wpychange-a="" data-wpychange-b="全部">全部({{count}})<view class="span"></view>
+            </view>
+            <view bindtap="change" class="p {{type==1?'active':''}}" data-wpychange-a="1" data-wpychange-b="楼盘动态" wx:if="{{project_count!=0}})">楼盘动态({{project_count}})<view class="span"></view>
+            </view>
+            <view bindtap="change" class="p {{type==2?'active':''}}" data-wpychange-a="2" data-wpychange-b="预售证" wx:if="{{near_count!=0}}">预售证({{near_count}})<view class="span"></view>
+            </view>
+            <view bindtap="change" class="p {{type==3?'active':''}}" data-wpychange-a="3" data-wpychange-b="开盘" wx:if="{{opening_count!=0}}">开盘({{opening_count}})<view class="span"></view>
+            </view>
+            <view bindtap="change" class="p {{type==4?'active':''}}" data-wpychange-a="4" data-wpychange-b="交房" wx:if="{{house_count!=0}}">交房({{house_count}})<view class="span"></view>
+            </view>
+        </view>
+        <view class="statement-top" style="background-color: #f9fafc;padding:0 30rpx">
+            <view>
+                <text style="font-size:24rpx;">动态</text>
+                <text bindtap="showState" style="color: #6d7999;font-size:24rpx;">免责声明</text>
+            </view>
+            <view>
+                <button openType="share" style="display:flex;align-items:center;">
+                    <text class="iconfont icon-fenxiang5" style="margin-right: 10rpx;font-size: 36rpx;color: #6d7999;"></text>
+                    <text style="color: #6d7999;font-size:24rpx;">分享</text>
+                </button>
+            </view>
+        </view>
+        <view class="statement-all">
+            <view class="white-bg" style="padding-top:40rpx;width:100%;overflow:hidden;margin-bottom:20rpx;" wx:for="{{statementList}}" wx:for-index="key" wx:key="key">
+                <view class="statement-time" style="margin-left: 10rpx">
+                    <view style="display: flex;align-items: center">
+                        <block wx:if="{{item.sales_man_id>0}}">
+                            <navigator class="avatar" hoverClass="none" url="/pages/salesMan/detail?id={{item.sales_man_id}}">
+                                <image src="{{item.sales_man_avatar_url}}"></image>
+                                <text class="userName" style="width: 150rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis" wx:if="{{item.sales_man_name.length>5}}">{{item.sales_man_name}}</text>
+                                <text class="userName" wx:else>{{item.sales_man_name}}</text>
+                            </navigator>
+                            <view style="width: 100rpx;height: 30rpx;display: flex;align-items: center;justify-content: center;background-color: #fff7e4;border-radius: 4rpx;color: #59441e;margin-left: 10rpx">
+                                <text class="fz-10">置业顾问</text>
+                            </view>
+                        </block>
+                        <view class="avatar" wx:else>
+                            <image src="{{item.sales_man_avatar_url}}"></image>
+                            <text class="userName" style="width: 150rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis" wx:if="{{item.sales_man_name.length>5}}">{{item.sales_man_name}}</text>
+                            <text class="userName" wx:else>{{item.sales_man_name}}</text>
+                        </view>
+                        <text class="fz-12 gray-9-color time">{{item.time}}</text>
+                    </view>
+                    <view style="display: flex;align-items: center;">
+                        <view bindtap="toUrl" class="iconfont icon-xiaoxi5" data-wpytourl-a="{{item.session_id}}" data-wpytourl-b="{{item.sales_man_avatar_url}}" style="width: 56rpx;height: 56rpx;border-radius: 50%;background-color: #edf5fe;color:#4f82ea; display: flex;align-items: center;justify-content: center;font-size: 30rpx" wx:if="{{item.session_id>0}}"></view>
+                        <view bindtap="callSeasman" class="iconfont icon-dianhua2" data-wpycallseasman-a="{{item.sales_man_id}}" style="width: 56rpx;height: 56rpx;border-radius: 50%;background-color: #edf5fe;color:#4f82ea; display: flex;align-items: center;justify-content: center;font-size: 30rpx;margin-left: 30rpx;margin-right: 30rpx" wx:if="{{item.sales_man_id>0}}"></view>
+                    </view>
+                </view>
+                <view bindtap="dropContent" class="statement-body" data-wpydropcontent-a="{{key}}" data-wpydropcontent-b="0" data-wpydropcontent-c="false" style="margin-left: 10rpx">
+                    <view class="statement-title fz-14 black-color">{{item.title}}</view>
+                    <view class="statement-content {{!item.is_toggle?'wrap':''}}" style="padding-top:4rpx;">{{item.content}}</view>
+                    <view class="statement-dropContent fz-14" style="color:#5a6ca0 " wx:if="{{item.content.length>60}}">{{!item.is_toggle?'全文':'收起'}}</view>
+                </view>
+                <view bindtap="dropContent" class="statement-body" data-wpydropcontent-a="{{key}}" data-wpydropcontent-b="{{child_index}}" data-wpydropcontent-c="true" style="margin-top: 20rpx;margin-left: 10rpx" wx:for="{{item.child}}" wx:for-index="child_index" wx:for-item="child" wx:key="key">
+                    <view class="statement-title fz-16 black-color">{{child.title}}</view>
+                    <view class="statement-content {{!child.is_toggle?'wrap':''}}">{{child.content}}</view>
+                    <view class="statement-dropContent blue-color fz-14" wx:if="{{item.content.length>100}}">{{!child.is_toggle?'全文':'收起'}}</view>
+                </view>
+            </view>
+            <view class="loading-runing" wx:if="{{more}}">
+                <view class="loading-icon">
+                    <text class="iconfont icon-jiazai"></text>
+                </view>
+                <view class="left-font">
+                    <text>加载中</text>
+                </view>
+            </view>
+            <view style="width: 100%;height: 90rpx;display: flex;align-items: center;justify-content: center;color: #999999;font-size: 30rpx;" wx:else>
+                <text style="font-size:24rpx;">我也是有底线的哦~ (๑•́ ₃ •̀๑)</text>
+            </view>
+        </view>
+    </view>
+    <view class="footer" wx:if="{{isSealman}}">
+        <view bindtap="toState" style="background: linear-gradient(to right, #2d8cf0 , #1068eb)">发表动态</view>
+    </view>
+    <view catchtouchmove="$Popup$true" class="common-model" wx:if="{{$Popup$rules_show}}">
+        <view class="model-tip black1a-color fz-16 font-bold">{{$Popup$rules_title}}</view>
+        <scroll-view scrollY class="comment-box">
+            <view class="fz-13 height-level-color model-text1" style="line-height: 40rpx">
+                <text>{{$Popup$rules}}</text>
+            </view>
+        </scroll-view>
+        <view bindtap="$Popup$cancelRulesShow" class="common-model-btn">
+            <button class="fz-16 white-bg">我知道了</button>
+        </view>
+    </view>
+    <view bindtap="$Popup$cancelRulesShow" class="common-model-bg" wx:if="{{$Popup$rules_show}}"></view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>

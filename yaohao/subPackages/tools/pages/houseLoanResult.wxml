@@ -1,0 +1,47 @@
+<view class="container">
+    <view class="top_switch_bar">
+        <view bindtap="switchBarHandle" class="bar fz-15 font-bold {{repayment_type==1?'active':'height-level-color'}}" data-wpyswitchbarhandle-a="1">等额本息</view>
+        <view bindtap="switchBarHandle" class="bar fz-15 font-bold {{repayment_type==2?'active':'height-level-color'}}" data-wpyswitchbarhandle-a="2">等额本金</view>
+        <button class="share-btn fz-12" openType="share">
+            <text class="iconfont fz-14 icon-fenxiang"></text>
+            <text class="share-text">分享</text>
+        </button>
+    </view>
+    <view class="totalMoney" wx:if="{{repayment_type==1}}">
+        <view class="total-num fz-20">{{list[0].emTotal}}元</view>
+        <view class="month-num fz-12 small-level-color">每月还款</view>
+    </view>
+    <view class="totalMoney" wx:if="{{repayment_type==2}}">
+        <view class="total-num fz-20">{{list[0].emTotal}}元</view>
+        <view class="month-num fz-12 small-level-color">首月还款</view>
+    </view>
+    <view class="total-cont">
+        <view class="cont-line">
+            <view class="left fz-14 black1a-color">还款总额</view>
+            <view class="right fz-14 black1a-color">{{viewPayTotal}}万</view>
+        </view>
+        <view class="cont-line">
+            <view class="left fz-14 black1a-color">贷款总额</view>
+            <view class="right fz-14 black1a-color">{{loantatal}}万</view>
+        </view>
+        <view class="cont-line">
+            <view class="left fz-14 black1a-color">支付利息</view>
+            <view class="right fz-14 black1a-color">{{viewLxTotal}}万</view>
+        </view>
+        <view class="cont-line no-border">
+            <view class="left fz-14 black1a-color">贷款年限</view>
+            <view class="right fz-14 black1a-color">{{year}}年</view>
+        </view>
+    </view>
+    <view class="total-cont">
+        <view bindtap="toDetailHandle" class="cont-line no-border">
+            <view class="left fz-14 black1a-color">贷款明细</view>
+            <view class="right gray-9-color fz-18 iconfont icon-you"></view>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

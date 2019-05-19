@@ -1,0 +1,220 @@
+<view class="page">
+    <view id="map-container">
+        <map id="map" latitude="{{show_lat}}" longitude="{{show_long}}" markers="{{markers}}" scale="14" showLocation="show-location">
+            <cover-view bindtap="showMoreLocal" class="fz-13 showMoreLocal">地图</cover-view>
+        </map>
+    </view>
+    <view class="peripheral white-bg" wx:if="{{items['1'].data}}">
+        <view class="title">
+            <view>
+                <text class="iconfont icon-ditie fz-18 small-level-color"></text>
+                <text class="fz-13 small-level-color" style="padding-left: 10rpx">地铁</text>
+            </view>
+            <view bindtap="toggle" data-wpytoggle-a="1" wx:if="{{items['1'].data.length>3}}">
+                <text class="blue-color fz-13">{{items['1'].is_toggle?'查看更多':'收起'}}</text>
+            </view>
+        </view>
+        <view class="peripheral-content">
+            <block wx:for="{{items['1'].data}}" wx:key="key">
+                <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{index<3&&items['1'].is_toggle}}">
+                    <view class="fz-12 gray-9-color" style="float: right">{{item.distance}}米</view>
+                    <view class="peripheral-line-left">
+                        <text class="fz-14 black-color">{{item.title}}</text>
+                        <text class="fz-12 gray-9-color">{{item.address}}</text>
+                    </view>
+                </view>
+                <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{!items['1'].is_toggle}}">
+                    <view class="fz-12 gray-9-color" style="float: right">{{item.distance}}米</view>
+                    <view class="peripheral-line-left">
+                        <text class="fz-14 black-color">{{item.title}}</text>
+                        <text class="fz-12 gray-9-color">{{item.address}}</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="peripheral-bg" wx:if="{{items['2'].data}}">
+        <view class="peripheral">
+            <view class="title">
+                <view>
+                    <text class="iconfont icon-gongjiao fz-18 small-level-color"></text>
+                    <text class="fz-13 small-level-color" style="padding-left: 10rpx">公交</text>
+                </view>
+                <view bindtap="toggle" data-wpytoggle-a="2" wx:if="{{items['2'].data.length>3}}">
+                    <text class="blue-color fz-13">{{items['2'].is_toggle?'查看更多':'收起'}}</text>
+                </view>
+            </view>
+            <view class="peripheral-content">
+                <block wx:for="{{items['2'].data}}" wx:key="key">
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{index<3&&items['2'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float: right">{{item.distance}}米</view>
+                        <view class="peripheral-line-left">
+                            <text class="fz-14 black-color">{{item.title}}</text>
+                            <text class="fz-12 gray-9-color">{{item.address}}</text>
+                        </view>
+                    </view>
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{!items['2'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float: right">{{item.distance}}米</view>
+                        <view class="peripheral-line-left">
+                            <text class="fz-14 black-color">{{item.title}}</text>
+                            <text class="fz-12 gray-9-color">{{item.address}}</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="peripheral-bg" wx:if="{{items['3'].data}}">
+        <view class="peripheral">
+            <view class="title">
+                <view>
+                    <text class="iconfont icon-xuexiao fz-18 small-level-color"></text>
+                    <text class="fz-13 small-level-color" style="padding-left: 10rpx">学校</text>
+                </view>
+                <view bindtap="toggle" data-wpytoggle-a="3" wx:if="{{items['3'].data.length>3}}">
+                    <text class="blue-color fz-13">{{items['3'].is_toggle?'查看更多':'收起'}}</text>
+                </view>
+            </view>
+            <view class="peripheral-content">
+                <block wx:for="{{items['3'].data}}" wx:key="key">
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{index<3&&items['3'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float: right;">{{item.distance}}米</view>
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                    </view>
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{!items['3'].is_toggle}}">
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                        <view class="fz-12 gray-9-color">{{item.distance}}米</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="peripheral-bg" wx:if="{{items['4'].data}}">
+        <view class="peripheral">
+            <view class="title">
+                <view>
+                    <text class="iconfont icon-yiyuan fz-18 small-level-color"></text>
+                    <text class="fz-13 small-level-color" style="padding-left: 10rpx">医院</text>
+                </view>
+                <view bindtap="toggle" data-wpytoggle-a="4" wx:if="{{items['4'].data.length>3}}">
+                    <text class="blue-color fz-13">{{items['4'].is_toggle?'查看更多':'收起'}}</text>
+                </view>
+            </view>
+            <view class="peripheral-content">
+                <block wx:for="{{items['4'].data}}" wx:key="key">
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{index<3&&items['4'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float: right;">{{item.distance}}米</view>
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                    </view>
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{!items['4'].is_toggle}}">
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                        <view class="fz-12 gray-9-color">{{item.distance}}米</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="peripheral-bg" wx:if="{{items['5'].data}}">
+        <view class="peripheral">
+            <view class="title">
+                <view>
+                    <text class="iconfont icon-yinhang fz-18 small-level-color"></text>
+                    <text class="fz-13 small-level-color" style="padding-left: 10rpx">银行</text>
+                </view>
+                <view bindtap="toggle" data-wpytoggle-a="5" wx:if="{{items['5'].data.length>3}}">
+                    <text class="blue-color fz-13">{{items['5'].is_toggle?'查看更多':'收起'}}</text>
+                </view>
+            </view>
+            <view class="peripheral-content">
+                <block wx:for="{{items['5'].data}}" wx:key="key">
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{index<3&&items['5'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float: right;">{{item.distance}}米</view>
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                    </view>
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{!items['5'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float: right">{{item.distance}}米</view>
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="peripheral-bg" wx:if="{{items['6'].data}}">
+        <view class="peripheral">
+            <view class="title">
+                <view>
+                    <text class="iconfont icon-meishi fz-18 small-level-color"></text>
+                    <text class="fz-13 small-level-color" style="padding-left: 10rpx">美食</text>
+                </view>
+                <view bindtap="toggle" data-wpytoggle-a="6" wx:if="{{items['6'].data.length>3}}">
+                    <text class="blue-color fz-13">{{items['6'].is_toggle?'查看更多':'收起'}}</text>
+                </view>
+            </view>
+            <view class="peripheral-content">
+                <block wx:for="{{items['6'].data}}" wx:key="key">
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{index<3&&items['6'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float:right;">{{item.distance}}米</view>
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                    </view>
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{!items['6'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float:right;">{{item.distance}}米</view>
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="peripheral-bg" wx:if="{{items['7'].data}}">
+        <view class="peripheral">
+            <view class="title">
+                <view>
+                    <text class="iconfont icon-gouwu fz-18 small-level-color"></text>
+                    <text class="fz-13 small-level-color" style="padding-left: 10rpx">购物</text>
+                </view>
+                <view bindtap="toggle" data-wpytoggle-a="7" wx:if="{{items['7'].data.length>3}}">
+                    <text class="blue-color fz-13">{{items['7'].is_toggle?'查看更多':'收起'}}</text>
+                </view>
+            </view>
+            <view class="peripheral-content">
+                <block wx:for="{{items['7'].data}}" wx:key="key">
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{index<3&&items['7'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float:right;">{{item.distance}}米</view>
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                    </view>
+                    <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{!items['7'].is_toggle}}">
+                        <view class="fz-12 gray-9-color" style="float:right;">{{item.distance}}米</view>
+                        <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="peripheral white-bg" style="border-top:20rpx solid #f7f7f7" wx:if="{{items['8'].data}}">
+        <view class="title" style="background: #fff">
+            <view>
+                <text class="iconfont icon-loupan fz-18 small-level-color"></text>
+                <text class="fz-13 small-level-color" style="padding-left: 10rpx">周边楼盘</text>
+            </view>
+            <view bindtap="toggle" data-wpytoggle-a="8" wx:if="{{items['8'].data.length>3}}">
+                <text class="blue-color fz-13">{{items['8'].is_toggle?'查看更多':'收起'}}</text>
+            </view>
+        </view>
+        <view class="peripheral-content">
+            <block wx:for="{{items['8'].data}}" wx:key="key">
+                <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{index<3&&items['8'].is_toggle}}">
+                    <view class="fz-12 gray-9-color" style="float:right;">{{item.distance}}米</view>
+                    <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                </view>
+                <view bindtap="showMarker" class="peripheral-line" data-wpyshowmarker-a="{{item.long}}" data-wpyshowmarker-b="{{item.lat}}" data-wpyshowmarker-c="{{item.title}}" wx:if="{{!items['8'].is_toggle}}">
+                    <view class="fz-12 gray-9-color" style="float:right;">{{item.distance}}米</view>
+                    <view class="peripheral-line-left fz-14 black-color">{{item.title}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+<view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+    <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+        <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+    </navigator>
+</view>

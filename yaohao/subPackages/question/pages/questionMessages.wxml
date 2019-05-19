@@ -1,0 +1,35 @@
+<view class="page" wx:if="{{messageList.length>0}}">
+    <block wx:for="{{messageList}}" wx:key="key">
+        <view class="messages-date">
+            <text class="fz-13 black-color">{{item.time}}</text>
+        </view>
+        <navigator class="messages w-cell" hoverClass="none" url="{{val.url}}" wx:for="{{item.data}}" wx:for-item="val" wx:key="key">
+            <view class="avatar">
+                <image src="{{val.user_avatar_url||defaultAvatar}}"></image>
+            </view>
+            <view class="nickname-and-desc">
+                <view class="cont">
+                    <view class="top-name">
+                        <text class="name fz-13 black-color">{{val.user_name||'匿名'}}</text>
+                        <text class="small-level-color fz-13" style="margin: 0 12rpx">{{val.type==7?'':val.type==6?'回答了你：':'评论了你：'}}</text>
+                        <text class="project-name fz-13 height-level-color">{{val.comment}}</text>
+                    </view>
+                    <view class="desc height-level-color">
+                        <text class="fz-13 height-level-color" style="margin-left: 24rpx">{{val.my_name}}:</text>
+                        <text class="fz-13 small-level-color">{{val.my_comment}}</text>
+                    </view>
+                </view>
+                <view class="fz-10 small-level-color bottom-date">{{val.time}}</view>
+            </view>
+        </navigator>
+    </block>
+    <view class="footer fz-10 gray-9-color">我以为我没有底线</view>
+    <view class="back-home" style="bottom:{{$BackHome$bottom}}rpx" wx:if="{{showHome}}">
+        <navigator openType="{{$BackHome$openType}}" url="{{$BackHome$url}}">
+            <text class="backHome fz-12 white-color">{{$BackHome$text}}</text>
+        </navigator>
+    </view>
+</view>
+<view class="nothing" wx:else>
+    <view class="nothing-text fz-13 small-level-color" wx:if="{{!loading}}">小主人暂时未收到任何消息</view>
+</view>
