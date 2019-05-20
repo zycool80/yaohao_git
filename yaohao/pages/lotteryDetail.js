@@ -969,6 +969,7 @@ var _slicedToArray = function () {
                             i.imageUrl = i.imageUrl.replace(/\["|"\]/ig, '');
                         });
                     }();
+                    console.log(self.houseList);
                     self.$apply();
 
                 });

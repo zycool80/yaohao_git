@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db069b01-66f9-4902-8df1-055e4727253a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/api/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/project.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/lotteryDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lotteryDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/lotteryDetail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lotteryDetail.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utilsKit/lib/tip.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utilsKit/lib/tip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/login.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="968" column="77" lean-forward="true" selection-start-line="968" selection-start-column="77" selection-end-line="968" selection-end-column="77" />
+            <state relative-caret-position="571">
+              <caret line="971" column="48" lean-forward="true" selection-start-line="971" selection-start-column="48" selection-end-line="971" selection-end-column="48" />
               <folding>
                 <element signature="n#!!block;n#_asyncToGenerator#0" />
                 <element signature="n#!!block;n#_classCallCheck#0" />
@@ -216,7 +212,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="253" />
     <option name="y" value="107" />
     <option name="width" value="1296" />
@@ -334,12 +330,12 @@
       <workItem from="1558272693860" duration="1189000" />
       <workItem from="1558274111660" duration="120000" />
       <workItem from="1558314058717" duration="110000" />
-      <workItem from="1558314180170" duration="27127000" />
+      <workItem from="1558314180170" duration="27336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28546000" />
+    <option name="totallyTimeSpent" value="28755000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -587,8 +583,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="968" column="77" lean-forward="true" selection-start-line="968" selection-start-column="77" selection-end-line="968" selection-end-column="77" />
+        <state relative-caret-position="571">
+          <caret line="971" column="48" lean-forward="true" selection-start-line="971" selection-start-column="48" selection-end-line="971" selection-end-column="48" />
           <folding>
             <element signature="n#!!block;n#_asyncToGenerator#0" />
             <element signature="n#!!block;n#_classCallCheck#0" />
