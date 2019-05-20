@@ -327,18 +327,12 @@ var _slicedToArray = function () {
             }, {
                 key: "reload",
                 value: function () {
-                    /*wx.request({
-                     url: 'http://www.gjwsite.com/api/app/common/getIndexInfo',
-                     success: function (res) {
-                     console.log(res);
-                     }
-                     });*/
                     var _this2 = this;
 
                     (0, _request2.default)({
                         url: '/api/app/common/getIndexInfo'
                     }).then(function (res) {
-                        console.log(res);
+                        //console.log(res);
                         _this2.banners = res.data.indexBanners;
                         _this2.top = res.data.houseStatusCount;
                         _this2.listData = res.data.articlesTT;

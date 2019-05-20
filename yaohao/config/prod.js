@@ -9,7 +9,7 @@ module.exports = {
     },
     service: {
         host: host,
-        loginUrl: host + "/subPackages/tools/pages/telLogin",
+        loginUrl: host + "/api/app/user/getWxUserInfo",
         requestUrl: host + "/user/info",
         tunnelUrl: host + "/weapp/tunnel",
         uploadUrl: host + "/weapp/upload"

@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db069b01-66f9-4902-8df1-055e4727253a" name="Default" comment="" />
+    <list default="true" id="db069b01-66f9-4902-8df1-055e4727253a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/index2_bak.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/app.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/LotteryItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/LotteryItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/prod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index2.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/lotteryDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lotteryDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/login.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,77 +24,227 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="105">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/index2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="381" selection-end-column="85" />
+            <state relative-caret-position="-420">
+              <caret line="56" column="49" selection-start-line="56" selection-start-column="49" selection-end-line="56" selection-end-column="49" />
               <folding>
-                <element signature="n#!!block;n#_classCallCheck#0" expanded="false" />
-                <element signature="n#!!block;n#_possibleConstructorReturn#0" expanded="false" />
-                <element signature="n#!!block;n#_inherits#0" expanded="false" />
-                <element signature="e#932#949#0" expanded="false" />
-                <element signature="e#1087#1894#0" expanded="false" />
-                <element signature="e#1929#2337#0" expanded="false" />
+                <element signature="n#!!block;n#_asyncToGenerator#0" />
+                <element signature="n#!!block;n#_classCallCheck#0" />
+                <element signature="n#!!block;n#_possibleConstructorReturn#0" />
+                <element signature="n#!!block;n#_inherits#0" />
+                <element signature="e#1622#1639#0" />
+                <element signature="e#1696#1939#0" />
+                <element signature="e#1969#2032#0" />
+                <element signature="e#3975#4627#0" />
+                <element signature="e#6525#7600#0" />
+                <element signature="e#7676#8576#0" />
+                <element signature="e#8652#9332#0" />
+                <element signature="e#9400#10317#0" />
+                <element signature="e#10389#10962#0" />
+                <element signature="e#11021#11720#0" />
+                <element signature="e#11802#12785#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.wxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/index.wxml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="252">
+              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/index2.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="29" column="74" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="74" />
+              <folding>
+                <element signature="n#style#0;n#view#0;n#block#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="607" column="7" lean-forward="true" selection-start-line="607" selection-start-column="7" selection-end-line="607" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="957" column="97" lean-forward="true" selection-start-line="957" selection-start-column="97" selection-end-line="957" selection-end-column="97" />
+              <folding>
+                <element signature="e#7580#8051#0" />
+                <element signature="e#8088#8640#0" />
+                <element signature="e#8679#9457#0" />
+                <element signature="e#9493#10084#0" />
+                <element signature="e#10125#10202#0" />
+                <element signature="e#10244#10322#0" />
+                <element signature="e#10360#12508#0" />
+                <element signature="e#12555#12852#0" />
+                <element signature="e#12896#12964#0" />
+                <element signature="e#13006#13172#0" />
+                <element signature="e#13214#13481#0" />
+                <element signature="e#13521#13822#0" />
+                <element signature="e#13868#14990#0" />
+                <element signature="e#15036#15097#0" />
+                <element signature="e#15141#15235#0" />
+                <element signature="e#15282#15365#0" />
+                <element signature="e#15407#15459#0" />
+                <element signature="e#15504#17969#0" />
+                <element signature="e#18008#18800#0" />
+                <element signature="e#20310#20907#0" />
+                <element signature="e#20945#21045#0" />
+                <element signature="e#21083#21151#0" />
+                <element signature="e#21192#21392#0" />
+                <element signature="e#21436#22663#0" />
+                <element signature="e#22704#22746#0" />
+                <element signature="e#22791#22924#0" />
+                <element signature="e#22969#23750#0" />
+                <element signature="e#23794#23862#0" />
+                <element signature="e#23907#24517#0" />
+                <element signature="e#24564#25595#0" />
+                <element signature="e#25638#27150#0" />
+                <element signature="e#27198#27271#0" />
+                <element signature="e#29066#29626#0" />
+                <element signature="e#30816#31295#0" />
+                <element signature="e#34492#36537#0" />
+                <element signature="e#36599#39264#0" />
+                <element signature="e#40696#41395#0" />
+                <element signature="e#41458#42190#0" />
+                <element signature="e#42253#43266#0" />
+                <element signature="e#43332#44599#0" />
+                <element signature="e#44669#46481#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/dev.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/prod.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/project.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="238" column="23" selection-start-line="238" selection-start-column="23" selection-end-line="238" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/LotteryItem.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="22" column="84" selection-start-line="22" selection-start-column="84" selection-end-line="22" selection-end-column="84" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>area/areaList</find>
+      <find>area</find>
+      <find>user/login2</find>
+      <find>areaList</find>
+      <find>areasListDatas</find>
+      <find>request</find>
+      <find>login</find>
+      <find>onReady</find>
+      <find>lotteries</find>
+      <find>housePage</find>
+      <find>aspectFit</find>
+      <find>areasDatas</find>
+      <find>title</find>
+      <find>switchNum</find>
+      <find>chooseArea</find>
+      <find>loading-icon</find>
+      <find>_asyncToGenerator</find>
+      <find>loadNext</find>
+      <find>reload</find>
+      <find>buildings/details</find>
+      <find>login.js</find>
+      <find>resetAreaData</find>
+      <find>emit</find>
+      <find>houseList</find>
+      <find>baseDetail</find>
+      <find>getDetails</find>
+      <find>api</find>
+      <find>showModal</find>
+      <find>parameter.content</find>
+      <find>telLogin</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/api/posts.js" />
+        <option value="$PROJECT_DIR$/utils/request.js" />
+        <option value="$PROJECT_DIR$/api/api.js" />
+        <option value="$PROJECT_DIR$/utils/utilsKit/index.js" />
+        <option value="$PROJECT_DIR$/components/LotteryItem.wxml" />
         <option value="$PROJECT_DIR$/pages/index.js" />
+        <option value="$PROJECT_DIR$/components/LotteryItem.js" />
+        <option value="$PROJECT_DIR$/pages/index2.js" />
+        <option value="$PROJECT_DIR$/pages/lotteryDetail.js" />
+        <option value="$PROJECT_DIR$/pages/lotteryDetail.wxml" />
+        <option value="$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/login.js" />
+        <option value="$PROJECT_DIR$/config/dev.js" />
+        <option value="$PROJECT_DIR$/config/prod.js" />
+        <option value="$PROJECT_DIR$/api/project.js" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="253" />
     <option name="y" value="107" />
     <option name="width" value="1296" />
     <option name="height" value="696" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -90,26 +253,81 @@
           <expand>
             <path>
               <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yaohao" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yaohao" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="npm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="npm" type="462c0819:PsiDirectoryNode" />
+              <item name="wepy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="npm" type="462c0819:PsiDirectoryNode" />
+              <item name="wepy" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="wafer2-client-sdk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="wafer2-client-sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pages" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\yaohao_git\yaohao\pages" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -123,9 +341,6 @@
       </list>
     </option>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -138,106 +353,290 @@
       <updated>1558272691759</updated>
       <workItem from="1558272693860" duration="1189000" />
       <workItem from="1558274111660" duration="120000" />
+      <workItem from="1558314058717" duration="110000" />
+      <workItem from="1558314180170" duration="21801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1309000" />
+    <option name="totallyTimeSpent" value="23220000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1663113" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.13991323" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/pages/index.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="630">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/posts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="134" column="4" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/GlobalModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3906" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="49" selection-start-column="49" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1974">
+          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/npm/wepy/lib/wepy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="93" lean-forward="true" selection-start-line="10" selection-start-column="93" selection-end-line="10" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/npm/wepy/lib/page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2250" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="381" selection-end-column="85" />
+        <state relative-caret-position="217">
+          <caret line="327" column="28" selection-start-line="327" selection-start-column="22" selection-end-line="327" selection-end-column="28" />
           <folding>
-            <element signature="n#!!block;n#_classCallCheck#0" expanded="false" />
-            <element signature="n#!!block;n#_possibleConstructorReturn#0" expanded="false" />
-            <element signature="n#!!block;n#_inherits#0" expanded="false" />
-            <element signature="e#932#949#0" expanded="false" />
-            <element signature="e#1087#1894#0" expanded="false" />
-            <element signature="e#1929#2337#0" expanded="false" />
+            <element signature="n#!!block;n#_interopRequireDefault#0" />
+            <element signature="n#!!block;n#_classCallCheck#0" />
+            <element signature="n#!!block;n#_possibleConstructorReturn#0" />
+            <element signature="n#!!block;n#_inherits#0" />
+            <element signature="e#932#949#0" />
+            <element signature="e#1114#1648#0" />
+            <element signature="e#3303#4685#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index.wxml">
+    <entry file="file://$PROJECT_DIR$/components/LotteryItem.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#text#1;n#view#2;n#view#0;n#navigator#0;n#view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#view#1;n#view#1;n#navigator#0;n#view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/npm/regenerator-runtime/runtime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="147" column="30" selection-start-line="147" selection-start-column="30" selection-end-line="147" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/wafer2-client-sdk/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="74" selection-start-column="74" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/utilsKit/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/utilsKit/lib/wx_request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5166">
+          <caret line="343" column="4" selection-start-line="343" selection-start-column="4" selection-end-line="343" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index2.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="29" column="74" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="74" />
+          <folding>
+            <element signature="n#style#0;n#view#0;n#block#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/LotteryItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="22" column="84" selection-start-line="22" selection-start-column="84" selection-end-line="22" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index2_bak.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
+          <caret line="74" selection-start-line="74" selection-end-line="75" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/pages/index2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="381" selection-end-column="85" />
+        <state relative-caret-position="-420">
+          <caret line="56" column="49" selection-start-line="56" selection-start-column="49" selection-end-line="56" selection-end-column="49" />
           <folding>
-            <element signature="n#!!block;n#_classCallCheck#0" expanded="false" />
-            <element signature="n#!!block;n#_possibleConstructorReturn#0" expanded="false" />
-            <element signature="n#!!block;n#_inherits#0" expanded="false" />
-            <element signature="e#932#949#0" expanded="false" />
-            <element signature="e#1087#1894#0" expanded="false" />
-            <element signature="e#1929#2337#0" expanded="false" />
+            <element signature="n#!!block;n#_asyncToGenerator#0" />
+            <element signature="n#!!block;n#_classCallCheck#0" />
+            <element signature="n#!!block;n#_possibleConstructorReturn#0" />
+            <element signature="n#!!block;n#_inherits#0" />
+            <element signature="e#1622#1639#0" />
+            <element signature="e#1696#1939#0" />
+            <element signature="e#1969#2032#0" />
+            <element signature="e#3975#4627#0" />
+            <element signature="e#6525#7600#0" />
+            <element signature="e#7676#8576#0" />
+            <element signature="e#8652#9332#0" />
+            <element signature="e#9400#10317#0" />
+            <element signature="e#10389#10962#0" />
+            <element signature="e#11021#11720#0" />
+            <element signature="e#11802#12785#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index.wxml">
+    <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="607" column="7" lean-forward="true" selection-start-line="607" selection-start-column="7" selection-end-line="607" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/dev.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/prod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="957" column="97" lean-forward="true" selection-start-line="957" selection-start-column="97" selection-end-line="957" selection-end-column="97" />
+          <folding>
+            <element signature="e#7580#8051#0" />
+            <element signature="e#8088#8640#0" />
+            <element signature="e#8679#9457#0" />
+            <element signature="e#9493#10084#0" />
+            <element signature="e#10125#10202#0" />
+            <element signature="e#10244#10322#0" />
+            <element signature="e#10360#12508#0" />
+            <element signature="e#12555#12852#0" />
+            <element signature="e#12896#12964#0" />
+            <element signature="e#13006#13172#0" />
+            <element signature="e#13214#13481#0" />
+            <element signature="e#13521#13822#0" />
+            <element signature="e#13868#14990#0" />
+            <element signature="e#15036#15097#0" />
+            <element signature="e#15141#15235#0" />
+            <element signature="e#15282#15365#0" />
+            <element signature="e#15407#15459#0" />
+            <element signature="e#15504#17969#0" />
+            <element signature="e#18008#18800#0" />
+            <element signature="e#20310#20907#0" />
+            <element signature="e#20945#21045#0" />
+            <element signature="e#21083#21151#0" />
+            <element signature="e#21192#21392#0" />
+            <element signature="e#21436#22663#0" />
+            <element signature="e#22704#22746#0" />
+            <element signature="e#22791#22924#0" />
+            <element signature="e#22969#23750#0" />
+            <element signature="e#23794#23862#0" />
+            <element signature="e#23907#24517#0" />
+            <element signature="e#24564#25595#0" />
+            <element signature="e#25638#27150#0" />
+            <element signature="e#27198#27271#0" />
+            <element signature="e#29066#29626#0" />
+            <element signature="e#30816#31295#0" />
+            <element signature="e#34492#36537#0" />
+            <element signature="e#36599#39264#0" />
+            <element signature="e#40696#41395#0" />
+            <element signature="e#41458#42190#0" />
+            <element signature="e#42253#43266#0" />
+            <element signature="e#43332#44599#0" />
+            <element signature="e#44669#46481#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="238" column="23" selection-start-line="238" selection-start-column="23" selection-end-line="238" selection-end-column="23" />
         </state>
       </provider>
     </entry>

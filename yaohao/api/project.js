@@ -223,7 +223,7 @@ var _require = require("./../utils/utilsKit/index.js"), wxRequest = _require.wxR
             lottery_id: e
         });
     }, getSwiperImage = function (t) {
-        return qcloudRequest("/buildings/images", {
+        return qcloudRequest("/api/bos/house/detail", {
             project_id: t
         });
     }, getIcon = function (t) {
@@ -235,7 +235,9 @@ var _require = require("./../utils/utilsKit/index.js"), wxRequest = _require.wxR
     }, getDetails = function (t) {
         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "",
             o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "";
-        return qcloudRequest("/buildings/details", {
+        return qcloudRequest("/api/bos/house/detail", {
+            type: 'last',
+            id: t,
             project_id: t,
             lottery_id: e,
             is_not_lottery: o

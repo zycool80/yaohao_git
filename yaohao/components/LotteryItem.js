@@ -19,12 +19,15 @@ Component({
     methods: {
         sendAnalysisHandle: function(e) {
             var t = e.currentTarget.dataset.item;
-            wx.$Analysis.emit("projectDetailClick", {
+            wx.navigateTo({
+                url: "lotteryDetail?project_id=" + t.id + "&project_name=" + t.title + "&lottery_id=" + t.id
+            });
+            /*wx.$Analysis.emit("projectDetailClick", {
                 project_id: t.project_id,
                 name: t.name,
                 area_id: t.area_id,
                 area: t.area
-            });
+            });*/
         },
         toUrlHandle: function(e) {
             var t = e.currentTarget.dataset.item;
