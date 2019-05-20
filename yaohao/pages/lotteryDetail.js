@@ -964,11 +964,10 @@ var _slicedToArray = function () {
                 }).then(function (res) {
                     console.log(res);
                     self.baseDetail = res.data.house;
-                    self.houseList = function () {
-                        return res.data.housePartImages.map(function (i,t) {
-                            i.imageUrl = i.imageUrl.replace(/\["|"\]/ig, '');
-                        });
-                    }();
+                    res.data.housePartImages.map(function (i,t) {
+                        i.imageUrl = i.imageUrl.replace(/\["|"\]/ig, '');
+                    });
+                    self.houseList = res.data.housePartImages;
                     console.log(self.houseList);
                     self.$apply();
 
