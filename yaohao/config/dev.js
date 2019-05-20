@@ -10,7 +10,7 @@ module.exports = {
     },
     service: {
         host: host,
-        loginUrl: host + "/user/login2",
+        loginUrl: host + "/subPackages/tools/pages/telLogin",
         requestUrl: host + "/user/info",
         tunnelUrl: host + "/weapp/tunnel",
         uploadUrl: host + "/weapp/upload"

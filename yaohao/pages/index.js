@@ -129,6 +129,45 @@ var _slicedToArray = function () {
                     housesYZ: [], // 优质楼盘
                     salesMan: [], // 优秀置业顾问推荐
                 }, n.methods = {
+                //
+                onTapNavigate: function onTapNavigate(url, name, m) {
+                    if ('热门文章' == name) {
+                        if ('more' == m) {
+                            wx.switchTab({ url: url });
+                        } else {
+                            wx.navigateTo({ url: url });
+                        }
+                    } else {
+                        wx.navigateTo({ url: url });
+                    }
+                },
+                onSubmitSwiper: function onSubmitSwiper(url, n) {
+                    this.sendFromID(n.detail.formId);
+                    wx.navigateTo({
+                        url: url
+                    });
+                },
+
+                getFormId: function getFormId(e) {
+                    this.sendFromID(e.detail.formId);
+                },
+                stopMoveHandle: function stopMoveHandle() {
+                    return false;
+                },
+                goToUrlHandle: function goToUrlHandle(url, type) {
+                    this.isShow = false;
+                    if (1 == type) {
+                        wx.switchTab({
+                            url: url
+                        });
+                    } else {
+                        wx.navigateTo({
+                            url: url
+                        });
+                    }
+                },
+
+
                 closeTipHandle: function () {
                     var e = new Date(),
                         t = e.getFullYear(),
@@ -138,13 +177,6 @@ var _slicedToArray = function () {
                     var i = t + "-" + a + "-" + n,
                         o = new Date(i).getTime() + 2592e5;
                     _index.cache.setWithTimeout("hide_tip_status", !0, o), this.showTip = !0, this.$apply();
-                },
-                toUrlHandle: function (e, t, a) {
-                    wx.$Analysis.emit("indexButtonClicks", {
-                        type: "最新摇号"
-                    }), wx.navigateTo({
-                        url: "/subPackages/comment/pages/project_comment?project_id=" + e + "&project_name=" + t + "&lottery_id=" + a
-                    });
                 },
                 swiperAdClickHandle: function (e, t) {
                     wx.$Analysis.emit("indexSwiperAdClick", {
@@ -159,9 +191,6 @@ var _slicedToArray = function () {
                         session_id: t.session_id
                     };
                     "left" === e ? wx.$Analysis.emit("indexSalesmanLeftClick", a) : wx.$Analysis.emit("indexSalesmanRightClick", a);
-                },
-                stopMoveHandle: function () {
-                    return !1;
                 },
                 closeUpdateHandle: function () {
                     this.showUpdataView = !1;
@@ -200,20 +229,6 @@ var _slicedToArray = function () {
                      }) : (wx.navigateTo({
                      url: e
                      });*/
-                },
-                getFormId: function (e) {
-                    this.sendFromID(e.detail.formId);
-                },
-                goToUrlHandle: function (e, t, a) {
-                    this.isShow = !1, 1 == t ? wx.switchTab({
-                        url: e
-                    }) : wx.navigateTo({
-                        url: e
-                    }), a ? wx.$Analysis.emit("indexAlertClick", {
-                        message_id: a
-                    }) : wx.$Analysis.emit("indexButtonClicks", {
-                        type: "头条"
-                    });
                 },
                 closeHideHandle: function () {
                     this.isShow = !1, this.$apply(), wx.$Analysis.emit("indexAlertClose", {

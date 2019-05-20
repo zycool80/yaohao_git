@@ -92,7 +92,7 @@ function request(param) {
     //   requestData.header.Authorization = `Bearer ${this.globalData.token}`
     // }
     if (Debug) {
-      (0, _util.logInfo)(param.url, '发起请求:');
+      //(0, _util.logInfo)(param.url, '发起请求:');
     }
     wx.showNavigationBarLoading();
     wx.request(requestData);

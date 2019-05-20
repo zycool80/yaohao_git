@@ -3,27 +3,27 @@
         <view class="hot_house_img">
             <view class="gray-shadow"></view>
             <image class="lottery-img gray-bg" lazyLoad="true" mode="aspectFill" src="{{item.cover}}"></image>
-            <view class="lottery-img-bottom white-color fz-10" wx:if="{{item.list_tag}}">{{item.list_tag}}</view>
+            <view class="lottery-img-bottom white-color fz-10" wx:if="{{item.buyStatus}}">{{item.buyStatus}}</view>
             <view class="view white-color">
                 <text class="fz-15 iconfont icon-chakanzhong"></text>
-                <text class="fz-11" style="margin-left:5rpx">{{item.page_views}}</text>
+                <text class="fz-11" style="margin-left:5rpx">{{item.showCount}}</text>
             </view>
         </view>
         <view class="weui-media-box__bd">
             <view class="weui-media-box__title" style="line-height:44rpx">
-                <view class="right red-color fz-14" wx:if="{{!!item.avg_price&&item.avg_price!='0'}}">¥{{item.avg_price}}</view>
-                <view class="right red-color fz-14" style="margin-right:20rpx" wx:if="{{!item.avg_price||item.avg_price=='0'}}">待定</view>
-                <view class="title_name left fz-14 font-bold">{{item.name}}</view>
+                <view class="right red-color fz-14" wx:if="{{!!item.unitPrice&&item.unitPrice!='0'}}">¥{{item.unitPrice}}</view>
+                <view class="right red-color fz-14" style="margin-right:20rpx" wx:if="{{!item.unitPrice||item.unitPrice=='0'}}">待定</view>
+                <view class="title_name left fz-14 font-bold">{{item.title}}</view>
             </view>
             <view class="tags" style="margin:14rpx 0">
-                <text class="tag fz-10" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="key">{{tag}}</text>
-                <view class="fz-12 black1a-color" style="float:right;line-height:36rpx">{{item.area}}</view>
+                <text class="tag fz-10" wx:for="{{item.tuijianType}}" wx:for-item="tag" wx:key="key">{{tag}}</text>
+                <view class="fz-12 black1a-color" style="float:right;line-height:36rpx">{{item.district}}</view>
             </view>
             <view class="list_bottom small-level-color fz-12" style="margin-top: 10rpx">
-                <view style="float: left">{{item.result_publish_time}}</view>
+                <view style="float: left">{{item.yaohaoshijian}}</view>
                 <view catchtap="toUrlHandle" class="lottery_item_comment gray-9-color" data-item="{{item}}">
                     <text class="iconfont icon-xiaoxi5 fz-14"></text>
-                    <text class="fz-12"> {{item.comment_num}}</text>
+                    <text class="fz-12"> {{item.commentCount}}</text>
                 </view>
             </view>
         </view>
