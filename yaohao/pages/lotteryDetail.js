@@ -72,6 +72,9 @@ Object.defineProperty(exports, "__esModule", {
     value: !0
 });
 
+var _request = require('./../utils/request.js');
+var _request2 = _interopRequireDefault(_request);
+
 var _slicedToArray = function () {
         function e(e, t) {
             var a = [], n = !0, i = !1, r = void 0;
@@ -511,11 +514,11 @@ var _slicedToArray = function () {
                     });
                 },
                 toRulesHandle: function (e, t) {
-                    wx.showLoading({
+                    /*wx.showLoading({
                         title: "加载中..."
                     }), wx.$Analysis.emit("estateLotDetailsClicks", {
                         name: t
-                    });
+                    });*/
                     var a = ["doc", "xls", "pdf", "docx", "xlsx"], n = "doc";
                     if (/(\.jpg|\.png|\.jpeg|\.gif)$/i.test(e)) wx.hideLoading(), wx.previewImage({
                         urls: [e]
@@ -742,9 +745,9 @@ var _slicedToArray = function () {
             key: "onLoad",
             value: function (e) {
                 var t = this;
-                this.pageInit(e), _pageStack.push(e), wx.showLoading({
+                this.pageInit(e), _pageStack.push(e), /*wx.showLoading({
                     title: "加载中"
-                }), this.loadBaseDetailInfo().then(function () {
+                }), */this.loadBaseDetailInfo().then(function () {
                     if (e.redirect) {
                         var a = decodeURIComponent(e.redirect);
                         wx.navigateTo({
@@ -951,38 +954,58 @@ var _slicedToArray = function () {
         }, {
             key: "loadBaseDetailInfo",
             value: function () {
-                var e = this;
+                var self = this;
+
+                (0, _request2.default)({
+                    url: '/api/bos/house/detail',
+                    data: {
+                        id: self.project_id
+                    }
+                }).then(function (res) {
+                    console.log(res);
+                    self.baseDetail = res.data.house;
+                    self.houseList = function () {
+                        return res.data.housePartImages.map(function (i,t) {
+                            i.imageUrl = i.imageUrl.replace(/\["|"\]/ig, '');
+                        });
+                    }();
+                    self.$apply();
+
+                });
+
+
                 // base info
                 //console.log('loadBaseDetailInfo');
-                return new Promise(function (t) {
+                /*return new Promise(function (t) {
                     Promise.all([_api2.default.getSwiperImage(e.project_id), _api2.default.getDetails(e.project_id, e.id, e.is_not_lottery)]).then(function (x) {
-                        /*var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : res,
+                        /!*var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : res,
                             n = _slicedToArray(a, 4), i = n[0], r = n[1], o = n[2], s = n[3];
                         e.priceList = i.data.prices ? common.toJSON(i.data.prices) : [], e.swiperList = r.data,
                             e.baseDetail = o.data, e.shareMessage = s.data, e.baseDetail.not_lottery && (e.not_lottery_total = e.baseDetail.not_lottery.reduce(function (e, t) {
                             return e += t.surplus_count ? parseInt(t.surplus_count) : 0;
                         }, 0)), e.id = e.baseDetail.lottery_id, wx.setNavigationBarTitle({
                             title: "摇号助手-" + e.baseDetail.name
-                        }), e.$apply(), t();*/
+                        }), e.$apply(), t();*!/
 
                         var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : res,
                             n = _slicedToArray(a, 4), i = n[0], r = n[1], o = n[2], s = n[3];
 
-                        console.log(x);
-                        console.log(a);
+                        console.log(arguments);
 
                         e.$apply();
 
                     }).catch(function (e) {
                         t();
                     });
-                });
+                });*/
             }
         }, {
             key: "secondScreen",
             value: function () {
                 var e = this;
-                return new Promise(function (t) {
+                // 户型图
+                console.log('huxingtu');
+                /*return new Promise(function (t) {
                     Promise.all([_api2.default.houseTypePhotos(e.project_id, e.id, 0, e.id ? 1 : ""), _api2.default.getLotsalesMan(e.project_id), _api2.default.getLotCategories(e.id)]).then(function () {
                         var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : res,
                             n = _slicedToArray(a, 3), i = n[0], r = n[1], o = n[2];
@@ -991,12 +1014,12 @@ var _slicedToArray = function () {
                     }).catch(function (e) {
                         t();
                     });
-                });
+                });*/
             }
         }, {
             key: "lastScreen",
             value: function () {
-                var e = this;
+                /*var e = this;
                 return new Promise(function (t) {
                     Promise.all([_api2.default.getlotButtonList(e.id), _api2.default.getLotLines(e.id), _api2.default.getDynamic(e.project_id, "", "1", "")]).then(function () {
                         var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : res,
@@ -1008,12 +1031,12 @@ var _slicedToArray = function () {
                     }).catch(function (e) {
                         t();
                     });
-                });
+                });*/
             }
         }, {
             key: "fourScreen",
             value: function () {
-                var e = this;
+                /*var e = this;
                 return new Promise(function (t) {
                     Promise.all([_api2.default.historyLottery(e.project_id, e.id), _api2.default.getProjectCommentList(e.project_id), _api2.default.projectArticles(e.project_id), _api2.default.guessYouLike(e.project_id, 1), _api2.default.getLotMaterial(e.id, e.project_id)]).then(function () {
                         var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : res,
@@ -1028,7 +1051,7 @@ var _slicedToArray = function () {
                     }).catch(function (e) {
                         t();
                     });
-                });
+                });*/
             }
         }, {
             key: "loadOtherData",

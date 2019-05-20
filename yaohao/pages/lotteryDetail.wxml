@@ -59,7 +59,7 @@
                     <view bindtap="toProjectHandle" class="alia-overflow">
                         <text class="fz-13 gray-9-color alia-name">楼盘地址</text>
                         <view class="alia-left fz-13 black1a-color">
-                            <text class="alia-left-address">{{baseDetail.area}}-{{baseDetail.project_location||''}}</text>
+                            <text class="alia-left-address">{{baseDetail.address}}-{{baseDetail.project_location||''}}</text>
                             <text class="iconfont icon-weizhi1 blue-color-ext fz-13"></text>
                         </view>
                     </view>
@@ -76,7 +76,7 @@
                                 </text>
                             </block>
                             <view class="alia-left alia-price" wx:else>
-                                <text class="font-bold fz-14 prize-color top-color" style="line-height: 1;">{{baseDetail.avg_price?baseDetail.avg_price+'元/㎡':'待定'}}</text>
+                                <text class="font-bold fz-14 prize-color top-color" style="line-height: 1;">{{baseDetail.unitPrice?baseDetail.unitPrice+'元/㎡':'待定'}}</text>
                                 <text class="top-color fz-12 gray-9-color" wx:if="{{baseDetail.price_type}}">({{baseDetail.price_type}})</text>
                             </view>
                             <view class="fz-11 gray-9-color">参考单价</view>
@@ -84,8 +84,8 @@
                     </view>
                     <view class="total-price">
                         <view class="alia-right alia-price">
-                            <block wx:if="{{baseDetail.total_price}}">
-                                <text class="font-bold fz-15 alia-right prize-color">{{baseDetail.total_price}}/套</text>
+                            <block wx:if="{{baseDetail.totalPrice}}">
+                                <text class="font-bold fz-15 alia-right prize-color">{{baseDetail.totalPrice}}/套</text>
                                 <text class="fz-12 gray-9-color">(起)</text>
                             </block>
                             <text class="font-bold fz-14 alia-right prize-color" wx:else>暂无</text>
@@ -115,27 +115,27 @@
             <view class="introduce">
                 <view class="item fz-13">
                     <view class="title gray-9-color">容积率:</view>
-                    <text class="num black1a-color">{{baseDetail.rongji_ratio||'暂无'}}</text>
+                    <text class="num black1a-color">{{baseDetail.greenRatio||'暂无'}}</text>
                 </view>
                 <view class="item fz-13">
                     <view class="title gray-9-color">绿化率:</view>
-                    <text class="num black1a-color">{{baseDetail.lvhua_ratio||'暂无'}}</text>
+                    <text class="num black1a-color">{{baseDetail.greenRatio||'暂无'}}</text>
                 </view>
                 <view class="item fz-13">
                     <view class="title gray-9-color">总户数:</view>
-                    <text class="num black1a-color">{{baseDetail.total_rooms||'暂无'}}</text>
+                    <text class="num black1a-color">{{baseDetail.totalHouseHolds||'暂无'}}</text>
                 </view>
                 <view class="item fz-13">
                     <view class="title gray-9-color">车位数:</view>
-                    <text class="num black1a-color carnum">{{baseDetail.car_rooms||'暂无'}}</text>
+                    <text class="num black1a-color carnum">{{baseDetail.totalCarHolds||'暂无'}}</text>
                 </view>
                 <view class="item fz-13">
                     <view class="title gray-9-color">物业类型:</view>
-                    <text class="black1a-color wuye">{{baseDetail.wuye_type||'暂无'}}</text>
+                    <text class="black1a-color wuye">{{baseDetail.zhuhuxing||'暂无'}}</text>
                 </view>
                 <view class="item fz-13">
                     <view class="title gray-9-color">环线:</view>
-                    <text class="black1a-color">{{baseDetail.loop_line||'暂无'}}</text>
+                    <text class="black1a-color">{{baseDetail.huanxian||'暂无'}}</text>
                 </view>
             </view>
             <navigator bindtap="estateDetailsHandle" class="common-button blue-color-ext fz-13" hoverClass="none" style="margin-top:10rpx" url="/subPackages/project/pages/projectDetail?lottery_id={{id}}&project_id={{project_id}}">查看更多</navigator>
@@ -197,18 +197,18 @@
                 <view class="statement-container">
                     <block wx:for="{{houseList}}" wx:key="key">
                         <view bindtap="toHouseTypeHandle" class="house-item" data-wpytohousetypehandle-a="{{item.id}}" wx:if="{{isComplete!=1}}">
-                            <image mode="aspectFill" src="{{item.image}}"></image>
-                            <view class="title">{{item.num_bed_room}}室{{item.num_living_room}}厅{{item.num_rest_room}}卫 {{item.outer_square}}{{item.outer_square>0?'㎡':''}}</view>
+                            <image mode="aspectFill" src="{{item.imageUrl}}"></image>
+                            <view class="title">{{item.title}}<!--{{item.num_bed_room}}室{{item.num_living_room}}厅{{item.num_rest_room}}卫 {{item.outer_square}}{{item.outer_square>0?'㎡':''}}--></view>
                             <view class="info fz-10">
-                                <text wx:if="{{item.sales_status==1}}">在售</text>
-                                <text wx:if="{{item.sales_status==2}}">待售</text>
-                                <text wx:if="{{item.sales_status==3}}">售罄</text>
+                                <text wx:if="{{item.status==1}}">在售</text>
+                                <text wx:if="{{item.status==2}}">待售</text>
+                                <text wx:if="{{item.status==3}}">售罄</text>
                                 <text wx:if="{{item.tags.length>0}}" wx:for="{{item.tags}}" wx:for-item="tagsItem" wx:key="key">{{tagsItem}}</text>
                             </view>
                             <view class="price fz-12" wx:if="{{item.price_total>0}}">约{{item.price_total}}万/套</view>
                         </view>
                         <view bindtap="openPreviewImg" class="house-item" data-wpyopenpreviewimg-a="{{index}}" wx:else>
-                            <image mode="aspectFill" src="{{item.image}}"></image>
+                            <image mode="aspectFill" src="{{item.imageUrl}}"></image>
                         </view>
                     </block>
                 </view>

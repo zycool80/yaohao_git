@@ -23,9 +23,9 @@ Tips.extend = function(n) {
     },
     showModal: function(n) {
         return new Promise(function(i) {
-            wx.showModal({
+            /*wx.showModal({
                 title: "提示",
-                content: n,
+                content: n ? n : '',
                 showCancel: !1,
                 success: function(n) {
                     i(n.confirm ? !0 : !1);
@@ -33,7 +33,7 @@ Tips.extend = function(n) {
                 fail: function() {
                     i();
                 }
-            });
+            });*/
         });
     },
     confirm: function(n) {
@@ -84,10 +84,10 @@ Tips.extend = function(n) {
     },
     loading: function() {
         var n = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "加载中";
-        Tips.isLoading || (Tips.isLoading = !0, wx.showLoading({
-            title: n,
+        /*Tips.isLoading || (Tips.isLoading = !0, wx.showLoading({
+            title: n ? n : '',
             mask: !0
-        }));
+        }));*/
     },
     loaded: function() {
         Tips.isLoading && (Tips.isLoading = !1, wx.hideLoading());

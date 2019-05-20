@@ -247,7 +247,7 @@ var _require = require("./../utils/utilsKit/index.js"), wxRequest = _require.wxR
             lottery_id: t
         });
     }, getLotsalesMan = function (t) {
-        return qcloudRequest("/buildings/salesMan", {
+        return qcloudRequest("/api/app/user/getBindUser", {
             project_id: t
         });
     }, getLotLines = function (t) {
