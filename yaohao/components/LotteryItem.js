@@ -20,7 +20,7 @@ Component({
         sendAnalysisHandle: function(e) {
             var t = e.currentTarget.dataset.item;
             wx.navigateTo({
-                url: "lotteryDetail?project_id=" + t.id + "&project_name=" + t.title + "&lottery_id=" + t.id
+                url: "lotteryDetail?project_id=" + t.id + "&project_name=" + t.title + "&lottery_id=" + t.id + '&id=' + t.id
             });
             /*wx.$Analysis.emit("projectDetailClick", {
                 project_id: t.project_id,

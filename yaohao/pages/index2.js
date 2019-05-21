@@ -208,7 +208,7 @@ var _createClass = function() {
             (0, _request2.default)({
                 url: '/api/bos/house/housePage'
             }).then(function (res) {
-                self.lotteries = res.data.content;
+                self.lotteries = self.lotteries.concat(res.data.content);
                 self.page >= res.data.last || !res.data.last ? self.more = !1 : self.page++;
                 self.$apply();
             });

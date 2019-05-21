@@ -761,6 +761,9 @@ var _slicedToArray = function () {
                     }
                     return t.loadOtherData();
                 }).then(), wx.hideLoading();*/
+                var t = this;
+                this.pageInit(e);
+                _pageStack.push(e);
                 this.loadBaseDetailInfo();
             }
         }, {
@@ -784,7 +787,7 @@ var _slicedToArray = function () {
         }, {
             key: "onReady",
             value: function () {
-                function e(e) {
+                /*function e(e) {
                     var t = this, n = e.scrollTop;
                     a().then(function (e) {
                         if (n > e.swiper) {
@@ -810,7 +813,7 @@ var _slicedToArray = function () {
 
                 this.lazyloadPageDatas(), _lotNavbarStack.push(common.deepCopy(this.navbarItems));
                 var a = this.getNavbarItemsTop();
-                a().then(), this.scrollPageFn = underscore.throttle(e, 400), this.navbarItemClickFn = underscore.throttle(t, 200);
+                a().then(), this.scrollPageFn = underscore.throttle(e, 400), this.navbarItemClickFn = underscore.throttle(t, 200);*/
             }
         }, {
             key: "onUnload",
@@ -962,6 +965,7 @@ var _slicedToArray = function () {
             key: "loadBaseDetailInfo",
             value: function () {
                 var self = this;
+                console.log(self);
 
                 (0, _request2.default)({
                     url: '/api/bos/house/detail',

@@ -76,7 +76,7 @@ var _require = require("./../utils/utilsKit/index.js"), wxRequest = _require.wxR
     }, lotteryPhotos = function (t) {
         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 1,
             o = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 1;
-        return qcloudRequest("/project2/photos3", {
+        return qcloudRequest("/subPackages/project/pages/photos", {
             project_id: t,
             type: e,
             page: o

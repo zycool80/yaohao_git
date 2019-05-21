@@ -11,7 +11,7 @@
             <view bindtap="clickMenuHandle" class="topBarItem {{item.ischecked?'active':''}}" data-wpyclickmenuhandle-a="{{item.id}}" data-wpyclickmenuhandle-b="{{index}}" wx:for="{{navbarItems}}" wx:key="key">{{item.title}}</view>
         </view>
         <view class="top-swiper" id="top-swiper">
-            <swiper autoplay="{{false}}" bindchange="onSlideChangeEnd" bindtap="toPhotosHandle" current="{{swiperIndex}}" wx:if="{{!!self.houseAlbum.photos.length}}">
+            <swiper autoplay="{{false}}" bindchange="onSlideChangeEnd" bindtap="toPhotosHandle" current="{{swiperIndex}}" wx:if="{{true}}">
                 <swiper-item catchtap="playVideoHandle" wx:if="{{baseDetail.video_url}}">
                     <image class="gray-bg video-pre" lazyLoad="{{true}}" mode="aspectFill" src="{{swiperList.cover}}"></image>
                     <view class="iconfont icon-bofangda white-color font-bold video-img"></view>
