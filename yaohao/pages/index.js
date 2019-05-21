@@ -328,7 +328,7 @@ var _slicedToArray = function () {
                 key: "reload",
                 value: function () {
                     var _this2 = this;
-
+                    //console.log(_this2);
                     (0, _request2.default)({
                         url: '/api/app/common/getIndexInfo'
                     }).then(function (res) {

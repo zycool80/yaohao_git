@@ -669,10 +669,10 @@ var _slicedToArray = function () {
                     });
                 },
                 btnEventTrack: function (e) {
-                    wx.$Analysis.sendEvent(e, {
+                    /*wx.$Analysis.sendEvent(e, {
                         name: this.baseDetail.name,
                         project_id: this.baseDetail.project_id
-                    });
+                    });*/
                 },
                 shake: function (e) {
                     return wx.$Analysis.emit("estateLotDetailsClicks", {
@@ -965,7 +965,7 @@ var _slicedToArray = function () {
             key: "loadBaseDetailInfo",
             value: function () {
                 var self = this;
-                console.log(self);
+                //console.log(self);
 
                 (0, _request2.default)({
                     url: '/api/bos/house/detail',

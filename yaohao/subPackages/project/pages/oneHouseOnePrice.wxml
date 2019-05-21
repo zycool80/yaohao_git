@@ -41,7 +41,7 @@
                 <view style="padding: 26rpx 30rpx;position: relative;">
                     <view class="item-header">
                         <view class="item-header-left" style="position: relative;">
-                            <text class="fz-14 font-bold">{{item.name}}</text>
+                            <text class="fz-14 font-bold">{{item.loudong}}栋{{item.danyuan}}单元{{item.louceng}}层{{item.fangjianhao}}</text>
                             <view class="building-mark layout-center {{item.usage_type=='住宅'?'back-color':'back-color3'}}" wx:if="{{item.usage_type}}">
                                 <text class="fz-10">{{item.usage_type}}</text>
                             </view>
@@ -50,8 +50,8 @@
                             </view>
                             <text bindtap="showHardcover" class="iconfont icon-wentiquestions1 fz-13" style="margin-left: 10rpx;color: #666565" wx:if="{{item.decoration_type=='精装'}}"></text>
                         </view>
-                        <view class="item-header-right" wx:if="{{item.price&&item.price>0}}">
-                            <text class="fz-14 font-bold" style="color: #f7462a">{{item.price}}万</text>
+                        <view class="item-header-right" wx:if="{{item.zongjia&&item.zongjia>0}}">
+                            <text class="fz-14 font-bold" style="color: #f7462a">{{item.price_total}}万</text>
                         </view>
                         <view class="item-header-right" wx:else>
                             <text class="fz-14 font-bold" style="color: #f7462a">待定</text>
@@ -62,20 +62,20 @@
                             <text class="fz-11">{{item.house_type}}</text>
                         </view>
                         <view class="building-type" wx:if="{{item.total_square&&item.total_square>0}}">
-                            <text class="fz-11">{{item.total_square}}㎡</text>
+                            <text class="fz-11">{{item.jianzhumianji}}㎡</text>
                         </view>
-                        <view class="building-type" wx:if="{{item.decoration_type=='精装'&&price}}">
-                            <text class="fz-11">装修:{{price}}元/㎡</text>
+                        <view class="building-type" wx:if="{{item.zhuangxiujia=='精装'&&price}}">
+                            <text class="fz-11">装修:{{zhuangxiujia}}元/㎡</text>
                         </view>
-                        <view class="building-type" wx:elif="{{item.decoration_price!=0}}">
-                            <text class="fz-11">装修:{{item.decoration_price}}元/㎡</text>
+                        <view class="building-type" wx:elif="{{item.zhuangxiujia!=0}}">
+                            <text class="fz-11">装修:{{item.zhuangxiujia}}元/㎡</text>
                         </view>
                     </view>
                     <view style="margin-top: 20rpx;overflow: hidden">
                         <view style="display: inline-block;border-right: 1px solid #e2e2e2;height: 24rpx;line-height: 20rpx;padding-right: 20rpx">
                             <text class="fz-11" style="color:#666666 ">清水单价</text>
-                            <block wx:if="{{item.rough_unit_price&&item.rough_unit_price>0}}">
-                                <text class="fz-14" style="color: #f7462a;margin-left: 10rpx">{{item.rough_unit_price}}</text>
+                            <block wx:if="{{item.maopidanjia&&item.maopidanjia>0}}">
+                                <text class="fz-14" style="color: #f7462a;margin-left: 10rpx">{{item.maopidanjia}}</text>
                                 <text class="fz-10" style="color: #f7462a;">/㎡</text>
                             </block>
                             <text class="fz-14" style="color: #f7462a;margin-left: 10rpx" wx:else>待定</text>

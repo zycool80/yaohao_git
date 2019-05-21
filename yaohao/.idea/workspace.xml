@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db069b01-66f9-4902-8df1-055e4727253a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/subPackages/project/pages/photos.js" beforeDir="false" afterPath="$PROJECT_DIR$/subPackages/project/pages/photos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/lotteryDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lotteryDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/lotteryDetail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lotteryDetail.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.js" beforeDir="false" afterPath="$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.wxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,66 +20,27 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index2.js">
+        <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="55" selection-start-line="55" selection-end-line="56" selection-end-column="49" />
+            <state relative-caret-position="294">
+              <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
               <folding>
                 <element signature="n#!!block;n#_asyncToGenerator#0" />
                 <element signature="n#!!block;n#_classCallCheck#0" />
                 <element signature="n#!!block;n#_possibleConstructorReturn#0" />
                 <element signature="n#!!block;n#_inherits#0" />
-                <element signature="e#1622#1639#0" />
-                <element signature="e#1696#1939#0" />
-                <element signature="e#1969#2032#0" />
-                <element signature="e#3975#4627#0" />
-                <element signature="e#6525#7600#0" />
-                <element signature="e#7676#8576#0" />
-                <element signature="e#8652#9332#0" />
-                <element signature="e#9400#10317#0" />
-                <element signature="e#10389#10962#0" />
-                <element signature="e#11021#11720#0" />
-                <element signature="e#11802#12785#0" />
+                <element signature="n#!!block;n#getElemHeightById#0" />
+                <element signature="n#!!block;n#getTopByElem#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="32" selection-start-line="32" selection-end-line="33" selection-end-column="49" />
-              <folding>
-                <element signature="n#!!block;n#_interopRequireDefault#0" />
-                <element signature="n#!!block;n#_classCallCheck#0" />
-                <element signature="n#!!block;n#_possibleConstructorReturn#0" />
-                <element signature="n#!!block;n#_inherits#0" />
-                <element signature="e#932#949#0" />
-                <element signature="e#1114#1648#0" />
-                <element signature="e#3303#4685#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index2.wxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="29" column="74" selection-start-line="29" selection-start-column="70" selection-end-line="29" selection-end-column="74" />
-              <folding>
-                <element signature="n#style#0;n#view#0;n#block#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" column="94" selection-start-line="13" selection-start-column="80" selection-end-line="13" selection-end-column="94" />
+            <state relative-caret-position="476">
+              <caret line="97" column="211" selection-start-line="97" selection-start-column="211" selection-end-line="97" selection-end-column="211" />
               <folding>
                 <element signature="n#style#0;n#view#1;n#view#0;n#!!top" expanded="true" />
               </folding>
@@ -81,93 +49,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
+        <entry file="file://$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="843">
-              <caret line="1013" column="34" lean-forward="true" selection-start-line="1013" selection-start-column="20" selection-end-line="1013" selection-end-column="34" />
+            <state relative-caret-position="370">
+              <caret line="359" column="34" lean-forward="true" selection-start-line="359" selection-start-column="34" selection-end-line="359" selection-end-column="34" />
               <folding>
-                <element signature="n#!!block;n#_asyncToGenerator#0" />
-                <element signature="n#!!block;n#_classCallCheck#0" />
-                <element signature="n#!!block;n#_possibleConstructorReturn#0" />
-                <element signature="n#!!block;n#_inherits#0" />
-                <element signature="n#!!block;n#getElemHeightById#0" />
-                <element signature="n#!!block;n#getTopByElem#0" />
-                <element signature="e#2183#2200#0" />
-                <element signature="e#7580#8051#0" />
-                <element signature="e#8088#8640#0" />
-                <element signature="e#8679#9457#0" />
-                <element signature="e#9493#10084#0" />
-                <element signature="e#10125#10202#0" />
-                <element signature="e#10244#10322#0" />
-                <element signature="e#10360#12508#0" />
-                <element signature="e#12555#12852#0" />
-                <element signature="e#12896#12964#0" />
-                <element signature="e#13006#13172#0" />
-                <element signature="e#13214#13481#0" />
-                <element signature="e#13521#13822#0" />
-                <element signature="e#13868#14990#0" />
-                <element signature="e#15036#15097#0" />
-                <element signature="e#15141#15235#0" />
-                <element signature="e#15282#15365#0" />
-                <element signature="e#15407#15459#0" />
-                <element signature="e#15504#17969#0" />
-                <element signature="e#18008#18800#0" />
-                <element signature="e#18843#20266#0" />
-                <element signature="e#20310#20907#0" />
-                <element signature="e#20945#21045#0" />
-                <element signature="e#21083#21151#0" />
-                <element signature="e#21436#22663#0" />
-                <element signature="e#22704#22746#0" />
-                <element signature="e#22791#22924#0" />
-                <element signature="e#22969#23750#0" />
-                <element signature="e#23794#23862#0" />
-                <element signature="e#23907#24517#0" />
-                <element signature="e#24564#25595#0" />
-                <element signature="e#25638#27150#0" />
-                <element signature="e#27198#27271#0" />
-                <element signature="e#29066#29626#0" />
-                <element signature="e#32268#32941#0" />
-                <element signature="e#32971#33299#0" />
-                <element signature="e#37825#40083#0" />
-                <element signature="e#34802#34922#0" />
-                <element signature="e#36599#39264#0" />
-                <element signature="e#43332#44599#0" />
-                <element signature="e#44669#46481#0" />
+                <element signature="e#9064#10086#0" />
+                <element signature="e#9319#9391#0" />
+                <element signature="e#9471#10243#0" />
+                <element signature="e#11426#11498#0" />
+                <element signature="e#11579#13707#0" />
+                <element signature="e#13322#14046#0" />
+                <element signature="e#14158#15063#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/subPackages/project/pages/photos.wxml">
+        <entry file="file://$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-451" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/subPackages/project/pages/photos.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="716">
-              <caret line="202" column="38" selection-start-line="202" selection-start-column="38" selection-end-line="202" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/LotteryItem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="22" column="124" selection-start-line="22" selection-start-column="124" selection-end-line="22" selection-end-column="124" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/project.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="78" column="67" lean-forward="true" selection-start-line="78" selection-start-column="67" selection-end-line="78" selection-end-column="67" />
+            <state relative-caret-position="231">
+              <caret line="53" column="99" selection-start-line="53" selection-start-column="99" selection-end-line="53" selection-end-column="99" />
             </state>
           </provider>
         </entry>
@@ -176,12 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>loading-icon</find>
-      <find>_asyncToGenerator</find>
-      <find>buildings/details</find>
-      <find>login.js</find>
-      <find>resetAreaData</find>
-      <find>emit</find>
       <find>parameter.content</find>
       <find>telLogin</find>
       <find>api</find>
@@ -192,7 +89,6 @@
       <find>baseDetail</find>
       <find>getLotsalesMan</find>
       <find>showLoading</find>
-      <find>houseList</find>
       <find>comments</find>
       <find>articles</find>
       <find>content</find>
@@ -200,12 +96,19 @@
       <find>swiperList</find>
       <find>lazyloadPageDatas</find>
       <find>onLoad</find>
-      <find>reload</find>
       <find>buildings/salesMan</find>
-      <find>loadNext</find>
       <find>lotteries</find>
-      <find>_request2</find>
+      <find>oneHouseOnePrice</find>
       <find>toPhotosHandle</find>
+      <find>houseList</find>
+      <find>_request2</find>
+      <find>btnEventTrack</find>
+      <find>lottery_id</find>
+      <find>loadNext</find>
+      <find>Index</find>
+      <find>regeneratorRuntime</find>
+      <find>decorationStyle</find>
+      <find>reload</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -219,7 +122,6 @@
         <option value="$PROJECT_DIR$/api/api.js" />
         <option value="$PROJECT_DIR$/utils/utilsKit/index.js" />
         <option value="$PROJECT_DIR$/components/LotteryItem.wxml" />
-        <option value="$PROJECT_DIR$/pages/index.js" />
         <option value="$PROJECT_DIR$/config/dev.js" />
         <option value="$PROJECT_DIR$/config/prod.js" />
         <option value="$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/login.js" />
@@ -227,10 +129,13 @@
         <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/pages/index2.js" />
         <option value="$PROJECT_DIR$/components/LotteryItem.js" />
-        <option value="$PROJECT_DIR$/pages/lotteryDetail.js" />
-        <option value="$PROJECT_DIR$/pages/lotteryDetail.wxml" />
-        <option value="$PROJECT_DIR$/api/project.js" />
         <option value="$PROJECT_DIR$/subPackages/project/pages/photos.js" />
+        <option value="$PROJECT_DIR$/pages/lotteryDetail.js" />
+        <option value="$PROJECT_DIR$/api/project.js" />
+        <option value="$PROJECT_DIR$/pages/index.js" />
+        <option value="$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.wxml" />
+        <option value="$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.js" />
+        <option value="$PROJECT_DIR$/pages/lotteryDetail.wxml" />
       </list>
     </option>
   </component>
@@ -257,6 +162,11 @@
               <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
               <item name="yaohao" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaohao" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yaohao" type="b2602c69:ProjectViewProjectNode" />
@@ -342,18 +252,19 @@
       <workItem from="1558272693860" duration="1189000" />
       <workItem from="1558274111660" duration="120000" />
       <workItem from="1558314058717" duration="110000" />
-      <workItem from="1558314180170" duration="38406000" />
+      <workItem from="1558314180170" duration="40837000" />
+      <workItem from="1558423136253" duration="8991000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39825000" />
+    <option name="totallyTimeSpent" value="51247000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2153518" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -496,22 +407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="32" selection-start-line="32" selection-end-line="33" selection-end-column="49" />
-          <folding>
-            <element signature="n#!!block;n#_interopRequireDefault#0" />
-            <element signature="n#!!block;n#_classCallCheck#0" />
-            <element signature="n#!!block;n#_possibleConstructorReturn#0" />
-            <element signature="n#!!block;n#_inherits#0" />
-            <element signature="e#932#949#0" />
-            <element signature="e#1114#1648#0" />
-            <element signature="e#3303#4685#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/request.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1953" />
@@ -555,103 +450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.wxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="94" selection-start-line="13" selection-start-column="80" selection-end-line="13" selection-end-column="94" />
-          <folding>
-            <element signature="n#style#0;n#view#1;n#view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/project.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="78" column="67" lean-forward="true" selection-start-line="78" selection-start-column="67" selection-end-line="78" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="55" selection-start-line="55" selection-end-line="56" selection-end-column="49" />
-          <folding>
-            <element signature="n#!!block;n#_asyncToGenerator#0" />
-            <element signature="n#!!block;n#_classCallCheck#0" />
-            <element signature="n#!!block;n#_possibleConstructorReturn#0" />
-            <element signature="n#!!block;n#_inherits#0" />
-            <element signature="e#1622#1639#0" />
-            <element signature="e#1696#1939#0" />
-            <element signature="e#1969#2032#0" />
-            <element signature="e#3975#4627#0" />
-            <element signature="e#6525#7600#0" />
-            <element signature="e#7676#8576#0" />
-            <element signature="e#8652#9332#0" />
-            <element signature="e#9400#10317#0" />
-            <element signature="e#10389#10962#0" />
-            <element signature="e#11021#11720#0" />
-            <element signature="e#11802#12785#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="843">
-          <caret line="1013" column="34" lean-forward="true" selection-start-line="1013" selection-start-column="20" selection-end-line="1013" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!block;n#_asyncToGenerator#0" />
-            <element signature="n#!!block;n#_classCallCheck#0" />
-            <element signature="n#!!block;n#_possibleConstructorReturn#0" />
-            <element signature="n#!!block;n#_inherits#0" />
-            <element signature="n#!!block;n#getElemHeightById#0" />
-            <element signature="n#!!block;n#getTopByElem#0" />
-            <element signature="e#2183#2200#0" />
-            <element signature="e#7580#8051#0" />
-            <element signature="e#8088#8640#0" />
-            <element signature="e#8679#9457#0" />
-            <element signature="e#9493#10084#0" />
-            <element signature="e#10125#10202#0" />
-            <element signature="e#10244#10322#0" />
-            <element signature="e#10360#12508#0" />
-            <element signature="e#12555#12852#0" />
-            <element signature="e#12896#12964#0" />
-            <element signature="e#13006#13172#0" />
-            <element signature="e#13214#13481#0" />
-            <element signature="e#13521#13822#0" />
-            <element signature="e#13868#14990#0" />
-            <element signature="e#15036#15097#0" />
-            <element signature="e#15141#15235#0" />
-            <element signature="e#15282#15365#0" />
-            <element signature="e#15407#15459#0" />
-            <element signature="e#15504#17969#0" />
-            <element signature="e#18008#18800#0" />
-            <element signature="e#18843#20266#0" />
-            <element signature="e#20310#20907#0" />
-            <element signature="e#20945#21045#0" />
-            <element signature="e#21083#21151#0" />
-            <element signature="e#21436#22663#0" />
-            <element signature="e#22704#22746#0" />
-            <element signature="e#22791#22924#0" />
-            <element signature="e#22969#23750#0" />
-            <element signature="e#23794#23862#0" />
-            <element signature="e#23907#24517#0" />
-            <element signature="e#24564#25595#0" />
-            <element signature="e#25638#27150#0" />
-            <element signature="e#27198#27271#0" />
-            <element signature="e#29066#29626#0" />
-            <element signature="e#32268#32941#0" />
-            <element signature="e#32971#33299#0" />
-            <element signature="e#37825#40083#0" />
-            <element signature="e#34802#34922#0" />
-            <element signature="e#36599#39264#0" />
-            <element signature="e#43332#44599#0" />
-            <element signature="e#44669#46481#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/subPackages/project/pages/photos.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-451" />
@@ -661,6 +459,90 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="716">
           <caret line="202" column="38" selection-start-line="202" selection-start-column="38" selection-end-line="202" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="55" selection-start-line="55" selection-end-line="56" selection-end-column="49" />
+          <folding>
+            <element signature="n#!!block;n#_asyncToGenerator#0" />
+            <element signature="n#!!block;n#_classCallCheck#0" />
+            <element signature="n#!!block;n#_possibleConstructorReturn#0" />
+            <element signature="n#!!block;n#_inherits#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/project.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="283" column="30" lean-forward="true" selection-start-line="283" selection-start-column="30" selection-end-line="283" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="293" column="36" lean-forward="true" selection-start-line="292" selection-start-column="16" selection-end-line="293" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!block;n#_interopRequireDefault#0" />
+            <element signature="n#!!block;n#_classCallCheck#0" />
+            <element signature="n#!!block;n#_possibleConstructorReturn#0" />
+            <element signature="n#!!block;n#_inherits#0" />
+            <element signature="e#932#949#0" />
+            <element signature="e#1114#1648#0" />
+            <element signature="e#3303#4685#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="53" column="99" selection-start-line="53" selection-start-column="99" selection-end-line="53" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subPackages/project/pages/oneHouseOnePrice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="359" column="34" lean-forward="true" selection-start-line="359" selection-start-column="34" selection-end-line="359" selection-end-column="34" />
+          <folding>
+            <element signature="e#9064#10086#0" />
+            <element signature="e#9319#9391#0" />
+            <element signature="e#9471#10243#0" />
+            <element signature="e#11426#11498#0" />
+            <element signature="e#11579#13707#0" />
+            <element signature="e#13322#14046#0" />
+            <element signature="e#14158#15063#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#_asyncToGenerator#0" />
+            <element signature="n#!!block;n#_classCallCheck#0" />
+            <element signature="n#!!block;n#_possibleConstructorReturn#0" />
+            <element signature="n#!!block;n#_inherits#0" />
+            <element signature="n#!!block;n#getElemHeightById#0" />
+            <element signature="n#!!block;n#getTopByElem#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="97" column="211" selection-start-line="97" selection-start-column="211" selection-end-line="97" selection-end-column="211" />
+          <folding>
+            <element signature="n#style#0;n#view#1;n#view#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

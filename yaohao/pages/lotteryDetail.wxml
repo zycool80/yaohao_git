@@ -95,7 +95,7 @@
                 </view>
             </view>
             <view class="choose">
-                <navigator bindtap="btnEventTrack" class="choose-item" data-wpybtneventtrack-a="{{'楼盘一房一价'}}" url="/subPackages/project/pages/oneHouseOnePrice?lottery_id={{id}}&name={{baseDetail.name}}">
+                <navigator bindtap="btnEventTrack" class="choose-item" data-wpybtneventtrack-a="{{'楼盘一房一价'}}" url="/subPackages/project/pages/oneHouseOnePrice?lottery_id={{id}}&name={{baseDetail.name|baseDetail.title}}">
                     <text class="iconfont icon-huxingtu fz-13"></text>
                     <text class="fz-13">一房一价</text>
                 </navigator>

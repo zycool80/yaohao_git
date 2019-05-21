@@ -271,15 +271,17 @@ var _require = require("./../utils/utilsKit/index.js"), wxRequest = _require.wxR
             lottery_id: t
         });
     }, geiBuildingList = function (t) {
-        return qcloudRequest("/price/buildingList", {
+        return qcloudRequest("/api/bos/house/getHouseFJ", {
+            id: t,
             lottery_id: t
         });
     }, decorationStyle = function (t) {
-        return qcloudRequest("/price/decorationStyle", {
+        return qcloudRequest("/api/bos/house/getHouseFJ", {
+            id: t,
             lottery_id: t
         });
     }, getHousePrice = function (t) {
-        return qcloudRequest("/price/housePrice", t);
+        return qcloudRequest("/api/bos/house/getHouseFJ", t);
     }, buildingHeader = function (t) {
         return qcloudRequest("/project/dynamics/headers/" + t, {});
     }, buildingDatas = function (t, e, o, r, i) {
