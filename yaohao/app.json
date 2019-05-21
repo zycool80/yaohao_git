@@ -13,6 +13,7 @@
     "pages/salesMan/index",
     "pages/salesMan/detail",
     "pages/consult/index",
+
     "subPackages/news/pages/search",
     "subPackages/news/pages/detail",
     "subPackages/news/pages/salesManTip",
@@ -226,13 +227,7 @@
     "uploadFile": 30000,
     "downloadFile": 10000
   },
-  "navigateToMiniProgramAppIdList": [
-    "wxba2b83f614aabe46",
-    "wx427d97dcecaf9d0d",
-    "wx56e7d11c3d442700",
-    "wx173dab6b85581480",
-    "wx307458db245a39a0"
-  ],
+  "navigateToMiniProgramAppIdList": [],
   "sitemapLocation": "sitemap.json",
   "permission": {
     "scope.userLocation": {

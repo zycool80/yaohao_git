@@ -162,6 +162,11 @@ var _slicedToArray = function () {
                 showType: !1,
                 shareMessage: null,
                 swiperList: [],
+
+                houseAlbum: {
+                    photos: []
+                },
+
                 swiperIndex: 0,
                 baseDetail: {},
                 priceList: [],
@@ -744,10 +749,10 @@ var _slicedToArray = function () {
         }, {
             key: "onLoad",
             value: function (e) {
-                var t = this;
-                this.pageInit(e), _pageStack.push(e), /*wx.showLoading({
+                /*var t = this;
+                this.pageInit(e), _pageStack.push(e), /!*wx.showLoading({
                     title: "加载中"
-                }), */this.loadBaseDetailInfo().then(function () {
+                }), *!/this.loadBaseDetailInfo().then(function () {
                     if (e.redirect) {
                         var a = decodeURIComponent(e.redirect);
                         wx.navigateTo({
@@ -755,7 +760,8 @@ var _slicedToArray = function () {
                         });
                     }
                     return t.loadOtherData();
-                }).then(), wx.hideLoading();
+                }).then(), wx.hideLoading();*/
+                this.loadBaseDetailInfo();
             }
         }, {
             key: "onShow",
@@ -825,17 +831,18 @@ var _slicedToArray = function () {
         }, {
             key: "onPullDownRefresh",
             value: function () {
-                var e = this, t = _pageStack.last();
+                /*var e = this, t = _pageStack.last();
                 t && this.pageInit(t), wx.showLoading({
                     title: "加载中"
                 }), this.loadBaseDetailInfo().then(function () {
                     wx.stopPullDownRefresh(), wx.hideLoading(), e.lazyloadPageDatas();
-                });
+                });*/
+                this.loadBaseDetailInfo();
             }
         }, {
             key: "lazyloadPageDatas",
             value: function () {
-                var e = this;
+                /*var e = this;
                 this.secondScreen().then(function () {
                     return e.lastScreen();
                 }).then(function () {
@@ -894,7 +901,7 @@ var _slicedToArray = function () {
                         title: "推荐",
                         ischecked: !1
                     }]), e.$apply();
-                }).catch();
+                }).catch();*/
             }
         }, {
             key: "drawImage",
@@ -962,15 +969,45 @@ var _slicedToArray = function () {
                         id: self.project_id
                     }
                 }).then(function (res) {
-                    console.log(res);
+                    //console.log(res);
                     self.baseDetail = res.data.house;
                     res.data.housePartImages.map(function (i,t) {
                         i.imageUrl = i.imageUrl.replace(/\["|"\]/ig, '');
                     });
                     self.houseList = res.data.housePartImages;
-                    console.log(self.houseList);
-                    self.$apply();
 
+                    self.comments.count = res.data.houseComments.length;
+                    self.comments.list = res.data.houseComments;
+
+                    self.articles.count = res.data.houseArticles.length;
+                    self.articles.list = res.data.houseArticles;
+
+                    self.dynamics.count = res.data.houseDynamics.length;
+                    self.dynamics.list = res.data.houseDynamics;
+
+                    self.houseAlbum.photos = function(){
+                        var arr = [];
+                        if(res.data.houseAlbum.shijingImages){
+                            arr.push({image:res.data.houseAlbum.shijingImages})
+                        }
+                        if(res.data.houseAlbum.xiaoguoImages){
+                            arr.push({image:res.data.houseAlbum.xiaoguoImages})
+                        }
+                        if(res.data.houseAlbum.yangbanImages){
+                            arr.push({image:res.data.houseAlbum.yangbanImages})
+                        }
+                        if(res.data.houseAlbum.zhoubianImages){
+                            arr.push({image:res.data.houseAlbum.zhoubianImages})
+                        }
+                        return arr;
+                    }();
+                    if(self.houseAlbum.photos.length){
+                        self.swiperList.cover = self.houseAlbum.photos[0].image;
+                    }
+
+                    //console.log(self.houseAlbum.photos,self.swiperList.cover, self.swiperList);
+
+                    self.$apply();
                 });
 
 
@@ -1004,7 +1041,7 @@ var _slicedToArray = function () {
             value: function () {
                 var e = this;
                 // 户型图
-                console.log('huxingtu');
+                //console.log('huxingtu');
                 /*return new Promise(function (t) {
                     Promise.all([_api2.default.houseTypePhotos(e.project_id, e.id, 0, e.id ? 1 : ""), _api2.default.getLotsalesMan(e.project_id), _api2.default.getLotCategories(e.id)]).then(function () {
                         var a = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : res,

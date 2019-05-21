@@ -11,19 +11,19 @@
             <view bindtap="clickMenuHandle" class="topBarItem {{item.ischecked?'active':''}}" data-wpyclickmenuhandle-a="{{item.id}}" data-wpyclickmenuhandle-b="{{index}}" wx:for="{{navbarItems}}" wx:key="key">{{item.title}}</view>
         </view>
         <view class="top-swiper" id="top-swiper">
-            <swiper autoplay="{{false}}" bindchange="onSlideChangeEnd" bindtap="toPhotosHandle" current="{{swiperIndex}}" wx:if="{{swiperList.cover}}">
+            <swiper autoplay="{{false}}" bindchange="onSlideChangeEnd" bindtap="toPhotosHandle" current="{{swiperIndex}}" wx:if="{{!!self.houseAlbum.photos.length}}">
                 <swiper-item catchtap="playVideoHandle" wx:if="{{baseDetail.video_url}}">
                     <image class="gray-bg video-pre" lazyLoad="{{true}}" mode="aspectFill" src="{{swiperList.cover}}"></image>
                     <view class="iconfont icon-bofangda white-color font-bold video-img"></view>
                 </swiper-item>
-                <swiper-item wx:for="{{swiperList.photos}}" wx:for-item="img" wx:key="key">
+                <swiper-item wx:for="{{houseAlbum.photos}}" wx:for-item="img" wx:key="key">
                     <image class="gray-bg swiper-img" data-index="{{index}}" lazyLoad="{{true}}" mode="aspectFill" src="{{img.image}}"></image>
                 </swiper-item>
                 <swiper-item wx:if="{{swiperList.photos.length>0}}">
                     <image class="gray-bg swiper-img" lazyLoad="{{true}}" mode="aspectFill" src="http://imgcdn.huanjutang.com/assets/img/20181102/5bdbfb084ac4a."></image>
                 </swiper-item>
             </swiper>
-            <view class="preview-view fz-12 white-color">{{baseDetail.page_views}} 浏览</view>
+            <view class="preview-view fz-12 white-color">{{baseDetail.showCount}} 浏览</view>
             <view class="preview-pk fz-14 white-color" style="background: {{baseDetail.pk.bg&&baseDetail.pk.bg!='0,0,0,0.3'?baseDetail.pk.bg:'rgba(0,0,0,0.3)'}}">
                 <navigator bindtap="changePkColor" hoverClass="none" url="{{baseDetail.pk.url}}">PK</navigator>
             </view>

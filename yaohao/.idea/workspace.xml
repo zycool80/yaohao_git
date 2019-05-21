@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db069b01-66f9-4902-8df1-055e4727253a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/lotteryDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lotteryDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/lotteryDetail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lotteryDetail.wxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,20 +70,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="200" column="60" selection-start-line="200" selection-start-column="60" selection-end-line="200" selection-end-column="60" />
+            <state relative-caret-position="525">
+              <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="969" column="62" selection-start-line="969" selection-start-column="62" selection-end-line="969" selection-end-column="62" />
+            <state relative-caret-position="531">
+              <caret line="1003" column="52" selection-start-line="1003" selection-start-column="23" selection-end-line="1003" selection-end-column="52" />
               <folding>
                 <element signature="n#!!block;n#_asyncToGenerator#0" />
                 <element signature="n#!!block;n#_classCallCheck#0" />
@@ -124,8 +126,7 @@
                 <element signature="e#25638#27150#0" />
                 <element signature="e#27198#27271#0" />
                 <element signature="e#29066#29626#0" />
-                <element signature="e#30816#31295#0" />
-                <element signature="e#34492#36537#0" />
+                <element signature="e#34802#34922#0" />
                 <element signature="e#36599#39264#0" />
                 <element signature="e#43332#44599#0" />
                 <element signature="e#44669#46481#0" />
@@ -156,12 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>login</find>
-      <find>onReady</find>
-      <find>lotteries</find>
-      <find>housePage</find>
-      <find>aspectFit</find>
-      <find>areasDatas</find>
       <find>title</find>
       <find>switchNum</find>
       <find>chooseArea</find>
@@ -185,7 +180,13 @@
       <find>buildings/salesMan</find>
       <find>showLoading</find>
       <find>houseList</find>
+      <find>comments</find>
+      <find>articles</find>
       <find>content</find>
+      <find>dynamics</find>
+      <find>swiperList</find>
+      <find>lazyloadPageDatas</find>
+      <find>onLoad</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -207,8 +208,9 @@
         <option value="$PROJECT_DIR$/vendor/wafer2-client-sdk/lib/login.js" />
         <option value="$PROJECT_DIR$/utils/utilsKit/lib/tip.js" />
         <option value="$PROJECT_DIR$/api/project.js" />
-        <option value="$PROJECT_DIR$/pages/lotteryDetail.wxml" />
+        <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/pages/lotteryDetail.js" />
+        <option value="$PROJECT_DIR$/pages/lotteryDetail.wxml" />
       </list>
     </option>
   </component>
@@ -330,22 +332,22 @@
       <workItem from="1558272693860" duration="1189000" />
       <workItem from="1558274111660" duration="120000" />
       <workItem from="1558314058717" duration="110000" />
-      <workItem from="1558314180170" duration="27795000" />
+      <workItem from="1558314180170" duration="35373000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29214000" />
+    <option name="totallyTimeSpent" value="36792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.13991323" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.13991323" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -424,13 +426,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/npm/regenerator-runtime/runtime.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -574,17 +569,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.wxml">
+    <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="200" column="60" selection-start-line="200" selection-start-column="60" selection-end-line="200" selection-end-column="60" />
+        <state relative-caret-position="315">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="969" column="62" selection-start-line="969" selection-start-column="62" selection-end-line="969" selection-end-column="62" />
+        <state relative-caret-position="531">
+          <caret line="1003" column="52" selection-start-line="1003" selection-start-column="23" selection-end-line="1003" selection-end-column="52" />
           <folding>
             <element signature="n#!!block;n#_asyncToGenerator#0" />
             <element signature="n#!!block;n#_classCallCheck#0" />
@@ -627,12 +622,18 @@
             <element signature="e#25638#27150#0" />
             <element signature="e#27198#27271#0" />
             <element signature="e#29066#29626#0" />
-            <element signature="e#30816#31295#0" />
-            <element signature="e#34492#36537#0" />
+            <element signature="e#34802#34922#0" />
             <element signature="e#36599#39264#0" />
             <element signature="e#43332#44599#0" />
             <element signature="e#44669#46481#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
         </state>
       </provider>
     </entry>
