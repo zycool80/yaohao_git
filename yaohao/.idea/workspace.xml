@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db069b01-66f9-4902-8df1-055e4727253a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/api/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/project.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/LotteryItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/LotteryItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index2.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/lotteryDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lotteryDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/lotteryDetail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/lotteryDetail.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subPackages/project/pages/photos.js" beforeDir="false" afterPath="$PROJECT_DIR$/subPackages/project/pages/photos.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="974" column="40" lean-forward="true" selection-start-line="969" selection-start-column="16" selection-end-line="974" selection-end-column="40" />
+            <state relative-caret-position="843">
+              <caret line="1013" column="34" lean-forward="true" selection-start-line="1013" selection-start-column="20" selection-end-line="1013" selection-end-column="34" />
               <folding>
                 <element signature="n#!!block;n#_asyncToGenerator#0" />
                 <element signature="n#!!block;n#_classCallCheck#0" />
@@ -145,14 +140,16 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/subPackages/project/pages/photos.wxml">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-451" />
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/subPackages/project/pages/photos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="183" column="63" selection-start-line="183" selection-start-column="63" selection-end-line="183" selection-end-column="63" />
+            <state relative-caret-position="716">
+              <caret line="202" column="38" selection-start-line="202" selection-start-column="38" selection-end-line="202" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -207,8 +204,8 @@
       <find>buildings/salesMan</find>
       <find>loadNext</find>
       <find>lotteries</find>
-      <find>toPhotosHandle</find>
       <find>_request2</find>
+      <find>toPhotosHandle</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -345,12 +342,12 @@
       <workItem from="1558272693860" duration="1189000" />
       <workItem from="1558274111660" duration="120000" />
       <workItem from="1558314058717" duration="110000" />
-      <workItem from="1558314180170" duration="37404000" />
+      <workItem from="1558314180170" duration="38406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38823000" />
+    <option name="totallyTimeSpent" value="39825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -568,9 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/subPackages/project/pages/photos.wxml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/project.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
@@ -604,8 +598,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/lotteryDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="974" column="40" lean-forward="true" selection-start-line="969" selection-start-column="16" selection-end-line="974" selection-end-column="40" />
+        <state relative-caret-position="843">
+          <caret line="1013" column="34" lean-forward="true" selection-start-line="1013" selection-start-column="20" selection-end-line="1013" selection-end-column="34" />
           <folding>
             <element signature="n#!!block;n#_asyncToGenerator#0" />
             <element signature="n#!!block;n#_classCallCheck#0" />
@@ -658,10 +652,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/subPackages/project/pages/photos.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-451" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/subPackages/project/pages/photos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="183" column="63" selection-start-line="183" selection-start-column="63" selection-end-line="183" selection-end-column="63" />
+        <state relative-caret-position="716">
+          <caret line="202" column="38" selection-start-line="202" selection-start-column="38" selection-end-line="202" selection-end-column="38" />
         </state>
       </provider>
     </entry>

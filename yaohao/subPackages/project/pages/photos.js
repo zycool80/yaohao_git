@@ -181,12 +181,29 @@ var _createClass = function () {
                     }))();*/
                     var self = this;
                     (0, _request2.default)({
-                        url: '/subPackages/project/pages/photos',
+                        url: '/api/bos/house/detail',
                         data: {
                             id: self.project_id
                         }
                     }).then(function (res) {
-                        console.log(res);
+                        if(res.data.houseAlbum.shijingImages){
+                            self.shijing_count = 1;
+                            self.items.push({image:res.data.houseAlbum.shijingImages})
+                        }
+                        if(res.data.houseAlbum.xiaoguoImages){
+                            self.xiaoguo_count = 1;
+                            self.items.push({image:res.data.houseAlbum.xiaoguoImages})
+                        }
+                        if(res.data.houseAlbum.yangbanImages){
+                            self.yangban_count = 1;
+                            self.items.push({image:res.data.houseAlbum.yangbanImages})
+                        }
+                        if(res.data.houseAlbum.zhoubianImages){
+                            self.zhoubian_count = 1;
+                            self.items.push({image:res.data.houseAlbum.zhoubianImages})
+                        }
+
+                        self.$apply();
                     });
                 },
                 preview: function (e) {
